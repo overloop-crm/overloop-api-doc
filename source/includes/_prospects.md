@@ -23,6 +23,7 @@
       "converted": false,
       "qualified": true,
       "archived": false,
+      "replied": false,
       "campaign_status": null,
       "created_at": "2015-10-27T19:57:00.000Z",
       "updated_at": "2016-08-03T13:36:13.000Z"
@@ -65,6 +66,7 @@ last_emailed_at | **datetime** <br />The date and time of the last email sent to
 converted | **boolean** <br />Whether or not the prospect is marked as converted
 qualified | **boolean** <br />Whether or not the prospect is marked as qualified
 archived | **boolean** <br />Whether or not the prospect is archived
+replied | **boolean** <br />Whether or not the prospect replied to any of your emails
 campaign_status | **string** <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be `running`, `paused` or `scheduled`
 created_at | **datetime**
 updated_at | **datetime**
