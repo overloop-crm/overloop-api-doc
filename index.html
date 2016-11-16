@@ -287,9 +287,15 @@ You must replace <code>your_api_key</code> with your personal API key.
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-03T13:36:13.000Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -397,6 +403,10 @@ You must replace <code>your_api_key</code> with your personal API key.
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>creator</td>
+<td>The <a href="#users">user</a> who created the prospect</td>
+</tr>
 <tr>
 <td>responsible</td>
 <td>The <a href="#users">user</a> responsible of the prospect</td>
@@ -510,7 +520,7 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/prospects"</spa
 <tr>
 <td>campaign_id<br /><em>integer</em></td>
 <td><em>NULL</em></td>
-<td>If you specify a campaign ID we&rsquo;ll add the prospect in the campaign. The attribute <code class="prettyprint">campaign_status</code> will also be set to <code class="prettyprint">running</code>.</td>
+<td>If you specify a campaign ID we&rsquo;ll add the prospect in the campaign. The attribute <code class="prettyprint">campaign_status</code> will also be set to <code class="prettyprint">running</code>. The campaign will be sent from the <code class="prettyprint">responsible</code> user.</td>
 </tr>
 </tbody></table>
 
@@ -632,7 +642,7 @@ curl -X PATCH <span class="s2">"https://prospect.io/api/public/v1/prospects/1"</
 </tr>
 <tr>
 <td>campaign_id<br /><em>integer</em></td>
-<td>If you specify a campaign ID here we&rsquo;ll add the prospect in the campaign. The attribute <code class="prettyprint">campaign_status</code> will also be set to <code class="prettyprint">running</code>. <br /><br />If the prospect was already in a campaign you first need to do an update and set <code class="prettyprint">campaign_id</code> to <code class="prettyprint">NULL</code> before adding the prospect to a new campaign. Setting <code class="prettyprint">campaign_id</code> to <code class="prettyprint">NULL</code> will <strong>stop</strong> the campaign.</td>
+<td>If you specify a campaign ID here we&rsquo;ll add the prospect in the campaign. The attribute <code class="prettyprint">campaign_status</code> will also be set to <code class="prettyprint">running</code>. <br /><br />If the prospect was already in a campaign you first need to do an update and set <code class="prettyprint">campaign_id</code> to <code class="prettyprint">NULL</code> before adding the prospect to a new campaign. The campaign will be sent from the <code class="prettyprint">responsible</code> user. Setting <code class="prettyprint">campaign_id</code> to <code class="prettyprint">NULL</code> will <strong>stop</strong> the campaign.</td>
 </tr>
 </tbody></table>
 
