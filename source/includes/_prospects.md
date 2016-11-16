@@ -29,9 +29,15 @@
       "updated_at": "2016-08-03T13:36:13.000Z"
     },
     "relationships": {
-      "responsible": {
+      "creator": {
         "data": {
           "id": "1",
+          "type": "users"
+        }
+      },
+      "responsible": {
+        "data": {
+          "id": "2",
           "type": "users"
         }
       },
@@ -74,6 +80,7 @@ updated_at | **datetime**
 ### Relationships
 Object | Description
 --------- | -----------
+creator | The [user](#users) who created the prospect
 responsible | The [user](#users) responsible of the prospect
 list | Describe a [list object](#lists) if the prospect is in a list
 campaign | Describe a [campaign object](#lists) if the prospect is currently in a campaign. The campaign status is described in the `campaign_status` attribute
@@ -117,7 +124,7 @@ qualified<br />*boolean* | false | Whether or not the prospect is marked as qual
 archived<br />*boolean* | false | Whether or not the prospect is marked as archived
 list_id<br />*integer* | *NULL* | ID of the list where to save the prospect
 responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
-campaign_id<br />*integer* | *NULL* | If you specify a campaign ID we'll add the prospect in the campaign. The attribute `campaign_status` will also be set to `running`.
+campaign_id<br />*integer* | *NULL* | If you specify a campaign ID we'll add the prospect in the campaign. The attribute `campaign_status` will also be set to `running`. The campaign will be sent from the `responsible` user.
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).
@@ -179,7 +186,7 @@ qualified<br />*boolean* | Whether or not the prospect is marked as qualified
 archived<br />*boolean* | Whether or not the prospect is marked as archived
 list_id<br />*integer* | ID of the list where to save the prospect
 responsible_id<br />*integer* | The ID of the user responsible for this prospect
-campaign_id<br />*integer* | If you specify a campaign ID here we'll add the prospect in the campaign. The attribute `campaign_status` will also be set to `running`. <br /><br />If the prospect was already in a campaign you first need to do an update and set `campaign_id` to `NULL` before adding the prospect to a new campaign. Setting `campaign_id` to `NULL` will **stop** the campaign.
+campaign_id<br />*integer* | If you specify a campaign ID here we'll add the prospect in the campaign. The attribute `campaign_status` will also be set to `running`. <br /><br />If the prospect was already in a campaign you first need to do an update and set `campaign_id` to `NULL` before adding the prospect to a new campaign. The campaign will be sent from the `responsible` user. Setting `campaign_id` to `NULL` will **stop** the campaign.
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).
