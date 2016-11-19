@@ -17,6 +17,7 @@ includes:
   - lists
   - campaigns
   - campaign_steps
+  - subscriptions
   - users
 
 search: true
