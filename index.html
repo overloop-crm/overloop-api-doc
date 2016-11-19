@@ -307,6 +307,9 @@ You must replace <code>your_api_key</code> with your personal API key.
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"campaign"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"current_campaign_subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -417,7 +420,11 @@ You must replace <code>your_api_key</code> with your personal API key.
 </tr>
 <tr>
 <td>campaign</td>
-<td>Describe a <a href="#lists">campaign object</a> if the prospect is currently in a campaign. The campaign status is described in the <code class="prettyprint">campaign_status</code> attribute</td>
+<td>Describe a <a href="#campaign">campaign object</a> if the prospect is currently in a campaign. The campaign status is described in the <code class="prettyprint">campaign_status</code> attribute</td>
+</tr>
+<tr>
+<td>current_campaign_subscription</td>
+<td>Describe a <a href="#campaign-subscriptions">campaign subscription</a> if the prospect is currently in a campaign.</td>
 </tr>
 </tbody></table>
 
@@ -516,11 +523,6 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/prospects"</spa
 <td>responsible_id<br /><em>integer</em></td>
 <td>ID of the user who created the prospect</td>
 <td>The ID of the user responsible for this prospect</td>
-</tr>
-<tr>
-<td>campaign_id<br /><em>integer</em></td>
-<td><em>NULL</em></td>
-<td>If you specify a campaign ID we&rsquo;ll add the prospect in the campaign. The attribute <code class="prettyprint">campaign_status</code> will also be set to <code class="prettyprint">running</code>. The campaign will be sent from the <code class="prettyprint">responsible</code> user.</td>
 </tr>
 </tbody></table>
 
@@ -640,10 +642,6 @@ curl -X PATCH <span class="s2">"https://prospect.io/api/public/v1/prospects/1"</
 <td>responsible_id<br /><em>integer</em></td>
 <td>The ID of the user responsible for this prospect</td>
 </tr>
-<tr>
-<td>campaign_id<br /><em>integer</em></td>
-<td>If you specify a campaign ID here we&rsquo;ll add the prospect in the campaign. The attribute <code class="prettyprint">campaign_status</code> will also be set to <code class="prettyprint">running</code>. <br /><br />If the prospect was already in a campaign you first need to do an update and set <code class="prettyprint">campaign_id</code> to <code class="prettyprint">NULL</code> before adding the prospect to a new campaign. The campaign will be sent from the <code class="prettyprint">responsible</code> user. Setting <code class="prettyprint">campaign_id</code> to <code class="prettyprint">NULL</code> will <strong>stop</strong> the campaign.</td>
-</tr>
 </tbody></table>
 
 <h3 id="returns">Returns</h3>
@@ -735,6 +733,11 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/prospects"</span
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="err">...</span><span class="w">
           </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"current_campaign_subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+          </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -756,6 +759,11 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/prospects"</span
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"campaign"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"current_campaign_subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="err">...</span><span class="w">
           </span><span class="p">}</span><span class="w">
@@ -1420,6 +1428,341 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/step
 <p>Returns a list of campaigns steps.</p>
 
 <p>This list is <a href="#pagination">paginate</a> by 100 records and can also be <a href="#sorting">sorted</a>.</p>
+
+          <h1 id="subscriptions">Subscriptions</h1>
+
+<h2 id="the-subscription-object">The subscription object</h2>
+
+<p>To start sending a campaign to a prospect you have to create a <strong>subscription</strong>. The subscription is then used to described the current status of the campaign for the prospect.</p>
+
+<p>You can take manual actions on a subscription to <code class="prettyprint">pause</code>, <code class="prettyprint">resume</code> or <code class="prettyprint">stop</code> a campaign for a specific prospect.</p>
+
+<p>A subscription can also be automatically <code class="prettyprint">completed</code> after the last <a href="#campaign-steps">campaign step</a> is sent.
+A subscription can laos be automatically <code class="prettyprint">stopped</code> if we register one of the <a href="#the-campaign-object"><code class="prettyprint">campaigns.stop_when</code> events</a>.</p>
+<pre class="highlight plaintext"><code># EXAMPLE OBJECT
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign_deliveries"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"prospect_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"current_step"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-19T09:18:44.276Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"stopped_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"stop_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-19T09:18:44.190Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"send_next_step_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-19T09:18:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"paused_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pause_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-19T09:18:44.190Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-19T09:18:44.392Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"campaign"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6367"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaigns"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"prospect"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="object-attributes">Object attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>integer</strong> <br />A unique identifier for the subscription</td>
+</tr>
+<tr>
+<td>prospect_id</td>
+<td><strong>integer</strong> <br />The prospect&rsquo;s ID this subscription is associated to</td>
+</tr>
+<tr>
+<td>current_step</td>
+<td><strong>integer</strong> <br />Define the last sent step (starts at 0)</td>
+</tr>
+<tr>
+<td>started_at</td>
+<td><strong>datetime</strong> <br />The date and time when the campaign has been started</td>
+</tr>
+<tr>
+<td>started_at</td>
+<td><strong>datetime</strong> <br />The date and time when the campaign has been completed. Completed means that we sent the last step of the campaign</td>
+</tr>
+<tr>
+<td>stopped_at</td>
+<td><strong>datetime</strong> <br />The date and time when the campaign has been stopped. Stopped means that we encountered a <a href="#the-campaign-object"><code class="prettyprint">campaigns.stop_when</code> event</a> or that the campaign has been manually stopped</td>
+</tr>
+<tr>
+<td>stop_reason</td>
+<td><strong>string</strong> <br />The reason why the campaign has been stopped. Can be a <a href="#the-campaign-object"><code class="prettyprint">campaigns.stop_when</code> event</a> or <code class="prettyprint">manual</code></td>
+</tr>
+<tr>
+<td>start_at</td>
+<td><strong>datetime</strong> <br />If the campaign is scheduled , the date and time when the campaign will start sending the first step</td>
+</tr>
+<tr>
+<td>send_next_step_at</td>
+<td><strong>datetime</strong> <br />The date and time the next step is scheduled to be sent</td>
+</tr>
+<tr>
+<td>paused_at</td>
+<td><strong>datetime</strong> <br />The date and time when the campaign has been paused</td>
+</tr>
+<tr>
+<td>pause_reason</td>
+<td><strong>string</strong> <br />The reason why the campaign has been paused</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><strong>datetime</strong></td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><strong>datetime</strong></td>
+</tr>
+</tbody></table>
+
+<h3 id="relationships">Relationships</h3>
+
+<table><thead>
+<tr>
+<th>Object</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sender</td>
+<td>The <a href="#users">user</a> that send the emails</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>The <a href="#users">user</a> who created the subscription</td>
+</tr>
+<tr>
+<td>campaign</td>
+<td>Describe a <a href="#the-campaign-object">campaign object</a></td>
+</tr>
+<tr>
+<td>prospect</td>
+<td>Describe a <a href="#the-prospect-object">prospect object</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-subscription">Create a subscription</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+POST https://prospect.io/api/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions
+
+<span class="c"># EXAMPLE</span>
+curl -X POST <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subscriptions"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+-d <span class="s1">'{
+  "data": {
+    "type": "subscriptions",
+    "attributes": {
+      "prospect_id": 1,
+      "user_id": 1
+    }
+  }
+}'</span>
+</code></pre>
+
+<p>This will create a new subscription.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>prospect_id<br /><strong>required</strong> - <em>integer</em></td>
+<td>/</td>
+<td>The prospect&rsquo;s ID</td>
+</tr>
+<tr>
+<td>user_id<br /><strong>required</strong> - <em>integer</em></td>
+<td>/</td>
+<td>The sender&rsquo;s ID</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-subscription-object">subscription object</a>.</p>
+
+<h2 id="pause-a-subscription">Pause a subscription</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+POST https://prospect.io/api/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions/<span class="o">{{</span>SUBSCRIPTION_ID<span class="o">}}</span>/pause
+
+<span class="c"># EXAMPLE</span>
+curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subscriptions/1/pause"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+</code></pre>
+
+<p>This will pause a subscription.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td>integer</td>
+<td>The ID of the subscription to pause</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-subscription-object">subscription object</a>.</p>
+
+<h2 id="resume-a-subscription">Resume a subscription</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+POST https://prospect.io/api/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions/<span class="o">{{</span>SUBSCRIPTION_ID<span class="o">}}</span>/resume
+
+<span class="c"># EXAMPLE</span>
+curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subscriptions/1/resume"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+</code></pre>
+
+<p>This will resume a subscription.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td>integer</td>
+<td>The ID of the subscription to resume</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-subscription-object">subscription object</a>.</p>
+
+<h2 id="stop-a-subscription">Stop a subscription</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+DELETE https://prospect.io/api/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions/<span class="o">{{</span>SUBSCRIPTION_ID<span class="o">}}</span>
+
+<span class="c"># EXAMPLE</span>
+curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subscriptions/1"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign_deliveries"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This will stop a subscription.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td>integer</td>
+<td>The ID of the subscription to stop</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-subscription-object">subscription object</a>.</p>
+
+<h2 id="retrieve-a-subscription">Retrieve a subscription</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://prospect.io/api/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions/<span class="o">{{</span>SUBSCRIPTION_ID<span class="o">}}</span>
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subscriptions/1"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<br /><strong>required</strong> - <em>integer</em></td>
+<td>The ID of the subscription to retrieve</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-subscription-object">subscription object</a>.</p>
 
           <h1 id="users">Users</h1>
 
