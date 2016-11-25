@@ -258,6 +258,295 @@ You must replace <code>your_api_key</code> with your personal API key.
 </tr>
 </tbody></table>
 
+          <h1 id="account">Account</h1>
+
+<h2 id="the-account-object">The account object</h2>
+<pre class="highlight plaintext"><code># EXAMPLE OBJECT
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"companies"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prospect.io"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"billing_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prospect.io SPRL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rue des Pères Blancs 4\r\n1040 Brussels"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BE"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"vat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BE0645917753"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"plan_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5K Credits"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"plan_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monthly_credits_5k"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credits_per_month"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"this_month_used_credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">1608</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email_queries_used_this_period_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"messages_sent_this_period_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1473</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46.000+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46.000+01:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="object-attributes">Object attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>integer</strong> <br />A unique identifier for the account</td>
+</tr>
+<tr>
+<td>name</td>
+<td><strong>string</strong> <br />The account&rsquo;s name</td>
+</tr>
+<tr>
+<td>website</td>
+<td><strong>string</strong> <br />The account&rsquo;s website</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td><strong>string</strong> <br />The account&rsquo;s phone number</td>
+</tr>
+<tr>
+<td>billing_name</td>
+<td><strong>string</strong> <br />The account&rsquo;s billing name (the name that will appear on invoices)</td>
+</tr>
+<tr>
+<td>address</td>
+<td><strong>string</strong> <br />The account&rsquo;s address</td>
+</tr>
+<tr>
+<td>country</td>
+<td><strong>string</strong> <br />The account&rsquo;s country code (ISO)</td>
+</tr>
+<tr>
+<td>vat</td>
+<td><strong>string</strong> <br />The account&rsquo;s VAT number</td>
+</tr>
+<tr>
+<td>plan_name</td>
+<td><strong>string</strong> <br />The account&rsquo;s plan</td>
+</tr>
+<tr>
+<td>plan_code</td>
+<td><strong>string</strong> <br />The account&rsquo;s plan code</td>
+</tr>
+<tr>
+<td>credits_per_month</td>
+<td><strong>integer</strong> <br />The number of credits available per month</td>
+</tr>
+<tr>
+<td>this_month_used_credits</td>
+<td><strong>integer</strong> <br />The number of total credits used on the current billing period</td>
+</tr>
+<tr>
+<td>email_queries_used_this_period_count</td>
+<td><strong>integer</strong> <br />The number of total credits used for email queries on the current billing period</td>
+</tr>
+<tr>
+<td>messages_sent_this_period_count</td>
+<td><strong>integer</strong> <br />The number of total credits used for sending messages on the current billing period</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><strong>datetime</strong></td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><strong>datetime</strong></td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-your-account">Retrieve your account</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://prospect.io/api/public/v1/account
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<p><em>none</em></p>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-account-object">account object</a>.</p>
+
+          <h1 id="emails">Emails</h1>
+
+<h2 id="the-email-search-object">The email search object</h2>
+<pre class="highlight plaintext"><code># EXAMPLE OBJECT
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72947"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emails"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vincenzo@prospect.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personal"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vincenzo"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruggiero"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domains"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domains"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospect.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{first}"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prospect.io"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="email-search-object-attributes">Email search object attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>integer</strong> <br />A unique identifier for the email</td>
+</tr>
+<tr>
+<td>value</td>
+<td><strong>string</strong> <br />The email address</td>
+</tr>
+<tr>
+<td>type</td>
+<td><strong>string</strong> <br />Can be <code class="prettyprint">personal</code> for personal email addresses or <code class="prettyprint">generic</code> for email addresses like <code class="prettyprint">support@</code> or <code class="prettyprint">contact@</code></td>
+</tr>
+<tr>
+<td>confidence</td>
+<td><strong>integer</strong> <br />Our estimation between 0 and 100 of the probability the email address returned is correct. It depends on several criteria such as the number and quality of sources</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td><strong>string</strong> <br />First name of the person for <code class="prettyprint">personal</code> email addresses</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td><strong>string</strong> <br />Last name of the person for <code class="prettyprint">personal</code> email addresses</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><strong>datetime</strong></td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><strong>datetime</strong></td>
+</tr>
+</tbody></table>
+
+<h3 id="relationships">Relationships</h3>
+
+<table><thead>
+<tr>
+<th>Object</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>domain</td>
+<td>The domain (company) information</td>
+</tr>
+</tbody></table>
+
+<h3 id="domain-object-attributes">Domain object attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>integer</strong> <br />A unique identifier for the domain</td>
+</tr>
+<tr>
+<td>name</td>
+<td><strong>string</strong> <br />The domain name</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td><strong>string</strong> <br />The pattern used in this companies for emails. Common values are: <code class="prettyprint">{first}</code>, <code class="prettyprint">{first}.{last}</code>, <code class="prettyprint">{f}.{last}</code>, &hellip;</td>
+</tr>
+<tr>
+<td>company_name</td>
+<td><strong>string</strong> <br />Name of the company associated to the domain name</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><strong>datetime</strong></td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><strong>datetime</strong></td>
+</tr>
+</tbody></table>
+
+<h2 id="search-for-emails">Search for emails</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://prospect.io/api/public/v1/emails?domain<span class="o">={{</span>DOMAIN<span class="o">}}</span>&amp;first_name<span class="o">={{</span>FIRST_NAME<span class="o">}}</span>&amp;last_name<span class="o">={{</span>LAST_NAME<span class="o">}}</span>
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails?domain=prospect.io&amp;first_name=Vincenzo&amp;last_name=Ruggiero"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>domain<br /><strong>required</strong> - <em>string</em></td>
+<td>Domain name from which you want to find the email addresses. For example, &ldquo;prospect.io&rdquo;.</td>
+</tr>
+<tr>
+<td>first_name<br /><em>string</em></td>
+<td>The person&rsquo;s first name</td>
+</tr>
+<tr>
+<td>last_name<br /><em>string</em></td>
+<td>The person&rsquo;s last name</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-email-search-object">email search object</a>.</p>
+
           <h1 id="prospects">Prospects</h1>
 
 <h2 id="the-prospect-object">The prospect object</h2>
@@ -1876,6 +2165,26 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/users/1"</span> 
 
 <p>Returns the <a href="#the-user-object">user object</a>.</p>
 
+<h2 id="me">Me</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://prospect.io/api/public/v1/me
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://prospect.io/api/public/me"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<p>You can call this endpoint to retrive <strong>your personnal information</strong>.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p><em>none</em></p>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns your <a href="#the-user-object">user object</a>.</p>
+
 <h2 id="list-users">List users</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
 GET https://prospect.io/api/public/v1/users
@@ -1914,7 +2223,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/users"</span> <s
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns a list of campaigns steps.</p>
+<p>Returns a list of users.</p>
 
 <p>This list is <a href="#pagination">paginate</a> by 100 records and can also be <a href="#sorting">sorted</a>.</p>
 
