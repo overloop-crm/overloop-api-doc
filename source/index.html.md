@@ -13,6 +13,8 @@ includes:
   - sorting
   - pagination
   - errors
+  - account
+  - emails
   - prospects
   - lists
   - campaigns

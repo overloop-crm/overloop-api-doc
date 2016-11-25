@@ -61,6 +61,25 @@ id<br />**required** - *integer* | The ID of the user to retrieve
 ### Returns
 Returns the [user object](#the-user-object).
 
+## Me
+```shell
+# DEFINITION
+GET https://prospect.io/api/public/v1/me
+
+# EXAMPLE
+curl -X GET "https://prospect.io/api/public/me" \
+-H "Authorization: your_api_key" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
+```
+
+You can call this endpoint to retrive **your personnal information**.
+
+### Parameters
+*none*
+
+### Returns
+Returns your [user object](#the-user-object).
+
 ## List users
 ```shell
 # DEFINITION
@@ -100,6 +119,6 @@ curl -X GET "https://prospect.io/api/public/v1/users" \
 }
 ```
 
-Returns a list of campaigns steps.
+Returns a list of users.
 
 This list is [paginate](#pagination) by 100 records and can also be [sorted](#sorting).
