@@ -513,10 +513,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
 
 <h2 id="search-for-emails">Search for emails</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/emails?domain<span class="o">={{</span>DOMAIN<span class="o">}}</span>&amp;first_name<span class="o">={{</span>FIRST_NAME<span class="o">}}</span>&amp;last_name<span class="o">={{</span>LAST_NAME<span class="o">}}</span>
+GET https://prospect.io/api/public/v1/emails/search?domain<span class="o">={{</span>DOMAIN<span class="o">}}</span>&amp;first_name<span class="o">={{</span>FIRST_NAME<span class="o">}}</span>&amp;last_name<span class="o">={{</span>LAST_NAME<span class="o">}}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails?domain=prospect.io&amp;first_name=Vincenzo&amp;last_name=Ruggiero"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/search?domain=prospect.io&amp;first_name=Vincenzo&amp;last_name=Ruggiero"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
