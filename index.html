@@ -151,6 +151,13 @@ You must replace <code>your_api_key</code> with your personal API key.
 </aside>
 
           <h1 id="sorting">Sorting</h1>
+<pre class="highlight shell"><code><span class="c"># EXAMPLE</span>
+GET https://prospect.io/api/public/v1/prospect?sort<span class="o">=</span>-created_at
+</code></pre>
+
+<blockquote>
+<p>Get prospects sorted by creation date DESC (most recents first)</p>
+</blockquote>
 
 <p>Our APIs supports requests to sort resource collections according to one or more criteria usin a <code class="prettyprint">sort</code> query parameter. The value for <code class="prettyprint">sort</code> must represent the object attributes.</p>
 
