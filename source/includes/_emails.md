@@ -1,5 +1,7 @@
-# Emails
-## The email search object
+# Emails Search API
+The Emails Search API lets you find email addresses associated with a company or a domain name.
+
+## The search result object
 ```
 # EXAMPLE OBJECT
 ```
@@ -41,7 +43,7 @@
 }
 ```
 
-### Email search object attributes
+### Search result object attributes
 Attribute | Description
 --------- | -----------
 id | **integer** <br />A unique identifier for the email
@@ -68,7 +70,6 @@ company_name | **string** <br />Name of the company associated to the domain nam
 created_at | **datetime**
 updated_at | **datetime**
 
-
 ## Search for emails
 ```shell
 # DEFINITION
@@ -80,12 +81,15 @@ curl -X GET "https://prospect.io/api/public/v1/emails/search?domain=prospect.io&
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
+Only responses containing at least 1 email address go against your quota.
+
 ### Parameters
 Parameter | Description
 --------- | -----------
 domain<br />**required** - *string* | Domain name from which you want to find the email addresses. For example, "prospect.io".
 first_name<br />*string* | The person's first name
 last_name<br />*string* | The person's last name
+type<br />*string* | Only return emails of this type. Possible values are `personal` or `generic`.
 
 ### Returns
 Returns the [email search object](#the-email-search-object).
