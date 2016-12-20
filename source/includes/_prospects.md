@@ -25,8 +25,8 @@
       "archived": false,
       "replied": false,
       "campaign_status": null,
-      "created_at": "2015-10-27T19:57:00.000Z",
-      "updated_at": "2016-08-03T13:36:13.000Z"
+      "created_at": "2015-08-15T16:48:46+02:00",
+      "updated_at": "2016-11-25T12:40:46+01:00"
     },
     "relationships": {
       "creator": {
@@ -71,14 +71,14 @@ domain | **string** <br />The prospect's website
 jobtitle | **string** <br />The prospect's job title
 linkedin_profile | **string** <br />A link to the prospect's LinkedIn profile
 created_from | **string** <br />The source of the prospect. Can be `web`, `extension`, `api` or `import`
-last_emailed_at | **datetime** <br />The date and time of the last email sent to this prospect
+last_emailed_at | **datetime** <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset
 converted | **boolean** <br />Whether or not the prospect is marked as converted
 qualified | **boolean** <br />Whether or not the prospect is marked as qualified
 archived | **boolean** <br />Whether or not the prospect is archived
 replied | **boolean** <br />Whether or not the prospect replied to any of your emails
 campaign_status | **string** <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be `running`, `paused` or `scheduled`
-created_at | **datetime**
-updated_at | **datetime**
+created_at | **datetime** | ISO 8601 format with timezone offset
+updated_at | **datetime** | ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description

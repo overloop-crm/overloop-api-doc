@@ -23,8 +23,8 @@
       "stop_when": [
         "prospect.replied"
       ],
-      "created_at": "2015-10-27T19:57:00.000Z",
-      "updated_at": "2016-08-03T13:36:13.000Z"
+      "created_at": "2015-08-15T16:48:46+02:00",
+      "updated_at": "2016-11-25T12:40:46+01:00"
     },
     "relationships": {
       "steps": {
@@ -53,8 +53,8 @@ available | **boolean** <br />Whether or not the campaign is available
 steps_count | **integer** <br />The number of steps in the campaign
 sending_days | **array** <br />An array containing the days of the week when the campaign will send. Monday is `1`
 stop_when | **array** <br />An array containing the events that trigger the campaign to stops. Possible values are `message.click`, `prospect.replied` and `prospect.convert`
-created_at | **datetime**
-updated_at | **datetime**
+created_at | **datetime** | ISO 8601 format with timezone offset
+updated_at | **datetime** | ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description

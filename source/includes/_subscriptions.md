@@ -26,8 +26,8 @@ A subscription can laos be automatically `stopped` if we register one of the [`c
       "send_next_step_at": "2016-11-19T09:18:00.000Z",
       "paused_at": null,
       "pause_reason": null,
-      "created_at": "2016-11-19T09:18:44.190Z",
-      "updated_at": "2016-11-19T09:18:44.392Z"
+      "created_at": "2015-08-15T16:48:46+02:00",
+      "updated_at": "2016-11-25T12:40:46+01:00"
     },
     "relationships": {
       "sender": {
@@ -65,16 +65,16 @@ Attribute | Description
 id | **integer** <br />A unique identifier for the subscription
 prospect_id | **integer** <br />The prospect's ID this subscription is associated to
 current_step | **integer** <br />Define the last sent step (starts at 0)
-started_at | **datetime** <br />The date and time when the campaign has been started
-started_at | **datetime** <br />The date and time when the campaign has been completed. Completed means that we sent the last step of the campaign
-stopped_at | **datetime** <br />The date and time when the campaign has been stopped. Stopped means that we encountered a [`campaigns.stop_when` event](#the-campaign-object) or that the campaign has been manually stopped
+started_at | **datetime** <br />The date and time when the campaign has been started in ISO 8601 format with timezone
+started_at | **datetime** <br />The date and time when the campaign has been completed in ISO 8601 format with timezone. Completed means that we sent the last step of the campaign
+stopped_at | **datetime** <br />The date and time when the campaign has been stopped in ISO 8601 format with timezone. Stopped means that we encountered a [`campaigns.stop_when` event](#the-campaign-object) or that the campaign has been manually stopped
 stop_reason | **string** <br />The reason why the campaign has been stopped. Can be a [`campaigns.stop_when` event](#the-campaign-object) or `manual`
 start_at | **datetime** <br />If the campaign is scheduled , the date and time when the campaign will start sending the first step
-send_next_step_at | **datetime** <br />The date and time the next step is scheduled to be sent
-paused_at | **datetime** <br />The date and time when the campaign has been paused
+send_next_step_at | **datetime** <br />The date and time the next step is scheduled to be sent in ISO 8601 format with timezone
+paused_at | **datetime** <br />The date and time when the campaign has been paused in ISO 8601 format with timezone
 pause_reason | **string** <br />The reason why the campaign has been paused
-created_at | **datetime**
-updated_at | **datetime**
+created_at | **datetime** | ISO 8601 format with timezone offset
+updated_at | **datetime** | ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description

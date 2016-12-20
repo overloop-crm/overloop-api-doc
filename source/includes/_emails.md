@@ -52,8 +52,6 @@ type | **string** <br />Can be `personal` for personal email addresses or `gener
 confidence | **integer** <br />Our estimation between 0 and 100 of the probability the email address returned is correct. It depends on several criteria such as the number and quality of sources
 first_name | **string** <br />First name of the person for `personal` email addresses
 last_name | **string** <br />Last name of the person for `personal` email addresses
-created_at | **datetime**
-updated_at | **datetime**
 
 ### Relationships
 Object | Description
@@ -67,8 +65,6 @@ id | **integer** <br />A unique identifier for the domain
 name | **string** <br />The domain name
 pattern | **string** <br />The pattern used in this companies for emails. Common values are: `{first}`, `{first}.{last}`, `{f}.{last}`, ...
 company_name | **string** <br />Name of the company associated to the domain name
-created_at | **datetime**
-updated_at | **datetime**
 
 ## Search for emails
 ```shell

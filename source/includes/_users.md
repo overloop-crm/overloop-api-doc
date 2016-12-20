@@ -19,8 +19,8 @@
       "disabled": false,
       "from_name": "Vincenzo Ruggiero",
       "timezone": "Brussels",
-      "created_at": "2015-08-15T14:48:46.000Z",
-      "updated_at": "2016-11-11T10:54:51.000Z"
+      "created_at": "2015-08-15T16:48:46+02:00",
+      "updated_at": "2016-11-25T12:40:46+01:00"
     }
   }
 }
@@ -39,8 +39,8 @@ signature | **string** <br />The user's HTML signature
 disabled | **boolean** <br />Whether or not the user is disabled or not
 from_name | **string** <br />The name we put in the email `from` field
 timezone | **string** <br />The user's time zone
-created_at | **datetime**
-updated_at | **datetime**
+created_at | **datetime** | ISO 8601 format with timezone offset
+updated_at | **datetime** | ISO 8601 format with timezone offset
 
 ## Retrieve a user
 ```shell

@@ -12,8 +12,8 @@
     "attributes": {
       "name": "LinkedIn",
       "available": true,
-      "created_at": "2015-10-27T19:57:00.000Z",
-      "updated_at": "2016-08-03T13:36:13.000Z"
+      "created_at": "2015-08-15T16:48:46+02:00",
+      "updated_at": "2016-11-25T12:40:46+01:00"
     }
   }
 }
@@ -25,8 +25,8 @@ Attribute | Description
 id | **integer** <br />A unique identifier for the list
 name | **string** <br />The list's name
 available | **boolean** <br />Whether or not the list is available
-created_at | **datetime**
-updated_at | **datetime**
+created_at | **datetime** | ISO 8601 format with timezone offset
+updated_at | **datetime** | ISO 8601 format with timezone offset
 
 
 ## Create a list
