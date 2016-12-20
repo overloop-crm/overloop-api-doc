@@ -288,8 +288,8 @@ GET https://prospect.io/api/public/v1/prospect?sort<span class="o">=</span>-crea
       </span><span class="nt">"this_month_used_credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">1608</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email_queries_used_this_period_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"messages_sent_this_period_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1473</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46.000+02:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46.000+01:00"</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -462,14 +462,6 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
 <td>last_name</td>
 <td><strong>string</strong> <br />Last name of the person for <code class="prettyprint">personal</code> email addresses</td>
 </tr>
-<tr>
-<td>created_at</td>
-<td><strong>datetime</strong></td>
-</tr>
-<tr>
-<td>updated_at</td>
-<td><strong>datetime</strong></td>
-</tr>
 </tbody></table>
 
 <h3 id="relationships">Relationships</h3>
@@ -509,14 +501,6 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
 <tr>
 <td>company_name</td>
 <td><strong>string</strong> <br />Name of the company associated to the domain name</td>
-</tr>
-<tr>
-<td>created_at</td>
-<td><strong>datetime</strong></td>
-</tr>
-<tr>
-<td>updated_at</td>
-<td><strong>datetime</strong></td>
 </tr>
 </tbody></table>
 
@@ -587,8 +571,8 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/search?do
       </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"campaign_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-27T19:57:00.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-03T13:36:13.000Z"</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -670,7 +654,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/search?do
 </tr>
 <tr>
 <td>last_emailed_at</td>
-<td><strong>datetime</strong> <br />The date and time of the last email sent to this prospect</td>
+<td><strong>datetime</strong> <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset</td>
 </tr>
 <tr>
 <td>converted</td>
@@ -1099,8 +1083,8 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/prospects"</span
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LinkedIn"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"available"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-27T19:57:00.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-03T13:36:13.000Z"</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1370,8 +1354,8 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <s
       </span><span class="nt">"stop_when"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"prospect.replied"</span><span class="w">
       </span><span class="p">],</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-27T19:57:00.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-03T13:36:13.000Z"</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"steps"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1548,8 +1532,8 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns"</span
         </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"schedule_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-27T19:57:00.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-03T13:36:13.000Z"</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"campaign"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1602,7 +1586,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns"</span
 </tr>
 <tr>
 <td>schedule_time</td>
-<td><strong>datetime</strong> <br />Time of day for this step to send</td>
+<td><strong>datetime</strong> <br />Time of day for this step to send in ISO 8601 format with timezone offset</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -1760,8 +1744,8 @@ A subscription can laos be automatically <code class="prettyprint">stopped</code
       </span><span class="nt">"send_next_step_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-19T09:18:00.000Z"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"paused_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"pause_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-19T09:18:44.190Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-19T09:18:44.392Z"</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1815,15 +1799,15 @@ A subscription can laos be automatically <code class="prettyprint">stopped</code
 </tr>
 <tr>
 <td>started_at</td>
-<td><strong>datetime</strong> <br />The date and time when the campaign has been started</td>
+<td><strong>datetime</strong> <br />The date and time when the campaign has been started in ISO 8601 format with timezone</td>
 </tr>
 <tr>
 <td>started_at</td>
-<td><strong>datetime</strong> <br />The date and time when the campaign has been completed. Completed means that we sent the last step of the campaign</td>
+<td><strong>datetime</strong> <br />The date and time when the campaign has been completed in ISO 8601 format with timezone. Completed means that we sent the last step of the campaign</td>
 </tr>
 <tr>
 <td>stopped_at</td>
-<td><strong>datetime</strong> <br />The date and time when the campaign has been stopped. Stopped means that we encountered a <a href="#the-campaign-object"><code class="prettyprint">campaigns.stop_when</code> event</a> or that the campaign has been manually stopped</td>
+<td><strong>datetime</strong> <br />The date and time when the campaign has been stopped in ISO 8601 format with timezone. Stopped means that we encountered a <a href="#the-campaign-object"><code class="prettyprint">campaigns.stop_when</code> event</a> or that the campaign has been manually stopped</td>
 </tr>
 <tr>
 <td>stop_reason</td>
@@ -1835,11 +1819,11 @@ A subscription can laos be automatically <code class="prettyprint">stopped</code
 </tr>
 <tr>
 <td>send_next_step_at</td>
-<td><strong>datetime</strong> <br />The date and time the next step is scheduled to be sent</td>
+<td><strong>datetime</strong> <br />The date and time the next step is scheduled to be sent in ISO 8601 format with timezone</td>
 </tr>
 <tr>
 <td>paused_at</td>
-<td><strong>datetime</strong> <br />The date and time when the campaign has been paused</td>
+<td><strong>datetime</strong> <br />The date and time when the campaign has been paused in ISO 8601 format with timezone</td>
 </tr>
 <tr>
 <td>pause_reason</td>
@@ -2087,8 +2071,8 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subs
       </span><span class="nt">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"from_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vincenzo Ruggiero"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brussels"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T14:48:46.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-11T10:54:51.000Z"</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
