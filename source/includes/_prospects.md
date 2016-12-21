@@ -78,6 +78,7 @@ qualified | **boolean** <br />Whether or not the prospect is marked as qualified
 archived | **boolean** <br />Whether or not the prospect is archived
 replied | **boolean** <br />Whether or not the prospect replied to any of your emails
 campaign_status | **string** <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be `running`, `paused` or `scheduled`
+url | **string** <br />The full URL to the prospect on Prospect.io
 created_at | **datetime** | ISO 8601 format with timezone offset
 updated_at | **datetime** | ISO 8601 format with timezone offset
 
