@@ -571,6 +571,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/search?do
       </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"campaign_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/prospects/1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -675,6 +676,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/search?do
 <tr>
 <td>campaign_status</td>
 <td><strong>string</strong> <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be <code class="prettyprint">running</code>, <code class="prettyprint">paused</code> or <code class="prettyprint">scheduled</code></td>
+</tr>
+<tr>
+<td>url</td>
+<td><strong>string</strong> <br />The full URL to the prospect on Prospect.io</td>
 </tr>
 <tr>
 <td>created_at</td>
