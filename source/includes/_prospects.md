@@ -18,6 +18,10 @@
       "domain": "https://prospect.io",
       "jobtitle": "CEO",
       "linkedin_profile": "https://www.linkedin.com/in/vincenzor",
+      "phone": "+32-481-754-301",
+      "title": "Mr.",
+      "country": "Belgium",
+      "industry": "IT",
       "created_from": "extension",
       "last_emailed_at": null,
       "converted": false,
@@ -71,6 +75,10 @@ description | **string** <br />A text description of the prospect
 domain | **string** <br />The prospect's website
 jobtitle | **string** <br />The prospect's job title
 linkedin_profile | **string** <br />A link to the prospect's LinkedIn profile
+phone | **string** <br />The prospect's phone number
+title | **string** <br />The prospect's title of civility
+country | **string** <br />The prospect's country
+industry | **string** <br />The prospect's industry
 created_from | **string** <br />The source of the prospect. Can be `web`, `extension`, `api` or `import`
 last_emailed_at | **datetime** <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset
 converted | **boolean** <br />Whether or not the prospect is marked as converted
@@ -125,9 +133,10 @@ description<br />*string* | *NULL* | A text description of the prospect
 domain<br />*string* | *NULL* | The prospect's website
 jobtitle<br />*string* | *NULL* | The prospect's job title
 linkedin_profile<br />*string* | *NULL* | A link to the prospect's LinkedIn profile
-converted<br />*boolean* | false | Whether or not the prospect is marked as converted
-qualified<br />*boolean* | false | Whether or not the prospect is marked as qualified
-archived<br />*boolean* | false | Whether or not the prospect is marked as archived
+phone<br />*string* | *NULL* | The prospect's phone number
+title<br />*string* | *NULL* | The prospect's title of civility
+country<br />*string* | *NULL* | The prospect's country
+industry<br />*string* | *NULL* | The prospect's industry
 list_id<br />*integer* | *NULL* | ID of the list where to save the prospect
 responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
 
@@ -186,9 +195,10 @@ description<br />*string* | A text description of the prospect
 domain<br />*string* | The prospect's website
 jobtitle<br />*string* | The prospect's job title
 linkedin_profile<br />*string* | A link to the prospect's LinkedIn profile
-converted<br />*boolean* | Whether or not the prospect is marked as converted
-qualified<br />*boolean* | Whether or not the prospect is marked as qualified
-archived<br />*boolean* | Whether or not the prospect is marked as archived
+phone<br />*string* | The prospect's phone number
+title<br />*string* | The prospect's title of civility
+country<br />*string* | The prospect's country
+industry<br />*string* | The prospect's industry
 list_id<br />*integer* | ID of the list where to save the prospect
 responsible_id<br />*integer* | The ID of the user responsible for this prospect
 
