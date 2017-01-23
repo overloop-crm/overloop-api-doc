@@ -77,7 +77,7 @@ jobtitle | **string** <br />The prospect's job title
 linkedin_profile | **string** <br />A link to the prospect's LinkedIn profile
 phone | **string** <br />The prospect's phone number
 title | **string** <br />The prospect's title of civility
-country | **string** <br />The prospect's country [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+country | **string** <br />The prospect's country <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1 alpha-2 code</a>
 industry | **string** <br />The prospect's industry
 created_from | **string** <br />The source of the prospect. Can be `web`, `extension`, `api` or `import`
 last_emailed_at | **datetime** <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset
@@ -135,7 +135,7 @@ jobtitle<br />*string* | *NULL* | The prospect's job title
 linkedin_profile<br />*string* | *NULL* | A link to the prospect's LinkedIn profile
 phone<br />*string* | *NULL* | The prospect's phone number
 title<br />*string* | *NULL* | The prospect's title of civility
-country<br />*string* | *NULL* | The prospect's country [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+country<br />*string* | *NULL* | The prospect's country <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1 alpha-2 code</a>
 industry<br />*string* | *NULL* | The prospect's industry
 list_id<br />*integer* | *NULL* | ID of the list where to save the prospect
 responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
@@ -197,7 +197,7 @@ jobtitle<br />*string* | The prospect's job title
 linkedin_profile<br />*string* | A link to the prospect's LinkedIn profile
 phone<br />*string* | The prospect's phone number
 title<br />*string* | The prospect's title of civility
-country<br />*string* | The prospect's country [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+country<br />*string* | The prospect's country <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1 alpha-2 code</a>
 industry<br />*string* | The prospect's industry
 list_id<br />*integer* | ID of the list where to save the prospect
 responsible_id<br />*integer* | The ID of the user responsible for this prospect
