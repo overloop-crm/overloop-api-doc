@@ -598,6 +598,11 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/search?do
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Belgium"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IT"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"custom_field_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hot lead"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"custom_field_b"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"custom_field_c"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"custom_field_d"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"custom_field_e"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_emailed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"converted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -698,6 +703,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/search?do
 <tr>
 <td>industry</td>
 <td><strong>string</strong> <br />The prospect&rsquo;s industry</td>
+</tr>
+<tr>
+<td>custom_field_[a..e]</td>
+<td><strong>string</strong> <br />Five custom fields (custom_field_a, custom_field_b, &hellip;) that you can use freely</td>
 </tr>
 <tr>
 <td>created_from</td>
@@ -863,6 +872,11 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/prospects"</spa
 <td>The prospect&rsquo;s industry</td>
 </tr>
 <tr>
+<td>custom_field_[a..e]<br /> <em>string</em></td>
+<td><em>NULL</em></td>
+<td>Five custom fields (custom_field_a, custom_field_b, &hellip;) that you can use freely</td>
+</tr>
+<tr>
 <td>list_id<br /><em>integer</em></td>
 <td><em>NULL</em></td>
 <td>ID of the list where to save the prospect</td>
@@ -985,6 +999,10 @@ curl -X PATCH <span class="s2">"https://prospect.io/api/public/v1/prospects/1"</
 <tr>
 <td>industry<br /><em>string</em></td>
 <td>The prospect&rsquo;s industry</td>
+</tr>
+<tr>
+<td>custom_field_[a..e]<br /></td>
+<td><em>string</em></td>
 </tr>
 <tr>
 <td>list_id<br /><em>integer</em></td>
