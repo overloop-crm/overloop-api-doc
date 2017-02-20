@@ -22,6 +22,11 @@
       "title": "Mr.",
       "country": "Belgium",
       "industry": "IT",
+      "custom_field_a": "Hot lead",
+      "custom_field_b": null,
+      "custom_field_c": null,
+      "custom_field_d": null,
+      "custom_field_e": null,
       "created_from": "extension",
       "last_emailed_at": null,
       "converted": false,
@@ -79,6 +84,7 @@ phone | **string** <br />The prospect's phone number
 title | **string** <br />The prospect's title of civility
 country | **string** <br />The prospect's country
 industry | **string** <br />The prospect's industry
+custom_field_[a..e] | **string** <br />Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
 created_from | **string** <br />The source of the prospect. Can be `web`, `extension`, `api` or `import`
 last_emailed_at | **datetime** <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset
 converted | **boolean** <br />Whether or not the prospect is marked as converted
@@ -137,6 +143,7 @@ phone<br />*string* | *NULL* | The prospect's phone number
 title<br />*string* | *NULL* | The prospect's title of civility
 country<br />*string* | *NULL* | The prospect's country
 industry<br />*string* | *NULL* | The prospect's industry
+custom_field_[a..e]<br /> *string* | *NULL* | Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
 list_id<br />*integer* | *NULL* | ID of the list where to save the prospect
 responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
 
@@ -199,6 +206,7 @@ phone<br />*string* | The prospect's phone number
 title<br />*string* | The prospect's title of civility
 country<br />*string* | The prospect's country
 industry<br />*string* | The prospect's industry
+custom_field_[a..e]<br /> | *string* | Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
 list_id<br />*integer* | ID of the list where to save the prospect
 responsible_id<br />*integer* | The ID of the user responsible for this prospect
 
