@@ -21,6 +21,14 @@
       "timezone": "Brussels",
       "created_at": "2015-08-15T16:48:46+02:00",
       "updated_at": "2016-11-25T12:40:46+01:00"
+    },
+    "relationships": {
+      "company": {
+        "data": {
+          "id": "5",
+          "type": "companies"
+        }
+      }
     }
   }
 }
@@ -41,6 +49,12 @@ from_name | **string** <br />The name we put in the email `from` field
 timezone | **string** <br />The user's time zone
 created_at | **datetime** | ISO 8601 format with timezone offset
 updated_at | **datetime** | ISO 8601 format with timezone offset
+
+### Relationships
+Object | Description
+--------- | -----------
+company | The user's company
+
 
 ## Retrieve a user
 ```shell
