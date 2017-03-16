@@ -117,6 +117,7 @@
       <div class="dark-box"></div>
       <div class="content">
         
+
           <h1 id="introduction">Introduction</h1>
 <pre class="highlight shell"><code><span class="c"># API Endpoint</span>
 https://prospect.io/api/public/v1/
@@ -265,6 +266,8 @@ GET https://prospect.io/api/public/v1/prospect?sort<span class="o">=</span>-crea
 </tr>
 </tbody></table>
 
+
+        <h1 class="headline" data-unique="main-api" id="main-api">Main API</h1>
           <h1 id="account">Account</h1>
 
 <h2 id="the-account-object">The account object</h2>
@@ -386,195 +389,6 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
 <h3 id="returns">Returns</h3>
 
 <p>Returns the <a href="#the-account-object">account object</a>.</p>
-
-          <h1 id="emails-search-api">Emails Search API</h1>
-
-<p>The Emails Search API lets you find email addresses associated with a company or a domain name.</p>
-
-<h2 id="the-search-result-object">The search result object</h2>
-<pre class="highlight plaintext"><code># EXAMPLE OBJECT
-</code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72947"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emails"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vincenzo@prospect.io"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personal"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vincenzo"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruggiero"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Founder, CEO"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prospect.io"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-12545474"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VincenzoR"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"linkedin_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.linkedin.com/in/vincenzor"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"angellist_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://angel.co/vincenzo"</span><span class="p">,</span><span class="w">
-      </span><span class="err">}</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domains"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domains"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospect.io"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{first}"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prospect.io"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<h3 id="search-result-object-attributes">Search result object attributes</h3>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td><strong>integer</strong> <br />A unique identifier for the email</td>
-</tr>
-<tr>
-<td>value</td>
-<td><strong>string</strong> <br />The email address</td>
-</tr>
-<tr>
-<td>type</td>
-<td><strong>string</strong> <br />Can be <code class="prettyprint">personal</code> for personal email addresses or <code class="prettyprint">generic</code> for email addresses like <code class="prettyprint">support@</code> or <code class="prettyprint">contact@</code></td>
-</tr>
-<tr>
-<td>confidence</td>
-<td><strong>integer</strong> <br />Our estimation between 0 and 100 of the probability the email address returned is correct. It depends on several criteria such as the number and quality of sources</td>
-</tr>
-<tr>
-<td>first_name</td>
-<td><strong>string</strong> <br />First name of the person</td>
-</tr>
-<tr>
-<td>last_name</td>
-<td><strong>string</strong> <br />Last name of the person</td>
-</tr>
-<tr>
-<td>job_title</td>
-<td><strong>string</strong> <br />Job title of the person</td>
-</tr>
-<tr>
-<td>company</td>
-<td><strong>string</strong> <br />Company name of the person</td>
-</tr>
-<tr>
-<td>phone</td>
-<td><strong>string</strong> <br />Phone number of the person</td>
-</tr>
-<tr>
-<td>twitter</td>
-<td><strong>string</strong> <br />Twitter handle of the person</td>
-</tr>
-<tr>
-<td>linkedin_url</td>
-<td><strong>string</strong> <br />Full LinkedIn profile URL of the person</td>
-</tr>
-<tr>
-<td>angellist_url</td>
-<td><strong>string</strong> <br />Full AngelList profile URL of the person</td>
-</tr>
-</tbody></table>
-
-<h3 id="relationships">Relationships</h3>
-
-<table><thead>
-<tr>
-<th>Object</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>domain</td>
-<td>The domain (company) information</td>
-</tr>
-</tbody></table>
-
-<h3 id="domain-object-attributes">Domain object attributes</h3>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td><strong>integer</strong> <br />A unique identifier for the domain</td>
-</tr>
-<tr>
-<td>name</td>
-<td><strong>string</strong> <br />The domain name</td>
-</tr>
-<tr>
-<td>pattern</td>
-<td><strong>string</strong> <br />The pattern used in this companies for emails. Common values are: <code class="prettyprint">{first}</code>, <code class="prettyprint">{first}.{last}</code>, <code class="prettyprint">{f}.{last}</code>, &hellip;</td>
-</tr>
-<tr>
-<td>company_name</td>
-<td><strong>string</strong> <br />Name of the company associated to the domain name</td>
-</tr>
-</tbody></table>
-
-<h2 id="search-for-emails">Search for emails</h2>
-<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/emails/search?domain<span class="o">={{</span>DOMAIN<span class="o">}}</span>&amp;first_name<span class="o">={{</span>FIRST_NAME<span class="o">}}</span>&amp;last_name<span class="o">={{</span>LAST_NAME<span class="o">}}</span>
-
-<span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/search?domain=prospect.io&amp;first_name=Vincenzo&amp;last_name=Ruggiero"</span> <span class="se">\</span>
--H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
-</code></pre>
-
-<p>Only responses containing at least 1 email address go against your quota.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>domain<br /><strong>required</strong> - <em>string</em></td>
-<td>Domain name from which you want to find the email addresses. For example, &ldquo;prospect.io&rdquo;.</td>
-</tr>
-<tr>
-<td>first_name<br /><em>string</em></td>
-<td>The person&rsquo;s first name</td>
-</tr>
-<tr>
-<td>last_name<br /><em>string</em></td>
-<td>The person&rsquo;s last name</td>
-</tr>
-<tr>
-<td>type<br /><em>string</em></td>
-<td>Only return emails of this type. Possible values are <code class="prettyprint">personal</code> or <code class="prettyprint">generic</code>.</td>
-</tr>
-</tbody></table>
-
-<h3 id="returns">Returns</h3>
-
-<p>Returns the <a href="#the-email-search-object">email search object</a>.</p>
 
           <h1 id="prospects">Prospects</h1>
 
@@ -2329,6 +2143,293 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/users"</span> <s
 <p>Returns a list of users.</p>
 
 <p>This list is <a href="#pagination">paginate</a> by 100 records and can also be <a href="#sorting">sorted</a>.</p>
+
+
+        <h1 class="headline" data-unique="email-api" id="email-api">Emails API</h1>
+          <h1 id="search">Search</h1>
+
+<p>The Emails Search API lets you find email addresses associated with a company or a domain name.</p>
+
+<h2 id="the-search-result-object">The search result object</h2>
+<pre class="highlight plaintext"><code># EXAMPLE OBJECT
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72947"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emails"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vincenzo@prospect.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personal"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vincenzo"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruggiero"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Founder, CEO"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prospect.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-12545474"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VincenzoR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"linkedin_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.linkedin.com/in/vincenzor"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"angellist_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://angel.co/vincenzo"</span><span class="p">,</span><span class="w">
+      </span><span class="err">}</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domains"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domains"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospect.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{first}"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prospect.io"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="search-result-object-attributes">Search result object attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>integer</strong> <br />A unique identifier for the email</td>
+</tr>
+<tr>
+<td>value</td>
+<td><strong>string</strong> <br />The email address</td>
+</tr>
+<tr>
+<td>type</td>
+<td><strong>string</strong> <br />Can be <code class="prettyprint">personal</code> for personal email addresses or <code class="prettyprint">generic</code> for email addresses like <code class="prettyprint">support@</code> or <code class="prettyprint">contact@</code></td>
+</tr>
+<tr>
+<td>confidence</td>
+<td><strong>integer</strong> <br />Our estimation between 0 and 100 of the probability the email address returned is correct. It depends on several criteria such as the number and quality of sources</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td><strong>string</strong> <br />First name of the person</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td><strong>string</strong> <br />Last name of the person</td>
+</tr>
+<tr>
+<td>job_title</td>
+<td><strong>string</strong> <br />Job title of the person</td>
+</tr>
+<tr>
+<td>company</td>
+<td><strong>string</strong> <br />Company name of the person</td>
+</tr>
+<tr>
+<td>phone</td>
+<td><strong>string</strong> <br />Phone number of the person</td>
+</tr>
+<tr>
+<td>twitter</td>
+<td><strong>string</strong> <br />Twitter handle of the person</td>
+</tr>
+<tr>
+<td>linkedin_url</td>
+<td><strong>string</strong> <br />Full LinkedIn profile URL of the person</td>
+</tr>
+<tr>
+<td>angellist_url</td>
+<td><strong>string</strong> <br />Full AngelList profile URL of the person</td>
+</tr>
+</tbody></table>
+
+<h3 id="relationships">Relationships</h3>
+
+<table><thead>
+<tr>
+<th>Object</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>domain</td>
+<td>The domain (company) information</td>
+</tr>
+</tbody></table>
+
+<h3 id="domain-object-attributes">Domain object attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>integer</strong> <br />A unique identifier for the domain</td>
+</tr>
+<tr>
+<td>name</td>
+<td><strong>string</strong> <br />The domain name</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td><strong>string</strong> <br />The pattern used in this companies for emails. Common values are: <code class="prettyprint">{first}</code>, <code class="prettyprint">{first}.{last}</code>, <code class="prettyprint">{f}.{last}</code>, &hellip;</td>
+</tr>
+<tr>
+<td>company_name</td>
+<td><strong>string</strong> <br />Name of the company associated to the domain name</td>
+</tr>
+</tbody></table>
+
+<h2 id="search-for-emails">Search for emails</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://prospect.io/api/public/v1/emails/search?domain<span class="o">={{</span>DOMAIN<span class="o">}}</span>&amp;first_name<span class="o">={{</span>FIRST_NAME<span class="o">}}</span>&amp;last_name<span class="o">={{</span>LAST_NAME<span class="o">}}</span>
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/search?domain=prospect.io&amp;first_name=Vincenzo&amp;last_name=Ruggiero"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<p>Every call returning at least 1 email address go against your quota and will cost you <strong>1 credit</strong>.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>domain<br /><strong>required</strong> - <em>string</em></td>
+<td>Domain name from which you want to find the email addresses. For example, &ldquo;prospect.io&rdquo;.</td>
+</tr>
+<tr>
+<td>first_name<br /><em>string</em></td>
+<td>The person&rsquo;s first name</td>
+</tr>
+<tr>
+<td>last_name<br /><em>string</em></td>
+<td>The person&rsquo;s last name</td>
+</tr>
+<tr>
+<td>type<br /><em>string</em></td>
+<td>Only return emails of this type. Possible values are <code class="prettyprint">personal</code> or <code class="prettyprint">generic</code>.</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-email-search-object">email search object</a>.</p>
+
+          <h1 id="verify">Verify</h1>
+
+<p>The Emails Verify API lets you check in real time the deliverability (how likely it is to bounce or not from the mail server) of any email address without sending an email.</p>
+
+<h2 id="the-verify-result-object">The verify result object</h2>
+<pre class="highlight plaintext"><code># EXAMPLE OBJECT
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vincenzo@prospect.io"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"disposable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"role_address"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="verify-result-object-attributes">Verify result object attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td><strong>string</strong> <br />The email address verified</td>
+</tr>
+<tr>
+<td>status</td>
+<td><strong>string</strong> <br />The status of the email. Can be <code class="prettyprint">valid</code>, <code class="prettyprint">invalid</code>, <code class="prettyprint">unknown</code> or <code class="prettyprint">accept_all</code>.</td>
+</tr>
+<tr>
+<td>disposable</td>
+<td><strong>boolean</strong> <br />Is the email a temporary or &ldquo;disposable&rdquo; email address</td>
+</tr>
+<tr>
+<td>role_address</td>
+<td><strong>boolean</strong> <br />Is the email a &ldquo;role&rdquo; email address (like postmaster@, sales@, admin@, info@, webmaster@, etc. )</td>
+</tr>
+<tr>
+<td>error_code</td>
+<td><strong>string</strong> <br />An error code if the email is invalid. Can be <code class="prettyprint">email_address_invalid</code>, <code class="prettyprint">email_domain_invalid</code> or <code class="prettyprint">email_account_invalid</code>.</td>
+</tr>
+</tbody></table>
+
+<h3 id="statuses">Statuses</h3>
+
+<ul>
+<li><strong>valid</strong>: The email represents a real account / inbox available at the given domain</li>
+<li><strong>invalid</strong>: Not a real email</li>
+<li><strong>unknown</strong>: For some reason we cannot verify valid or invalid. Most of the time a domain did not respond quickly enough.</li>
+<li><strong>accept_all</strong>: These are domains that respond to every verification request in the affirmative, and therefore cannot be fully verified.</li>
+</ul>
+
+<h3 id="error-codes">Error Codes</h3>
+
+<ul>
+<li><strong>email_address_invalid</strong>: The email address is not formatted correctly</li>
+<li><strong>email_domain_invalid</strong>: The domain does not exist or is not capable of receiving email</li>
+<li><strong>email_account_invalid</strong>: The email account does not exist on the domain</li>
+</ul>
+
+<h2 id="verify-an-email">Verify an email</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://prospect.io/api/public/v1/emails/verify?email<span class="o">={{</span>EMAIL_ADDRESS<span class="o">}}</span>
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/verify?email=vincenzo@prospect.io"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<p>Every call will go against your quota and will cost you <strong>1 credit</strong>.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email<br /><strong>required</strong> - <em>string</em></td>
+<td>The email addresses to verify. For example, &ldquo;vincenzo@prospect.io&rdquo;.</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-verify-result-object">verify result object</a>.</p>
 
       </div>
       <div class="dark-box">
