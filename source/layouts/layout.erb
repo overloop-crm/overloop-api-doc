@@ -74,8 +74,19 @@ under the License.
       <div class="dark-box"></div>
       <div class="content">
         <%= yield %>
+
         <% current_page.data.includes && current_page.data.includes.each do |include| %>
           <%= partial "includes/#{include}" %>
+        <% end %>
+
+        <h1 class="headline" data-unique="main-api" id="main-api">Main API</h1>
+        <% current_page.data.includes_main && current_page.data.includes_main.each do |include| %>
+          <%= partial "includes_main/#{include}" %>
+        <% end %>
+
+        <h1 class="headline" data-unique="email-api" id="email-api">Emails API</h1>
+        <% current_page.data.includes_emails && current_page.data.includes_emails.each do |include| %>
+          <%= partial "includes_emails/#{include}" %>
         <% end %>
       </div>
       <div class="dark-box">

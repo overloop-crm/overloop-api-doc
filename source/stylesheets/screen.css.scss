@@ -161,6 +161,13 @@ html, body {
     text-overflow: ellipsis;
   }
 
+  .tocify-item[data-unique="main-api"],
+  .tocify-item[data-unique="email-api"] {
+    font-size: 1.4em;
+    padding: 5px 0;
+    margin-top: 15px;
+  }
+
   // The Table of Contents is composed of multiple nested
   // unordered lists.  These styles remove the default
   // styling of an unordered list because it is ugly.

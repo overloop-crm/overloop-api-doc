@@ -1,4 +1,4 @@
-# Emails Search API
+# Search
 The Emails Search API lets you find email addresses associated with a company or a domain name.
 
 ## The search result object
@@ -89,7 +89,7 @@ curl -X GET "https://prospect.io/api/public/v1/emails/search?domain=prospect.io&
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
-Only responses containing at least 1 email address go against your quota.
+Every call returning at least 1 email address go against your quota and will cost you **1 credit**.
 
 ### Parameters
 Parameter | Description
