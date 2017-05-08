@@ -81,7 +81,7 @@ Returns the [user object](#the-user-object).
 GET https://prospect.io/api/public/v1/me
 
 # EXAMPLE
-curl -X GET "https://prospect.io/api/public/me" \
+curl -X GET "https://prospect.io/api/public/v1/me" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
