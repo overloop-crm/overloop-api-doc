@@ -37,6 +37,7 @@
       "replied_at": false,
       "campaign_status": null,
       "url": "https://prospect.io/prospects/1",
+      "list_name": "Sales Managers in UK",
       "created_at": "2015-08-15T16:48:46+02:00",
       "updated_at": "2016-11-25T12:40:46+01:00"
     },
@@ -97,6 +98,7 @@ replied | **boolean** <br />Whether or not the prospect replied to any of your e
 replied_at | **datetime** <br />The date and time when the prospect first replied
 campaign_status | **string** <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be `running`, `paused` or `scheduled`
 url | **string** <br />The full URL to the prospect on Prospect.io
+list_name | **string** <br />The name of the list if the prospect is in a list
 created_at | **datetime** | ISO 8601 format with timezone offset
 updated_at | **datetime** | ISO 8601 format with timezone offset
 
