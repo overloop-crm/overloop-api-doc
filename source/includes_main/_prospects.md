@@ -30,9 +30,11 @@
       "created_from": "extension",
       "last_emailed_at": null,
       "converted": false,
+      "converted_at": false,
       "qualified": true,
       "archived": false,
       "replied": false,
+      "replied_at": false,
       "campaign_status": null,
       "url": "https://prospect.io/prospects/1",
       "created_at": "2015-08-15T16:48:46+02:00",
@@ -88,9 +90,11 @@ custom_field_[a..e] | **string** <br />Five custom fields (custom_field_a, custo
 created_from | **string** <br />The source of the prospect. Can be `web`, `extension`, `api` or `import`
 last_emailed_at | **datetime** <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset
 converted | **boolean** <br />Whether or not the prospect is marked as converted
+converted_at | **datetime** <br />The date and time when the prospect has been marked as converted
 qualified | **boolean** <br />Whether or not the prospect is marked as qualified
 archived | **boolean** <br />Whether or not the prospect is archived
 replied | **boolean** <br />Whether or not the prospect replied to any of your emails
+replied_at | **datetime** <br />The date and time when the prospect first replied
 campaign_status | **string** <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be `running`, `paused` or `scheduled`
 url | **string** <br />The full URL to the prospect on Prospect.io
 created_at | **datetime** | ISO 8601 format with timezone offset
