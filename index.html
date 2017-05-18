@@ -420,9 +420,11 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
       </span><span class="nt">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_emailed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"converted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"converted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"qualified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"replied_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"campaign_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/prospects/1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
@@ -535,6 +537,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
 <td><strong>boolean</strong> <br />Whether or not the prospect is marked as converted</td>
 </tr>
 <tr>
+<td>converted_at</td>
+<td><strong>datetime</strong> <br />The date and time when the prospect has been marked as converted</td>
+</tr>
+<tr>
 <td>qualified</td>
 <td><strong>boolean</strong> <br />Whether or not the prospect is marked as qualified</td>
 </tr>
@@ -545,6 +551,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
 <tr>
 <td>replied</td>
 <td><strong>boolean</strong> <br />Whether or not the prospect replied to any of your emails</td>
+</tr>
+<tr>
+<td>replied_at</td>
+<td><strong>datetime</strong> <br />The date and time when the prospect first replied</td>
 </tr>
 <tr>
 <td>campaign_status</td>
