@@ -105,8 +105,8 @@ Updates the specified list by setting the values of the parameters passed. Any p
 Parameter | Description
 --------- | -----------
 id<br />**required** - *integer* | The ID of the list to update
-name<br />*string* | / | The list's name
-available<br />*string* | *"available"* | The list's status ("available" or "archived")
+name<br />*string* | The list's name
+available<br />*string* | The list's status ("available" or "archived")
 
 ### Returns
 Returns the [list object](#the-list-object).
