@@ -1069,11 +1069,9 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <
 <tr>
 <td>available<br /><em>string</em></td>
 <td><em>&ldquo;available&rdquo;</em></td>
-<td>The list&rsquo;s status (&ldquo;available&rdquo; or</td>
+<td>The list&rsquo;s status (&ldquo;available&rdquo; or &ldquo;archived&rdquo;)</td>
 </tr>
 </tbody></table>
-
-<p>&ldquo;archived&rdquo;)</p>
 
 <h3 id="returns">Returns</h3>
 
@@ -1149,8 +1147,6 @@ curl -X PATCH <span class="s2">"https://prospect.io/api/public/v1/lists/1"</span
 <td><em>&ldquo;available&rdquo;</em></td>
 </tr>
 </tbody></table>
-
-<p>&ldquo;archived&rdquo;)</p>
 
 <h3 id="returns">Returns</h3>
 
@@ -1309,16 +1305,29 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <s
 </tr>
 <tr>
 <td>status</td>
-<td><strong>string</strong> <br />The campaign&rsquo;s status that can take 3 different values:</td>
+<td><strong>string</strong> <br />The campaign&rsquo;s status that can take 3 different values: <code class="prettyprint">available</code>, <code class="prettyprint">archived</code> and <code class="prettyprint">draft</code></td>
+</tr>
+<tr>
+<td>steps_count</td>
+<td><strong>integer</strong> <br />The number of steps in the campaign</td>
+</tr>
+<tr>
+<td>sending_days</td>
+<td><strong>array</strong> <br />An array containing the days of the week when the campaign will send. Monday is <code class="prettyprint">1</code></td>
+</tr>
+<tr>
+<td>stop_when</td>
+<td><strong>array</strong> <br />An array containing the events that trigger the campaign to stops. Possible values are <code class="prettyprint">message.click</code>, <code class="prettyprint">prospect.replied</code> and <code class="prettyprint">prospect.convert</code></td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><strong>datetime</strong></td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><strong>datetime</strong></td>
 </tr>
 </tbody></table>
-
-<p><code class="prettyprint">available</code>, <code class="prettyprint">archived</code> and <code class="prettyprint">draft</code>
-steps_count | <strong>integer</strong> <br />The number of steps in the campaign
-sending_days | <strong>array</strong> <br />An array containing the days of the week when the campaign will send. Monday is <code class="prettyprint">1</code>
-stop_when | <strong>array</strong> <br />An array containing the events that trigger the campaign to stops. Possible values are <code class="prettyprint">message.click</code>, <code class="prettyprint">prospect.replied</code> and <code class="prettyprint">prospect.convert</code>
-created_at | <strong>datetime</strong> | ISO 8601 format with timezone offset
-updated_at | <strong>datetime</strong> | ISO 8601 format with timezone offset</p>
 
 <h3 id="relationships">Relationships</h3>
 
