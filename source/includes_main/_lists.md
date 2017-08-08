@@ -11,7 +11,7 @@
     "type": "lists",
     "attributes": {
       "name": "LinkedIn",
-      "available": true,
+      "status": "available",
       "created_at": "2015-08-15T16:48:46+02:00",
       "updated_at": "2016-11-25T12:40:46+01:00"
     }
@@ -24,7 +24,7 @@ Attribute | Description
 --------- | -----------
 id | **integer** <br />A unique identifier for the list
 name | **string** <br />The list's name
-available | **boolean** <br />Whether or not the list is available
+status | **string** <br />The list's status that can take 2 different values: `available` or `archived`
 created_at | **datetime** | ISO 8601 format with timezone offset
 updated_at | **datetime** | ISO 8601 format with timezone offset
 
@@ -43,7 +43,7 @@ curl -X POST "https://prospect.io/api/public/v1/lists" \
     "type": "lists",
     "attributes": {
       "name": "A list name",
-      "available": true
+      "status": "available"
     }
   }
 }'
@@ -55,7 +55,8 @@ This will create a new list.
 Parameter | Default | Description
 --------- | ------- | ------------
 name<br />**required** - *string* | / | The list's name
-available<br />*boolean* | *true* | Whether or not the list is available
+available<br />*string* | *"available"* | The list's status ("available" or
+"archived")
 
 ### Returns
 Returns the [list object](#the-list-object).
@@ -92,7 +93,8 @@ curl -X PATCH "https://prospect.io/api/public/v1/lists/1" \
   "data": {
     "type": "lists",
     "attributes": {
-      "name": "LinkedIn bis"
+      "name": "LinkedIn bis",
+      "status": "archived"
     }
   }
 }'
@@ -105,7 +107,8 @@ Parameter | Description
 --------- | -----------
 id<br />**required** - *integer* | The ID of the list to update
 name<br />*string* | / | The list's name
-available<br />*boolean* | *true* | Whether or not the list is available
+available<br />*string* | *"available"* | The list's status ("available" or
+"archived")
 
 ### Returns
 Returns the [list object](#the-list-object).

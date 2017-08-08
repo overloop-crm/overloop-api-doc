@@ -16,7 +16,7 @@
         "offset": 0,
         "position": 1,
         "recipient": "",
-        "schedule_time": null,
+        "schedule_of_the_day": null,
         "created_at": "2015-08-15T16:48:46+02:00",
         "updated_at": "2016-11-25T12:40:46+01:00"
       },
@@ -44,7 +44,7 @@ content | **string** <br />The HTML content of the email
 offset | **integer** <br />The number of days the step will be sent after the previous step
 position | **integer** <br />The order position in the list
 recipient | **string** <br />The recipient email for step of type `steps_notification_email_steps`
-schedule_time | **datetime** <br />Time of day for this step to send in ISO 8601 format with timezone offset
+schedule_of_the_day | **integer** <br />Time of day in number of minutes since midnight in UTC time for this step to send
 created_at | **datetime** | ISO 8601 format with timezone offset
 updated_at | **datetime** | ISO 8601 format with timezone offset
 
