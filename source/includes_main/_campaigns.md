@@ -49,8 +49,7 @@ Attribute | Description
 --------- | -----------
 id | **integer** <br />A unique identifier for the campaign
 name | **string** <br />The campaign's name
-status | **string** <br />The campaign's status that can take 3 different values:
-`available`, `archived` and `draft`
+status | **string** <br />The campaign's status that can take 3 different values: `available`, `archived` and `draft`
 steps_count | **integer** <br />The number of steps in the campaign
 sending_days | **array** <br />An array containing the days of the week when the campaign will send. Monday is `1`
 stop_when | **array** <br />An array containing the events that trigger the campaign to stops. Possible values are `message.click`, `prospect.replied` and `prospect.convert`

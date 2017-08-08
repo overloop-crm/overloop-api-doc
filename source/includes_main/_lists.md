@@ -55,8 +55,7 @@ This will create a new list.
 Parameter | Default | Description
 --------- | ------- | ------------
 name<br />**required** - *string* | / | The list's name
-available<br />*string* | *"available"* | The list's status ("available" or
-"archived")
+available<br />*string* | *"available"* | The list's status ("available" or "archived")
 
 ### Returns
 Returns the [list object](#the-list-object).
@@ -107,8 +106,7 @@ Parameter | Description
 --------- | -----------
 id<br />**required** - *integer* | The ID of the list to update
 name<br />*string* | / | The list's name
-available<br />*string* | *"available"* | The list's status ("available" or
-"archived")
+available<br />*string* | *"available"* | The list's status ("available" or "archived")
 
 ### Returns
 Returns the [list object](#the-list-object).
