@@ -993,7 +993,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/prospects"</span
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lists"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LinkedIn"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"available"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1018,8 +1018,8 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/prospects"</span
 <td><strong>string</strong> <br />The list&rsquo;s name</td>
 </tr>
 <tr>
-<td>available</td>
-<td><strong>boolean</strong> <br />Whether or not the list is available</td>
+<td>status</td>
+<td><strong>string</strong> <br />The list&rsquo;s status that can take 2 different values: <code class="prettyprint">available</code> or <code class="prettyprint">archived</code></td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -1044,7 +1044,7 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <
     "type": "lists",
     "attributes": {
       "name": "A list name",
-      "available": true
+      "status": "available"
     }
   }
 }'</span>
@@ -1067,11 +1067,13 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <
 <td>The list&rsquo;s name</td>
 </tr>
 <tr>
-<td>available<br /><em>boolean</em></td>
-<td><em>true</em></td>
-<td>Whether or not the list is available</td>
+<td>available<br /><em>string</em></td>
+<td><em>&ldquo;available&rdquo;</em></td>
+<td>The list&rsquo;s status (&ldquo;available&rdquo; or</td>
 </tr>
 </tbody></table>
+
+<p>&ldquo;archived&rdquo;)</p>
 
 <h3 id="returns">Returns</h3>
 
@@ -1117,7 +1119,8 @@ curl -X PATCH <span class="s2">"https://prospect.io/api/public/v1/lists/1"</span
   "data": {
     "type": "lists",
     "attributes": {
-      "name": "LinkedIn bis"
+      "name": "LinkedIn bis",
+      "status": "archived"
     }
   }
 }'</span>
@@ -1142,10 +1145,12 @@ curl -X PATCH <span class="s2">"https://prospect.io/api/public/v1/lists/1"</span
 <td>/</td>
 </tr>
 <tr>
-<td>available<br /><em>boolean</em></td>
-<td><em>true</em></td>
+<td>available<br /><em>string</em></td>
+<td><em>&ldquo;available&rdquo;</em></td>
 </tr>
 </tbody></table>
+
+<p>&ldquo;archived&rdquo;)</p>
 
 <h3 id="returns">Returns</h3>
 
@@ -1253,7 +1258,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <s
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaigns"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intro + 1 follow up"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"available"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"steps_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sending_days"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -1303,30 +1308,17 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <s
 <td><strong>string</strong> <br />The campaign&rsquo;s name</td>
 </tr>
 <tr>
-<td>available</td>
-<td><strong>boolean</strong> <br />Whether or not the campaign is available</td>
-</tr>
-<tr>
-<td>steps_count</td>
-<td><strong>integer</strong> <br />The number of steps in the campaign</td>
-</tr>
-<tr>
-<td>sending_days</td>
-<td><strong>array</strong> <br />An array containing the days of the week when the campaign will send. Monday is <code class="prettyprint">1</code></td>
-</tr>
-<tr>
-<td>stop_when</td>
-<td><strong>array</strong> <br />An array containing the events that trigger the campaign to stops. Possible values are <code class="prettyprint">message.click</code>, <code class="prettyprint">prospect.replied</code> and <code class="prettyprint">prospect.convert</code></td>
-</tr>
-<tr>
-<td>created_at</td>
-<td><strong>datetime</strong></td>
-</tr>
-<tr>
-<td>updated_at</td>
-<td><strong>datetime</strong></td>
+<td>status</td>
+<td><strong>string</strong> <br />The campaign&rsquo;s status that can take 3 different values:</td>
 </tr>
 </tbody></table>
+
+<p><code class="prettyprint">available</code>, <code class="prettyprint">archived</code> and <code class="prettyprint">draft</code>
+steps_count | <strong>integer</strong> <br />The number of steps in the campaign
+sending_days | <strong>array</strong> <br />An array containing the days of the week when the campaign will send. Monday is <code class="prettyprint">1</code>
+stop_when | <strong>array</strong> <br />An array containing the events that trigger the campaign to stops. Possible values are <code class="prettyprint">message.click</code>, <code class="prettyprint">prospect.replied</code> and <code class="prettyprint">prospect.convert</code>
+created_at | <strong>datetime</strong> | ISO 8601 format with timezone offset
+updated_at | <strong>datetime</strong> | ISO 8601 format with timezone offset</p>
 
 <h3 id="relationships">Relationships</h3>
 
@@ -1442,7 +1434,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns"</span
         </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"schedule_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"schedule_of_the_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -1496,8 +1488,8 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns"</span
 <td><strong>string</strong> <br />The recipient email for step of type <code class="prettyprint">steps_notification_email_steps</code></td>
 </tr>
 <tr>
-<td>schedule_time</td>
-<td><strong>datetime</strong> <br />Time of day for this step to send in ISO 8601 format with timezone offset</td>
+<td>schedule_of_the_day</td>
+<td><strong>integer</strong> <br />Time of day in number of minutes since midnight in UTC time for this step to send</td>
 </tr>
 <tr>
 <td>created_at</td>
