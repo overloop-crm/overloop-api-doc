@@ -200,7 +200,7 @@ Updates the specified prospect by setting the values of the parameters passed. A
 Parameter | Description
 --------- | -----------
 id<br />**required** - *integer* | The ID of the prospect to update
-email<br />*string* | The prospect's email
+email<br />**required** - *string* | The prospect's email
 first_name<br />*string* | The prospect's first name
 last_name<br />*string* | The prospect's last name
 organisation_name<br />*string* | The prospect's company name
