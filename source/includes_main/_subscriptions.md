@@ -121,7 +121,7 @@ Returns the [subscription object](#the-subscription-object).
 POST https://prospect.io/api/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}/pause
 
 # EXAMPLE
-curl -X DELETE "https://prospect.io/api/public/v1/campaigns/1/subscriptions/1/pause" \
+curl -X POST "https://prospect.io/api/public/v1/campaigns/1/subscriptions/1/pause" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```
@@ -142,7 +142,7 @@ Returns the [subscription object](#the-subscription-object).
 POST https://prospect.io/api/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}/resume
 
 # EXAMPLE
-curl -X DELETE "https://prospect.io/api/public/v1/campaigns/1/subscriptions/1/resume" \
+curl -X POST "https://prospect.io/api/public/v1/campaigns/1/subscriptions/1/resume" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```
