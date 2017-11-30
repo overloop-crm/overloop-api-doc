@@ -30,12 +30,14 @@
       "created_from": "extension",
       "last_emailed_at": null,
       "converted": false,
-      "converted_at": false,
+      "converted_at": null,
       "qualified": true,
       "qualified_at": "2016-11-25T12:40:46+01:00",
       "archived": false,
       "replied": false,
-      "replied_at": false,
+      "replied_at": null,
+      "bounced": false,
+      "bounced_at": null,
       "campaign_status": null,
       "url": "https://prospect.io/prospects/1",
       "list_name": "Sales Managers in UK",
@@ -98,6 +100,8 @@ qualified_at | **datetime** <br />The date and time when the prospect has been m
 archived | **boolean** <br />Whether or not the prospect is archived
 replied | **boolean** <br />Whether or not the prospect replied to any of your emails
 replied_at | **datetime** <br />The date and time when the prospect first replied
+bounced | **boolean** <br />Whether or not the prospect email bounced
+bounced_at | **datetime** <br />The date and time when the prospect email bounced for the last time
 campaign_status | **string** <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be `running`, `paused` or `scheduled`
 url | **string** <br />The full URL to the prospect on Prospect.io
 list_name | **string** <br />The name of the list if the prospect is in a list
