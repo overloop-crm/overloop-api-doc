@@ -32,6 +32,7 @@
       "converted": false,
       "converted_at": false,
       "qualified": true,
+      "qualified_at": "2016-11-25T12:40:46+01:00",
       "archived": false,
       "replied": false,
       "replied_at": false,
@@ -93,6 +94,7 @@ last_emailed_at | **datetime** <br />The date and time of the last email sent to
 converted | **boolean** <br />Whether or not the prospect is marked as converted
 converted_at | **datetime** <br />The date and time when the prospect has been marked as converted
 qualified | **boolean** <br />Whether or not the prospect is marked as qualified
+qualified_at | **datetime** <br />The date and time when the prospect has been marked as qualified
 archived | **boolean** <br />Whether or not the prospect is archived
 replied | **boolean** <br />Whether or not the prospect replied to any of your emails
 replied_at | **datetime** <br />The date and time when the prospect first replied
