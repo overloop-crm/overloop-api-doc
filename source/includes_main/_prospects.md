@@ -34,6 +34,7 @@
       "qualified": true,
       "qualified_at": "2016-11-25T12:40:46+01:00",
       "archived": false,
+      "archived_at": null,
       "replied": false,
       "replied_at": null,
       "bounced": false,
@@ -98,6 +99,7 @@ converted_at | **datetime** <br />The date and time when the prospect has been m
 qualified | **boolean** <br />Whether or not the prospect is marked as qualified
 qualified_at | **datetime** <br />The date and time when the prospect has been marked as qualified
 archived | **boolean** <br />Whether or not the prospect is archived
+archived_at | **datetime** <br />The date and time when the prospect has been archived
 replied | **boolean** <br />Whether or not the prospect replied to any of your emails
 replied_at | **datetime** <br />The date and time when the prospect first replied
 bounced | **boolean** <br />Whether or not the prospect email bounced
