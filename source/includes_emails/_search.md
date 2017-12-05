@@ -97,7 +97,7 @@ Parameter | Description
 domain<br />**required** - *string* | Domain name from which you want to find the email addresses. For example, "prospect.io".
 first_name<br />*string* | The person's first name
 last_name<br />*string* | The person's last name
-type<br />*string* | Only return emails of this type. Possible values are `personal` or `generic`.
+type<br />*string* | Only return emails of this type. Possible values are `personal` or `generic`. If empty, we'll use the value defined in your [email quality settings](https://prospect.io/email_quality)
 
 ### Returns
 Returns the [email search object](#the-email-search-object).
