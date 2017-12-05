@@ -287,8 +287,8 @@ GET https://prospect.io/api/public/v1/prospects?sort<span class="o">=</span>-cre
       </span><span class="nt">"vat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BE0645917753"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"plan_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5K Credits"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"plan_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monthly_credits_5k"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"credits_per_month"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"this_month_used_credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">1608</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credits_per_period"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"this_period_used_credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">1608</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email_queries_used_this_period_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
       </span><span class="nt">"messages_sent_this_period_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1473</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
@@ -347,11 +347,11 @@ GET https://prospect.io/api/public/v1/prospects?sort<span class="o">=</span>-cre
 <td><strong>string</strong> <br />The account&rsquo;s plan code</td>
 </tr>
 <tr>
-<td>credits_per_month</td>
-<td><strong>integer</strong> <br />The number of credits available per month</td>
+<td>credits_per_period</td>
+<td><strong>integer</strong> <br />The number of credits available per billign period (1 month or 1 year)</td>
 </tr>
 <tr>
-<td>this_month_used_credits</td>
+<td>this_period_used_credits</td>
 <td><strong>integer</strong> <br />The number of total credits used on the current billing period</td>
 </tr>
 <tr>
@@ -420,11 +420,15 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
       </span><span class="nt">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_emailed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"converted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"converted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"converted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"qualified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"qualified_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"replied_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"replied_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bounced"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bounced_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"campaign_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/prospects/1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"list_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Managers in UK"</span><span class="p">,</span><span class="w">
@@ -546,8 +550,16 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
 <td><strong>boolean</strong> <br />Whether or not the prospect is marked as qualified</td>
 </tr>
 <tr>
+<td>qualified_at</td>
+<td><strong>datetime</strong> <br />The date and time when the prospect has been marked as qualified</td>
+</tr>
+<tr>
 <td>archived</td>
 <td><strong>boolean</strong> <br />Whether or not the prospect is archived</td>
+</tr>
+<tr>
+<td>archived_at</td>
+<td><strong>datetime</strong> <br />The date and time when the prospect has been archived</td>
 </tr>
 <tr>
 <td>replied</td>
@@ -556,6 +568,14 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
 <tr>
 <td>replied_at</td>
 <td><strong>datetime</strong> <br />The date and time when the prospect first replied</td>
+</tr>
+<tr>
+<td>bounced</td>
+<td><strong>boolean</strong> <br />Whether or not the prospect email bounced</td>
+</tr>
+<tr>
+<td>bounced_at</td>
+<td><strong>datetime</strong> <br />The date and time when the prospect email bounced for the last time</td>
 </tr>
 <tr>
 <td>campaign_status</td>
@@ -2343,7 +2363,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/search?do
 </tr>
 <tr>
 <td>type<br /><em>string</em></td>
-<td>Only return emails of this type. Possible values are <code class="prettyprint">personal</code> or <code class="prettyprint">generic</code>.</td>
+<td>Only return emails of this type. Possible values are <code class="prettyprint">personal</code> or <code class="prettyprint">generic</code>. If empty, we&rsquo;ll use the value defined in your <a href="https://prospect.io/email_quality">email quality settings</a></td>
 </tr>
 </tbody></table>
 
