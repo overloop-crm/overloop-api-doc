@@ -106,7 +106,7 @@ curl -X POST "https://prospect.io/api/public/v1/campaigns/1/subscriptions" \
 }'
 ```
 
-This will create a new subscription. The start of the campaign, *i.e.* when the first campaign step is performed, can be scheduled by passing a `start_date` and a `start_time` in the parameters. If the `start_date` or the `start_time` is missing, the campaign will be started immediately.
+This will create a new subscription. The start of the subscription, *i.e.* when the first campaign step is performed, can be scheduled by passing a `start_date` and a `start_time` in the parameters. If the `start_date` or the `start_time` is missing, the subscription will be started immediately.
 
 ### Parameters
 Parameter | Required? | Type | Description
