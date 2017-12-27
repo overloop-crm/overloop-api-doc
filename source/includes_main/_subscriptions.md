@@ -5,7 +5,7 @@ To start sending a campaign to a prospect you have to create a **subscription**.
 You can take manual actions on a subscription to `pause`, `resume` or `stop` a campaign for a specific prospect.
 
 A subscription can also be automatically `completed` after the last [campaign step](#campaign-steps) is sent.
-A subscription can laos be automatically `stopped` if we register one of the [`campaigns.stop_when` events](#the-campaign-object).
+A subscription can also be automatically `stopped` if we register one of the [`campaigns.stop_when` events](#the-campaign-object).
 
 ```
 # EXAMPLE OBJECT
@@ -98,19 +98,23 @@ curl -X POST "https://prospect.io/api/public/v1/campaigns/1/subscriptions" \
     "type": "subscriptions",
     "attributes": {
       "prospect_id": 1,
-      "user_id": 1
+      "user_id": 1,
+      "start_date": "24/11/2016",
+      "start_time": "09:30:00"
     }
   }
 }'
 ```
 
-This will create a new subscription.
+This will create a new subscription. The start of the campaign, *i.e.* when the first campaign step is performed, can be scheduled by passing a `start_date` and a `start_time` in the parameters. If the `start_date` or the `start_time` is missing, the campaign will be started immediately.
 
 ### Parameters
-Parameter | Default | Description
---------- | ------- | ------------
-prospect_id<br />**required** - *integer* | / | The prospect's ID
-user_id<br />**required** - *integer* | / | The sender's ID
+Parameter | Required? | Type | Description
+--------- | --------- | ---- | ------------
+prospect_id | **yes** | *integer* | The prospect's ID
+user_id | **yes** | *integer* | The sender's ID
+start_date | no | *string* | The date at wich the first email of the campaign must be sent, in the format `dd/mm/yyyy`.
+start_time | no | *string* | The time of the day at which the first email of the campaign must be sent, in the format `HH/MM/SS`.
 
 ### Returns
 Returns the [subscription object](#the-subscription-object).
@@ -201,9 +205,9 @@ curl -X GET "https://prospect.io/api/public/v1/campaigns/1/subscriptions/1" \
 ```
 
 ### Parameters
-Parameter | Description
---------- | -----------
-id<br />**required** - *integer* | The ID of the subscription to retrieve
+Parameter | Required? | Type | Description
+--------- | --------- | -----| -----------
+id | **yes** | *integer* | The ID of the subscription to retrieve
 
 ### Returns
 Returns the [subscription object](#the-subscription-object).
