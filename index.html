@@ -1658,7 +1658,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/step
 <p>You can take manual actions on a subscription to <code class="prettyprint">pause</code>, <code class="prettyprint">resume</code> or <code class="prettyprint">stop</code> a campaign for a specific prospect.</p>
 
 <p>A subscription can also be automatically <code class="prettyprint">completed</code> after the last <a href="#campaign-steps">campaign step</a> is sent.
-A subscription can laos be automatically <code class="prettyprint">stopped</code> if we register one of the <a href="#the-campaign-object"><code class="prettyprint">campaigns.stop_when</code> events</a>.</p>
+A subscription can also be automatically <code class="prettyprint">stopped</code> if we register one of the <a href="#the-campaign-object"><code class="prettyprint">campaigns.stop_when</code> events</a>.</p>
 <pre class="highlight plaintext"><code># EXAMPLE OBJECT
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1810,32 +1810,49 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/sub
     "type": "subscriptions",
     "attributes": {
       "prospect_id": 1,
-      "user_id": 1
+      "user_id": 1,
+      "start_date": "24/11/2016",
+      "start_time": "09:30:00"
     }
   }
 }'</span>
 </code></pre>
 
-<p>This will create a new subscription.</p>
+<p>This will create a new subscription. The start of the campaign, <em>i.e.</em> when the first campaign step is performed, can be scheduled by passing a <code class="prettyprint">start_date</code> and a <code class="prettyprint">start_time</code> in the parameters. If the <code class="prettyprint">start_date</code> or the <code class="prettyprint">start_time</code> is missing, the campaign will be started immediately.</p>
 
 <h3 id="parameters">Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Required?</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>prospect_id<br /><strong>required</strong> - <em>integer</em></td>
-<td>/</td>
+<td>prospect_id</td>
+<td><strong>yes</strong></td>
+<td><em>integer</em></td>
 <td>The prospect&rsquo;s ID</td>
 </tr>
 <tr>
-<td>user_id<br /><strong>required</strong> - <em>integer</em></td>
-<td>/</td>
+<td>user_id</td>
+<td><strong>yes</strong></td>
+<td><em>integer</em></td>
 <td>The sender&rsquo;s ID</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>no</td>
+<td><em>string</em></td>
+<td>The date at wich the first email of the campaign must be sent, in the format <code class="prettyprint">dd/mm/yyyy</code>.</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>no</td>
+<td><em>string</em></td>
+<td>The time of the day at which the first email of the campaign must be sent, in the format <code class="prettyprint">HH/MM/SS</code>.</td>
 </tr>
 </tbody></table>
 
@@ -1971,11 +1988,15 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subs
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Required?</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id<br /><strong>required</strong> - <em>integer</em></td>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td><em>integer</em></td>
 <td>The ID of the subscription to retrieve</td>
 </tr>
 </tbody></table>
