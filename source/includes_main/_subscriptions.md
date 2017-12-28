@@ -106,7 +106,7 @@ curl -X POST "https://prospect.io/api/public/v1/campaigns/1/subscriptions" \
 }'
 ```
 
-This will create a new subscription. The start of the subscription, *i.e.* when the first campaign step is performed, can be scheduled by passing a `start_date` and a `start_time` in the parameters. If the `start_date` or the `start_time` is missing, the subscription will be started immediately.
+This will create a new subscription. The start of the subscription, *i.e.* when the first campaign step is performed, can be scheduled by passing a `start_date` and a `start_time` in the parameters. Both `start_date` and `start_time` are defined in the timezone of the user who makes the API call. If the `start_date` or the `start_time` is missing, the subscription will be started immediately.
 
 ### Parameters
 Parameter | Required? | Type | Description
@@ -114,7 +114,7 @@ Parameter | Required? | Type | Description
 prospect_id | **yes** | *integer* | The prospect's ID
 user_id | **yes** | *integer* | The sender's ID
 start_date | no | *string* | The date at wich the first email of the campaign must be sent, in the format `dd/mm/yyyy`.
-start_time | no | *string* | The time of the day at which the first email of the campaign must be sent, in the format `HH/MM/SS`.
+start_time | no | *string* | The time of the day at which the first email of the campaign must be sent, in the format `HH:MM:SS`.
 
 ### Returns
 Returns the [subscription object](#the-subscription-object).
