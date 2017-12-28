@@ -1818,7 +1818,7 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/sub
 }'</span>
 </code></pre>
 
-<p>This will create a new subscription. The start of the subscription, <em>i.e.</em> when the first campaign step is performed, can be scheduled by passing a <code class="prettyprint">start_date</code> and a <code class="prettyprint">start_time</code> in the parameters. If the <code class="prettyprint">start_date</code> or the <code class="prettyprint">start_time</code> is missing, the subscription will be started immediately.</p>
+<p>This will create a new subscription. The start of the subscription, <em>i.e.</em> when the first campaign step is performed, can be scheduled by passing a <code class="prettyprint">start_date</code> and a <code class="prettyprint">start_time</code> in the parameters. Both <code class="prettyprint">start_date</code> and <code class="prettyprint">start_time</code> are defined in the timezone of the user who makes the API call. If the <code class="prettyprint">start_date</code> or the <code class="prettyprint">start_time</code> is missing, the subscription will be started immediately.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1852,7 +1852,7 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/sub
 <td>start_time</td>
 <td>no</td>
 <td><em>string</em></td>
-<td>The time of the day at which the first email of the campaign must be sent, in the format <code class="prettyprint">HH/MM/SS</code>.</td>
+<td>The time of the day at which the first email of the campaign must be sent, in the format <code class="prettyprint">HH:MM:SS</code>.</td>
 </tr>
 </tbody></table>
 
