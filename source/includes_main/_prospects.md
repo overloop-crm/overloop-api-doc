@@ -160,6 +160,8 @@ industry<br />*string* | *NULL* | The prospect's industry
 custom_field_[a..e]<br /> *string* | *NULL* | Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
 list_id<br />*integer* | *NULL* | ID of the list where to save the prospect
 responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
+converted<br />*boolean* | *false* | Whether or not the prospect is marked as converted
+qualified<br />*boolean* | *false* | Whether or not the prospect is marked as qualified
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).
@@ -223,6 +225,8 @@ industry<br />*string* | The prospect's industry
 custom_field_[a..e]<br /> | *string* | Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
 list_id<br />*integer* | ID of the list where to save the prospect
 responsible_id<br />*integer* | The ID of the user responsible for this prospect
+converted<br />*boolean* | *false* | Whether or not the prospect is marked as converted
+qualified<br />*boolean* | *false* | Whether or not the prospect is marked as qualified
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).
