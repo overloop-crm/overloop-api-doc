@@ -1002,6 +1002,132 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/prospects"</span
 
 <p>This list is <a href="#pagination">paginate</a> by 100 records and can also be <a href="#sorting">sorted</a>.</p>
 
+<h2 id="mark-as-not-qualified">Mark as (not) qualified</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION: Mark as qualified</span>
+POST https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/qualification
+
+<span class="c"># EXAMPLE</span>
+curl -X POST <span class="s2">"https://prospect.io/api/public/v1/prospects/1/qualification"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+
+<span class="c"># DEFINITION: Mark as not qualified</span>
+DELETE https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/qualification
+
+<span class="c"># EXAMPLE</span>
+curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/prospects/1/qualification"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+</code></pre>
+
+<p>Mark a prospect as qualified or not qualified.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td>integer</td>
+<td>The ID of the prospect to mark as (not) qualified</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
+
+<h2 id="mark-as-not-converted">Mark as (not) converted</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION: Mark as converted</span>
+POST https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/conversion
+
+<span class="c"># EXAMPLE</span>
+curl -X POST <span class="s2">"https://prospect.io/api/public/v1/prospects/1/conversion"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+
+<span class="c"># DEFINITION: Mark as not converted</span>
+DELETE https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/conversion
+
+<span class="c"># EXAMPLE</span>
+curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/prospects/1/conversion"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+</code></pre>
+
+<p>Mark a prospect as converted or not converted.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td>integer</td>
+<td>The ID of the prospect to mark as (not) converted</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
+
+<h2 id="mark-as-not-archived">Mark as (not) archived</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION: Mark as archived</span>
+POST https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/archive
+
+<span class="c"># EXAMPLE</span>
+curl -X POST <span class="s2">"https://prospect.io/api/public/v1/prospects/1/archive"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+
+<span class="c"># DEFINITION: Mark as not archived</span>
+DELETE https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/archive
+
+<span class="c"># EXAMPLE</span>
+curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/prospects/1/archive"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+</code></pre>
+
+<p>Mark a prospect as archived or not archived.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td>integer</td>
+<td>The ID of the prospect to mark as (not) archived</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
+
           <h1 id="lists">Lists</h1>
 
 <h2 id="the-list-object">The list object</h2>
