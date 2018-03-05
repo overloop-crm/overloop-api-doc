@@ -160,11 +160,22 @@ GET https://prospect.io/api/public/v1/prospects?sort<span class="o">=</span>-cre
 <p>Get prospects sorted by creation date DESC (most recents first)</p>
 </blockquote>
 
-<p>Our APIs supports requests to sort resource collections according to one or more criteria usin a <code class="prettyprint">sort</code> query parameter. The value for <code class="prettyprint">sort</code> must represent the object attributes.</p>
+<p>Our APIs supports requests to sort resource collections according to one or more criteria using a <code class="prettyprint">sort</code> query parameter. The value for <code class="prettyprint">sort</code> must represent the object attributes.</p>
 
 <p>We support <strong>multiple sort attributes</strong> by using comma-separated &ldquo;,&rdquo; attributes. Sort attributes are applied in the order specified.</p>
 
 <p>The sort order for each sort attributes is <strong>ascending by default</strong> unless it is prefixed with a minus &ldquo;-&rdquo;, in which case it is <strong>descending</strong>.</p>
+
+          <h1 id="filtering">Filtering</h1>
+<pre class="highlight shell"><code><span class="c"># EXAMPLE</span>
+GET https://prospect.io/api/public/v1/prospects/?filter<span class="o">=</span>first_name:john,last_name:doe
+</code></pre>
+
+<blockquote>
+<p>Get prospects whose first name is &lsquo;john&rsquo; and last name is &#39;doe&rsquo;.</p>
+</blockquote>
+
+<p>Resource collections retrieved through the API can be <strong>filtered</strong> using one or several object attributes, in the form of a comma separated list. The filterable attributes <strong>accepted</strong> by the API for <strong>each object collection</strong> are detailed in the section of the doc on the considered object.</p>
 
           <h1 id="pagination">Pagination</h1>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -422,13 +433,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
       </span><span class="nt">"converted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"converted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"qualified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"qualified_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"bounced"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"bounced_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"campaign_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/prospects/1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"list_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Managers in UK"</span><span class="p">,</span><span class="w">
@@ -470,131 +478,158 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
 <table><thead>
 <tr>
 <th>Attribute</th>
+<th>Filterable?</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
+<td><strong>yes</strong></td>
 <td><strong>integer</strong> <br />A unique identifier for the prospect</td>
 </tr>
 <tr>
 <td>email</td>
+<td><strong>yes</strong></td>
 <td><strong>string</strong> <br />The prospect&rsquo;s email address</td>
 </tr>
 <tr>
 <td>first_name</td>
+<td><strong>yes</strong></td>
 <td><strong>string</strong> <br />The prospect&rsquo;s first name</td>
 </tr>
 <tr>
 <td>last_name</td>
+<td><strong>yes</strong></td>
 <td><strong>string</strong> <br />The prospect&rsquo;s last name</td>
 </tr>
 <tr>
 <td>organisation_name</td>
+<td>no</td>
 <td><strong>string</strong> <br />The prospect&rsquo;s company name</td>
 </tr>
 <tr>
 <td>description</td>
+<td>no</td>
 <td><strong>string</strong> <br />A text description of the prospect</td>
 </tr>
 <tr>
 <td>domain</td>
+<td><strong>yes</strong></td>
 <td><strong>string</strong> <br />The prospect&rsquo;s website</td>
 </tr>
 <tr>
 <td>jobtitle</td>
+<td><strong>yes</strong></td>
 <td><strong>string</strong> <br />The prospect&rsquo;s job title</td>
 </tr>
 <tr>
 <td>linkedin_profile</td>
+<td>no</td>
 <td><strong>string</strong> <br />A link to the prospect&rsquo;s LinkedIn profile</td>
 </tr>
 <tr>
 <td>phone</td>
+<td><strong>yes</strong></td>
 <td><strong>string</strong> <br />The prospect&rsquo;s phone number</td>
 </tr>
 <tr>
 <td>title</td>
+<td><strong>yes</strong></td>
 <td><strong>string</strong> <br />The prospect&rsquo;s title of civility</td>
 </tr>
 <tr>
 <td>country</td>
+<td><strong>yes</strong></td>
 <td><strong>string</strong> <br />The prospect&rsquo;s country</td>
 </tr>
 <tr>
 <td>industry</td>
+<td><strong>yes</strong></td>
 <td><strong>string</strong> <br />The prospect&rsquo;s industry</td>
 </tr>
 <tr>
 <td>custom_field_[a..e]</td>
+<td><strong>yes</strong></td>
 <td><strong>string</strong> <br />Five custom fields (custom_field_a, custom_field_b, &hellip;) that you can use freely</td>
 </tr>
 <tr>
 <td>created_from</td>
+<td>no</td>
 <td><strong>string</strong> <br />The source of the prospect. Can be <code class="prettyprint">web</code>, <code class="prettyprint">extension</code>, <code class="prettyprint">api</code> or <code class="prettyprint">import</code></td>
 </tr>
 <tr>
 <td>last_emailed_at</td>
+<td>no</td>
 <td><strong>datetime</strong> <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset</td>
 </tr>
 <tr>
 <td>converted</td>
+<td><strong>yes</strong></td>
 <td><strong>boolean</strong> <br />Whether or not the prospect is marked as converted</td>
 </tr>
 <tr>
 <td>converted_at</td>
+<td>no</td>
 <td><strong>datetime</strong> <br />The date and time when the prospect has been marked as converted</td>
 </tr>
 <tr>
 <td>qualified</td>
+<td><strong>yes</strong></td>
 <td><strong>boolean</strong> <br />Whether or not the prospect is marked as qualified</td>
 </tr>
 <tr>
-<td>qualified_at</td>
-<td><strong>datetime</strong> <br />The date and time when the prospect has been marked as qualified</td>
-</tr>
-<tr>
 <td>archived</td>
+<td><strong>yes</strong></td>
 <td><strong>boolean</strong> <br />Whether or not the prospect is archived</td>
 </tr>
 <tr>
-<td>archived_at</td>
-<td><strong>datetime</strong> <br />The date and time when the prospect has been archived</td>
+<td>opened</td>
+<td><strong>yes</strong></td>
+<td><strong>boolean</strong> <br />Wheteer or not the prospect opened any of your emails</td>
+</tr>
+<tr>
+<td>clicked</td>
+<td><strong>yes</strong></td>
+<td><strong>boolean</strong> <br />Wheter or not the prospect clicked a link in any of your emails</td>
 </tr>
 <tr>
 <td>replied</td>
+<td><strong>yes</strong></td>
 <td><strong>boolean</strong> <br />Whether or not the prospect replied to any of your emails</td>
 </tr>
 <tr>
 <td>replied_at</td>
+<td>no</td>
 <td><strong>datetime</strong> <br />The date and time when the prospect first replied</td>
 </tr>
 <tr>
 <td>bounced</td>
+<td>*<em>yes</em></td>
 <td><strong>boolean</strong> <br />Whether or not the prospect email bounced</td>
 </tr>
 <tr>
-<td>bounced_at</td>
-<td><strong>datetime</strong> <br />The date and time when the prospect email bounced for the last time</td>
-</tr>
-<tr>
 <td>campaign_status</td>
+<td>no</td>
 <td><strong>string</strong> <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be <code class="prettyprint">running</code>, <code class="prettyprint">paused</code> or <code class="prettyprint">scheduled</code></td>
 </tr>
 <tr>
 <td>url</td>
+<td>no</td>
 <td><strong>string</strong> <br />The full URL to the prospect on Prospect.io</td>
 </tr>
 <tr>
 <td>list_name</td>
+<td>no</td>
 <td><strong>string</strong> <br />The name of the list if the prospect is in a list</td>
 </tr>
 <tr>
 <td>created_at</td>
+<td>no</td>
 <td><strong>datetime</strong></td>
 </tr>
 <tr>
 <td>updated_at</td>
+<td>no</td>
 <td><strong>datetime</strong></td>
 </tr>
 </tbody></table>
@@ -1000,7 +1035,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/prospects"</span
 
 <p>Returns a list of prospects.</p>
 
-<p>This list is <a href="#pagination">paginate</a> by 100 records and can also be <a href="#sorting">sorted</a>.</p>
+<p>This list is <a href="#pagination">paginated</a> by 100 records. It can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
 
 <h2 id="mark-as-not-qualified">Mark as (not) qualified</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION: Mark as qualified</span>
@@ -1152,27 +1187,33 @@ curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/prospects/1/a
 <table><thead>
 <tr>
 <th>Attribute</th>
+<th>Filterable?</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
+<td>no</td>
 <td><strong>integer</strong> <br />A unique identifier for the list</td>
 </tr>
 <tr>
 <td>name</td>
+<td>no</td>
 <td><strong>string</strong> <br />The list&rsquo;s name</td>
 </tr>
 <tr>
 <td>status</td>
+<td><strong>yes</strong></td>
 <td><strong>string</strong> <br />The list&rsquo;s status that can take 2 different values: <code class="prettyprint">available</code> or <code class="prettyprint">archived</code></td>
 </tr>
 <tr>
 <td>created_at</td>
+<td>no</td>
 <td><strong>datetime</strong></td>
 </tr>
 <tr>
 <td>updated_at</td>
+<td>no</td>
 <td><strong>datetime</strong></td>
 </tr>
 </tbody></table>
@@ -1387,7 +1428,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <s
 
 <p>Returns a list of lists.</p>
 
-<p>This list is <a href="#pagination">paginate</a> by 100 records and can also be <a href="#sorting">sorted</a>.</p>
+<p>This list is <a href="#pagination">paginated</a> by 100 records and can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
 
           <h1 id="campaigns">Campaigns</h1>
 
@@ -1438,39 +1479,48 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <s
 <table><thead>
 <tr>
 <th>Attribute</th>
+<th>Filterable?</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
+<td>no</td>
 <td><strong>integer</strong> <br />A unique identifier for the campaign</td>
 </tr>
 <tr>
 <td>name</td>
+<td>no</td>
 <td><strong>string</strong> <br />The campaign&rsquo;s name</td>
 </tr>
 <tr>
 <td>status</td>
+<td><strong>yes</strong></td>
 <td><strong>string</strong> <br />The campaign&rsquo;s status that can take 3 different values: <code class="prettyprint">available</code>, <code class="prettyprint">archived</code> and <code class="prettyprint">draft</code></td>
 </tr>
 <tr>
 <td>steps_count</td>
+<td>no</td>
 <td><strong>integer</strong> <br />The number of steps in the campaign</td>
 </tr>
 <tr>
 <td>sending_days</td>
+<td>no</td>
 <td><strong>array</strong> <br />An array containing the days of the week when the campaign will send. Monday is <code class="prettyprint">1</code></td>
 </tr>
 <tr>
 <td>stop_when</td>
+<td>no</td>
 <td><strong>array</strong> <br />An array containing the events that trigger the campaign to stops. Possible values are <code class="prettyprint">message.click</code>, <code class="prettyprint">prospect.replied</code> and <code class="prettyprint">prospect.convert</code></td>
 </tr>
 <tr>
 <td>created_at</td>
+<td>no</td>
 <td><strong>datetime</strong></td>
 </tr>
 <tr>
 <td>updated_at</td>
+<td>no</td>
 <td><strong>datetime</strong></td>
 </tr>
 </tbody></table>
@@ -1571,7 +1621,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns"</span
 
 <p>Returns a list of campaigns.</p>
 
-<p>This list is <a href="#pagination">paginate</a> by 100 records and can also be <a href="#sorting">sorted</a>.</p>
+<p>This list is <a href="#pagination">paginated</a> by 100 records and can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
 
           <h1 id="campaign-steps">Campaign Steps</h1>
 
@@ -1773,7 +1823,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/step
 
 <p>Returns a list of campaigns steps.</p>
 
-<p>This list is <a href="#pagination">paginate</a> by 100 records and can also be <a href="#sorting">sorted</a>.</p>
+<p>This list is <a href="#pagination">paginated</a> by 100 records and can also be <a href="#sorting">sorted</a>.</p>
 
           <h1 id="subscriptions">Subscriptions</h1>
 
@@ -2170,55 +2220,68 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subs
 <table><thead>
 <tr>
 <th>Attribute</th>
+<th>Filterable?</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
+<td>no</td>
 <td><strong>integer</strong> <br />A unique identifier for the user</td>
 </tr>
 <tr>
 <td>name</td>
+<td>no</td>
 <td><strong>string</strong> <br />The user&rsquo;s name</td>
 </tr>
 <tr>
 <td>email</td>
+<td>no</td>
 <td><strong>string</strong> <br />The user&rsquo;s email address</td>
 </tr>
 <tr>
 <td>role</td>
+<td>no</td>
 <td><strong>string</strong> <br />The user&rsquo;s role. Can be <code class="prettyprint">admin</code> or <code class="prettyprint">user</code></td>
 </tr>
 <tr>
 <td>phone_number</td>
+<td>no</td>
 <td><strong>string</strong> <br />The user&rsquo;s phone number</td>
 </tr>
 <tr>
 <td>skype</td>
+<td>no</td>
 <td><strong>string</strong> <br />The user&rsquo;s Skype username</td>
 </tr>
 <tr>
 <td>signature</td>
+<td>no</td>
 <td><strong>string</strong> <br />The user&rsquo;s HTML signature</td>
 </tr>
 <tr>
 <td>disabled</td>
+<td><strong>yes</strong></td>
 <td><strong>boolean</strong> <br />Whether or not the user is disabled or not</td>
 </tr>
 <tr>
 <td>from_name</td>
+<td>no</td>
 <td><strong>string</strong> <br />The name we put in the email <code class="prettyprint">from</code> field</td>
 </tr>
 <tr>
 <td>timezone</td>
+<td>no</td>
 <td><strong>string</strong> <br />The user&rsquo;s time zone</td>
 </tr>
 <tr>
 <td>created_at</td>
+<td>no</td>
 <td><strong>datetime</strong></td>
 </tr>
 <tr>
 <td>updated_at</td>
+<td>no</td>
 <td><strong>datetime</strong></td>
 </tr>
 </tbody></table>
@@ -2325,7 +2388,7 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/users"</span> <s
 
 <p>Returns a list of users.</p>
 
-<p>This list is <a href="#pagination">paginate</a> by 100 records and can also be <a href="#sorting">sorted</a>.</p>
+<p>This list is <a href="#pagination">paginated</a> by 100 records and can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
 
 
         <h1 class="headline" data-unique="email-api" id="email-api">Emails API</h1>
