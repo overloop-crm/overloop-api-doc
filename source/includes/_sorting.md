@@ -6,7 +6,7 @@ GET https://prospect.io/api/public/v1/prospects?sort=-created_at
 
 > Get prospects sorted by creation date DESC (most recents first)
 
-Our APIs supports requests to sort resource collections according to one or more criteria usin a `sort` query parameter. The value for `sort` must represent the object attributes.
+Our APIs supports requests to sort resource collections according to one or more criteria using a `sort` query parameter. The value for `sort` must represent the object attributes.
 
 We support **multiple sort attributes** by using comma-separated "," attributes. Sort attributes are applied in the order specified.
 

@@ -32,13 +32,10 @@
       "converted": false,
       "converted_at": null,
       "qualified": true,
-      "qualified_at": "2016-11-25T12:40:46+01:00",
       "archived": false,
-      "archived_at": null,
       "replied": false,
       "replied_at": null,
       "bounced": false,
-      "bounced_at": null,
       "campaign_status": null,
       "url": "https://prospect.io/prospects/1",
       "list_name": "Sales Managers in UK",
@@ -76,39 +73,38 @@
 ```
 
 ### Object attributes
-Attribute | Description
---------- | -----------
-id | **integer** <br />A unique identifier for the prospect
-email | **string** <br />The prospect's email address
-first_name | **string** <br />The prospect's first name
-last_name | **string** <br />The prospect's last name
-organisation_name | **string** <br />The prospect's company name
-description | **string** <br />A text description of the prospect
-domain | **string** <br />The prospect's website
-jobtitle | **string** <br />The prospect's job title
-linkedin_profile | **string** <br />A link to the prospect's LinkedIn profile
-phone | **string** <br />The prospect's phone number
-title | **string** <br />The prospect's title of civility
-country | **string** <br />The prospect's country
-industry | **string** <br />The prospect's industry
-custom_field_[a..e] | **string** <br />Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
-created_from | **string** <br />The source of the prospect. Can be `web`, `extension`, `api` or `import`
-last_emailed_at | **datetime** <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset
-converted | **boolean** <br />Whether or not the prospect is marked as converted
-converted_at | **datetime** <br />The date and time when the prospect has been marked as converted
-qualified | **boolean** <br />Whether or not the prospect is marked as qualified
-qualified_at | **datetime** <br />The date and time when the prospect has been marked as qualified
-archived | **boolean** <br />Whether or not the prospect is archived
-archived_at | **datetime** <br />The date and time when the prospect has been archived
-replied | **boolean** <br />Whether or not the prospect replied to any of your emails
-replied_at | **datetime** <br />The date and time when the prospect first replied
-bounced | **boolean** <br />Whether or not the prospect email bounced
-bounced_at | **datetime** <br />The date and time when the prospect email bounced for the last time
-campaign_status | **string** <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be `running`, `paused` or `scheduled`
-url | **string** <br />The full URL to the prospect on Prospect.io
-list_name | **string** <br />The name of the list if the prospect is in a list
-created_at | **datetime** | ISO 8601 format with timezone offset
-updated_at | **datetime** | ISO 8601 format with timezone offset
+Attribute | Filterable? | Description
+--------- | ---------- | -----------
+id | **yes** | **integer** <br />A unique identifier for the prospect
+email | **yes** | **string** <br />The prospect's email address
+first_name | **yes** | **string** <br />The prospect's first name
+last_name | **yes** | **string** <br />The prospect's last name
+organisation_name | no | **string** <br />The prospect's company name
+description | no | **string** <br />A text description of the prospect
+domain | **yes** | **string** <br />The prospect's website
+jobtitle | **yes** | **string** <br />The prospect's job title
+linkedin_profile | no |**string** <br />A link to the prospect's LinkedIn profile
+phone | **yes** | **string** <br />The prospect's phone number
+title | **yes** | **string** <br />The prospect's title of civility
+country | **yes** | **string** <br />The prospect's country
+industry | **yes** | **string** <br />The prospect's industry
+custom_field_[a..e] | **yes** | **string** <br />Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
+created_from | no | **string** <br />The source of the prospect. Can be `web`, `extension`, `api` or `import`
+last_emailed_at | no | **datetime** <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset
+converted | **yes** | **boolean** <br />Whether or not the prospect is marked as converted
+converted_at | no | **datetime** <br />The date and time when the prospect has been marked as converted
+qualified | **yes** | **boolean** <br />Whether or not the prospect is marked as qualified
+archived | **yes** | **boolean** <br />Whether or not the prospect is archived
+opened | **yes** | **boolean** <br />Wheteer or not the prospect opened any of your emails
+clicked | **yes** | **boolean** <br />Wheter or not the prospect clicked a link in any of your emails
+replied | **yes** | **boolean** <br />Whether or not the prospect replied to any of your emails
+replied_at | no | **datetime** <br />The date and time when the prospect first replied
+bounced | **yes* | **boolean** <br />Whether or not the prospect email bounced
+campaign_status | no | **string** <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be `running`, `paused` or `scheduled`
+url | no | **string** <br />The full URL to the prospect on Prospect.io
+list_name | no | **string** <br />The name of the list if the prospect is in a list
+created_at | no | **datetime** | ISO 8601 format with timezone offset
+updated_at | no | **datetime** | ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description
@@ -349,7 +345,7 @@ curl -X GET "https://prospect.io/api/public/v1/prospects" \
 
 Returns a list of prospects.
 
-This list is [paginate](#pagination) by 100 records and can also be [sorted](#sorting).
+This list is [paginated](#pagination) by 100 records. It can also be [sorted](#sorting) or [filtered](#filtering).
 
 ## Mark as (not) qualified
 ```shell

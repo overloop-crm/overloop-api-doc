@@ -145,4 +145,4 @@ curl -X GET "https://prospect.io/api/public/v1/campaigns/1/steps" \
 
 Returns a list of campaigns steps.
 
-This list is [paginate](#pagination) by 100 records and can also be [sorted](#sorting).
+This list is [paginated](#pagination) by 100 records and can also be [sorted](#sorting).

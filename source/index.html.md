@@ -6,11 +6,12 @@ language_tabs:
 
 toc_footers:
   - <a href='https://prospect.io/api'>Get your API Key</a>
-  
+
 includes:
   - introduction
   - authentication
   - sorting
+  - filtering
   - pagination
   - errors
 

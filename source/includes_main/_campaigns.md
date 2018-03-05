@@ -45,16 +45,16 @@
 ```
 
 ### Object attributes
-Attribute | Description
---------- | -----------
-id | **integer** <br />A unique identifier for the campaign
-name | **string** <br />The campaign's name
-status | **string** <br />The campaign's status that can take 3 different values: `available`, `archived` and `draft`
-steps_count | **integer** <br />The number of steps in the campaign
-sending_days | **array** <br />An array containing the days of the week when the campaign will send. Monday is `1`
-stop_when | **array** <br />An array containing the events that trigger the campaign to stops. Possible values are `message.click`, `prospect.replied` and `prospect.convert`
-created_at | **datetime** | ISO 8601 format with timezone offset
-updated_at | **datetime** | ISO 8601 format with timezone offset
+Attribute | Filterable? | Description
+--------- | ----------- | -----------
+id | no | **integer** <br />A unique identifier for the campaign
+name | no | **string** <br />The campaign's name
+status | **yes** | **string** <br />The campaign's status that can take 3 different values: `available`, `archived` and `draft`
+steps_count | no | **integer** <br />The number of steps in the campaign
+sending_days | no | **array** <br />An array containing the days of the week when the campaign will send. Monday is `1`
+stop_when | no | **array** <br />An array containing the events that trigger the campaign to stops. Possible values are `message.click`, `prospect.replied` and `prospect.convert`
+created_at | no | **datetime** | ISO 8601 format with timezone offset
+updated_at | no | **datetime** | ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description
@@ -135,4 +135,4 @@ curl -X GET "https://prospect.io/api/public/v1/campaigns" \
 
 Returns a list of campaigns.
 
-This list is [paginate](#pagination) by 100 records and can also be [sorted](#sorting).
+This list is [paginated](#pagination) by 100 records and can also be [sorted](#sorting) or [filtered](#filtering).

@@ -35,20 +35,20 @@
 ```
 
 ### Object attributes
-Attribute | Description
---------- | -----------
-id | **integer** <br />A unique identifier for the user
-name | **string** <br />The user's name
-email | **string** <br />The user's email address
-role | **string** <br />The user's role. Can be `admin` or `user`
-phone_number | **string** <br />The user's phone number
-skype | **string** <br />The user's Skype username
-signature | **string** <br />The user's HTML signature
-disabled | **boolean** <br />Whether or not the user is disabled or not
-from_name | **string** <br />The name we put in the email `from` field
-timezone | **string** <br />The user's time zone
-created_at | **datetime** | ISO 8601 format with timezone offset
-updated_at | **datetime** | ISO 8601 format with timezone offset
+Attribute | Filterable? | Description
+--------- | ----------- | -----------
+id | no | **integer** <br />A unique identifier for the user
+name | no | **string** <br />The user's name
+email | no | **string** <br />The user's email address
+role | no | **string** <br />The user's role. Can be `admin` or `user`
+phone_number | no | **string** <br />The user's phone number
+skype | no | **string** <br />The user's Skype username
+signature | no | **string** <br />The user's HTML signature
+disabled | **yes** | **boolean** <br />Whether or not the user is disabled or not
+from_name | no | **string** <br />The name we put in the email `from` field
+timezone | no | **string** <br />The user's time zone
+created_at | no | **datetime** | ISO 8601 format with timezone offset
+updated_at | no | **datetime** | ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description
@@ -135,4 +135,4 @@ curl -X GET "https://prospect.io/api/public/v1/users" \
 
 Returns a list of users.
 
-This list is [paginate](#pagination) by 100 records and can also be [sorted](#sorting).
+This list is [paginated](#pagination) by 100 records and can also be [sorted](#sorting) or [filtered](#filtering).

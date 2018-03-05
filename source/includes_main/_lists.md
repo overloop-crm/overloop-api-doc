@@ -20,13 +20,13 @@
 ```
 
 ### Object attributes
-Attribute | Description
---------- | -----------
-id | **integer** <br />A unique identifier for the list
-name | **string** <br />The list's name
-status | **string** <br />The list's status that can take 2 different values: `available` or `archived`
-created_at | **datetime** | ISO 8601 format with timezone offset
-updated_at | **datetime** | ISO 8601 format with timezone offset
+Attribute | Filterable? | Description
+--------- | ----------- | -----------
+id | no | **integer** <br />A unique identifier for the list
+name | no | **string** <br />The list's name
+status | **yes** | **string** <br />The list's status that can take 2 different values: `available` or `archived`
+created_at | no | **datetime** | ISO 8601 format with timezone offset
+updated_at | no | **datetime** | ISO 8601 format with timezone offset
 
 
 ## Create a list
@@ -189,4 +189,4 @@ curl -X GET "https://prospect.io/api/public/v1/lists" \
 
 Returns a list of lists.
 
-This list is [paginate](#pagination) by 100 records and can also be [sorted](#sorting).
+This list is [paginated](#pagination) by 100 records and can also be [sorted](#sorting) or [filtered](#filtering).
