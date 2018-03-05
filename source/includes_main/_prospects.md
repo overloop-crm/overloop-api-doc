@@ -99,7 +99,7 @@ opened | **yes** | **boolean** <br />Wheteer or not the prospect opened any of y
 clicked | **yes** | **boolean** <br />Wheter or not the prospect clicked a link in any of your emails
 replied | **yes** | **boolean** <br />Whether or not the prospect replied to any of your emails
 replied_at | no | **datetime** <br />The date and time when the prospect first replied
-bounced | **yes* | **boolean** <br />Whether or not the prospect email bounced
+bounced | **yes** | **boolean** <br />Whether or not the prospect email bounced
 campaign_status | no | **string** <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be `running`, `paused` or `scheduled`
 url | no | **string** <br />The full URL to the prospect on Prospect.io
 list_name | no | **string** <br />The name of the list if the prospect is in a list
