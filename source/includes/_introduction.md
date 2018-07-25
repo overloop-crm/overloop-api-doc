@@ -1,7 +1,7 @@
 # Introduction
 ```shell
 # API Endpoint
-https://prospect.io/api/public/v1/
+https://api.prospect.io/public/v1/
 ```
 Welcome to the [Prospect.io](https://prospect.io) API! You can use our API to access Prospect.io API endpoints.
 

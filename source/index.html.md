@@ -5,7 +5,7 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href='https://prospect.io/api'>Get your API Key</a>
+  - <a href='https://prospect.io/settings/api'>Get your API Key</a>
 
 includes:
   - introduction

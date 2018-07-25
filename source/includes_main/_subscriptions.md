@@ -87,10 +87,10 @@ prospect | Describe a [prospect object](#the-prospect-object)
 ## Create a subscription
 ```shell
 # DEFINITION
-POST https://prospect.io/api/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions
+POST https://api.prospect.io/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions
 
 # EXAMPLE
-curl -X POST "https://prospect.io/api/public/v1/campaigns/1/subscriptions" \
+curl -X POST "https://api.prospect.io/public/v1/campaigns/1/subscriptions" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -122,10 +122,10 @@ Returns the [subscription object](#the-subscription-object).
 ## Pause a subscription
 ```shell
 # DEFINITION
-POST https://prospect.io/api/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}/pause
+POST https://api.prospect.io/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}/pause
 
 # EXAMPLE
-curl -X POST "https://prospect.io/api/public/v1/campaigns/1/subscriptions/1/pause" \
+curl -X POST "https://api.prospect.io/public/v1/campaigns/1/subscriptions/1/pause" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```
@@ -143,10 +143,10 @@ Returns the [subscription object](#the-subscription-object).
 ## Resume a subscription
 ```shell
 # DEFINITION
-POST https://prospect.io/api/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}/resume
+POST https://api.prospect.io/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}/resume
 
 # EXAMPLE
-curl -X POST "https://prospect.io/api/public/v1/campaigns/1/subscriptions/1/resume" \
+curl -X POST "https://api.prospect.io/public/v1/campaigns/1/subscriptions/1/resume" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```
@@ -164,10 +164,10 @@ Returns the [subscription object](#the-subscription-object).
 ## Stop a subscription
 ```shell
 # DEFINITION
-DELETE https://prospect.io/api/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}
+DELETE https://api.prospect.io/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}
 
 # EXAMPLE
-curl -X DELETE "https://prospect.io/api/public/v1/campaigns/1/subscriptions/1" \
+curl -X DELETE "https://api.prospect.io/public/v1/campaigns/1/subscriptions/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```
@@ -196,10 +196,10 @@ Returns the [subscription object](#the-subscription-object).
 ## Retrieve a subscription
 ```shell
 # DEFINITION
-GET https://prospect.io/api/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}
+GET https://api.prospect.io/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}
 
 # EXAMPLE
-curl -X GET "https://prospect.io/api/public/v1/campaigns/1/subscriptions/1" \
+curl -X GET "https://api.prospect.io/public/v1/campaigns/1/subscriptions/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```

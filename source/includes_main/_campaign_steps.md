@@ -56,10 +56,10 @@ campaign | The parent [campaign](#campaign)
 ## Retrieve a campaign step
 ```shell
 # DEFINITION
-GET https://prospect.io/api/public/v1/campaigns/{CAMPAIGN_ID}/steps/{STEP_ID}
+GET https://api.prospect.io/public/v1/campaigns/{CAMPAIGN_ID}/steps/{STEP_ID}
 
 # EXAMPLE
-curl -X GET "https://prospect.io/api/public/v1/campaigns/1/steps/1" \
+curl -X GET "https://api.prospect.io/public/v1/campaigns/1/steps/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -76,10 +76,10 @@ Returns the [campaign step object](#the-campaign-step-object).
 ## List campaigns steps
 ```shell
 # DEFINITION
-GET https://prospect.io/api/public/v1/campaigns/{CAMPAIGN_ID}/steps
+GET https://api.prospect.io/public/v1/campaigns/{CAMPAIGN_ID}/steps
 
 # EXAMPLE
-curl -X GET "https://prospect.io/api/public/v1/campaigns/1/steps" \
+curl -X GET "https://api.prospect.io/public/v1/campaigns/1/steps" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```
@@ -136,9 +136,9 @@ curl -X GET "https://prospect.io/api/public/v1/campaigns/1/steps" \
     }
   ],
   "links": {
-    "self": "https://prospect.io/api/public/v1/campaigns/1/steps?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://prospect.io/api/public/v1/campaigns/1/steps?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://prospect.io/api/public/v1/campaigns/1/steps?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.prospect.io/public/v1/campaigns/1/steps?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.prospect.io/public/v1/campaigns/1/steps?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.prospect.io/public/v1/campaigns/1/steps?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```

@@ -8,11 +8,11 @@
     }
   ],
   "links": {
-    "self": "https://prospect.io/api/public/v1/prospects?page%5Bnumber%5D=2&page%5Bsize%5D=1",
-    "first": "https://prospect.io/api/public/v1/prospects?page%5Bnumber%5D=1&page%5Bsize%5D=1",
-    "prev": "https://prospect.io/api/public/v1/prospects?page%5Bnumber%5D=1&page%5Bsize%5D=1",
-    "next": "https://prospect.io/api/public/v1/prospects?page%5Bnumber%5D=3&page%5Bsize%5D=1",
-    "last": "https://prospect.io/api/public/v1/prospects?page%5Bnumber%5D=2203&page%5Bsize%5D=1"
+    "self": "https://api.prospect.io/public/v1/prospects?page%5Bnumber%5D=2&page%5Bsize%5D=1",
+    "first": "https://api.prospect.io/public/v1/prospects?page%5Bnumber%5D=1&page%5Bsize%5D=1",
+    "prev": "https://api.prospect.io/public/v1/prospects?page%5Bnumber%5D=1&page%5Bsize%5D=1",
+    "next": "https://api.prospect.io/public/v1/prospects?page%5Bnumber%5D=3&page%5Bsize%5D=1",
+    "last": "https://api.prospect.io/public/v1/prospects?page%5Bnumber%5D=2203&page%5Bsize%5D=1"
   }
 }
 ```

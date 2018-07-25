@@ -32,10 +32,10 @@ updated_at | no | **datetime** | ISO 8601 format with timezone offset
 ## Create a list
 ```shell
 # DEFINITION
-POST https://prospect.io/api/public/v1/lists
+POST https://api.prospect.io/public/v1/lists
 
 # EXAMPLE
-curl -X POST "https://prospect.io/api/public/v1/lists" \
+curl -X POST "https://api.prospect.io/public/v1/lists" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -63,10 +63,10 @@ Returns the [list object](#the-list-object).
 ## Retrieve a list
 ```shell
 # DEFINITION
-GET https://prospect.io/api/public/v1/lists/{LIST_ID}
+GET https://api.prospect.io/public/v1/lists/{LIST_ID}
 
 # EXAMPLE
-curl -X GET "https://prospect.io/api/public/v1/lists/1" \
+curl -X GET "https://api.prospect.io/public/v1/lists/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -82,10 +82,10 @@ Returns the [list object](#the-list-object).
 ## Update a list
 ```shell
 # DEFINITION
-PATCH https://prospect.io/api/public/v1/lists/{LIST_ID}
+PATCH https://api.prospect.io/public/v1/lists/{LIST_ID}
 
 # EXAMPLE
-curl -X PATCH "https://prospect.io/api/public/v1/lists/1" \
+curl -X PATCH "https://api.prospect.io/public/v1/lists/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -114,10 +114,10 @@ Returns the [list object](#the-list-object).
 ## Delete a list
 ```shell
 # DEFINITION
-DELETE https://prospect.io/api/public/v1/lists/{PROSPECT_ID}
+DELETE https://api.prospect.io/public/v1/lists/{PROSPECT_ID}
 
 # EXAMPLE
-curl -X DELETE "https://prospect.io/api/public/v1/lists/1" \
+curl -X DELETE "https://api.prospect.io/public/v1/lists/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```
@@ -151,10 +151,10 @@ Returns an object containing the list ID.
 
 ```shell
 # DEFINITION
-GET https://prospect.io/api/public/v1/lists
+GET https://api.prospect.io/public/v1/lists
 
 # EXAMPLE
-curl -X GET "https://prospect.io/api/public/v1/lists" \
+curl -X GET "https://api.prospect.io/public/v1/lists" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```
@@ -180,9 +180,9 @@ curl -X GET "https://prospect.io/api/public/v1/lists" \
     }
   ],
   "links": {
-    "self": "https://prospect.io/api/public/v1/lists/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://prospect.io/api/public/v1/lists/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://prospect.io/api/public/v1/lists/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.prospect.io/public/v1/lists/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.prospect.io/public/v1/lists/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.prospect.io/public/v1/lists/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```

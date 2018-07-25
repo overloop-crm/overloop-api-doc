@@ -1,7 +1,7 @@
 # Sorting
 ```shell
 # EXAMPLE
-GET https://prospect.io/api/public/v1/prospects?sort=-created_at
+GET https://api.prospect.io/public/v1/prospects?sort=-created_at
 ```
 
 > Get prospects sorted by creation date DESC (most recents first)

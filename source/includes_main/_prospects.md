@@ -118,10 +118,10 @@ current_campaign_subscription | Describe a [campaign subscription](#campaign-sub
 ## Create a prospect
 ```shell
 # DEFINITION
-POST https://prospect.io/api/public/v1/prospects
+POST https://api.prospect.io/public/v1/prospects
 
 # EXAMPLE
-curl -X POST "https://prospect.io/api/public/v1/prospects" \
+curl -X POST "https://api.prospect.io/public/v1/prospects" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -163,10 +163,10 @@ Returns the [prospect object](#the-prospect-object).
 ## Retrieve a prospect
 ```shell
 # DEFINITION
-GET https://prospect.io/api/public/v1/prospects/{PROSPECT_ID}
+GET https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}
 
 # EXAMPLE
-curl -X GET "https://prospect.io/api/public/v1/prospects/1" \
+curl -X GET "https://api.prospect.io/public/v1/prospects/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -182,10 +182,10 @@ Returns the [prospect object](#the-prospect-object).
 ## Update a prospect
 ```shell
 # DEFINITION
-PATCH https://prospect.io/api/public/v1/prospects/{PROSPECT_ID}
+PATCH https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}
 
 # EXAMPLE
-curl -X PATCH "https://prospect.io/api/public/v1/prospects/1" \
+curl -X PATCH "https://api.prospect.io/public/v1/prospects/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -226,10 +226,10 @@ Returns the [prospect object](#the-prospect-object).
 ## Delete a prospect
 ```shell
 # DEFINITION
-DELETE https://prospect.io/api/public/v1/prospects/{PROSPECT_ID}
+DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}
 
 # EXAMPLE
-curl -X DELETE "https://prospect.io/api/public/v1/prospects/1" \
+curl -X DELETE "https://api.prospect.io/public/v1/prospects/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```
@@ -263,10 +263,10 @@ Returns an object containing the prospect ID.
 
 ```shell
 # DEFINITION
-GET https://prospect.io/api/public/v1/prospects
+GET https://api.prospect.io/public/v1/prospects
 
 # EXAMPLE
-curl -X GET "https://prospect.io/api/public/v1/prospects" \
+curl -X GET "https://api.prospect.io/public/v1/prospects" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```
@@ -336,9 +336,9 @@ curl -X GET "https://prospect.io/api/public/v1/prospects" \
     }
   ],
   "links": {
-    "self": "https://prospect.io/api/public/v1/prospects/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://prospect.io/api/public/v1/prospects/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://prospect.io/api/public/v1/prospects/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.prospect.io/public/v1/prospects/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.prospect.io/public/v1/prospects/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.prospect.io/public/v1/prospects/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```
@@ -350,18 +350,18 @@ This list is [paginated](#pagination) by 100 records. It can also be [sorted](#s
 ## Mark as (not) qualified
 ```shell
 # DEFINITION: Mark as qualified
-POST https://prospect.io/api/public/v1/prospects/{PROSPECT_ID}/qualification
+POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/qualification
 
 # EXAMPLE
-curl -X POST "https://prospect.io/api/public/v1/prospects/1/qualification" \
+curl -X POST "https://api.prospect.io/public/v1/prospects/1/qualification" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 
 # DEFINITION: Mark as not qualified
-DELETE https://prospect.io/api/public/v1/prospects/{PROSPECT_ID}/qualification
+DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/qualification
 
 # EXAMPLE
-curl -X DELETE "https://prospect.io/api/public/v1/prospects/1/qualification" \
+curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/qualification" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```
@@ -379,18 +379,18 @@ Returns the [prospect object](#the-prospect-object).
 ## Mark as (not) converted
 ```shell
 # DEFINITION: Mark as converted
-POST https://prospect.io/api/public/v1/prospects/{PROSPECT_ID}/conversion
+POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/conversion
 
 # EXAMPLE
-curl -X POST "https://prospect.io/api/public/v1/prospects/1/conversion" \
+curl -X POST "https://api.prospect.io/public/v1/prospects/1/conversion" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 
 # DEFINITION: Mark as not converted
-DELETE https://prospect.io/api/public/v1/prospects/{PROSPECT_ID}/conversion
+DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/conversion
 
 # EXAMPLE
-curl -X DELETE "https://prospect.io/api/public/v1/prospects/1/conversion" \
+curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/conversion" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```
@@ -408,18 +408,18 @@ Returns the [prospect object](#the-prospect-object).
 ## Mark as (not) archived
 ```shell
 # DEFINITION: Mark as archived
-POST https://prospect.io/api/public/v1/prospects/{PROSPECT_ID}/archive
+POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/archive
 
 # EXAMPLE
-curl -X POST "https://prospect.io/api/public/v1/prospects/1/archive" \
+curl -X POST "https://api.prospect.io/public/v1/prospects/1/archive" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 
 # DEFINITION: Mark as not archived
-DELETE https://prospect.io/api/public/v1/prospects/{PROSPECT_ID}/archive
+DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/archive
 
 # EXAMPLE
-curl -X DELETE "https://prospect.io/api/public/v1/prospects/1/archive" \
+curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/archive" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 ```

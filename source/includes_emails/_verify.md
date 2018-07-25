@@ -46,10 +46,10 @@ error_code | **string** <br />An error code if the email is invalid. Can be `ema
 ## Verify an email
 ```shell
 # DEFINITION
-GET https://prospect.io/api/public/v1/emails/verify?email={{EMAIL_ADDRESS}}
+GET https://api.prospect.io/public/v1/emails/verify?email={{EMAIL_ADDRESS}}
 
 # EXAMPLE
-curl -X GET "https://prospect.io/api/public/v1/emails/verify?email=vincenzo@prospect.io" \
+curl -X GET "https://api.prospect.io/public/v1/emails/verify?email=vincenzo@prospect.io" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```

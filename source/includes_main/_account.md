@@ -53,10 +53,10 @@ updated_at | **datetime** | ISO 8601 format with timezone offset
 ## Retrieve your account
 ```shell
 # DEFINITION
-GET https://prospect.io/api/public/v1/account
+GET https://api.prospect.io/public/v1/account
 
 # EXAMPLE
-curl -X GET "https://prospect.io/api/public/v1/account" \
+curl -X GET "https://api.prospect.io/public/v1/account" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```

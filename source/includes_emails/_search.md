@@ -81,10 +81,10 @@ company_name | **string** <br />Name of the company associated to the domain nam
 ## Search for emails
 ```shell
 # DEFINITION
-GET https://prospect.io/api/public/v1/emails/search?domain={{DOMAIN}}&first_name={{FIRST_NAME}}&last_name={{LAST_NAME}}
+GET https://api.prospect.io/public/v1/emails/search?domain={{DOMAIN}}&first_name={{FIRST_NAME}}&last_name={{LAST_NAME}}
 
 # EXAMPLE
-curl -X GET "https://prospect.io/api/public/v1/emails/search?domain=prospect.io&first_name=Vincenzo&last_name=Ruggiero" \
+curl -X GET "https://api.prospect.io/public/v1/emails/search?domain=prospect.io&first_name=Vincenzo&last_name=Ruggiero" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
