@@ -110,7 +110,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='https://prospect.io/api'>Get your API Key</a></li>
+            <li><a href='https://prospect.io/settings/api'>Get your API Key</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -120,7 +120,7 @@
 
           <h1 id="introduction">Introduction</h1>
 <pre class="highlight shell"><code><span class="c"># API Endpoint</span>
-https://prospect.io/api/public/v1/
+https://api.prospect.io/public/v1/
 </code></pre>
 
 <p>Welcome to the <a href="https://prospect.io">Prospect.io</a> API! You can use our API to access Prospect.io API endpoints.</p>
@@ -133,7 +133,7 @@ https://prospect.io/api/public/v1/
 <p>To authorize, use this code:</p>
 </blockquote>
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://prospect.io/api/public/v1/XXX"</span>
+curl <span class="s2">"https://api.prospect.io/public/v1/XXX"</span>
   -H <span class="s2">"Authorization: your_api_key"</span>
 </code></pre>
 
@@ -141,7 +141,7 @@ curl <span class="s2">"https://prospect.io/api/public/v1/XXX"</span>
 <p>Make sure to replace <code class="prettyprint">your_api_key</code> with your API key.</p>
 </blockquote>
 
-<p>Prospect.io uses API keys to allow access to the API. You can get a new API key in your <a href="https://prospect.io/api">Prospect.io account</a>.</p>
+<p>Prospect.io uses API keys to allow access to the API. You can get a new API key in your <a href="https://api.prospect.io">Prospect.io account</a>.</p>
 
 <p>Prospect.io expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
@@ -153,7 +153,7 @@ You must replace <code>your_api_key</code> with your personal API key.
 
           <h1 id="sorting">Sorting</h1>
 <pre class="highlight shell"><code><span class="c"># EXAMPLE</span>
-GET https://prospect.io/api/public/v1/prospects?sort<span class="o">=</span>-created_at
+GET https://api.prospect.io/public/v1/prospects?sort<span class="o">=</span>-created_at
 </code></pre>
 
 <blockquote>
@@ -168,7 +168,7 @@ GET https://prospect.io/api/public/v1/prospects?sort<span class="o">=</span>-cre
 
           <h1 id="filtering">Filtering</h1>
 <pre class="highlight shell"><code><span class="c"># EXAMPLE</span>
-GET https://prospect.io/api/public/v1/prospects/?filter<span class="o">=</span>first_name:john,last_name:doe
+GET https://api.prospect.io/public/v1/prospects/?filter<span class="o">=</span>first_name:john,last_name:doe
 </code></pre>
 
 <blockquote>
@@ -185,11 +185,11 @@ GET https://prospect.io/api/public/v1/prospects/?filter<span class="o">=</span>f
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/prospects?page%5Bnumber%5D=2&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/prospects?page%5Bnumber%5D=1&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"prev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/prospects?page%5Bnumber%5D=1&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/prospects?page%5Bnumber%5D=3&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/prospects?page%5Bnumber%5D=2203&amp;page%5Bsize%5D=1"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/prospects?page%5Bnumber%5D=2&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/prospects?page%5Bnumber%5D=1&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/prospects?page%5Bnumber%5D=1&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/prospects?page%5Bnumber%5D=3&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/prospects?page%5Bnumber%5D=2203&amp;page%5Bsize%5D=1"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -385,10 +385,10 @@ GET https://prospect.io/api/public/v1/prospects/?filter<span class="o">=</span>f
 
 <h2 id="retrieve-your-account">Retrieve your account</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/account
+GET https://api.prospect.io/public/v1/account
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -666,10 +666,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/account"</span> 
 
 <h2 id="create-a-prospect">Create a prospect</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-POST https://prospect.io/api/public/v1/prospects
+POST https://api.prospect.io/public/v1/prospects
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://prospect.io/api/public/v1/prospects"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
@@ -778,10 +778,10 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/prospects"</spa
 
 <h2 id="retrieve-a-prospect">Retrieve a prospect</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>
+GET https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/prospects/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/prospects/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -806,10 +806,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/prospects/1"</sp
 
 <h2 id="update-a-prospect">Update a prospect</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-PATCH https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>
+PATCH https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X PATCH <span class="s2">"https://prospect.io/api/public/v1/prospects/1"</span> <span class="se">\</span>
+curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/prospects/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
@@ -904,10 +904,10 @@ curl -X PATCH <span class="s2">"https://prospect.io/api/public/v1/prospects/1"</
 
 <h2 id="delete-a-prospect">Delete a prospect</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-DELETE https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>
+DELETE https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/prospects/1"</span> <span class="se">\</span>
+curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -953,10 +953,10 @@ Warning — Deleting a prospect will also delete all history with this prospect 
 
 <h2 id="list-prospects">List prospects</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/prospects
+GET https://api.prospect.io/public/v1/prospects
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/prospects"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/prospects"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -1026,9 +1026,9 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/prospects"</span
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/prospects/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/prospects/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/prospects/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/prospects/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/prospects/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/prospects/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1039,18 +1039,18 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/prospects"</span
 
 <h2 id="mark-as-not-qualified">Mark as (not) qualified</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION: Mark as qualified</span>
-POST https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/qualification
+POST https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/qualification
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://prospect.io/api/public/v1/prospects/1/qualification"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects/1/qualification"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 
 <span class="c"># DEFINITION: Mark as not qualified</span>
-DELETE https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/qualification
+DELETE https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/qualification
 
 <span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/prospects/1/qualification"</span> <span class="se">\</span>
+curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/qualification"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -1081,18 +1081,18 @@ curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/prospects/1/q
 
 <h2 id="mark-as-not-converted">Mark as (not) converted</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION: Mark as converted</span>
-POST https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/conversion
+POST https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/conversion
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://prospect.io/api/public/v1/prospects/1/conversion"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects/1/conversion"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 
 <span class="c"># DEFINITION: Mark as not converted</span>
-DELETE https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/conversion
+DELETE https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/conversion
 
 <span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/prospects/1/conversion"</span> <span class="se">\</span>
+curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/conversion"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -1123,18 +1123,18 @@ curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/prospects/1/c
 
 <h2 id="mark-as-not-archived">Mark as (not) archived</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION: Mark as archived</span>
-POST https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/archive
+POST https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/archive
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://prospect.io/api/public/v1/prospects/1/archive"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects/1/archive"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 
 <span class="c"># DEFINITION: Mark as not archived</span>
-DELETE https://prospect.io/api/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/archive
+DELETE https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/archive
 
 <span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/prospects/1/archive"</span> <span class="se">\</span>
+curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/archive"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -1220,10 +1220,10 @@ curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/prospects/1/a
 
 <h2 id="create-a-list">Create a list</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-POST https://prospect.io/api/public/v1/lists
+POST https://api.prospect.io/public/v1/lists
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/lists"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
@@ -1266,10 +1266,10 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <
 
 <h2 id="retrieve-a-list">Retrieve a list</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/lists/<span class="o">{</span>LIST_ID<span class="o">}</span>
+GET https://api.prospect.io/public/v1/lists/<span class="o">{</span>LIST_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/lists/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/lists/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -1294,10 +1294,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/lists/1"</span> 
 
 <h2 id="update-a-list">Update a list</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-PATCH https://prospect.io/api/public/v1/lists/<span class="o">{</span>LIST_ID<span class="o">}</span>
+PATCH https://api.prospect.io/public/v1/lists/<span class="o">{</span>LIST_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X PATCH <span class="s2">"https://prospect.io/api/public/v1/lists/1"</span> <span class="se">\</span>
+curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/lists/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
@@ -1341,10 +1341,10 @@ curl -X PATCH <span class="s2">"https://prospect.io/api/public/v1/lists/1"</span
 
 <h2 id="delete-a-list">Delete a list</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-DELETE https://prospect.io/api/public/v1/lists/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>
+DELETE https://api.prospect.io/public/v1/lists/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/lists/1"</span> <span class="se">\</span>
+curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/lists/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -1390,10 +1390,10 @@ Warning — Deleting a list will keep the prospects of that list the `list_id` f
 
 <h2 id="list-lists">List lists</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/lists
+GET https://api.prospect.io/public/v1/lists
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/lists"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -1419,9 +1419,9 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <s
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/lists/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/lists/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/lists/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/lists/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/lists/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/lists/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1541,10 +1541,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/lists"</span> <s
 
 <h2 id="retrieve-a-campaign">Retrieve a campaign</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/campaigns/<span class="o">{</span>CAMPAIGN_ID<span class="o">}</span>
+GET https://api.prospect.io/public/v1/campaigns/<span class="o">{</span>CAMPAIGN_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/campaigns/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -1569,10 +1569,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1"</sp
 
 <h2 id="list-campaigns">List campaigns</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/campaigns
+GET https://api.prospect.io/public/v1/campaigns
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/campaigns"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -1612,9 +1612,9 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns"</span
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/campaigns/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/campaigns/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/campaigns/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/campaigns/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/campaigns/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/campaigns/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1722,10 +1722,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns"</span
 
 <h2 id="retrieve-a-campaign-step">Retrieve a campaign step</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/campaigns/<span class="o">{</span>CAMPAIGN_ID<span class="o">}</span>/steps/<span class="o">{</span>STEP_ID<span class="o">}</span>
+GET https://api.prospect.io/public/v1/campaigns/<span class="o">{</span>CAMPAIGN_ID<span class="o">}</span>/steps/<span class="o">{</span>STEP_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/steps/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/campaigns/1/steps/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -1754,10 +1754,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/step
 
 <h2 id="list-campaigns-steps">List campaigns steps</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/campaigns/<span class="o">{</span>CAMPAIGN_ID<span class="o">}</span>/steps
+GET https://api.prospect.io/public/v1/campaigns/<span class="o">{</span>CAMPAIGN_ID<span class="o">}</span>/steps
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/steps"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/campaigns/1/steps"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -1814,9 +1814,9 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/step
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/campaigns/1/steps?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/campaigns/1/steps?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/campaigns/1/steps?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/campaigns/1/steps?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/campaigns/1/steps?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/campaigns/1/steps?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1975,10 +1975,10 @@ A subscription can also be automatically <code class="prettyprint">stopped</code
 
 <h2 id="create-a-subscription">Create a subscription</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-POST https://prospect.io/api/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions
+POST https://api.prospect.io/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subscriptions"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/campaigns/1/subscriptions"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
@@ -2038,10 +2038,10 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/sub
 
 <h2 id="pause-a-subscription">Pause a subscription</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-POST https://prospect.io/api/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions/<span class="o">{{</span>SUBSCRIPTION_ID<span class="o">}}</span>/pause
+POST https://api.prospect.io/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions/<span class="o">{{</span>SUBSCRIPTION_ID<span class="o">}}</span>/pause
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subscriptions/1/pause"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/campaigns/1/subscriptions/1/pause"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -2072,10 +2072,10 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/sub
 
 <h2 id="resume-a-subscription">Resume a subscription</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-POST https://prospect.io/api/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions/<span class="o">{{</span>SUBSCRIPTION_ID<span class="o">}}</span>/resume
+POST https://api.prospect.io/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions/<span class="o">{{</span>SUBSCRIPTION_ID<span class="o">}}</span>/resume
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subscriptions/1/resume"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/campaigns/1/subscriptions/1/resume"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -2106,10 +2106,10 @@ curl -X POST <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/sub
 
 <h2 id="stop-a-subscription">Stop a subscription</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-DELETE https://prospect.io/api/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions/<span class="o">{{</span>SUBSCRIPTION_ID<span class="o">}}</span>
+DELETE https://api.prospect.io/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions/<span class="o">{{</span>SUBSCRIPTION_ID<span class="o">}}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subscriptions/1"</span> <span class="se">\</span>
+curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/campaigns/1/subscriptions/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -2151,10 +2151,10 @@ curl -X DELETE <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/s
 
 <h2 id="retrieve-a-subscription">Retrieve a subscription</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions/<span class="o">{{</span>SUBSCRIPTION_ID<span class="o">}}</span>
+GET https://api.prospect.io/public/v1/campaigns/<span class="o">{{</span>CAMPAIGN_ID<span class="o">}}</span>/subscriptions/<span class="o">{{</span>SUBSCRIPTION_ID<span class="o">}}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subscriptions/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/campaigns/1/subscriptions/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2302,10 +2302,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/campaigns/1/subs
 
 <h2 id="retrieve-a-user">Retrieve a user</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/users/<span class="o">{</span>USER_ID<span class="o">}</span>
+GET https://api.prospect.io/public/v1/users/<span class="o">{</span>USER_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/users/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/users/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2330,10 +2330,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/users/1"</span> 
 
 <h2 id="me">Me</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/me
+GET https://api.prospect.io/public/v1/me
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/me"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/me"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2350,10 +2350,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/me"</span> <span
 
 <h2 id="list-users">List users</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/users
+GET https://api.prospect.io/public/v1/users
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/users"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/users"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 </code></pre>
@@ -2379,9 +2379,9 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/users"</span> <s
     </span><span class="p">},</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/users?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/users?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/api/public/v1/users?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/users?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/users?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/users?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2541,10 +2541,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/users"</span> <s
 
 <h2 id="search-for-emails">Search for emails</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/emails/search?domain<span class="o">={{</span>DOMAIN<span class="o">}}</span>&amp;first_name<span class="o">={{</span>FIRST_NAME<span class="o">}}</span>&amp;last_name<span class="o">={{</span>LAST_NAME<span class="o">}}</span>
+GET https://api.prospect.io/public/v1/emails/search?domain<span class="o">={{</span>DOMAIN<span class="o">}}</span>&amp;first_name<span class="o">={{</span>FIRST_NAME<span class="o">}}</span>&amp;last_name<span class="o">={{</span>LAST_NAME<span class="o">}}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/search?domain=prospect.io&amp;first_name=Vincenzo&amp;last_name=Ruggiero"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/emails/search?domain=prospect.io&amp;first_name=Vincenzo&amp;last_name=Ruggiero"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2649,10 +2649,10 @@ curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/search?do
 
 <h2 id="verify-an-email">Verify an email</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://prospect.io/api/public/v1/emails/verify?email<span class="o">={{</span>EMAIL_ADDRESS<span class="o">}}</span>
+GET https://api.prospect.io/public/v1/emails/verify?email<span class="o">={{</span>EMAIL_ADDRESS<span class="o">}}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://prospect.io/api/public/v1/emails/verify?email=vincenzo@prospect.io"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/emails/verify?email=vincenzo@prospect.io"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
