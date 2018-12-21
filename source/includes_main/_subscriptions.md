@@ -119,47 +119,6 @@ start_time | no | *string* | The time of the day at which the first email of the
 ### Returns
 Returns the [subscription object](#the-subscription-object).
 
-## Pause a subscription
-```shell
-# DEFINITION
-POST https://api.prospect.io/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}/pause
-
-# EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/campaigns/1/subscriptions/1/pause" \
--H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
-```
-
-This will pause a subscription.
-
-### Parameters
-Parameter | Required? | Type | Description
---------- | --------- | -----| -----------
-id | **yes** | integer | The ID of the subscription to pause
-
-### Returns
-Returns the [subscription object](#the-subscription-object).
-
-## Resume a subscription
-```shell
-# DEFINITION
-POST https://api.prospect.io/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}/resume
-
-# EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/campaigns/1/subscriptions/1/resume" \
--H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
-```
-
-This will resume a subscription.
-
-### Parameters
-Parameter | Required? | Type | Description
---------- | --------- | -----| -----------
-id | **yes** | integer | The ID of the subscription to resume
-
-### Returns
-Returns the [subscription object](#the-subscription-object).
 
 ## Stop a subscription
 ```shell
