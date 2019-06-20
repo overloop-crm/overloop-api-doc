@@ -43,10 +43,7 @@ country | **string** <br />The account's country code (ISO)
 vat | **string** <br />The account's VAT number
 plan_name | **string** <br />The account's plan
 plan_code | **string** <br />The account's plan code
-credits_per_period | **integer** <br />The number of credits available per billign period (1 month or 1 year)
-this_period_used_credits | **integer** <br />The number of total credits used on the current billing period
-email_queries_used_this_period_count | **integer** <br />The number of total credits used for email queries on the current billing period
-messages_sent_this_period_count | **integer** <br />The number of total credits used for sending messages on the current billing period
+remaining_credits | **integer** <br />The number of credits remaining
 created_at | **datetime** | ISO 8601 format with timezone offset
 updated_at | **datetime** | ISO 8601 format with timezone offset
 
