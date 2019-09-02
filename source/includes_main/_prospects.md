@@ -21,6 +21,8 @@
       "phone": "+32-481-754-301",
       "title": "Mr.",
       "country": "Belgium",
+      "state": "Walloon Brabant",
+      "city": "Wavre",
       "industry": "IT",
       "custom_field_a": "Hot lead",
       "custom_field_b": null,
@@ -87,6 +89,8 @@ linkedin_profile | no |**string** <br />A link to the prospect's LinkedIn profil
 phone | **yes** | **string** <br />The prospect's phone number
 title | **yes** | **string** <br />The prospect's title of civility
 country | **yes** | **string** <br />The prospect's country
+state | **yes** | **string** <br />The prospect's state or region
+city | **yes** | **string** <br />The prospect's city
 industry | **yes** | **string** <br />The prospect's industry
 custom_field_[a..e] | **yes** | **string** <br />Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
 created_from | no | **string** <br />The source of the prospect. Can be `web`, `extension`, `api` or `import`
@@ -152,6 +156,8 @@ linkedin_profile<br />*string* | *NULL* | A link to the prospect's LinkedIn prof
 phone<br />*string* | *NULL* | The prospect's phone number
 title<br />*string* | *NULL* | The prospect's title of civility
 country<br />*string* | *NULL* | The prospect's country
+state<br />*string* | *NULL* | The prospect's state or region
+city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | *NULL* | The prospect's industry
 custom_field_[a..e]<br /> *string* | *NULL* | Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
 list_id<br />*integer* | *NULL* | ID of the list where to save the prospect
@@ -215,6 +221,8 @@ linkedin_profile<br />*string* | A link to the prospect's LinkedIn profile
 phone<br />*string* | The prospect's phone number
 title<br />*string* | The prospect's title of civility
 country<br />*string* | The prospect's country
+state<br />*string* | *NULL* | The prospect's state or region
+city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | The prospect's industry
 custom_field_[a..e]<br /> | *string* | Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
 list_id<br />*integer* | ID of the list where to save the prospect
