@@ -407,6 +407,8 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
       </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+32-481-754-301"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Belgium"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Walloon Brabant"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wavre"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IT"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"custom_field_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hot lead"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"custom_field_b"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -526,6 +528,16 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
 <td>country</td>
 <td><strong>yes</strong></td>
 <td><strong>string</strong> <br />The prospect&rsquo;s country</td>
+</tr>
+<tr>
+<td>state</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The prospect&rsquo;s state or region</td>
+</tr>
+<tr>
+<td>city</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The prospect&rsquo;s city</td>
 </tr>
 <tr>
 <td>industry</td>
@@ -736,6 +748,16 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects"</spa
 <td>The prospect&rsquo;s country</td>
 </tr>
 <tr>
+<td>state<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>The prospect&rsquo;s state or region</td>
+</tr>
+<tr>
+<td>city<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>The prospect&rsquo;s city</td>
+</tr>
+<tr>
 <td>industry<br /><em>string</em></td>
 <td><em>NULL</em></td>
 <td>The prospect&rsquo;s industry</td>
@@ -864,6 +886,14 @@ curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/prospects/1"</
 <tr>
 <td>country<br /><em>string</em></td>
 <td>The prospect&rsquo;s country</td>
+</tr>
+<tr>
+<td>state<br /><em>string</em></td>
+<td><em>NULL</em></td>
+</tr>
+<tr>
+<td>city<br /><em>string</em></td>
+<td><em>NULL</em></td>
 </tr>
 <tr>
 <td>industry<br /><em>string</em></td>
