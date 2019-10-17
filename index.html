@@ -410,11 +410,6 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
       </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Walloon Brabant"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wavre"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IT"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"custom_field_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hot lead"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"custom_field_b"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"custom_field_c"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"custom_field_d"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"custom_field_e"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_emailed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"converted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -428,7 +423,17 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/prospects/1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"list_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Managers in UK"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"c_main_priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Improve outreach"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"c_lead_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"c_good_target"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"c_next_step_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-23T00:30:00+01:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"c_first_call_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-11"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"c_interests"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"Product A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Product B"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -545,11 +550,6 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
 <td><strong>string</strong> <br />The prospect&rsquo;s industry</td>
 </tr>
 <tr>
-<td>custom_field_[a..e]</td>
-<td><strong>yes</strong></td>
-<td><strong>string</strong> <br />Five custom fields (custom_field_a, custom_field_b, &hellip;) that you can use freely</td>
-</tr>
-<tr>
 <td>created_from</td>
 <td>no</td>
 <td><strong>string</strong> <br />The source of the prospect. Can be <code class="prettyprint">web</code>, <code class="prettyprint">extension</code>, <code class="prettyprint">api</code> or <code class="prettyprint">import</code></td>
@@ -582,12 +582,12 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
 <tr>
 <td>opened</td>
 <td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Wheteer or not the prospect opened any of your emails</td>
+<td><strong>boolean</strong> <br />Whether or not the prospect opened any of your emails</td>
 </tr>
 <tr>
 <td>clicked</td>
 <td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Wheter or not the prospect clicked a link in any of your emails</td>
+<td><strong>boolean</strong> <br />Whether or not the prospect clicked a link in any of your emails</td>
 </tr>
 <tr>
 <td>replied</td>
@@ -628,6 +628,11 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
 <td>updated_at</td>
 <td>no</td>
 <td><strong>datetime</strong></td>
+</tr>
+<tr>
+<td>custom_fields</td>
+<td><strong>yes</strong></td>
+<td><strong>dictionary</strong> <br />Fields to store custom information about prospects that you can use freely</td>
 </tr>
 </tbody></table>
 
@@ -763,11 +768,6 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects"</spa
 <td>The prospect&rsquo;s industry</td>
 </tr>
 <tr>
-<td>custom_field_[a..e]<br /> <em>string</em></td>
-<td><em>NULL</em></td>
-<td>Five custom fields (custom_field_a, custom_field_b, &hellip;) that you can use freely</td>
-</tr>
-<tr>
 <td>list_id<br /><em>integer</em></td>
 <td><em>NULL</em></td>
 <td>ID of the list where to save the prospect</td>
@@ -776,6 +776,11 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects"</spa
 <td>responsible_id<br /><em>integer</em></td>
 <td>ID of the user who created the prospect</td>
 <td>The ID of the user responsible for this prospect</td>
+</tr>
+<tr>
+<td>custom_fields<br /><em>dictionary</em></td>
+<td><em>{}</em></td>
+<td>Fields to store custom information about prospects that you can use freely</td>
 </tr>
 </tbody></table>
 
@@ -889,19 +894,15 @@ curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/prospects/1"</
 </tr>
 <tr>
 <td>state<br /><em>string</em></td>
-<td><em>NULL</em></td>
+<td>The prospect&rsquo;s state or region</td>
 </tr>
 <tr>
 <td>city<br /><em>string</em></td>
-<td><em>NULL</em></td>
+<td>The prospect&rsquo;s city</td>
 </tr>
 <tr>
 <td>industry<br /><em>string</em></td>
 <td>The prospect&rsquo;s industry</td>
-</tr>
-<tr>
-<td>custom_field_[a..e]<br /></td>
-<td><em>string</em></td>
 </tr>
 <tr>
 <td>list_id<br /><em>integer</em></td>
@@ -910,6 +911,10 @@ curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/prospects/1"</
 <tr>
 <td>responsible_id<br /><em>integer</em></td>
 <td>The ID of the user responsible for this prospect</td>
+</tr>
+<tr>
+<td>custom_fields<br /><em>dictionary</em></td>
+<td>Fields to store custom information about prospects that you can use freely</td>
 </tr>
 </tbody></table>
 
