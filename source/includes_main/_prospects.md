@@ -24,11 +24,6 @@
       "state": "Walloon Brabant",
       "city": "Wavre",
       "industry": "IT",
-      "custom_field_a": "Hot lead",
-      "custom_field_b": null,
-      "custom_field_c": null,
-      "custom_field_d": null,
-      "custom_field_e": null,
       "created_from": "extension",
       "last_emailed_at": null,
       "converted": false,
@@ -42,7 +37,17 @@
       "url": "https://prospect.io/prospects/1",
       "list_name": "Sales Managers in UK",
       "created_at": "2015-08-15T16:48:46+02:00",
-      "updated_at": "2016-11-25T12:40:46+01:00"
+      "updated_at": "2016-11-25T12:40:46+01:00", 
+      "custom_fields": {
+        "c_main_priority": "Improve outreach",
+        "c_lead_score": "4.0",
+        "c_good_target": true,
+        "c_next_step_time": "2019-10-23T00:30:00+01:00",
+        "c_first_call_date": "2019-10-11",
+        "c_interests": [
+          "Product A", "Product B"
+        ]
+      }
     },
     "relationships": {
       "creator": {
@@ -92,15 +97,14 @@ country | **yes** | **string** <br />The prospect's country
 state | **yes** | **string** <br />The prospect's state or region
 city | **yes** | **string** <br />The prospect's city
 industry | **yes** | **string** <br />The prospect's industry
-custom_field_[a..e] | **yes** | **string** <br />Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
 created_from | no | **string** <br />The source of the prospect. Can be `web`, `extension`, `api` or `import`
 last_emailed_at | no | **datetime** <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset
 converted | **yes** | **boolean** <br />Whether or not the prospect is marked as converted
 converted_at | no | **datetime** <br />The date and time when the prospect has been marked as converted
 qualified | **yes** | **boolean** <br />Whether or not the prospect is marked as qualified
 archived | **yes** | **boolean** <br />Whether or not the prospect is archived
-opened | **yes** | **boolean** <br />Wheteer or not the prospect opened any of your emails
-clicked | **yes** | **boolean** <br />Wheter or not the prospect clicked a link in any of your emails
+opened | **yes** | **boolean** <br />Whether or not the prospect opened any of your emails
+clicked | **yes** | **boolean** <br />Whether or not the prospect clicked a link in any of your emails
 replied | **yes** | **boolean** <br />Whether or not the prospect replied to any of your emails
 replied_at | no | **datetime** <br />The date and time when the prospect first replied
 bounced | **yes** | **boolean** <br />Whether or not the prospect email bounced
@@ -109,6 +113,7 @@ url | no | **string** <br />The full URL to the prospect on Prospect.io
 list_name | no | **string** <br />The name of the list if the prospect is in a list
 created_at | no | **datetime** | ISO 8601 format with timezone offset
 updated_at | no | **datetime** | ISO 8601 format with timezone offset
+custom_fields | **yes** | **dictionary** <br />Fields to store custom information about prospects that you can use freely
 
 ### Relationships
 Object | Description
@@ -159,9 +164,9 @@ country<br />*string* | *NULL* | The prospect's country
 state<br />*string* | *NULL* | The prospect's state or region
 city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | *NULL* | The prospect's industry
-custom_field_[a..e]<br /> *string* | *NULL* | Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
 list_id<br />*integer* | *NULL* | ID of the list where to save the prospect
 responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
+custom_fields<br />*dictionary* | *{}* | Fields to store custom information about prospects that you can use freely
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).
@@ -221,12 +226,12 @@ linkedin_profile<br />*string* | A link to the prospect's LinkedIn profile
 phone<br />*string* | The prospect's phone number
 title<br />*string* | The prospect's title of civility
 country<br />*string* | The prospect's country
-state<br />*string* | *NULL* | The prospect's state or region
-city<br />*string* | *NULL* | The prospect's city
+state<br />*string* | The prospect's state or region
+city<br />*string* | The prospect's city
 industry<br />*string* | The prospect's industry
-custom_field_[a..e]<br /> | *string* | Five custom fields (custom_field_a, custom_field_b, ...) that you can use freely
 list_id<br />*integer* | ID of the list where to save the prospect
 responsible_id<br />*integer* | The ID of the user responsible for this prospect
+custom_fields<br />*dictionary* | Fields to store custom information about prospects that you can use freely
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).
@@ -441,3 +446,4 @@ id | **yes** | integer | The ID of the prospect to mark as (not) archived
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).
+
