@@ -58,12 +58,7 @@ curl -X GET "https://api.prospect.io/public/v1/custom_fields" \
         ...
       }
     }
-  ],
-  "links": {
-    "self": "https://api.prospect.io/public/v1/custom_fields/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.prospect.io/public/v1/custom_fields/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.prospect.io/public/v1/custom_fields/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
-  }
+  ]
 }
 ```
 

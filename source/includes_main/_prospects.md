@@ -107,9 +107,9 @@ updated_at | no | **datetime** | ISO 8601 format with timezone offset
 
 ### Custom Fields
 
-Custom fields allow you to store more specific information about your prospects, they can be defined into [your settings](https://app.prospect.io/settings/custom-fields).
+Custom fields can be used as normal attributes by using their `identifier` as attribute key, see the `c_custom_field_a` example in the above payload.
 
-Use the `identifier` of your custom fields as attribute keys.
+You can retrieve the list of your custom fields by using the [custom fields index endpoint](#list-custom-fields)
 
 ### Relationships
 Object | Description
