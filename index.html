@@ -410,11 +410,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
       </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Walloon Brabant"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wavre"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IT"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"custom_field_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hot lead"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"custom_field_b"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"custom_field_c"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"custom_field_d"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"custom_field_e"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"c_custom_field_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hot lead"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_emailed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"converted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -545,11 +541,6 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
 <td><strong>string</strong> <br />The prospect&rsquo;s industry</td>
 </tr>
 <tr>
-<td>custom_field_[a..e]</td>
-<td><strong>yes</strong></td>
-<td><strong>string</strong> <br />Five custom fields (custom_field_a, custom_field_b, &hellip;) that you can use freely</td>
-</tr>
-<tr>
 <td>created_from</td>
 <td>no</td>
 <td><strong>string</strong> <br />The source of the prospect. Can be <code class="prettyprint">web</code>, <code class="prettyprint">extension</code>, <code class="prettyprint">api</code> or <code class="prettyprint">import</code></td>
@@ -630,6 +621,12 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
 <td><strong>datetime</strong></td>
 </tr>
 </tbody></table>
+
+<h3 id="custom-fields">Custom Fields</h3>
+
+<p>Custom fields can be used as normal attributes by using their <code class="prettyprint">identifier</code> as attribute key, see the <code class="prettyprint">c_custom_field_a</code> example in the above payload.</p>
+
+<p>You can retrieve the list of your custom fields by using the <a href="#list-custom-fields">custom fields index endpoint</a></p>
 
 <h3 id="relationships">Relationships</h3>
 
@@ -763,11 +760,6 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects"</spa
 <td>The prospect&rsquo;s industry</td>
 </tr>
 <tr>
-<td>custom_field_[a..e]<br /> <em>string</em></td>
-<td><em>NULL</em></td>
-<td>Five custom fields (custom_field_a, custom_field_b, &hellip;) that you can use freely</td>
-</tr>
-<tr>
 <td>list_id<br /><em>integer</em></td>
 <td><em>NULL</em></td>
 <td>ID of the list where to save the prospect</td>
@@ -898,10 +890,6 @@ curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/prospects/1"</
 <tr>
 <td>industry<br /><em>string</em></td>
 <td>The prospect&rsquo;s industry</td>
-</tr>
-<tr>
-<td>custom_field_[a..e]<br /></td>
-<td><em>string</em></td>
 </tr>
 <tr>
 <td>list_id<br /><em>integer</em></td>
@@ -1177,6 +1165,90 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/a
 <h3 id="returns">Returns</h3>
 
 <p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
+
+          <h1 id="custom-fields">Custom Fields</h1>
+
+<h2 id="the-custom-field-object">The custom field object</h2>
+<pre class="highlight plaintext"><code># EXAMPLE OBJECT
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_fields"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c_custom_field_a"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lead Value"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="object-attributes">Object attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Filterable?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>no</td>
+<td><strong>string</strong> <br />A UUID key for the custom field</td>
+</tr>
+<tr>
+<td>identifier</td>
+<td>no</td>
+<td><strong>string</strong> <br />The custom field&rsquo;s <code class="prettyprint">identifier</code> <strong>to be used as attribute key into prospect objects&rsquo; payload</strong></td>
+</tr>
+<tr>
+<td>name</td>
+<td>no</td>
+<td><strong>string</strong> <br />The custom field&rsquo;s name/label</td>
+</tr>
+<tr>
+<td>value_type</td>
+<td>no</td>
+<td><strong>string</strong> <br />The custom field&rsquo;s value type, can be one of the following: <code class="prettyprint">numeric</code>, <code class="prettyprint">text</code>, <code class="prettyprint">text_long</code>, <code class="prettyprint">phone</code>, <code class="prettyprint">url</code>, <code class="prettyprint">boolean</code>, <code class="prettyprint">list_single</code>, <code class="prettyprint">list_multiple</code>, <code class="prettyprint">datetime</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="list-custom-fields">List Custom Fields</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://api.prospect.io/public/v1/custom_fields
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/custom_fields"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_fields"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_fields"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns all custom fields.</p>
 
           <h1 id="lists">Lists</h1>
 
