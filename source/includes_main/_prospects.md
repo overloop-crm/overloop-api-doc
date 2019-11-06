@@ -136,7 +136,8 @@ curl -X POST "https://api.prospect.io/public/v1/prospects" \
     "attributes": {
       "email": "vincenzo@prospect.io",
       "first_name": "Vincenzo",
-      "last_name": "Ruggiero"
+      "last_name": "Ruggiero",
+      "c_custom_field_a": "Hot lead"
     }
   }
 }'
