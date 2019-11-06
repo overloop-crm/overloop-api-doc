@@ -199,7 +199,9 @@ curl -X PATCH "https://api.prospect.io/public/v1/prospects/1" \
   "data": {
     "type": "prospects",
     "attributes": {
-      "first_name": "Vincent"
+      "email": "vincenzo@prospect.io",
+      "first_name": "Vincent",
+      "c_custom_field_a": "Hot lead"
     }
   }
 }'
