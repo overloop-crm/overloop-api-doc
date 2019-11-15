@@ -109,7 +109,9 @@ updated_at | no | **datetime** | ISO 8601 format with timezone offset
 
 Custom fields can be used as normal attributes by using their `identifier` as attribute key, see the `c_custom_field_a` example in the above payload.
 
-You can retrieve the list of your custom fields by using the [custom fields index endpoint](#list-custom-fields)
+You can retrieve the list of your custom fields by using the [custom fields index endpoint](#list-custom-fields). 
+
+They accept a value depending on [their format](#the-custom-field-object)
 
 ### Relationships
 Object | Description
