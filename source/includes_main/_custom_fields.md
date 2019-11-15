@@ -28,7 +28,7 @@ value_type | no | **string** <br />The custom field's value type, can be one of 
 
 ### Value format
 
-Depending on the type of custom field value, it can accept different kinds of value: 
+Depending on the type of custom field, it can accept different kinds of value: 
 
  - `numeric`: any number (integer or float number) 
  - `text`, `text_long`: any string
