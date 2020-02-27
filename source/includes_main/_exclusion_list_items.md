@@ -12,8 +12,7 @@
     "attributes": {
       "value": "vincenzo@prospect.io",
       "item_type": "email",
-      "created_at": "2015-08-15T16:48:46+02:00",
-      "updated_at": "2016-11-25T12:40:46+01:00"
+      "created_at": "2015-08-15T16:48:46+02:00"
     }
   }
 }
@@ -26,7 +25,6 @@ id | no | **string** <br />The id of the exclusion list item
 value | no | **string** <br />The value of the exclusion list item
 item_type | no | **string** <br />The type of the exclusion list item, can be one of the following: `email`, `domain`
 created_at | no | **datetime** <br /> ISO 8601 format with timezone offset
-updated_at | no | **datetime** <br /> ISO 8601 format with timezone offset
 
 ## Create an Exclusion List Item
 
@@ -63,8 +61,7 @@ curl -X POST "https://api.prospect.io/public/v1/exclusion_list_items" \
         "attributes": {
             "value": "vincenzo@prospect.io",
             "item_type": "email",
-            "created_at": "2015-08-15T16:48:46+02:00",
-            "updated_at": "2015-08-15T16:48:46+02:00"
+            "created_at": "2015-08-15T16:48:46+02:00"
         }
     }
 }
