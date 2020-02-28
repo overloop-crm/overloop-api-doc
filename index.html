@@ -1271,6 +1271,94 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/custom_fields"</
 
 <p>Returns all custom fields. </p>
 
+          <h1 id="exclusion-list-items">Exclusion List Items</h1>
+
+<h2 id="the-exclusion-list-item-object">The exclusion list item object</h2>
+<pre class="highlight plaintext"><code># EXAMPLE OBJECT
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exclusion_list_item"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vincenzo@prospect.io"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"item_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="object-attributes">Object attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Filterable?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>no</td>
+<td><strong>string</strong> <br />The id of the exclusion list item</td>
+</tr>
+<tr>
+<td>value</td>
+<td>no</td>
+<td><strong>string</strong> <br />The value of the exclusion list item</td>
+</tr>
+<tr>
+<td>item_type</td>
+<td>no</td>
+<td><strong>string</strong> <br />The type of the exclusion list item, can be one of the following: <code class="prettyprint">email</code>, <code class="prettyprint">domain</code></td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>no</td>
+<td><strong>datetime</strong> <br /> ISO 8601 format with timezone offset</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-an-exclusion-list-item">Create an Exclusion List Item</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+POST https://api.prospect.io/public/v1/exclusion_list_items
+
+<span class="c"># EXAMPLE</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/exclusion_list_items"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+-d <span class="s1">'
+  {
+    "data": {
+      "type": "exclusion_list_item",
+      "attributes": {
+        "value": "vincenzo@prospect.io",
+        "item_type": "email"
+      }
+    }
+  }
+'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exclusion_list_item"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vincenzo@prospect.io"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Beware, adding an item (email or domain) to the exclusion list will also delete <strong>permanantly</strong> the prospects whose sending address matches the item value. So use this endpoint with care!</p>
+
           <h1 id="lists">Lists</h1>
 
 <h2 id="the-list-object">The list object</h2>
