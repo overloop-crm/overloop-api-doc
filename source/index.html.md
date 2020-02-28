@@ -19,6 +19,7 @@ includes_main:
   - account
   - prospects
   - custom_fields
+  - exclusion_list_items
   - lists
   - campaigns
   - campaign_steps
