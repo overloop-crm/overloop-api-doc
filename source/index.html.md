@@ -25,6 +25,7 @@ includes_main:
   - campaign_steps
   - subscriptions
   - automations
+  - automation_steps
   - enrollments
   - users
 
