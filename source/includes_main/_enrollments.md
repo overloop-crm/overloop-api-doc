@@ -48,7 +48,7 @@ curl -X POST "https://api.prospect.io/public/v1/automations/1/subscriptions" \
     "type": "enrollments",
     "attributes": {
       "prospect_id": 1,
-      "node_id": "123",
+      "step_id": "abc123",
       "reenroll": false
     }
   }
@@ -61,7 +61,7 @@ This will create a new enrollment.
 Parameter | Required? | Type | Description
 --------- | --------- | ---- | ------------
 prospect_id | **yes** | *integer* | The prospect's ID
-node_id | no | *string* | The step's ID of the automation at which the prospect must be enrolled.
+step_id | no | *string* | The step's ID of the automation at which the prospect must be enrolled.
 reenroll | no | *boolean* | Set to `false` if you want to prevent re enroll the prospect because he already has been enrolled. **If not set to** `false` **this parameter will always be** `true`
 
 ### Returns
