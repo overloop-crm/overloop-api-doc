@@ -29,8 +29,8 @@
       "start_sending_minutes": 480,
       "end_sending_minutes": 1020,
       "timezone": "Etc/UTC",
-      "created_at": "2020-01-01T12:00:00Z",
-      "updated_at": "2020-01-01T12:00:00Z"
+      "created_at": "2020-01-31T12:00:00.000Z",
+      "updated_at": "2020-01-31T12:00:00.000Z"
     },
     "relationships": {
       "steps": {
@@ -60,8 +60,8 @@ exit_triggers | no | **array** <br />An array containing the conditions required
 status | **yes** | **string** <br />The automation's status that can take 2 different values: `on` and `off`
 send_as_thread | no | **boolean** <br />The automation's emails should be sent as threads.
 sending_days | no | **array** <br />An array containing the days of the week when the automation will send.
-start_sending_minutes | no | **integer** <br />The start time for sending the automation's emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes.
-end_sending_minutes | no | **integer** <br />The end time for sending the automation's emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes.
+start_sending_minutes | no | **integer** <br />The start time for sending the automation's emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between `0` and `1425`.
+end_sending_minutes | no | **integer** <br />The end time for sending the automation's emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between `0` and `1425`.
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 
