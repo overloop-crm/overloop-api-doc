@@ -59,7 +59,7 @@ automation | The parent [automation](#automations)
 ## Retrieve a automation step
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/automations/{CAMPAIGN_ID}/steps/{STEP_ID}
+GET https://api.prospect.io/public/v1/automations/{AUTOMATION_ID}/steps/{STEP_ID}
 
 # EXAMPLE
 curl -X GET "https://api.prospect.io/public/v1/automations/1/steps/1" \
@@ -79,7 +79,7 @@ Returns the [automation step object](#the-automation-step-object).
 ## List automations steps
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/automations/{CAMPAIGN_ID}/steps
+GET https://api.prospect.io/public/v1/automations/{AUTOMATION_ID}/steps
 
 # EXAMPLE
 curl -X GET "https://api.prospect.io/public/v1/automations/1/steps" \
@@ -93,45 +93,45 @@ curl -X GET "https://api.prospect.io/public/v1/automations/1/steps" \
 {
   "data": [
     {
-      "id": "3920",
-      "type": "steps_prospect_email_steps",
+      "id": "abc123",
+      "type": "automations-steps",
       "attributes": {
         ...
       },
       "relationships": {
         "automation": {
           "data": {
-            "id": "1961",
+            "id": "1",
             "type": "automations"
           }
         }
       }
     },
     {
-      "id": "3922",
-      "type": "steps_prospect_email_steps",
+      "id": "abc456",
+      "type": "automations-steps",
       "attributes": {
         ...
       },
       "relationships": {
         "automation": {
           "data": {
-            "id": "1961",
+            "id": "1",
             "type": "automations"
           }
         }
       }
     },
     {
-      "id": "20837",
-      "type": "steps_notification_email_steps",
+      "id": "abc789",
+      "type": "automations-steps",
       "attributes": {
         ...
       },
       "relationships": {
         "automation": {
           "data": {
-            "id": "1961",
+            "id": "1",
             "type": "automations"
           }
         }

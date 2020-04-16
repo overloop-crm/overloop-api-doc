@@ -40,7 +40,7 @@
             "type": "automations-steps"
           },
           {
-            "id": "xyz789",
+            "id": "abc456",
             "type": "automations-steps"
           }
         ]
