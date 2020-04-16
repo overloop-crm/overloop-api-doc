@@ -45,13 +45,13 @@ offset | **integer** <br />The number of days the step will be sent after the pr
 position | **integer** <br />The order position in the list
 recipient | **string** <br />The recipient email for step of type `steps_notification_email_steps`
 schedule_of_the_day | **integer** <br />Time of day in number of minutes since midnight in UTC time for this step to send
-created_at | **datetime** | ISO 8601 format with timezone offset
-updated_at | **datetime** | ISO 8601 format with timezone offset
+created_at | **datetime** <br />ISO 8601 format with timezone offset
+updated_at | **datetime** <br />ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description
 --------- | -----------
-campaign | The parent [campaign](#campaign)
+campaign | The parent [campaign](#campaigns)
 
 ## Retrieve a campaign step
 ```shell

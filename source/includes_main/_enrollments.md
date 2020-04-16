@@ -15,8 +15,8 @@ To add a desired prospect to a specific automation you have to create an **enrol
       "prospect_id": 1,
       "current_stay_id": 1,
       "disenrolled_at": null,
-      "created_at": "2020-01-01T12:00:00.000Z",
-      "updated_at": "2020-01-01T12:00:00.000Z"
+      "created_at": "2020-01-31T12:00:00.000Z",
+      "updated_at": "2020-01-31T12:00:00.000Z"
     }
   }
 }
@@ -30,8 +30,8 @@ automation_id | **integer** <br />The automation's ID this enrollment is associa
 prospect_id | **integer** <br />The prospect's ID this enrollment is associated to
 current_stay_id | **integer** <br />Define the last stay
 disenrolled_at | **datetime** <br />The date and time when the prospect has been leaved the automation in ISO 8601 format with timezone
-created_at | **datetime** | ISO 8601 format with timezone offset
-updated_at | **datetime** | ISO 8601 format with timezone offset
+created_at | **datetime** <br />ISO 8601 format with timezone offset
+updated_at | **datetime** <br />ISO 8601 format with timezone offset
 
 
 ## Create an enrollment

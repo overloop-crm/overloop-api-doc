@@ -102,14 +102,14 @@ bounced | **yes** | **boolean** <br />Whether or not the prospect email bounced
 campaign_status | no | **string** <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be `running`, `paused` or `scheduled`
 url | no | **string** <br />The full URL to the prospect on Prospect.io
 list_name | no | **string** <br />The name of the list if the prospect is in a list
-created_at | no | **datetime** | ISO 8601 format with timezone offset
-updated_at | no | **datetime** | ISO 8601 format with timezone offset
+created_at | no | **datetime** <br />ISO 8601 format with timezone offset
+updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 
 ### Custom Fields
 
 Custom fields can be used as normal attributes by using their `identifier` as attribute key, see the `c_custom_field_a` example in the above payload.
 
-You can retrieve the list of your custom fields by using the [custom fields index endpoint](#list-custom-fields). 
+You can retrieve the list of your custom fields by using the [custom fields index endpoint](#list-custom-fields).
 
 They accept a value depending on [their format](#the-custom-field-object)
 

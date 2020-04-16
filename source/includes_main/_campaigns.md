@@ -53,8 +53,8 @@ status | **yes** | **string** <br />The campaign's status that can take 3 differ
 steps_count | no | **integer** <br />The number of steps in the campaign
 sending_days | no | **array** <br />An array containing the days of the week when the campaign will send. Monday is `1`
 stop_when | no | **array** <br />An array containing the events that trigger the campaign to stops. Possible values are `message.click`, `prospect.replied` and `prospect.convert`
-created_at | no | **datetime** | ISO 8601 format with timezone offset
-updated_at | no | **datetime** | ISO 8601 format with timezone offset
+created_at | no | **datetime** <br />ISO 8601 format with timezone offset
+updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description

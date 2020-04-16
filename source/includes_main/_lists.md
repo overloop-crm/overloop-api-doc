@@ -25,8 +25,8 @@ Attribute | Filterable? | Description
 id | no | **integer** <br />A unique identifier for the list
 name | no | **string** <br />The list's name
 status | **yes** | **string** <br />The list's status that can take 2 different values: `available` or `archived`
-created_at | no | **datetime** | ISO 8601 format with timezone offset
-updated_at | no | **datetime** | ISO 8601 format with timezone offset
+created_at | no | **datetime** <br />ISO 8601 format with timezone offset
+updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 
 
 ## Create a list

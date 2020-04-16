@@ -47,8 +47,8 @@ signature | no | **string** <br />The user's HTML signature
 disabled | **yes** | **boolean** <br />Whether or not the user is disabled or not
 from_name | no | **string** <br />The name we put in the email `from` field
 timezone | no | **string** <br />The user's time zone
-created_at | no | **datetime** | ISO 8601 format with timezone offset
-updated_at | no | **datetime** | ISO 8601 format with timezone offset
+created_at | no | **datetime** <br />ISO 8601 format with timezone offset
+updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description

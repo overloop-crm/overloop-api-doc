@@ -73,8 +73,8 @@ start_at | **datetime** <br />If the campaign is scheduled , the date and time w
 send_next_step_at | **datetime** <br />The date and time the next step is scheduled to be sent in ISO 8601 format with timezone
 paused_at | **datetime** <br />The date and time when the campaign has been paused in ISO 8601 format with timezone
 pause_reason | **string** <br />The reason why the campaign has been paused
-created_at | **datetime** | ISO 8601 format with timezone offset
-updated_at | **datetime** | ISO 8601 format with timezone offset
+created_at | **datetime** <br />ISO 8601 format with timezone offset
+updated_at | **datetime** <br />ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description
