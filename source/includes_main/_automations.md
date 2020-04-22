@@ -60,8 +60,8 @@ exit_triggers | no | **array** <br />An array containing the events that will ma
 status | **yes** | **string** <br />The automation's status that can take 3 different values: `on`, `off` and `archived`
 send_as_thread | no | **boolean** <br />The automation's emails should be sent as threads.
 sending_days | no | **array** <br />An array containing days during which emails can be sent ("monday", "tuesday", etc.)
-start_sending_minutes | no | **integer** <br />The start time for sending the automation's emails => The hour at which we can start sending emails
-end_sending_minutes | no | **integer** <br />The start time for sending the automation's emails => The hour at which we must stop sending emails
+start_sending_minutes | no | **integer** <br />The hour at which we can start sending emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between `0` and `1425`.
+end_sending_minutes | no | **integer** <br />The hour at which we can stop sending emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between `0` and `1425`.
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 
