@@ -86,8 +86,8 @@ updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 Object | Description
 --------- | -----------
 steps | The [steps](#automation-steps) of the automation.
-enter_segment | The reference between the automation and the conditions of the _enter_segment_ event.
-filters | The conditions of the _enter_segment_ event.
+enter_segment | The reference of the automation filters for the _enter_segment_ trigger event.
+filters | The conditions of the _enter_segment_ trigger event.
 
 ## Retrieve an automation
 ```shell
