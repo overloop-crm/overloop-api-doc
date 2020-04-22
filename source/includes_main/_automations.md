@@ -44,6 +44,23 @@
             "type": "automations-steps"
           }
         ]
+      },
+      "enter_segment": {
+        "data": {
+          "id": "a1b2c3",
+          "type": "triggers-events"
+      },
+      "filters": {
+        "data": [
+          {
+            "id": "xyz123",
+            "type": "filters-conditions"
+          },
+          {
+            "id": "xyz456",
+            "type": "filters-conditions"
+          }
+        ]
       }
     }
   }
@@ -56,7 +73,7 @@ Attribute | Filterable? | Description
 id | no | **integer** <br />A unique identifier for the automation
 name | no | **string** <br />The automation's name
 enter_triggers | no | **array** <br />An array containing the events that will make prospects entering the automation. Possible values are `message.sent`, `message.open`, `message.click`, `prospect.create`, `prospect.updated`, `prospect.replied`, `prospect.qualified` and `prospect.convert`
-exit_triggers | no | **array** <br />An array containing the events that will make prospects exiting the automation. Possible values are `message.click`, `prospect.replied`, `prospect.qualified`, `prospect.convert`, `message.hard_bounced` and `pseudo_event.unmatch`
+exit_triggers | no | **array** <br />An array containing the events that will make prospects exiting the automation. Possible values are `message.click`, `prospect.replied`, `prospect.qualified`, `prospect.convert`, `message.hard_bounced` and `pseudo_event.unmatch` representing the event when the conditions of the _enter_segment_ event is no longer applicable.
 status | **yes** | **string** <br />The automation's status that can take 3 different values: `on`, `off` and `archived`
 send_as_thread | no | **boolean** <br />The automation's emails should be sent as threads.
 sending_days | no | **array** <br />An array containing days during which emails can be sent ("monday", "tuesday", etc.)
@@ -69,6 +86,8 @@ updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 Object | Description
 --------- | -----------
 steps | The [steps](#automation-steps) of the automation.
+enter_segment | The reference between the automation and the conditions of the _enter_segment_ event.
+filters | The conditions of the _enter_segment_ event.
 
 ## Retrieve an automation
 ```shell
