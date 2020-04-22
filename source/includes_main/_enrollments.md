@@ -1,6 +1,6 @@
 # Enrollments
 ## The enrollment object
-To add a desired prospect to a specific automation you have to create an **enrollment**. The enrollment is then used to describe the current status of the automation for the prospect.
+To add a desired prospect to a specific automation you have to create an **enrollment**. The enrollment is then used to describe the current status of the automation for the prospect => the progression of the prospect into the automation flow.
 
 ```
 # EXAMPLE OBJECT

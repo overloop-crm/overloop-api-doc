@@ -55,13 +55,13 @@ Attribute | Filterable? | Description
 --------- | ----------- | -----------
 id | no | **integer** <br />A unique identifier for the automation
 name | no | **string** <br />The automation's name
-enter_triggers | no | **array** <br />An array containing the conditions required by the prospect to enter the automation. Possible values are `message.sent`, `message.open`, `message.click`, `prospect.create`, `prospect.updated`, `prospect.replied`, `prospect.qualified` and `prospect.convert`
-exit_triggers | no | **array** <br />An array containing the conditions required by the prospect to exit the automation. Possible values are `message.click`, `prospect.replied`, `prospect.qualified`, `prospect.convert`, `message.hard_bounced` and `pseudo_event.unmatch`
+enter_triggers | no | **array** <br />An array containing the events that will make prospects entering the automation. Possible values are `message.sent`, `message.open`, `message.click`, `prospect.create`, `prospect.updated`, `prospect.replied`, `prospect.qualified` and `prospect.convert`
+exit_triggers | no | **array** <br />An array containing the events that will make prospects exiting the automation. Possible values are `message.click`, `prospect.replied`, `prospect.qualified`, `prospect.convert`, `message.hard_bounced` and `pseudo_event.unmatch`
 status | **yes** | **string** <br />The automation's status that can take 3 different values: `on`, `off` and `archived`
 send_as_thread | no | **boolean** <br />The automation's emails should be sent as threads.
-sending_days | no | **array** <br />An array containing the days of the week when the automation will send.
-start_sending_minutes | no | **integer** <br />The start time for sending the automation's emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between `0` and `1425`.
-end_sending_minutes | no | **integer** <br />The end time for sending the automation's emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between `0` and `1425`.
+sending_days | no | **array** <br />An array containing days during which emails can be sent ("monday", "tuesday", etc.)
+start_sending_minutes | no | **integer** <br />The start time for sending the automation's emails => The hour at which we can start sending emails
+end_sending_minutes | no | **integer** <br />The start time for sending the automation's emails => The hour at which we must stop sending emails
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 

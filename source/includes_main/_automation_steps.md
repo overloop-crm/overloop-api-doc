@@ -45,7 +45,7 @@ Attribute | Description
 --------- | -----------
 id | **integer** <br />A unique identifier for the automation step
 step_type | **string** <br />The type of step. Can be an `email`, a `task`, a `note`, a `delay`, a `condition`, an `edit` field value or an app action like `hubspot`, `salesforce`, `zoho`, `pipedrive`, `close` and `slack`.
-position | **integer** <br />The position in relation with a _step_type_ `condition`. Position `0`, is the YES answer to the condition. Position `1`, is the NO answer to the condition. **When the** _previous_step_id_ **of the current step is not a** _step_type_ `condition`, **the position will always be** `0`.
+position | **integer** <br />When the previous_step is not a `condition`, the position will always be 0. Otherwise, `0` is the left/yes branch of a condition, while `1` is the right/no branch.
 previous_step_id | **string** <br />The unique identifier of the previous step. A `null` value will always be assigned to the first step of the automation.
 created_at | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | **datetime** <br />ISO 8601 format with timezone offset
@@ -56,7 +56,7 @@ Object | Description
 --------- | -----------
 automation | The parent [automation](#automations)
 
-## Retrieve a automation step
+## Retrieve an automation step
 ```shell
 # DEFINITION
 GET https://api.prospect.io/public/v1/automations/{AUTOMATION_ID}/steps/{STEP_ID}
