@@ -443,6 +443,7 @@ Mark a prospect as archived or not archived.
 Parameter | Required? | Type | Description
 --------- | --------- | -----| -----------
 id | **yes** | integer | The ID of the prospect to mark as (not) archived
+remove_tasks | ***yes*** (when archiving) | boolean | Whether the prospect's tasks are to be deleted
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).
