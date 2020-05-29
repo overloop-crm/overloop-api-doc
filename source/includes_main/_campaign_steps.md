@@ -1,5 +1,8 @@
 # Campaign Steps
 ## The campaign step object
+<aside class="warning">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 ```
 # EXAMPLE OBJECT
 ```
@@ -33,7 +36,6 @@
 }
 ```
 
-
 ### Object attributes
 Attribute | Description
 --------- | -----------
@@ -54,6 +56,9 @@ Object | Description
 campaign | The parent [campaign](#campaigns)
 
 ## Retrieve a campaign step
+<aside class="warning">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 ```shell
 # DEFINITION
 GET https://api.prospect.io/public/v1/campaigns/{CAMPAIGN_ID}/steps/{STEP_ID}
@@ -142,7 +147,9 @@ curl -X GET "https://api.prospect.io/public/v1/campaigns/1/steps" \
   }
 }
 ```
-
+<aside class="warning">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 Returns a list of campaigns steps.
 
 This list is [paginated](#pagination) by 100 records and can also be [sorted](#sorting).
