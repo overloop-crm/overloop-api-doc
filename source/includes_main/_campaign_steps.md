@@ -86,7 +86,7 @@ GET https://api.prospect.io/public/v1/campaigns/{CAMPAIGN_ID}/steps
 # EXAMPLE
 curl -X GET "https://api.prospect.io/public/v1/campaigns/1/steps" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 > The above command returns JSON structured like this:

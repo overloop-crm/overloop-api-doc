@@ -119,7 +119,7 @@ DELETE https://api.prospect.io/public/v1/lists/{PROSPECT_ID}
 # EXAMPLE
 curl -X DELETE "https://api.prospect.io/public/v1/lists/1" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 > The above command returns JSON structured like this:
@@ -156,7 +156,7 @@ GET https://api.prospect.io/public/v1/lists
 # EXAMPLE
 curl -X GET "https://api.prospect.io/public/v1/lists" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 > The above command returns JSON structured like this:

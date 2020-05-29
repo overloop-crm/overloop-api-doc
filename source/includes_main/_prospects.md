@@ -244,7 +244,7 @@ DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}
 # EXAMPLE
 curl -X DELETE "https://api.prospect.io/public/v1/prospects/1" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 > The above command returns JSON structured like this:
@@ -281,7 +281,7 @@ GET https://api.prospect.io/public/v1/prospects
 # EXAMPLE
 curl -X GET "https://api.prospect.io/public/v1/prospects" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 > The above command returns JSON structured like this:
@@ -368,7 +368,7 @@ POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/qualification
 # EXAMPLE
 curl -X POST "https://api.prospect.io/public/v1/prospects/1/qualification" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 
 # DEFINITION: Mark as not qualified
 DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/qualification
@@ -376,7 +376,7 @@ DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/qualification
 # EXAMPLE
 curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/qualification" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 Mark a prospect as qualified or not qualified.
@@ -397,7 +397,7 @@ POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/conversion
 # EXAMPLE
 curl -X POST "https://api.prospect.io/public/v1/prospects/1/conversion" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 
 # DEFINITION: Mark as not converted
 DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/conversion
@@ -405,7 +405,7 @@ DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/conversion
 # EXAMPLE
 curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/conversion" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 Mark a prospect as converted or not converted.
@@ -426,7 +426,7 @@ POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/archive
 # EXAMPLE
 curl -X POST "https://api.prospect.io/public/v1/prospects/1/archive" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 
 # DEFINITION: Mark as not archived
 DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/archive
@@ -434,7 +434,7 @@ DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/archive
 # EXAMPLE
 curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/archive" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 Mark a prospect as archived or not archived.

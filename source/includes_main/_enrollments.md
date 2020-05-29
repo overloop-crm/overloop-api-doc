@@ -74,7 +74,7 @@ current_step | The current [step](#automation-steps) of this enrollment.
 POST https://api.prospect.io/public/v1/automations/{{AUTOMATION_ID}}/enrollments
 
 # EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/automations/1/subscriptions" \
+curl -X POST "https://api.prospect.io/public/v1/automations/1/enrollments" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{

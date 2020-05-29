@@ -134,7 +134,7 @@ DELETE https://api.prospect.io/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions
 # EXAMPLE
 curl -X DELETE "https://api.prospect.io/public/v1/campaigns/1/subscriptions/1" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 > The above command returns JSON structured like this:
