@@ -12,10 +12,12 @@
     "attributes": {
       "name": "Public API Automation Example",
       "enter_triggers": [
-        "prospect.create"
+        "prospect.create",
       ],
       "exit_triggers": [
-        "prospect.replied"
+        "prospect.replied",
+        "prospect.qualified",
+        "prospect.convert"
       ],
       "status": "on",
       "send_as_thread": true,
@@ -36,34 +38,60 @@
       "steps": {
         "data": [
           {
-            "id": "abc123",
-            "type": "automations-steps"
+            "id": "a-z0-9-abc1",
+            "type": "automations_steps"
           },
           {
-            "id": "abc456",
-            "type": "automations-steps"
+            "id": "a-z0-9-abc2",
+            "type": "automations_steps"
           }
         ]
       },
-      "enter_segment": {
+      "segment": {
         "data": {
-          "id": "a1b2c3",
-          "type": "triggers-events"
-      },
-      "filters": {
-        "data": [
-          {
-            "id": "xyz123",
-            "type": "filters-conditions"
-          },
-          {
-            "id": "xyz456",
-            "type": "filters-conditions"
-          }
-        ]
+          "id": "a-z0-9-abc3",
+          "type": "segments"
+        }
       }
     }
-  }
+  },
+  "included": [
+    {
+      "id": "a-z0-9-abc3",
+      "type": "segments",
+      "attributes": {
+        "name": null,
+        "combination_operator": "and"
+      },
+      "relationships": {
+        "filters": {
+          "data": [
+            {
+              "id": "a-z0-9-abc4",
+              "type": "filters"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "a-z0-9-abc4",
+      "type": "filters",
+      "attributes": {
+        "attribute_name": "email",
+        "operator": "doesnotcontain",
+        "option_value": "info"
+      },
+      "relationships": {
+        "segment" : {
+          "data": {
+            "id": "a-z0-9-abc3",
+            "type": "segments"
+          }
+        }
+      }
+    }
+  ]
 }
 ```
 
@@ -135,6 +163,11 @@ curl -X GET "https://api.prospect.io/public/v1/automations" \
           "data": [
             ...
           ]
+        },
+        "segment": {
+          "data": {
+            ...
+          }
         }
       }
     },
@@ -149,6 +182,11 @@ curl -X GET "https://api.prospect.io/public/v1/automations" \
           "data": [
             ...
           ]
+        },
+        "segment": {
+          "data": {
+            ...
+          }
         }
       }
     }

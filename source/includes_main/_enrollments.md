@@ -9,7 +9,7 @@ To add a desired prospect to a specific automation you have to create an **enrol
 {
   "data": {
     "id": "1",
-    "type": "automations-enrollments",
+    "type": "automations_enrollments",
     "attributes": {
       "automation_id": 1,
       "prospect_id": 1,
@@ -20,11 +20,35 @@ To add a desired prospect to a specific automation you have to create an **enrol
     "relationships": {
       "current_step": {
         "data": {
-          "id": "abc123",
-          "type": "automations-steps"
+          "id": "a-z0-9-abc1",
+          "type": "automations_steps"
         }
       }
-    }
+    },
+    "included": [
+      {
+        "id": "a-z0-9-abc1",
+        "type": "automations_steps",
+        "attributes": {
+          "step_type": "note",
+          "position": 0,
+          "previous_step_id": null,
+          "created_at": "2020-01-31T12:00:00.000Z",
+          "updated_at": "2020-01-31T12:00:00.000Z",
+          "config": {
+            "content": "Sample note text"
+          }
+        },
+        "relationships": {
+          "automation": {
+              "data": {
+                "id": "1",
+                "type": "automations"
+            }
+          }
+        }
+      }
+    ]
   }
 }
 ```
@@ -59,7 +83,8 @@ curl -X POST "https://api.prospect.io/public/v1/automations/1/subscriptions" \
     "attributes": {
       "prospect_id": 1,
       "step_id": "abc123",
-      "reenroll": false
+      "reenroll": false,
+      "include": "current_step"
     }
   }
 }'
@@ -73,6 +98,7 @@ Parameter | Required? | Type | Description
 prospect_id | **yes** | *integer* | The prospect's ID
 step_id | no | *string* | The step's ID of the automation at which the prospect must be enrolled.
 reenroll | no | *boolean* | Set to `false` if you want to prevent re enroll the prospect because he already has been enrolled. **If not set to** `false` **this parameter will always be** `true`
+include | no | *string* | Set to `current_step` if you want to have the related step included with the returned result.
 
 ### Returns
 Returns the [enrollment object](#the-enrollment-object).

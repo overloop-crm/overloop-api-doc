@@ -8,8 +8,8 @@
 {
   "data": [
     {
-      "id": "abc123",
-      "type": "automations-steps",
+      "id": "a-z0-9-abc1",
+      "type": "automations_steps",
       "attributes": {
         "step_type": "task",
         "position": 0,
@@ -20,7 +20,7 @@
           "title": "Public API Automation Step Example",
           "due_time": "09:00:00",
           "due_offset": 1,
-          "description": "This is a sample description",
+          "description": "This is an example description",
           "task_category": null,
           "prospect_segment": null,
           "wait_for_completion": true
@@ -93,8 +93,8 @@ curl -X GET "https://api.prospect.io/public/v1/automations/1/steps" \
 {
   "data": [
     {
-      "id": "abc123",
-      "type": "automations-steps",
+      "id": "a-z0-9-abc1",
+      "type": "automations_steps",
       "attributes": {
         ...
       },
@@ -108,8 +108,8 @@ curl -X GET "https://api.prospect.io/public/v1/automations/1/steps" \
       }
     },
     {
-      "id": "abc456",
-      "type": "automations-steps",
+      "id": "a-z0-9-abc2",
+      "type": "automations_steps",
       "attributes": {
         ...
       },
@@ -123,8 +123,8 @@ curl -X GET "https://api.prospect.io/public/v1/automations/1/steps" \
       }
     },
     {
-      "id": "abc789",
-      "type": "automations-steps",
+      "id": "a-z0-9-abc3",
+      "type": "automations_steps",
       "attributes": {
         ...
       },
