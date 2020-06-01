@@ -103,6 +103,27 @@ include | no | *string* | Set to `current_step` if you want to have the related 
 ### Returns
 Returns the [enrollment object](#the-enrollment-object).
 
+## Stop an enrollment
+```shell
+# DEFINITION
+DELETE https://api.prospect.io/public/v1/automations/{{AUTOMATION_ID}}/enrollments/{{ENROLLMENT_ID}}
+
+# EXAMPLE
+curl -X DELETE "https://api.prospect.io/public/v1/automations/1/enrollments/1" \
+-H "Authorization: your_api_key" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
+```
+
+This will stop an enrollment.
+
+### Parameters
+Parameter | Required? | Type | Description
+--------- | --------- | -----| -----------
+id | **yes** | integer | The ID of the enrollment to stop
+
+### Returns
+Returns the [enrollment object](#the-enrollment-object).
+
 ## Retrieve an enrollment
 ```shell
 # DEFINITION
