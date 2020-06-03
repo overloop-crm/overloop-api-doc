@@ -1,5 +1,8 @@
 # Automations
 ## The automation object
+<aside class="notice">
+NEW FEATURE - Automations are released and available to all users. To get access to these new powers, <a href="https://app.prospect.io/session/login">Log In</a> and simply ask our Support Team or <a href="https://app.prospect.io/session/signup">Sign Up</a> and enjoy.
+</aside>
 ```
 # EXAMPLE OBJECT
 ```
