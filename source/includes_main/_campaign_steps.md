@@ -1,6 +1,6 @@
 # Campaign Steps
 ## The campaign step object
-<aside class="warning">
+<aside class="deprecation">
 Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
 </aside>
 ```
@@ -56,7 +56,7 @@ Object | Description
 campaign | The parent [campaign](#campaigns)
 
 ## Retrieve a campaign step
-<aside class="warning">
+<aside class="deprecation">
 Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
 </aside>
 ```shell
@@ -147,7 +147,7 @@ curl -X GET "https://api.prospect.io/public/v1/campaigns/1/steps" \
   }
 }
 ```
-<aside class="warning">
+<aside class="deprecation">
 Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
 </aside>
 Returns a list of campaigns steps.

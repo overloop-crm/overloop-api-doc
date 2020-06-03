@@ -494,6 +494,11 @@ html, body {
     background: $aside-notice-bg;
     line-height: 1.6;
 
+    &.deprecation {
+      background-color: $aside-deprecation-bg;
+      text-shadow: 0 1px 0 lighten($aside-deprecation-bg, 15%);
+    }
+
     &.warning {
       background-color: $aside-warning-bg;
       text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
@@ -513,6 +518,10 @@ html, body {
 
   aside.notice:before {
     @extend %icon-info-sign;
+  }
+
+  aside.deprecation:before {
+    @extend %icon-exclamation-sign;
   }
 
   aside.warning:before {

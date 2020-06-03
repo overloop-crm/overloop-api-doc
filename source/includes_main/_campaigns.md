@@ -1,6 +1,6 @@
 # Campaigns
 ## The campaign object
-<aside class="warning">
+<aside class="deprecation">
 Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
 </aside>
 ```
@@ -65,7 +65,7 @@ Object | Description
 steps | The [steps](#campaign-steps) of the campaign. Can be a email to the prospect `steps_prospect_email_steps` or a team notification email `steps_notification_email_steps`.
 
 ## Retrieve a campaign
-<aside class="warning">
+<aside class="deprecation">
 Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
 </aside>
 ```shell
@@ -138,7 +138,7 @@ curl -X GET "https://api.prospect.io/public/v1/campaigns" \
   }
 }
 ```
-<aside class="warning">
+<aside class="deprecation">
 Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
 </aside>
 Returns a list of campaigns.

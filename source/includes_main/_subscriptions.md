@@ -1,6 +1,6 @@
 # Subscriptions
 ## The subscription object
-<aside class="warning">
+<aside class="deprecation">
 Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
 </aside>
 To start sending a campaign to a prospect you have to create a **subscription**. The subscription is then used to described the current status of the campaign for the prospect.
@@ -88,7 +88,7 @@ campaign | Describe a [campaign object](#the-campaign-object)
 prospect | Describe a [prospect object](#the-prospect-object)
 
 ## Create a subscription
-<aside class="warning">
+<aside class="deprecation">
 Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
 </aside>
 ```shell
@@ -147,7 +147,7 @@ curl -X DELETE "https://api.prospect.io/public/v1/campaigns/1/subscriptions/1" \
   }
 }
 ```
-<aside class="warning">
+<aside class="deprecation">
 Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
 </aside>
 This will stop a subscription.
@@ -161,7 +161,7 @@ id | **yes** | integer | The ID of the subscription to stop
 Returns the [subscription object](#the-subscription-object).
 
 ## Retrieve a subscription
-<aside class="warning">
+<aside class="deprecation">
 Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
 </aside>
 ```shell
