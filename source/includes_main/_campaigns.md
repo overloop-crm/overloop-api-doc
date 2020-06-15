@@ -1,5 +1,8 @@
 # Campaigns
 ## The campaign object
+<aside class="deprecation">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 ```
 # EXAMPLE OBJECT
 ```
@@ -53,8 +56,8 @@ status | **yes** | **string** <br />The campaign's status that can take 3 differ
 steps_count | no | **integer** <br />The number of steps in the campaign
 sending_days | no | **array** <br />An array containing the days of the week when the campaign will send. Monday is `1`
 stop_when | no | **array** <br />An array containing the events that trigger the campaign to stops. Possible values are `message.click`, `prospect.replied` and `prospect.convert`
-created_at | no | **datetime** | ISO 8601 format with timezone offset
-updated_at | no | **datetime** | ISO 8601 format with timezone offset
+created_at | no | **datetime** <br />ISO 8601 format with timezone offset
+updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description
@@ -62,6 +65,9 @@ Object | Description
 steps | The [steps](#campaign-steps) of the campaign. Can be a email to the prospect `steps_prospect_email_steps` or a team notification email `steps_notification_email_steps`.
 
 ## Retrieve a campaign
+<aside class="deprecation">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 ```shell
 # DEFINITION
 GET https://api.prospect.io/public/v1/campaigns/{CAMPAIGN_ID}
@@ -88,7 +94,7 @@ GET https://api.prospect.io/public/v1/campaigns
 # EXAMPLE
 curl -X GET "https://api.prospect.io/public/v1/campaigns" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 > The above command returns JSON structured like this:
@@ -132,7 +138,9 @@ curl -X GET "https://api.prospect.io/public/v1/campaigns" \
   }
 }
 ```
-
+<aside class="deprecation">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 Returns a list of campaigns.
 
 This list is [paginated](#pagination) by 100 records and can also be [sorted](#sorting) or [filtered](#filtering).

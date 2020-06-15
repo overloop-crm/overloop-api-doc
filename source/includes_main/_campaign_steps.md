@@ -1,5 +1,8 @@
 # Campaign Steps
 ## The campaign step object
+<aside class="deprecation">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 ```
 # EXAMPLE OBJECT
 ```
@@ -33,7 +36,6 @@
 }
 ```
 
-
 ### Object attributes
 Attribute | Description
 --------- | -----------
@@ -45,15 +47,18 @@ offset | **integer** <br />The number of days the step will be sent after the pr
 position | **integer** <br />The order position in the list
 recipient | **string** <br />The recipient email for step of type `steps_notification_email_steps`
 schedule_of_the_day | **integer** <br />Time of day in number of minutes since midnight in UTC time for this step to send
-created_at | **datetime** | ISO 8601 format with timezone offset
-updated_at | **datetime** | ISO 8601 format with timezone offset
+created_at | **datetime** <br />ISO 8601 format with timezone offset
+updated_at | **datetime** <br />ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description
 --------- | -----------
-campaign | The parent [campaign](#campaign)
+campaign | The parent [campaign](#campaigns)
 
 ## Retrieve a campaign step
+<aside class="deprecation">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 ```shell
 # DEFINITION
 GET https://api.prospect.io/public/v1/campaigns/{CAMPAIGN_ID}/steps/{STEP_ID}
@@ -81,7 +86,7 @@ GET https://api.prospect.io/public/v1/campaigns/{CAMPAIGN_ID}/steps
 # EXAMPLE
 curl -X GET "https://api.prospect.io/public/v1/campaigns/1/steps" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 > The above command returns JSON structured like this:
@@ -142,7 +147,9 @@ curl -X GET "https://api.prospect.io/public/v1/campaigns/1/steps" \
   }
 }
 ```
-
+<aside class="deprecation">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 Returns a list of campaigns steps.
 
 This list is [paginated](#pagination) by 100 records and can also be [sorted](#sorting).

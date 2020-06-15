@@ -41,8 +41,8 @@ vat | **string** <br />The account's VAT number
 plan_name | **string** <br />The account's plan
 plan_code | **string** <br />The account's plan code
 remaining_credits | **integer** <br />The number of credits remaining
-created_at | **datetime** | ISO 8601 format with timezone offset
-updated_at | **datetime** | ISO 8601 format with timezone offset
+created_at | **datetime** <br />ISO 8601 format with timezone offset
+updated_at | **datetime** <br />ISO 8601 format with timezone offset
 
 ## Retrieve your account
 ```shell

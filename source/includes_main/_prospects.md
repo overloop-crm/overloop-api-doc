@@ -102,14 +102,14 @@ bounced | **yes** | **boolean** <br />Whether or not the prospect email bounced
 campaign_status | no | **string** <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be `running`, `paused` or `scheduled`
 url | no | **string** <br />The full URL to the prospect on Prospect.io
 list_name | no | **string** <br />The name of the list if the prospect is in a list
-created_at | no | **datetime** | ISO 8601 format with timezone offset
-updated_at | no | **datetime** | ISO 8601 format with timezone offset
+created_at | no | **datetime** <br />ISO 8601 format with timezone offset
+updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 
 ### Custom Fields
 
 Custom fields can be used as normal attributes by using their `identifier` as attribute key, see the `c_custom_field_a` example in the above payload.
 
-You can retrieve the list of your custom fields by using the [custom fields index endpoint](#list-custom-fields). 
+You can retrieve the list of your custom fields by using the [custom fields index endpoint](#list-custom-fields).
 
 They accept a value depending on [their format](#the-custom-field-object)
 
@@ -244,7 +244,7 @@ DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}
 # EXAMPLE
 curl -X DELETE "https://api.prospect.io/public/v1/prospects/1" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 > The above command returns JSON structured like this:
@@ -281,7 +281,7 @@ GET https://api.prospect.io/public/v1/prospects
 # EXAMPLE
 curl -X GET "https://api.prospect.io/public/v1/prospects" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 > The above command returns JSON structured like this:
@@ -368,7 +368,7 @@ POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/qualification
 # EXAMPLE
 curl -X POST "https://api.prospect.io/public/v1/prospects/1/qualification" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 
 # DEFINITION: Mark as not qualified
 DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/qualification
@@ -376,7 +376,7 @@ DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/qualification
 # EXAMPLE
 curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/qualification" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 Mark a prospect as qualified or not qualified.
@@ -397,7 +397,7 @@ POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/conversion
 # EXAMPLE
 curl -X POST "https://api.prospect.io/public/v1/prospects/1/conversion" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 
 # DEFINITION: Mark as not converted
 DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/conversion
@@ -405,7 +405,7 @@ DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/conversion
 # EXAMPLE
 curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/conversion" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 Mark a prospect as converted or not converted.
@@ -426,7 +426,7 @@ POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/archive
 # EXAMPLE
 curl -X POST "https://api.prospect.io/public/v1/prospects/1/archive" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 
 # DEFINITION: Mark as not archived
 DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/archive
@@ -434,7 +434,7 @@ DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/archive
 # EXAMPLE
 curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/archive" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 Mark a prospect as archived or not archived.

@@ -1,5 +1,8 @@
 # Subscriptions
 ## The subscription object
+<aside class="deprecation">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 To start sending a campaign to a prospect you have to create a **subscription**. The subscription is then used to described the current status of the campaign for the prospect.
 
 You can take manual actions on a subscription to `pause`, `resume` or `stop` a campaign for a specific prospect.
@@ -73,8 +76,8 @@ start_at | **datetime** <br />If the campaign is scheduled , the date and time w
 send_next_step_at | **datetime** <br />The date and time the next step is scheduled to be sent in ISO 8601 format with timezone
 paused_at | **datetime** <br />The date and time when the campaign has been paused in ISO 8601 format with timezone
 pause_reason | **string** <br />The reason why the campaign has been paused
-created_at | **datetime** | ISO 8601 format with timezone offset
-updated_at | **datetime** | ISO 8601 format with timezone offset
+created_at | **datetime** <br />ISO 8601 format with timezone offset
+updated_at | **datetime** <br />ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description
@@ -85,6 +88,9 @@ campaign | Describe a [campaign object](#the-campaign-object)
 prospect | Describe a [prospect object](#the-prospect-object)
 
 ## Create a subscription
+<aside class="deprecation">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 ```shell
 # DEFINITION
 POST https://api.prospect.io/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions
@@ -128,7 +134,7 @@ DELETE https://api.prospect.io/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions
 # EXAMPLE
 curl -X DELETE "https://api.prospect.io/public/v1/campaigns/1/subscriptions/1" \
 -H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
 > The above command returns JSON structured like this:
@@ -141,7 +147,9 @@ curl -X DELETE "https://api.prospect.io/public/v1/campaigns/1/subscriptions/1" \
   }
 }
 ```
-
+<aside class="deprecation">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 This will stop a subscription.
 
 ### Parameters
@@ -153,6 +161,9 @@ id | **yes** | integer | The ID of the subscription to stop
 Returns the [subscription object](#the-subscription-object).
 
 ## Retrieve a subscription
+<aside class="deprecation">
+Warning — Campaigns will be deprecated soon. You should use the <a href="#automations">Automations</a> instead.
+</aside>
 ```shell
 # DEFINITION
 GET https://api.prospect.io/public/v1/campaigns/{{CAMPAIGN_ID}}/subscriptions/{{SUBSCRIPTION_ID}}
