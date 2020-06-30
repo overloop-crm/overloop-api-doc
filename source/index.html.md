@@ -21,9 +21,6 @@ includes_main:
   - custom_fields
   - exclusion_list_items
   - lists
-  - campaigns
-  - campaign_steps
-  - subscriptions
   - automations
   - automation_steps
   - enrollments

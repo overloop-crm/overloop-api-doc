@@ -34,7 +34,6 @@
       "replied": false,
       "replied_at": null,
       "bounced": false,
-      "campaign_status": null,
       "url": "https://prospect.io/prospects/1",
       "list_name": "Sales Managers in UK",
       "created_at": "2015-08-15T16:48:46+02:00",
@@ -58,12 +57,6 @@
           "id": "1",
           "type": "lists"
         }
-      },
-      "campaign": {
-        "data": null
-      },
-      "current_campaign_subscription": {
-        "data": null
       }
     }
   }
@@ -99,7 +92,6 @@ clicked | **yes** | **boolean** <br />Wheter or not the prospect clicked a link 
 replied | **yes** | **boolean** <br />Whether or not the prospect replied to any of your emails
 replied_at | no | **datetime** <br />The date and time when the prospect first replied
 bounced | **yes** | **boolean** <br />Whether or not the prospect email bounced
-campaign_status | no | **string** <br />If the prospect is currently in a campaign, this attribute contains the status of the campaign. Can be `running`, `paused` or `scheduled`
 url | no | **string** <br />The full URL to the prospect on Prospect.io
 list_name | no | **string** <br />The name of the list if the prospect is in a list
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
@@ -119,8 +111,6 @@ Object | Description
 creator | The [user](#users) who created the prospect
 responsible | The [user](#users) responsible of the prospect
 list | Describe a [list object](#lists) if the prospect is in a list
-campaign | Describe a [campaign object](#campaign) if the prospect is currently in a campaign. The campaign status is described in the `campaign_status` attribute
-current_campaign_subscription | Describe a [campaign subscription](#campaign-subscriptions) if the prospect is currently in a campaign.
 
 
 ## Create a prospect
@@ -305,16 +295,6 @@ curl -X GET "https://api.prospect.io/public/v1/prospects" \
           "data": {
             ...
           }
-        },
-        "campaign": {
-          "data": {
-            ...
-          }
-        },
-        "current_campaign_subscription": {
-          "data": {
-            ...
-          }
         }
       }
     },
@@ -331,16 +311,6 @@ curl -X GET "https://api.prospect.io/public/v1/prospects" \
           }
         },
         "list": {
-          "data": {
-            ...
-          }
-        },
-        "campaign": {
-          "data": {
-            ...
-          }
-        },
-        "current_campaign_subscription": {
           "data": {
             ...
           }

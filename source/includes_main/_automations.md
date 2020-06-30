@@ -1,8 +1,5 @@
 # Automations
 ## The automation object
-<aside class="notice">
-BETA FEATURE - Automations are progressively being released. To get access to this feature, <a href="https://app.prospect.io/session/login">sign in</a> and simply ask our Support Team.
-</aside>
 ```
 # EXAMPLE OBJECT
 ```
