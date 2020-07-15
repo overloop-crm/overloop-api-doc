@@ -148,7 +148,7 @@ country<br />*string* | *NULL* | The prospect's country
 state<br />*string* | *NULL* | The prospect's state or region
 city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | *NULL* | The prospect's industry
-lists<br />*string[]* | *NULL* | Name of the lists where to save the prospect
+lists<br />*string[]* | *NULL* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
 responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
 
 ### Returns
@@ -214,7 +214,7 @@ country<br />*string* | The prospect's country
 state<br />*string* | *NULL* | The prospect's state or region
 city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | The prospect's industry
-lists<br />*string[]* | Name of the lists where to save the prospect
+lists<br />*string[]* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
 responsible_id<br />*integer* | The ID of the user responsible for this prospect
 
 ### Returns
