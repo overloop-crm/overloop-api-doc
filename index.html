@@ -421,7 +421,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
       </span><span class="nt">"replied_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"bounced"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/prospects/1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"list_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Managers in UK"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Belgium"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Manager"</span><span class="p">],</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -436,12 +436,6 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lists"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -594,9 +588,9 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
 <td><strong>string</strong> <br />The full URL to the prospect on Prospect.io</td>
 </tr>
 <tr>
-<td>list_name</td>
+<td>lists</td>
 <td>no</td>
-<td><strong>string</strong> <br />The name of the list if the prospect is in a list</td>
+<td><strong>string[]</strong> <br /> Name of the lists of the prospect</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -633,10 +627,6 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
 <tr>
 <td>responsible</td>
 <td>The <a href="#users">user</a> responsible of the prospect</td>
-</tr>
-<tr>
-<td>list</td>
-<td>Describe a <a href="#lists">list object</a> if the prospect is in a list</td>
 </tr>
 </tbody></table>
 
@@ -743,9 +733,9 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects"</spa
 <td>The prospect&rsquo;s industry</td>
 </tr>
 <tr>
-<td>list_id<br /><em>integer</em></td>
+<td>lists<br /><em>string[]</em></td>
 <td><em>NULL</em></td>
-<td>ID of the list where to save the prospect</td>
+<td>Name of the lists where to save the prospect<br/>(note: we will create the lists if they don&rsquo;t exist)</td>
 </tr>
 <tr>
 <td>responsible_id<br /><em>integer</em></td>
@@ -877,8 +867,8 @@ curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/prospects/1"</
 <td>The prospect&rsquo;s industry</td>
 </tr>
 <tr>
-<td>list_id<br /><em>integer</em></td>
-<td>ID of the list where to save the prospect</td>
+<td>lists<br /><em>string[]</em></td>
+<td>Name of the lists where to save the prospect<br/>(note: we will create the lists if they don&rsquo;t exist)</td>
 </tr>
 <tr>
 <td>responsible_id<br /><em>integer</em></td>
@@ -965,11 +955,6 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/prospects"</span
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="err">...</span><span class="w">
           </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="err">...</span><span class="w">
-          </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -981,11 +966,6 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/prospects"</span
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="err">...</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="err">...</span><span class="w">
           </span><span class="p">}</span><span class="w">
@@ -1336,7 +1316,6 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/exclusion_list_
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lists"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LinkedIn"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1364,11 +1343,6 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/exclusion_list_
 <td><strong>string</strong> <br />The list&rsquo;s name</td>
 </tr>
 <tr>
-<td>status</td>
-<td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The list&rsquo;s status that can take 2 different values: <code class="prettyprint">available</code> or <code class="prettyprint">archived</code></td>
-</tr>
-<tr>
 <td>created_at</td>
 <td>no</td>
 <td><strong>datetime</strong> <br />ISO 8601 format with timezone offset</td>
@@ -1392,8 +1366,7 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/lists"</span> <
   "data": {
     "type": "lists",
     "attributes": {
-      "name": "A list name",
-      "status": "available"
+      "name": "A list name"
     }
   }
 }'</span>
@@ -1414,11 +1387,6 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/lists"</span> <
 <td>name<br /><strong>required</strong> - <em>string</em></td>
 <td>/</td>
 <td>The list&rsquo;s name</td>
-</tr>
-<tr>
-<td>available<br /><em>string</em></td>
-<td><em>&ldquo;available&rdquo;</em></td>
-<td>The list&rsquo;s status (&ldquo;available&rdquo; or &ldquo;archived&rdquo;)</td>
 </tr>
 </tbody></table>
 
@@ -1466,8 +1434,7 @@ curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/lists/1"</span
   "data": {
     "type": "lists",
     "attributes": {
-      "name": "LinkedIn bis",
-      "status": "archived"
+      "name": "LinkedIn bis"
     }
   }
 }'</span>
@@ -1490,10 +1457,6 @@ curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/lists/1"</span
 <tr>
 <td>name<br /><em>string</em></td>
 <td>The list&rsquo;s name</td>
-</tr>
-<tr>
-<td>available<br /><em>string</em></td>
-<td>The list&rsquo;s status (&ldquo;available&rdquo; or &ldquo;archived&rdquo;)</td>
 </tr>
 </tbody></table>
 
