@@ -35,7 +35,6 @@
       "replied_at": null,
       "bounced": false,
       "url": "https://prospect.io/prospects/1",
-      "list_name": "Sales Managers in UK",
       "lists": ["Belgium", "Manager"],
       "created_at": "2015-08-15T16:48:46+02:00",
       "updated_at": "2016-11-25T12:40:46+01:00"
