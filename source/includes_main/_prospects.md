@@ -35,7 +35,7 @@
       "replied_at": null,
       "bounced": false,
       "url": "https://prospect.io/prospects/1",
-      "list_name": "Sales Managers in UK",
+      "lists": ["Belgium", "Manager"],
       "created_at": "2015-08-15T16:48:46+02:00",
       "updated_at": "2016-11-25T12:40:46+01:00"
     },
@@ -50,12 +50,6 @@
         "data": {
           "id": "2",
           "type": "users"
-        }
-      },
-      "list": {
-        "data": {
-          "id": "1",
-          "type": "lists"
         }
       }
     }
@@ -93,7 +87,7 @@ replied | **yes** | **boolean** <br />Whether or not the prospect replied to any
 replied_at | no | **datetime** <br />The date and time when the prospect first replied
 bounced | **yes** | **boolean** <br />Whether or not the prospect email bounced
 url | no | **string** <br />The full URL to the prospect on Prospect.io
-list_name | no | **string** <br />The name of the list if the prospect is in a list
+lists | no | **string[]** <br /> Name of the lists of the prospect
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 
@@ -110,7 +104,6 @@ Object | Description
 --------- | -----------
 creator | The [user](#users) who created the prospect
 responsible | The [user](#users) responsible of the prospect
-list | Describe a [list object](#lists) if the prospect is in a list
 
 
 ## Create a prospect
@@ -154,7 +147,7 @@ country<br />*string* | *NULL* | The prospect's country
 state<br />*string* | *NULL* | The prospect's state or region
 city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | *NULL* | The prospect's industry
-list_id<br />*integer* | *NULL* | ID of the list where to save the prospect
+lists<br />*string[]* | *NULL* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
 responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
 
 ### Returns
@@ -220,7 +213,7 @@ country<br />*string* | The prospect's country
 state<br />*string* | *NULL* | The prospect's state or region
 city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | The prospect's industry
-list_id<br />*integer* | ID of the list where to save the prospect
+lists<br />*string[]* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
 responsible_id<br />*integer* | The ID of the user responsible for this prospect
 
 ### Returns
@@ -290,11 +283,6 @@ curl -X GET "https://api.prospect.io/public/v1/prospects" \
           "data": {
             ...
           }
-        },
-        "list": {
-          "data": {
-            ...
-          }
         }
       }
     },
@@ -306,11 +294,6 @@ curl -X GET "https://api.prospect.io/public/v1/prospects" \
       },
       "relationships": {
         "responsible": {
-          "data": {
-            ...
-          }
-        },
-        "list": {
           "data": {
             ...
           }
