@@ -14,8 +14,9 @@ To add a desired prospect to a specific automation you have to create an **enrol
       "automation_id": 1,
       "prospect_id": 1,
       "disenrolled_at": null,
+      "start_on": "2020-02-20",
       "created_at": "2020-01-31T12:00:00.000Z",
-      "updated_at": "2020-01-31T12:00:00.000Z"
+      "updated_at": "2020-01-31T12:00:00.000Z",
     },
     "relationships": {
       "current_step": {
@@ -60,6 +61,7 @@ id | **integer** <br />A unique identifier for the enrollment
 automation_id | **integer** <br />The automation's ID this enrollment is associated to
 prospect_id | **integer** <br />The prospect's ID this enrollment is associated to
 disenrolled_at | **datetime** <br />The date and time when the prospect has been leaved the automation in ISO 8601 format with timezone
+start_on | **date** <br />ISO 8601 format (YYYY-MM-DD)
 created_at | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | **datetime** <br />ISO 8601 format with timezone offset
 
@@ -84,6 +86,7 @@ curl -X POST "https://api.prospect.io/public/v1/automations/1/enrollments" \
       "prospect_id": 1,
       "step_id": "abc123",
       "reenroll": false,
+      "start_on": "2020-02-20",
       "include": "current_step"
     }
   }
@@ -98,6 +101,7 @@ Parameter | Required? | Type | Description
 prospect_id | **yes** | *integer* | The prospect's ID
 step_id | no | *string* | The step's ID of the automation at which the prospect must be enrolled.
 reenroll | no | *boolean* | Set to `false` if you want to prevent re enroll the prospect because he already has been enrolled. **If not set to** `false` **this parameter will always be** `true`
+start_on | no | *string* | The date on which the enrollment must be started in the ISO 8601 format (YYYY-MM-DD). If not set or set in the past, the enrollment will be started immediately.
 include | no | *string* | Set to `current_step` if you want to have the related step included with the returned result.
 
 ### Returns
