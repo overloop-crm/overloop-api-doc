@@ -30,7 +30,7 @@
       "converted": false,
       "converted_at": null,
       "qualified": true,
-      "archived": false,
+      "archived": true,
       "archived_reason": "excluded",
       "replied": false,
       "replied_at": null,
