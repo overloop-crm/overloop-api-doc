@@ -23,7 +23,6 @@
       "country": "Belgium",
       "state": "Walloon Brabant",
       "city": "Wavre",
-      "industry": "IT",
       "c_custom_field_a": "Hot lead",
       "created_from": "extension",
       "last_emailed_at": null,
@@ -67,7 +66,6 @@ first_name | **yes** | **string** <br />The prospect's first name
 last_name | **yes** | **string** <br />The prospect's last name
 organisation_name | no | **string** <br />The prospect's company name
 description | no | **string** <br />A text description of the prospect
-domain | **yes** | **string** <br />The prospect's website
 jobtitle | **yes** | **string** <br />The prospect's job title
 linkedin_profile | no |**string** <br />A link to the prospect's LinkedIn profile
 phone | **yes** | **string** <br />The prospect's phone number
@@ -75,7 +73,6 @@ title | **yes** | **string** <br />The prospect's title of civility
 country | **yes** | **string** <br />The prospect's country
 state | **yes** | **string** <br />The prospect's state or region
 city | **yes** | **string** <br />The prospect's city
-industry | **yes** | **string** <br />The prospect's industry
 created_from | no | **string** <br />The source of the prospect. Can be `web`, `extension`, `api` or `import`
 last_emailed_at | no | **datetime** <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset
 converted | **yes** | **boolean** <br />Whether or not the prospect is marked as converted
@@ -140,7 +137,6 @@ first_name<br />*string* | *NULL* | The prospect's first name
 last_name<br />*string* | *NULL* | The prospect's last name
 organisation_name<br />*string* | *NULL* | The prospect's company name
 description<br />*string* | *NULL* | A text description of the prospect
-domain<br />*string* | *NULL* | The prospect's website
 jobtitle<br />*string* | *NULL* | The prospect's job title
 linkedin_profile<br />*string* | *NULL* | A link to the prospect's LinkedIn profile
 phone<br />*string* | *NULL* | The prospect's phone number
@@ -148,7 +144,6 @@ title<br />*string* | *NULL* | The prospect's title of civility
 country<br />*string* | *NULL* | The prospect's country
 state<br />*string* | *NULL* | The prospect's state or region
 city<br />*string* | *NULL* | The prospect's city
-industry<br />*string* | *NULL* | The prospect's industry
 lists<br />*string[]* | *NULL* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
 responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
 
@@ -206,7 +201,6 @@ first_name<br />*string* | The prospect's first name
 last_name<br />*string* | The prospect's last name
 organisation_name<br />*string* | The prospect's company name
 description<br />*string* | A text description of the prospect
-domain<br />*string* | The prospect's website
 jobtitle<br />*string* | The prospect's job title
 linkedin_profile<br />*string* | A link to the prospect's LinkedIn profile
 phone<br />*string* | The prospect's phone number
@@ -214,7 +208,6 @@ title<br />*string* | The prospect's title of civility
 country<br />*string* | The prospect's country
 state<br />*string* | *NULL* | The prospect's state or region
 city<br />*string* | *NULL* | The prospect's city
-industry<br />*string* | The prospect's industry
 lists<br />*string[]* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
 responsible_id<br />*integer* | The ID of the user responsible for this prospect
 

@@ -18,6 +18,7 @@ includes:
 includes_main:
   - account
   - prospects
+  - organizations
   - custom_fields
   - exclusion_list_items
   - lists
