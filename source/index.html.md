@@ -13,6 +13,7 @@ includes:
   - sorting
   - filtering
   - pagination
+  - relationships
   - errors
 
 includes_main:

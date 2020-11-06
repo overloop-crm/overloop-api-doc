@@ -83,12 +83,11 @@ curl -X POST "https://api.organization.io/public/v1/organizations" \
 }'
 ```
 
-This will create a new organization. If you don't set the `responsible_id` parameter then the user who performed the action will be assigned as the responsible user.
+This will create a new organization. 
 
 ### Parameters
 Parameter | Default | Description
 --------- | ------- | ------------
-id | *NULL* | A unique identifier for the organization
 name | *NULL* | The name of the organization
 website | *NULL* | The organization's website
 description | *NULL* | The organization's description
@@ -151,7 +150,7 @@ Updates the specified organization by setting the values of the parameters passe
 ### Parameters
 Parameter | Description
 --------- | -----------
-id | A unique identifier for the organization
+id<br />**required** - *integer* | A unique identifier for the organization
 name | The name of the organization
 website | The organization's website
 description | The organization's description
