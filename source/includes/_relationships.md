@@ -1,7 +1,7 @@
 # Relationships
 ```shell
 # EXAMPLE
-GET https://api.prospect.io/public/v1/prospects/?include=organization
+GET https://api.prospect.io/public/v1/prospects?include=organization
 ```
 
 > Get prospects with their associated organizations
@@ -11,7 +11,8 @@ linked using a "relationship" section in the JSON payloads.
 This section only contains the links between the unique identifier of related records (in the example, Prospect#29964 and Organization#1). 
 
 In order to get access to associated information on an entity, you can use the parameter `?include=`, which will create 
-a new section "included" containing the full payload of all the associated data. 
+a new section "included" containing the full payload of all the associated data. Notice that you can include multiple 
+relationships by joining them using a comma: `GET https://api.prospect.io/public/v1/prospects?include=organization,creator`
 
 ```shell
 # RETURNS

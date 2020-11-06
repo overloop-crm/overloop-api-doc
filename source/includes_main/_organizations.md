@@ -192,9 +192,6 @@ curl -X DELETE "https://api.organization.io/public/v1/organizations/1" \
 
 Permanently deletes an organization. It cannot be undone.
 
-<aside class="warning">
-Warning — Deleting an organization will also delete all history with this organization (messages, replies, etc.)
-</aside>
 
 ### Parameters
 Parameter | Required? | Type | Description
