@@ -204,6 +204,76 @@ GET https://api.prospect.io/public/v1/prospects/?filter<span class="o">=</span>f
 <li><strong>next</strong>: the next page of data</li>
 </ul>
 
+          <h1 id="relationships">Relationships</h1>
+<pre class="highlight shell"><code><span class="c"># EXAMPLE</span>
+GET https://api.prospect.io/public/v1/prospects?include<span class="o">=</span>organization
+</code></pre>
+
+<blockquote>
+<p>Get prospects with their associated organizations</p>
+</blockquote>
+
+<p>Resources returned by the API are returned in the JSON API format, which means that related entities are 
+linked using a &ldquo;relationship&rdquo; section in the JSON payloads. 
+This section only contains the links between the unique identifier of related records (in the example, Prospect#29964 and Organization#1). </p>
+
+<p>In order to get access to associated information on an entity, you can use the parameter <code class="prettyprint">?include=</code>, which will create 
+a new section &ldquo;included&rdquo; containing the full payload of all the associated data. Notice that you can include multiple 
+relationships by joining them using a comma: <code class="prettyprint">GET https://api.prospect.io/public/v1/prospects?include=organization,creator</code></p>
+<pre class="highlight shell"><code><span class="c"># RETURNS</span>
+<span class="o">{</span>
+    <span class="s2">"data"</span>: <span class="o">{</span>
+        <span class="s2">"id"</span>: <span class="s2">"29964"</span>,
+        <span class="s2">"type"</span>: <span class="s2">"prospects"</span>,
+        <span class="s2">"attributes"</span>: <span class="o">{</span>
+            …
+        <span class="o">}</span>,
+        <span class="s2">"relationships"</span>: <span class="o">{</span>
+            <span class="s2">"creator"</span>: <span class="o">{</span>
+                <span class="s2">"data"</span>: <span class="o">{</span>
+                    <span class="s2">"id"</span>: <span class="s2">"181"</span>,
+                    <span class="s2">"type"</span>: <span class="s2">"users"</span>
+                <span class="o">}</span>
+            <span class="o">}</span>,
+            <span class="s2">"responsible"</span>: <span class="o">{</span>
+                <span class="s2">"data"</span>: <span class="o">{</span>
+                    <span class="s2">"id"</span>: <span class="s2">"181"</span>,
+                    <span class="s2">"type"</span>: <span class="s2">"users"</span>
+                <span class="o">}</span>
+            <span class="o">}</span>,
+            <span class="s2">"organization"</span>: <span class="o">{</span>
+                <span class="s2">"data"</span>: <span class="o">{</span>
+                    <span class="s2">"id"</span>: <span class="s2">"1"</span>,
+                    <span class="s2">"type"</span>: <span class="s2">"organizations"</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="s2">"included"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"id"</span>: <span class="s2">"1"</span>,
+            <span class="s2">"type"</span>: <span class="s2">"organizations"</span>,
+            <span class="s2">"attributes"</span>: <span class="o">{</span>
+                <span class="s2">"name"</span>: <span class="s2">"Prospect.io"</span>,
+                <span class="s2">"created_at"</span>: <span class="s2">"2020-11-06T13:56:44Z"</span>,
+                <span class="s2">"updated_at"</span>: <span class="s2">"2020-11-06T13:56:44Z"</span>,
+                <span class="s2">"updater_id"</span>: 181,
+                <span class="s2">"creator_id"</span>: 181,
+                <span class="s2">"website"</span>: null,
+                <span class="s2">"phone"</span>: null,
+                <span class="s2">"email"</span>: null,
+                <span class="s2">"country"</span>: null,
+                <span class="s2">"city"</span>: null,
+                <span class="s2">"state"</span>: null,
+                <span class="s2">"address"</span>: null,
+                <span class="s2">"description"</span>: null,
+                <span class="s2">"lists"</span>: <span class="o">[]</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+
           <h1 id="errors">Errors</h1>
 <pre class="highlight shell"><code><span class="c"># EXAMPLE OBJECT</span>
 <span class="c">## When trying to add a prospect with a duplicate email address</span>
@@ -399,9 +469,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vincenzo@prospect.io"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vincenzo"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruggiero"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"organisation_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prospect.io"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"jobtitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CEO"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"linkedin_profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.linkedin.com/in/vincenzor"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+32-481-754-301"</span><span class="p">,</span><span class="w">
@@ -416,7 +484,8 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
       </span><span class="nt">"converted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"converted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"qualified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"archived_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"excluded"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"bounced"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -436,6 +505,12 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organizations"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -473,19 +548,9 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
 <td><strong>string</strong> <br />The prospect&rsquo;s last name</td>
 </tr>
 <tr>
-<td>organisation_name</td>
-<td>no</td>
-<td><strong>string</strong> <br />The prospect&rsquo;s company name</td>
-</tr>
-<tr>
 <td>description</td>
 <td>no</td>
 <td><strong>string</strong> <br />A text description of the prospect</td>
-</tr>
-<tr>
-<td>domain</td>
-<td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The prospect&rsquo;s website</td>
 </tr>
 <tr>
 <td>jobtitle</td>
@@ -558,6 +623,11 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
 <td><strong>boolean</strong> <br />Whether or not the prospect is archived</td>
 </tr>
 <tr>
+<td>archived_reason</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />If the prospect is archived, this attribute contains the reason. Can be <code class="prettyprint">exluded</code>, <code class="prettyprint">opt-out</code> or nothing if the archive was manual.</td>
+</tr>
+<tr>
 <td>opened</td>
 <td><strong>yes</strong></td>
 <td><strong>boolean</strong> <br />Wheteer or not the prospect opened any of your emails</td>
@@ -625,6 +695,10 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/account"</span> 
 <td>The <a href="#users">user</a> who created the prospect</td>
 </tr>
 <tr>
+<td>organization</td>
+<td>The <a href="#organizations">organization</a> of this prospect</td>
+</tr>
+<tr>
 <td>responsible</td>
 <td>The <a href="#users">user</a> responsible of the prospect</td>
 </tr>
@@ -678,19 +752,9 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects"</spa
 <td>The prospect&rsquo;s last name</td>
 </tr>
 <tr>
-<td>organisation_name<br /><em>string</em></td>
-<td><em>NULL</em></td>
-<td>The prospect&rsquo;s company name</td>
-</tr>
-<tr>
 <td>description<br /><em>string</em></td>
 <td><em>NULL</em></td>
 <td>A text description of the prospect</td>
-</tr>
-<tr>
-<td>domain<br /><em>string</em></td>
-<td><em>NULL</em></td>
-<td>The prospect&rsquo;s website</td>
 </tr>
 <tr>
 <td>jobtitle<br /><em>string</em></td>
@@ -741,6 +805,11 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects"</spa
 <td>responsible_id<br /><em>integer</em></td>
 <td>ID of the user who created the prospect</td>
 <td>The ID of the user responsible for this prospect</td>
+</tr>
+<tr>
+<td>organization_id<br /><em>integer</em></td>
+<td>ID of the organization this prospect belongs to</td>
+<td>See <a href="#create-an-organization">create an organization</a></td>
 </tr>
 </tbody></table>
 
@@ -823,16 +892,8 @@ curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/prospects/1"</
 <td>The prospect&rsquo;s last name</td>
 </tr>
 <tr>
-<td>organisation_name<br /><em>string</em></td>
-<td>The prospect&rsquo;s company name</td>
-</tr>
-<tr>
 <td>description<br /><em>string</em></td>
 <td>A text description of the prospect</td>
-</tr>
-<tr>
-<td>domain<br /><em>string</em></td>
-<td>The prospect&rsquo;s website</td>
 </tr>
 <tr>
 <td>jobtitle<br /><em>string</em></td>
@@ -873,6 +934,10 @@ curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/prospects/1"</
 <tr>
 <td>responsible_id<br /><em>integer</em></td>
 <td>The ID of the user responsible for this prospect</td>
+</tr>
+<tr>
+<td>organization_id<br /><em>integer</em></td>
+<td>ID of the organization this prospect belongs to</td>
 </tr>
 </tbody></table>
 
@@ -1116,6 +1181,464 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/a
 <h3 id="returns">Returns</h3>
 
 <p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
+
+          <h1 id="organizations">Organizations</h1>
+
+<h2 id="the-organization-object">The organization object</h2>
+<pre class="highlight plaintext"><code># EXAMPLE OBJECT
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organizations"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prospect.io"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contact@prospect.io"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+32-481-754-301"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Belgium"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Walloon Brabant"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wavre"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wavre"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"c_custom_field_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hot lead"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Belgium"</span><span class="p">,</span><span class="w"> </span><span class="s2">"IT"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="object-attributes">Object attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Filterable?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td><strong>integer</strong> <br />A unique identifier for the organization</td>
+</tr>
+<tr>
+<td>name</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The name of the organization</td>
+</tr>
+<tr>
+<td>website</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The organization&rsquo;s website</td>
+</tr>
+<tr>
+<td>description</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The organization&rsquo;s description</td>
+</tr>
+<tr>
+<td>email</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The organization&rsquo;s contact email</td>
+</tr>
+<tr>
+<td>phone</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The organization&rsquo;s contact phone number</td>
+</tr>
+<tr>
+<td>country</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The organization&rsquo;s country</td>
+</tr>
+<tr>
+<td>city</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The organization&rsquo;s city</td>
+</tr>
+<tr>
+<td>state</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The organization&rsquo;s state</td>
+</tr>
+<tr>
+<td>address</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The organization&rsquo;s full address</td>
+</tr>
+<tr>
+<td>archived</td>
+<td><strong>yes</strong></td>
+<td><strong>boolean</strong> <br />Whether or not the organization is archived</td>
+</tr>
+<tr>
+<td>lists</td>
+<td>no</td>
+<td><strong>string[]</strong> <br /> Name of the lists of the organization</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>no</td>
+<td><strong>datetime</strong> <br />ISO 8601 format with timezone offset</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>no</td>
+<td><strong>datetime</strong> <br />ISO 8601 format with timezone offset</td>
+</tr>
+</tbody></table>
+
+<h3 id="custom-fields">Custom Fields</h3>
+
+<p>Custom fields can be used as normal attributes by using their <code class="prettyprint">identifier</code> as attribute key, see the <code class="prettyprint">c_custom_field_a</code> example in the above payload.</p>
+
+<p>You can retrieve the list of your custom fields by using the <a href="#list-custom-fields">custom fields index endpoint</a>.</p>
+
+<p>They accept a value depending on <a href="#the-custom-field-object">their format</a></p>
+
+<h3 id="relationships">Relationships</h3>
+
+<table><thead>
+<tr>
+<th>Object</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>creator</td>
+<td>The <a href="#users">user</a> who created the organization</td>
+</tr>
+<tr>
+<td>updater</td>
+<td>The <a href="#users">user</a> who updated the organization</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-an-organization">Create an organization</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+POST https://api.organization.io/public/v1/organizations
+
+<span class="c"># EXAMPLE</span>
+curl -X POST <span class="s2">"https://api.organization.io/public/v1/organizations"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+-d <span class="s1">'{
+  "data": {
+    "type": "organizations",
+    "attributes": {
+      "name": "Prospect.io",
+      "c_custom_field_a": "Hot lead"
+    }
+  }
+}'</span>
+</code></pre>
+
+<p>This will create a new organization. </p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td><em>NULL</em></td>
+<td>The name of the organization</td>
+</tr>
+<tr>
+<td>website</td>
+<td><em>NULL</em></td>
+<td>The organization&rsquo;s website</td>
+</tr>
+<tr>
+<td>description</td>
+<td><em>NULL</em></td>
+<td>The organization&rsquo;s description</td>
+</tr>
+<tr>
+<td>email</td>
+<td><em>NULL</em></td>
+<td>The organization&rsquo;s contact email</td>
+</tr>
+<tr>
+<td>phone</td>
+<td><em>NULL</em></td>
+<td>The organization&rsquo;s contact phone number</td>
+</tr>
+<tr>
+<td>country</td>
+<td><em>NULL</em></td>
+<td>The organization&rsquo;s country</td>
+</tr>
+<tr>
+<td>city</td>
+<td><em>NULL</em></td>
+<td>The organization&rsquo;s city</td>
+</tr>
+<tr>
+<td>state</td>
+<td><em>NULL</em></td>
+<td>The organization&rsquo;s state</td>
+</tr>
+<tr>
+<td>address</td>
+<td><em>NULL</em></td>
+<td>The organization&rsquo;s full address</td>
+</tr>
+<tr>
+<td>archived</td>
+<td><em>NULL</em></td>
+<td>Whether or not the organization is archived</td>
+</tr>
+<tr>
+<td>lists</td>
+<td><em>NULL</em></td>
+<td>Name of the lists of the organization</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><em>NULL</em></td>
+<td>ISO 8601 format with timezone offset</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><em>NULL</em></td>
+<td>ISO 8601 format with timezone offset</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-organization-object">organization object</a>.</p>
+
+<h2 id="retrieve-an-organization">Retrieve an organization</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://api.organization.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://api.organization.io/public/v1/organizations/1"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<br /><strong>required</strong> - <em>integer</em></td>
+<td>The ID of the organization to retrieve</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-organization-object">organization object</a>.</p>
+
+<h2 id="update-an-organization">Update an organization</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+PATCH https://api.organization.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>
+
+<span class="c"># EXAMPLE</span>
+curl -X PATCH <span class="s2">"https://api.organization.io/public/v1/organizations/1"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+-d <span class="s1">'{
+  "data": {
+    "type": "organizations",
+    "attributes": {
+      "name": "Prospect.io", 
+      "c_custom_field_a": "Hot lead"
+    }
+  }
+}'</span>
+</code></pre>
+
+<p>Updates the specified organization by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<br /><strong>required</strong> - <em>integer</em></td>
+<td>A unique identifier for the organization</td>
+</tr>
+<tr>
+<td>name</td>
+<td>The name of the organization</td>
+</tr>
+<tr>
+<td>website</td>
+<td>The organization&rsquo;s website</td>
+</tr>
+<tr>
+<td>description</td>
+<td>The organization&rsquo;s description</td>
+</tr>
+<tr>
+<td>email</td>
+<td>The organization&rsquo;s contact email</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>The organization&rsquo;s contact phone number</td>
+</tr>
+<tr>
+<td>country</td>
+<td>The organization&rsquo;s country</td>
+</tr>
+<tr>
+<td>city</td>
+<td>The organization&rsquo;s city</td>
+</tr>
+<tr>
+<td>state</td>
+<td>The organization&rsquo;s state</td>
+</tr>
+<tr>
+<td>address</td>
+<td>The organization&rsquo;s full address</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>Whether or not the organization is archived</td>
+</tr>
+<tr>
+<td>lists</td>
+<td>Name of the lists of the organization</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>ISO 8601 format with timezone offset</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>ISO 8601 format with timezone offset</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-organization-object">organization object</a>.</p>
+
+<h2 id="delete-an-organization">Delete an organization</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+DELETE https://api.organization.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>
+
+<span class="c"># EXAMPLE</span>
+curl -X DELETE <span class="s2">"https://api.organization.io/public/v1/organizations/1"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organizations"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Permanently deletes an organization. It cannot be undone.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td>integer</td>
+<td>The ID of the organization to delete</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns an object containing the organization ID.</p>
+
+<h2 id="list-organizations">List organizations</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://api.organization.io/public/v1/organizations
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://api.organization.io/public/v1/organizations"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organizations"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organizations"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.organization.io/public/v1/organizations/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.organization.io/public/v1/organizations/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.organization.io/public/v1/organizations/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a list of organizations.</p>
+
+<p>This list is <a href="#pagination">paginated</a> by 100 records. It can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
 
           <h1 id="custom-fields">Custom Fields</h1>
 
