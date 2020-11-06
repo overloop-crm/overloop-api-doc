@@ -13,9 +13,7 @@
       "email": "vincenzo@prospect.io",
       "first_name": "Vincenzo",
       "last_name": "Ruggiero",
-      "organisation_name": "Prospect.io",
       "description": null,
-      "domain": "https://prospect.io",
       "jobtitle": "CEO",
       "linkedin_profile": "https://www.linkedin.com/in/vincenzor",
       "phone": "+32-481-754-301",
@@ -52,6 +50,12 @@
           "id": "2",
           "type": "users"
         }
+      },
+      "organization": {
+        "data": {
+          "id": "2",
+          "type": "organizations"
+        }
       }
     }
   }
@@ -65,9 +69,7 @@ id | **yes** | **integer** <br />A unique identifier for the prospect
 email | **yes** | **string** <br />The prospect's email address
 first_name | **yes** | **string** <br />The prospect's first name
 last_name | **yes** | **string** <br />The prospect's last name
-organisation_name | no | **string** <br />The prospect's company name
 description | no | **string** <br />A text description of the prospect
-domain | **yes** | **string** <br />The prospect's website
 jobtitle | **yes** | **string** <br />The prospect's job title
 linkedin_profile | no |**string** <br />A link to the prospect's LinkedIn profile
 phone | **yes** | **string** <br />The prospect's phone number
@@ -105,6 +107,7 @@ They accept a value depending on [their format](#the-custom-field-object)
 Object | Description
 --------- | -----------
 creator | The [user](#users) who created the prospect
+organization | The [organization](#organizations) of this prospect
 responsible | The [user](#users) responsible of the prospect
 
 
@@ -138,9 +141,7 @@ Parameter | Default | Description
 email<br />**required** - *string* | / | The prospect's email
 first_name<br />*string* | *NULL* | The prospect's first name
 last_name<br />*string* | *NULL* | The prospect's last name
-organisation_name<br />*string* | *NULL* | The prospect's company name
 description<br />*string* | *NULL* | A text description of the prospect
-domain<br />*string* | *NULL* | The prospect's website
 jobtitle<br />*string* | *NULL* | The prospect's job title
 linkedin_profile<br />*string* | *NULL* | A link to the prospect's LinkedIn profile
 phone<br />*string* | *NULL* | The prospect's phone number
@@ -151,6 +152,7 @@ city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | *NULL* | The prospect's industry
 lists<br />*string[]* | *NULL* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
 responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
+organization_id<br />*integer* | ID of the organization this prospect belongs to | See [create an organization](#create-an-organization)
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).
@@ -204,9 +206,7 @@ id<br />**required** - *integer* | The ID of the prospect to update
 email<br />**required** - *string* | The prospect's email
 first_name<br />*string* | The prospect's first name
 last_name<br />*string* | The prospect's last name
-organisation_name<br />*string* | The prospect's company name
 description<br />*string* | A text description of the prospect
-domain<br />*string* | The prospect's website
 jobtitle<br />*string* | The prospect's job title
 linkedin_profile<br />*string* | A link to the prospect's LinkedIn profile
 phone<br />*string* | The prospect's phone number
@@ -217,6 +217,7 @@ city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | The prospect's industry
 lists<br />*string[]* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
 responsible_id<br />*integer* | The ID of the user responsible for this prospect
+organization_id<br />*integer* | ID of the organization this prospect belongs to | See [create an organization](#create-an-organization)
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).
