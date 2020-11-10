@@ -154,6 +154,10 @@ lists<br />*string[]* | *NULL* | Name of the lists where to save the prospect<br
 responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
 organization_id<br />*integer* | ID of the organization this prospect belongs to | See [create an organization](#create-an-organization)
 
+
+**Note:** This method accepts an optional URL parameter `return_existing`, which can be set to true (default=false), 
+that will return the existing organization (with HTTP status code = 200) if an organization with that name already exists. 
+
 ### Returns
 Returns the [prospect object](#the-prospect-object).
 

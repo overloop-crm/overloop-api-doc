@@ -103,6 +103,9 @@ created_at | *NULL* | ISO 8601 format with timezone offset
 updated_at | *NULL* | ISO 8601 format with timezone offset
 
 
+**Note:** This method accepts an optional URL parameter `return_existing`, which can be set to true (default=false), 
+that will return the existing organization (with HTTP status code = 200) if an organization with that name already exists. 
+
 ### Returns
 Returns the [organization object](#the-organization-object).
 
@@ -258,3 +261,35 @@ curl -X GET "https://api.organization.io/public/v1/organizations" \
 Returns a list of organizations.
 
 This list is [paginated](#pagination) by 100 records. It can also be [sorted](#sorting) or [filtered](#filtering).
+
+
+## Mark as (not) archived
+```shell
+# DEFINITION: Mark as archived
+POST https://api.prospect.io/public/v1/organizations/{ORGANIZATION_ID}/archive
+
+# EXAMPLE
+curl -X POST "https://api.prospect.io/public/v1/organizations/1/archive" \
+-H "Authorization: your_api_key" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
+
+# DEFINITION: Mark as not archived
+DELETE https://api.prospect.io/public/v1/organizations/{ORGANIZATION_ID}/archive
+
+# EXAMPLE
+curl -X DELETE "https://api.prospect.io/public/v1/organizations/1/archive" \
+-H "Authorization: your_api_key" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
+```
+
+Mark an organization as archived or not archived.
+
+### Parameters
+Parameter | Required? | Type | Description
+--------- | --------- | -----| -----------
+id | **yes** | integer | The ID of the organization to mark as (not) archived
+archive_prospects | ***yes*** (when archiving) | boolean | Whether the organization's prospects are to be archived
+remove_tasks | ***yes*** (when archiving) | boolean | Whether the organization's tasks are to be deleted
+
+### Returns
+Returns the [organization object](#the-organization-object).
