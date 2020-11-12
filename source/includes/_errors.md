@@ -44,4 +44,4 @@ Error Code | Meaning
 410 | Gone -- The resource requested has been removed from our servers
 410 | Gone -- The resource requested has been removed from our servers
 500 | Unprocessable Entity -- You've provided invalid parameters with your request 
-503 | Service Unavailable -- We're temporarily offline for maintanance. Please try again later.
+503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
