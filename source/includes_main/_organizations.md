@@ -103,8 +103,8 @@ created_at | *NULL* | ISO 8601 format with timezone offset
 updated_at | *NULL* | ISO 8601 format with timezone offset
 
 
-**Note:** This method accepts an optional URL parameter `return_existing`, which can be set to true (default=false), 
-that will return the existing organization (with HTTP status code = 200) if an organization with that name already exists. 
+This method accepts an optional URL parameter `return_existing`. When set to true (default is false),
+that will return an existing organization if an organization with that name already exists (with 200 HTTP status code, 422 otherwise).
 
 ### Returns
 Returns the [organization object](#the-organization-object).
@@ -282,7 +282,7 @@ curl -X DELETE "https://api.prospect.io/public/v1/organizations/1/archive" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
-Mark an organization as archived or not archived.
+Mark an organization as archived or not.
 
 ### Parameters
 Parameter | Required? | Type | Description
