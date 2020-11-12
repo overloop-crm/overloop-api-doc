@@ -154,6 +154,9 @@ lists<br />*string[]* | *NULL* | Name of the lists where to save the prospect<br
 responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
 organization_id<br />*integer* | ID of the organization this prospect belongs to | See [create an organization](#create-an-organization)
 
+This method accepts an optional URL parameter `return_existing`. When set to true (default is false),
+that will return an existing organization if an organization with that name already exists (with 200 HTTP status code, 422 otherwise).
+
 ### Returns
 Returns the [prospect object](#the-prospect-object).
 
@@ -393,7 +396,7 @@ curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/archive" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
 
-Mark a prospect as archived or not archived.
+Mark a prospect as archived or not.
 
 ### Parameters
 Parameter | Required? | Type | Description
