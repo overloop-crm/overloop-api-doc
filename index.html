@@ -338,12 +338,16 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 <td>Gone &ndash; The resource requested has been removed from our servers</td>
 </tr>
 <tr>
+<td>410</td>
+<td>Gone &ndash; The resource requested has been removed from our servers</td>
+</tr>
+<tr>
 <td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+<td>Unprocessable Entity &ndash; You&rsquo;ve provided invalid parameters with your request</td>
 </tr>
 <tr>
 <td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarily offline for maintanance. Please try again later.</td>
 </tr>
 </tbody></table>
 
@@ -813,6 +817,9 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects"</spa
 </tr>
 </tbody></table>
 
+<p>This method accepts an optional URL parameter <code class="prettyprint">return_existing</code>. When set to true (default is false),
+that will return an existing organization if an organization with that name already exists (with 200 HTTP status code, 422 otherwise).</p>
+
 <h3 id="returns">Returns</h3>
 
 <p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
@@ -1152,7 +1159,7 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/a
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
 
-<p>Mark a prospect as archived or not archived.</p>
+<p>Mark a prospect as archived or not.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1416,6 +1423,9 @@ curl -X POST <span class="s2">"https://api.organization.io/public/v1/organizatio
 </tr>
 </tbody></table>
 
+<p>This method accepts an optional URL parameter <code class="prettyprint">return_existing</code>. When set to true (default is false),
+that will return an existing organization if an organization with that name already exists (with 200 HTTP status code, 422 otherwise).</p>
+
 <h3 id="returns">Returns</h3>
 
 <p>Returns the <a href="#the-organization-object">organization object</a>.</p>
@@ -1639,6 +1649,60 @@ curl -X GET <span class="s2">"https://api.organization.io/public/v1/organization
 <p>Returns a list of organizations.</p>
 
 <p>This list is <a href="#pagination">paginated</a> by 100 records. It can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
+
+<h2 id="mark-as-not-archived">Mark as (not) archived</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION: Mark as archived</span>
+POST https://api.prospect.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>/archive
+
+<span class="c"># EXAMPLE</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/organizations/1/archive"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+
+<span class="c"># DEFINITION: Mark as not archived</span>
+DELETE https://api.prospect.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>/archive
+
+<span class="c"># EXAMPLE</span>
+curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/organizations/1/archive"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<p>Mark an organization as archived or not.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td>integer</td>
+<td>The ID of the organization to mark as (not) archived</td>
+</tr>
+<tr>
+<td>archive_prospects</td>
+<td><strong><em>yes</em></strong> (when archiving)</td>
+<td>boolean</td>
+<td>Whether the organization&rsquo;s prospects are to be archived</td>
+</tr>
+<tr>
+<td>remove_tasks</td>
+<td><strong><em>yes</em></strong> (when archiving)</td>
+<td>boolean</td>
+<td>Whether the organization&rsquo;s tasks are to be deleted</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-organization-object">organization object</a>.</p>
 
           <h1 id="custom-fields">Custom Fields</h1>
 
