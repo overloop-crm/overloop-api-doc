@@ -10,7 +10,7 @@ curl "https://api.prospect.io/public/v1/XXX"
 
 > Make sure to replace `your_api_key` with your API key.
 
-Prospect.io uses API keys to allow access to the API. You can get a new API key in your [Prospect.io account](https://app.prospect.io//store/api).
+Prospect.io uses API keys to allow access to the API. You can get a new API key in your [Prospect.io account](https://app.prospect.io/store/api).
 
 Prospect.io expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
