@@ -18,9 +18,12 @@ includes:
 
 includes_main:
   - account
+  - custom_fields
   - prospects
   - organizations
-  - custom_fields
+  - deals
+  - stages
+  - pipelines
   - exclusion_list_items
   - lists
   - automations
