@@ -1716,6 +1716,7 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/organizations
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c_custom_field_a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lead Value"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> 
       </span><span class="nt">"value_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -1745,6 +1746,11 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/organizations
 <td>name</td>
 <td>no</td>
 <td><strong>string</strong> <br />The custom field&rsquo;s name/label</td>
+</tr>
+<tr>
+<td>options</td>
+<td>no</td>
+<td><strong>string[]</strong> <br />The custom field&rsquo;s value options (for <code class="prettyprint">list_single</code> and <code class="prettyprint">list_multiple</code>)</td>
 </tr>
 <tr>
 <td>value_type</td>
