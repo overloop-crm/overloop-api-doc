@@ -17,19 +17,19 @@ includes:
   - errors
 
 includes_main:
-  - account
-  - custom_fields
   - prospects
   - organizations
-  - deals
-  - stages
   - pipelines
-  - exclusion_list_items
-  - lists
+  - stages
+  - deals
   - automations
   - automation_steps
   - enrollments
+  - account
   - users
+  - lists
+  - custom_fields
+  - exclusion_list_items
 
 includes_emails:
   - search

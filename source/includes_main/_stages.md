@@ -11,6 +11,7 @@
     "type": "stages",
     "attributes": {
       "name": "Qualified",
+      "position": 3, 
       "created_at": "2015-08-15T16:48:46+02:00",
       "updated_at": "2016-11-25T12:40:46+01:00"
     }
@@ -32,6 +33,7 @@ Attribute | Filterable? | Description
 id | no | **integer** <br />A unique identifier for the stage
 name | no | **string** <br />The stage's name
 probability | no | **number** <br />The stage's probability (use 10 for 10%) 
+position | no | **number** <br />The stage's position in pipeline (starts at 0)  
 rotting days | no | **number** <br />The number of days before considering a deal as "rotting"
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
@@ -67,6 +69,7 @@ name<br />**required** - *string* | / | The stage's name
 probability<br />**required** - *string* | / | The stage's probability
 pipeline_id<br />**required** - *string* | / | The stage's pipeline
 rotting | / | The number of days before considering a deal as "rotting"
+position | / | The position of the stage in the pipeline
 
 ### Returns
 Returns the [stage object](#the-stage-object).
@@ -117,6 +120,7 @@ Parameter | Description
 id<br />**required** - *integer* | The ID of the stage to update
 probability | / | The stage's probability
 rotting | / | The number of days before considering a deal as "rotting"
+position | / | The position of the stage in the pipeline 
 
 ### Returns
 Returns the [stage object](#the-stage-object).

@@ -12,7 +12,6 @@
     "attributes": {
       "title": "3 licences for Apple INC",
       "value": "123456",
-      "currency_code": "USD",
       "status": "won",
       "closed_at": "2015-08-15T16:48:46+02:00",
       "expected_close_date": "2015-09-15T16:48:46+02:00",
@@ -70,7 +69,6 @@ Attribute | Filterable? | Description
 id | **yes** | **integer** <br />A unique identifier for the deal
 title | **yes** | **string** <br />The name of the deal
 value | **yes** | **decimal** <br />The value of the deal
-currency_code | **yes** | **string** <br />The code of the currency used for this deal (EUR, USD, …) 
 status | **yes** | **string** <br />The deal's status (won, lost or open) 
 closed_at | no | **datetime** <br />ISO 8601 format of the moment when the deal was closed
 expected_close_date | no | **datetime** <br />ISO 8601 format of the moment we expect the deal to close
@@ -128,7 +126,6 @@ id | *NULL* | A unique identifier for the deal
 stage_id<br />**required** - *integer* | *NULL* | The stage of the deal
 title | *NULL* | The name of the deal
 value | *NULL* | The value of the deal
-currency_code | *NULL* | The code of the currency used for this deal (EUR, USD, …) 
 status | *NULL* | The deal's status (won, lost or open) 
 closed_at | *NULL* | ISO 8601 format of the moment when the deal was closed
 expected_close_date | *NULL* | ISO 8601 format of the moment we expect the deal to close
@@ -188,7 +185,6 @@ Parameter | Description
 id<br />**required** - *integer* | A unique identifier for the deal
 title | The name of the deal
 value | The value of the deal
-currency_code | The code of the currency used for this deal (EUR, USD, …) 
 status | The deal's status (won, lost or open) 
 closed_at | ISO 8601 format of the moment when the deal was closed
 expected_close_date | ISO 8601 format of the moment we expect the deal to close
