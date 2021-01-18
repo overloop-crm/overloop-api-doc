@@ -380,12 +380,16 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
       </span><span class="nt">"last_emailed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"converted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"converted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"qualified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"qualified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"archived_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"excluded"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"opened"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"opened_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clicked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clicked_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bounced"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"bounced"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/prospects/1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Belgium"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Manager"</span><span class="p">],</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
@@ -540,14 +544,24 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 <td><strong>boolean</strong> <br />Whether or not the prospect replied to any of your emails</td>
 </tr>
 <tr>
-<td>replied_at</td>
-<td>no</td>
-<td><strong>datetime</strong> <br />The date and time when the prospect first replied</td>
-</tr>
-<tr>
 <td>bounced</td>
 <td><strong>yes</strong></td>
 <td><strong>boolean</strong> <br />Whether or not the prospect email bounced</td>
+</tr>
+<tr>
+<td>opened_at</td>
+<td>no</td>
+<td><strong>datetime</strong> <br />The date and time when the prospect last opened an email</td>
+</tr>
+<tr>
+<td>clicked_at</td>
+<td>no</td>
+<td><strong>datetime</strong> <br />The date and time when the prospect last clicked a link in an email</td>
+</tr>
+<tr>
+<td>replied_at</td>
+<td>no</td>
+<td><strong>datetime</strong> <br />The date and time when the prospect last replied to an email</td>
 </tr>
 <tr>
 <td>url</td>
