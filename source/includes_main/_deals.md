@@ -90,7 +90,7 @@ Object | Description
 --------- | -----------
 creator | The [user](#users) who created the deal
 updater | The [user](#users) who updated the deal
-owner | The [user](#users) responsible of the deal
+owner | The [user](#users) who owns deal
 prospect | The [prospect](#prospects) of this deal
 organization | The [organization](#organizations) of this deal
 stage | The [stage](#stages) of this deal

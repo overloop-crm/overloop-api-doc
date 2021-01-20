@@ -30,7 +30,7 @@ relationships by joining them using a comma: `GET https://api.prospect.io/public
                     "type": "users"
                 }
             },
-            "responsible": {
+            "owner": {
                 "data": {
                     "id": "181",
                     "type": "users"

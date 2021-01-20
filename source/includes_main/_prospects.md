@@ -45,7 +45,7 @@
           "type": "users"
         }
       },
-      "responsible": {
+      "owner": {
         "data": {
           "id": "2",
           "type": "users"
@@ -108,7 +108,7 @@ Object | Description
 --------- | -----------
 creator | The [user](#users) who created the prospect
 organization | The [organization](#organizations) of this prospect
-responsible | The [user](#users) responsible of the prospect
+owner | The [user](#users) who owns the prospect
 
 
 ## Create a prospect
@@ -133,7 +133,7 @@ curl -X POST "https://api.prospect.io/public/v1/prospects" \
 }'
 ```
 
-This will create a new prospect. If you don't set the `responsible_id` parameter then the user who performed the action will be assigned as the responsible user.
+This will create a new prospect. If you don't set the `owner_id` parameter then the user who performed the action will be assigned as the owner.
 
 ### Parameters
 Parameter | Default | Description
@@ -151,7 +151,7 @@ state<br />*string* | *NULL* | The prospect's state or region
 city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | *NULL* | The prospect's industry
 lists<br />*string[]* | *NULL* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
-responsible_id<br />*integer* | ID of the user who created the prospect | The ID of the user responsible for this prospect
+owner_id<br />*integer* | ID of the user who created the prospect | The ID of the user owning this prospect
 organization_id<br />*integer* | ID of the organization this prospect belongs to | See [create an organization](#create-an-organization)
 
 This method accepts an optional URL parameter `return_existing`. When set to true (default is false),
@@ -219,7 +219,7 @@ state<br />*string* | *NULL* | The prospect's state or region
 city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | The prospect's industry
 lists<br />*string[]* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
-responsible_id<br />*integer* | The ID of the user responsible for this prospect
+owner_id<br />*integer* | The ID of the user owning this prospect
 organization_id<br />*integer* | ID of the organization this prospect belongs to | See [create an organization](#create-an-organization)
 
 ### Returns
@@ -285,7 +285,7 @@ curl -X GET "https://api.prospect.io/public/v1/prospects" \
         ...
       },
       "relationships": {
-        "responsible": {
+        "owner": {
           "data": {
             ...
           }
@@ -299,7 +299,7 @@ curl -X GET "https://api.prospect.io/public/v1/prospects" \
         ...
       },
       "relationships": {
-        "responsible": {
+        "owner": {
           "data": {
             ...
           }

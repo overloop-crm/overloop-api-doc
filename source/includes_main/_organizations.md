@@ -83,7 +83,7 @@ curl -X POST "https://api.organization.io/public/v1/organizations" \
 }'
 ```
 
-This will create a new organization. 
+This will create a new organization. If you don't set the `owner_id` parameter then the user who performed the action will be assigned as the owner. 
 
 ### Parameters
 Parameter | Default | Description
@@ -99,6 +99,7 @@ state | *NULL* | The organization's state
 address | *NULL* |The organization's full address
 archived | *NULL* | Whether or not the organization is archived
 lists | *NULL* | Name of the lists of the organization
+owner_id<br />*integer* | The ID of the user owning this organization
 created_at | *NULL* | ISO 8601 format with timezone offset
 updated_at | *NULL* | ISO 8601 format with timezone offset
 
@@ -165,6 +166,7 @@ state | The organization's state
 address | The organization's full address
 archived | Whether or not the organization is archived
 lists | Name of the lists of the organization
+owner_id | The ID of the user owning this organization
 created_at | ISO 8601 format with timezone offset
 updated_at | ISO 8601 format with timezone offset
 
@@ -228,7 +230,7 @@ curl -X GET "https://api.organization.io/public/v1/organizations" \
         ...
       },
       "relationships": {
-        "responsible": {
+        "owner": {
           "data": {
             ...
           }
@@ -242,7 +244,7 @@ curl -X GET "https://api.organization.io/public/v1/organizations" \
         ...
       },
       "relationships": {
-        "responsible": {
+        "owner": {
           "data": {
             ...
           }
