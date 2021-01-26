@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
+ruby '2.3.3'
+
 
 # Middleman
+gem 'ffi', '~> 1.9.25'
 gem 'middleman'
 gem 'middleman-gh-pages', '~> 0.0.3'
 gem 'middleman-syntax', '~> 2.1.0'
