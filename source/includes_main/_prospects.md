@@ -115,6 +115,7 @@ Object | Description
 creator | The [user](#users) who created the prospect
 organization | The [organization](#organizations) of this prospect
 owner | The [user](#users) who owns the prospect
+enrollments | The [enrollments](#enrollments) of the prospect in automations
 
 
 ## Create a prospect
