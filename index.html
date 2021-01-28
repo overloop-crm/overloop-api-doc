@@ -235,7 +235,7 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
                     <span class="s2">"type"</span>: <span class="s2">"users"</span>
                 <span class="o">}</span>
             <span class="o">}</span>,
-            <span class="s2">"responsible"</span>: <span class="o">{</span>
+            <span class="s2">"owner"</span>: <span class="o">{</span>
                 <span class="s2">"data"</span>: <span class="o">{</span>
                     <span class="s2">"id"</span>: <span class="s2">"181"</span>,
                     <span class="s2">"type"</span>: <span class="s2">"users"</span>
@@ -402,7 +402,7 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
@@ -610,8 +610,12 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 <td>The <a href="#organizations">organization</a> of this prospect</td>
 </tr>
 <tr>
-<td>responsible</td>
-<td>The <a href="#users">user</a> responsible of the prospect</td>
+<td>owner</td>
+<td>The <a href="#users">user</a> who owns the prospect</td>
+</tr>
+<tr>
+<td>enrollments</td>
+<td>The <a href="#enrollments">enrollments</a> of the prospect in automations</td>
 </tr>
 </tbody></table>
 
@@ -636,7 +640,7 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects"</spa
 }'</span>
 </code></pre>
 
-<p>This will create a new prospect. If you don&rsquo;t set the <code class="prettyprint">responsible_id</code> parameter then the user who performed the action will be assigned as the responsible user.</p>
+<p>This will create a new prospect. If you don&rsquo;t set the <code class="prettyprint">owner_id</code> parameter then the user who performed the action will be assigned as the owner.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -713,9 +717,9 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects"</spa
 <td>Name of the lists where to save the prospect<br/>(note: we will create the lists if they don&rsquo;t exist)</td>
 </tr>
 <tr>
-<td>responsible_id<br /><em>integer</em></td>
+<td>owner_id<br /><em>integer</em></td>
 <td>ID of the user who created the prospect</td>
-<td>The ID of the user responsible for this prospect</td>
+<td>The ID of the user owning this prospect</td>
 </tr>
 <tr>
 <td>organization_id<br /><em>integer</em></td>
@@ -846,8 +850,8 @@ curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/prospects/1"</
 <td>Name of the lists where to save the prospect<br/>(note: we will create the lists if they don&rsquo;t exist)</td>
 </tr>
 <tr>
-<td>responsible_id<br /><em>integer</em></td>
-<td>The ID of the user responsible for this prospect</td>
+<td>owner_id<br /><em>integer</em></td>
+<td>The ID of the user owning this prospect</td>
 </tr>
 <tr>
 <td>organization_id<br /><em>integer</em></td>
@@ -930,7 +934,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/prospects"</span
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="err">...</span><span class="w">
           </span><span class="p">}</span><span class="w">
@@ -944,7 +948,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/prospects"</span
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="err">...</span><span class="w">
           </span><span class="p">}</span><span class="w">
@@ -1252,7 +1256,7 @@ curl -X POST <span class="s2">"https://api.organization.io/public/v1/organizatio
 }'</span>
 </code></pre>
 
-<p>This will create a new organization. </p>
+<p>This will create a new organization. If you don&rsquo;t set the <code class="prettyprint">owner_id</code> parameter then the user who performed the action will be assigned as the owner. </p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1317,6 +1321,11 @@ curl -X POST <span class="s2">"https://api.organization.io/public/v1/organizatio
 <td>lists</td>
 <td><em>NULL</em></td>
 <td>Name of the lists of the organization</td>
+</tr>
+<tr>
+<td>owner_id<br /><em>integer</em></td>
+<td>The ID of the user owning this organization</td>
+<td></td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -1443,6 +1452,10 @@ curl -X PATCH <span class="s2">"https://api.organization.io/public/v1/organizati
 <td>Name of the lists of the organization</td>
 </tr>
 <tr>
+<td>owner_id</td>
+<td>The ID of the user owning this organization</td>
+</tr>
+<tr>
 <td>created_at</td>
 <td>ISO 8601 format with timezone offset</td>
 </tr>
@@ -1523,7 +1536,7 @@ curl -X GET <span class="s2">"https://api.organization.io/public/v1/organization
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="err">...</span><span class="w">
           </span><span class="p">}</span><span class="w">
@@ -1537,7 +1550,7 @@ curl -X GET <span class="s2">"https://api.organization.io/public/v1/organization
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="err">...</span><span class="w">
           </span><span class="p">}</span><span class="w">
@@ -2326,7 +2339,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/stages"</span> <
 </tr>
 <tr>
 <td>owner</td>
-<td>The <a href="#users">user</a> responsible of the deal</td>
+<td>The <a href="#users">user</a> who owns deal</td>
 </tr>
 <tr>
 <td>prospect</td>
@@ -3202,8 +3215,8 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/st
       </span><span class="nt">"disenrolled_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-20T08:00:00+02:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-13T10:12:23+02:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-13T10:12:23+02:00"</span><span class="p">,</span><span class="w">
-    </span><span class="err">}</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-13T10:12:23+02:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"current_step"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3253,14 +3266,6 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/st
 <td><strong>integer</strong> <br />A unique identifier for the enrollment</td>
 </tr>
 <tr>
-<td>automation_id</td>
-<td><strong>integer</strong> <br />The automation&rsquo;s ID this enrollment is associated to</td>
-</tr>
-<tr>
-<td>prospect_id</td>
-<td><strong>integer</strong> <br />The prospect&rsquo;s ID this enrollment is associated to</td>
-</tr>
-<tr>
 <td>disenrolled_at</td>
 <td><strong>datetime</strong> <br />The date and time when the prospect has been leaved the automation in ISO 8601 format with timezone</td>
 </tr>
@@ -3289,6 +3294,14 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/st
 <tr>
 <td>current_step</td>
 <td>The current <a href="#automation-steps">step</a> of this enrollment.</td>
+</tr>
+<tr>
+<td>automation</td>
+<td>The current <a href="#automations">automation</a> of this enrollment.</td>
+</tr>
+<tr>
+<td>prospect</td>
+<td>The current <a href="#prospects">prospect</a> of this enrollment.</td>
 </tr>
 </tbody></table>
 
@@ -3350,12 +3363,6 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/automations/1/e
 <td><em>string</em></td>
 <td>The date and time on which the enrollment must be started in the ISO 8601 format with timezone offset. If not set or set in the past, the enrollment will start immediately.</td>
 </tr>
-<tr>
-<td>include</td>
-<td>no</td>
-<td><em>string</em></td>
-<td>Set to <code class="prettyprint">current_step</code> if you want to have the related step included with the returned result.</td>
-</tr>
 </tbody></table>
 
 <h3 id="returns">Returns</h3>
@@ -3398,10 +3405,10 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/automations/1
 
 <h2 id="retrieve-an-enrollment">Retrieve an enrollment</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.prospect.io/public/v1/automations/<span class="o">{{</span>AUTOMATION_ID<span class="o">}}</span>/enrollments/<span class="o">{{</span>ENROLLMENT_ID<span class="o">}}</span>
+GET https://api.prospect.io/public/v1//enrollments/<span class="o">{{</span>ENROLLMENT_ID<span class="o">}}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/enrollments/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1//enrollments/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -3427,6 +3434,63 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/en
 <h3 id="returns">Returns</h3>
 
 <p>Returns the <a href="#the-enrollment-object">enrollment object</a>.</p>
+
+<h2 id="list-enrollments">List enrollments</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://api.prospect.io/public/v1/enrollments
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/enrollments"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_enrollments"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"disenrolled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-03T13:01:15.697Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-10T13:35:21Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-30T08:02:51Z"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"prospect"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29646"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"current_step"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3000/api/public/v1/enrollments?filter=prospect_id%3A29646&amp;page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3000/api/public/v1/enrollments?filter=prospect_id%3A29646&amp;page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3000/api/public/v1/enrollments?filter=prospect_id%3A29646&amp;page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a list of enrollments.</p>
+
+<p>This list is <a href="#pagination">paginated</a> by 100 records and can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
 
           <h1 id="account">Account</h1>
 
