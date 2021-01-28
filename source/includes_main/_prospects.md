@@ -27,12 +27,16 @@
       "last_emailed_at": null,
       "converted": false,
       "converted_at": null,
-      "qualified": true,
+      "qualified": false,
       "archived": true,
       "archived_reason": "excluded",
+      "opened": false,
+      "opened_at": null,
+      "clicked": false,
+      "clicked_at": null,
+      "bounced": false,
       "replied": false,
       "replied_at": null,
-      "bounced": false,
       "url": "https://prospect.io/prospects/1",
       "lists": ["Belgium", "Manager"],
       "created_at": "2015-08-15T16:48:46+02:00",
@@ -88,8 +92,10 @@ archived_reason | **yes** | **string** <br />If the prospect is archived, this a
 opened | **yes** | **boolean** <br />Wheteer or not the prospect opened any of your emails
 clicked | **yes** | **boolean** <br />Wheter or not the prospect clicked a link in any of your emails
 replied | **yes** | **boolean** <br />Whether or not the prospect replied to any of your emails
-replied_at | no | **datetime** <br />The date and time when the prospect first replied
 bounced | **yes** | **boolean** <br />Whether or not the prospect email bounced
+opened_at | no | **datetime** <br />The date and time when the prospect last opened an email
+clicked_at | no | **datetime** <br />The date and time when the prospect last clicked a link in an email
+replied_at | no | **datetime** <br />The date and time when the prospect last replied to an email
 url | no | **string** <br />The full URL to the prospect on Prospect.io
 lists | no | **string[]** <br /> Name of the lists of the prospect
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
