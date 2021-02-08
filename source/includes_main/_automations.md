@@ -11,6 +11,7 @@
     "type": "automations",
     "attributes": {
       "name": "Public API Automation Example",
+      "type": "prospects", 
       "enter_triggers": [
         "prospect.create",
       ],
@@ -99,7 +100,8 @@
 Attribute | Filterable? | Description
 --------- | ----------- | -----------
 id | no | **integer** <br />A unique identifier for the automation
-name | no | **string** <br />The automation's name
+type | yes | **string** <br />The kind of entity that can be enrolled in the automation: prospects, deals or organizations
+name | yes | **string** <br />The automation's name
 enter_triggers | no | **array** <br />An array containing the events that will make prospects entering the automation. Possible values are `message.sent`, `message.open`, `message.click`, `prospect.create`, `prospect.updated`, `prospect.replied`, `prospect.qualified` and `prospect.convert`
 exit_triggers | no | **array** <br />An array containing the events that will make prospects exiting the automation. Possible values are `message.click`, `prospect.replied`, `prospect.qualified`, `prospect.convert`, `message.hard_bounced` and `pseudo_event.unmatch` representing the event when the conditions of the _enter_segment_ event is no longer applicable.
 status | **yes** | **string** <br />The automation's status that can take 3 different values: `on`, `off` and `archived`

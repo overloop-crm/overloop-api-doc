@@ -98,7 +98,8 @@ This will create a new enrollment.
 ### Parameters
 Parameter | Required? | Type | Description
 --------- | --------- | ---- | ------------
-prospect_id | **yes** | *integer* | The prospect's ID
+prospect_id<br />deal_id<br />organization_id | **yes** | *integer* | The prospect/organization/deal's ID (depending on the type of automation)
+deal_id | **yes** | *integer* | The deal's ID
 step_id | no | *string* | The step's ID of the automation at which the prospect must be enrolled.
 reenroll | no | *boolean* | Set to `false` if you want to prevent re enroll the prospect because he already has been enrolled. **If not set to** `false` **this parameter will always be** `true`
 start_at | no | *string* | The date and time on which the enrollment must be started in the ISO 8601 format with timezone offset. If not set or set in the past, the enrollment will start immediately.
@@ -173,7 +174,7 @@ curl -X GET "https://api.prospect.io/public/v1/enrollments" \
         "updated_at": "2020-09-30T08:02:51Z"
       },
       "relationships": {
-        "prospect": {
+        "record": {
           "data": {
             "id": "29646",
             "type": "prospects"

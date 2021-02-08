@@ -94,6 +94,7 @@ owner | The [user](#users) who owns deal
 prospect | The [prospect](#prospects) of this deal
 organization | The [organization](#organizations) of this deal
 stage | The [stage](#stages) of this deal
+enrollments | The [enrollments](#enrollments) of the deal in automations
 
 
 ## Create a deal

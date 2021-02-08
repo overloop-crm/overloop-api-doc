@@ -61,7 +61,7 @@ Object | Description
 --------- | -----------
 creator | The [user](#users) who created the organization
 updater | The [user](#users) who updated the organization
-
+enrollments | The [enrollments](#enrollments) of the organization in automations
 
 ## Create an organization
 ```shell
