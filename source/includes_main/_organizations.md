@@ -21,7 +21,6 @@
       "address": "Wavre",
       "c_custom_field_a": "Hot lead",
       "created_from": "extension",
-      "archived": true,
       "lists": ["Belgium", "IT"],
       "created_at": "2015-08-15T16:48:46+02:00",
       "updated_at": "2016-11-25T12:40:46+01:00"
@@ -43,7 +42,6 @@ country | **yes** | **string** <br />The organization's country
 city | **yes** | **string** <br />The organization's city
 state | **yes** | **string** <br />The organization's state
 address | **yes** |**string** <br />The organization's full address
-archived | **yes** | **boolean** <br />Whether or not the organization is archived
 lists | no | **string[]** <br /> Name of the lists of the organization
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
@@ -97,7 +95,6 @@ country | *NULL* | The organization's country
 city | *NULL* | The organization's city
 state | *NULL* | The organization's state
 address | *NULL* |The organization's full address
-archived | *NULL* | Whether or not the organization is archived
 lists | *NULL* | Name of the lists of the organization
 owner_id<br />*integer* | The ID of the user owning this organization
 created_at | *NULL* | ISO 8601 format with timezone offset
@@ -164,7 +161,6 @@ country | The organization's country
 city | The organization's city
 state | The organization's state
 address | The organization's full address
-archived | Whether or not the organization is archived
 lists | Name of the lists of the organization
 owner_id | The ID of the user owning this organization
 created_at | ISO 8601 format with timezone offset

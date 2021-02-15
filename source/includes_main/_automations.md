@@ -102,7 +102,7 @@ id | no | **integer** <br />A unique identifier for the automation
 name | no | **string** <br />The automation's name
 enter_triggers | no | **array** <br />An array containing the events that will make prospects entering the automation. Possible values are `message.sent`, `message.open`, `message.click`, `prospect.create`, `prospect.updated`, `prospect.replied`, `prospect.qualified` and `prospect.convert`
 exit_triggers | no | **array** <br />An array containing the events that will make prospects exiting the automation. Possible values are `message.click`, `prospect.replied`, `prospect.qualified`, `prospect.convert`, `message.hard_bounced` and `pseudo_event.unmatch` representing the event when the conditions of the _enter_segment_ event is no longer applicable.
-status | **yes** | **string** <br />The automation's status that can take 3 different values: `on`, `off` and `archived`
+status | **yes** | **string** <br />The automation's status that can take 2 different values: `on` and `off`
 send_as_thread | no | **boolean** <br />The automation's emails should be sent as threads.
 sending_days | no | **array** <br />An array containing days during which emails can be sent ("monday", "tuesday", etc.)
 start_sending_minutes | no | **integer** <br />The hour at which we can start sending emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between `0` and `1425`.

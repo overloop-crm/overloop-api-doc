@@ -66,5 +66,3 @@ curl -X POST "https://api.prospect.io/public/v1/exclusion_list_items" \
     }
 }
 ```
-
-Beware, adding an item (email or domain) to the exclusion list will also delete **permanantly** the prospects whose sending address matches the item value. So use this endpoint with care!
