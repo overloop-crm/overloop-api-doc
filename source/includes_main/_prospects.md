@@ -383,33 +383,3 @@ id | **yes** | integer | The ID of the prospect to mark as (not) converted
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).
-
-## Mark as (not) archived
-```shell
-# DEFINITION: Mark as archived
-POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/archive
-
-# EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/prospects/1/archive" \
--H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8"
-
-# DEFINITION: Mark as not archived
-DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/archive
-
-# EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/archive" \
--H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8"
-```
-
-Mark a prospect as archived or not.
-
-### Parameters
-Parameter | Required? | Type | Description
---------- | --------- | -----| -----------
-id | **yes** | integer | The ID of the prospect to mark as (not) archived
-remove_tasks | ***yes*** (when archiving) | boolean | Whether the prospect's tasks are to be deleted
-
-### Returns
-Returns the [prospect object](#the-prospect-object).
