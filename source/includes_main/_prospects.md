@@ -28,8 +28,6 @@
       "converted": false,
       "converted_at": null,
       "qualified": false,
-      "archived": true,
-      "archived_reason": "excluded",
       "opened": false,
       "opened_at": null,
       "clicked": false,
@@ -87,8 +85,6 @@ last_emailed_at | no | **datetime** <br />The date and time of the last email se
 converted | **yes** | **boolean** <br />Whether or not the prospect is marked as converted
 converted_at | no | **datetime** <br />The date and time when the prospect has been marked as converted
 qualified | **yes** | **boolean** <br />Whether or not the prospect is marked as qualified
-archived | **yes** | **boolean** <br />Whether or not the prospect is archived
-archived_reason | **yes** | **string** <br />If the prospect is archived, this attribute contains the reason. Can be `exluded`, `opt-out` or nothing if the archive was manual.
 opened | **yes** | **boolean** <br />Wheteer or not the prospect opened any of your emails
 clicked | **yes** | **boolean** <br />Wheter or not the prospect clicked a link in any of your emails
 replied | **yes** | **boolean** <br />Whether or not the prospect replied to any of your emails
@@ -380,36 +376,6 @@ Mark a prospect as converted or not converted.
 Parameter | Required? | Type | Description
 --------- | --------- | -----| -----------
 id | **yes** | integer | The ID of the prospect to mark as (not) converted
-
-### Returns
-Returns the [prospect object](#the-prospect-object).
-
-## Mark as (not) archived
-```shell
-# DEFINITION: Mark as archived
-POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/archive
-
-# EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/prospects/1/archive" \
--H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8"
-
-# DEFINITION: Mark as not archived
-DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/archive
-
-# EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/archive" \
--H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8"
-```
-
-Mark a prospect as archived or not.
-
-### Parameters
-Parameter | Required? | Type | Description
---------- | --------- | -----| -----------
-id | **yes** | integer | The ID of the prospect to mark as (not) archived
-remove_tasks | ***yes*** (when archiving) | boolean | Whether the prospect's tasks are to be deleted
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).

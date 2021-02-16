@@ -21,7 +21,6 @@
       "address": "Wavre",
       "c_custom_field_a": "Hot lead",
       "created_from": "extension",
-      "archived": true,
       "lists": ["Belgium", "IT"],
       "created_at": "2015-08-15T16:48:46+02:00",
       "updated_at": "2016-11-25T12:40:46+01:00"
@@ -37,13 +36,12 @@ id | **yes** | **integer** <br />A unique identifier for the organization
 name | **yes** | **string** <br />The name of the organization
 website | **yes** | **string** <br />The organization's website
 description | **yes** | **string** <br />The organization's description
-email | **yes** | **string** <br />The organization's contact email 
+email | **yes** | **string** <br />The organization's contact email
 phone | **yes** | **string** <br />The organization's contact phone number
 country | **yes** | **string** <br />The organization's country
 city | **yes** | **string** <br />The organization's city
 state | **yes** | **string** <br />The organization's state
 address | **yes** |**string** <br />The organization's full address
-archived | **yes** | **boolean** <br />Whether or not the organization is archived
 lists | no | **string[]** <br /> Name of the lists of the organization
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
@@ -83,7 +81,7 @@ curl -X POST "https://api.organization.io/public/v1/organizations" \
 }'
 ```
 
-This will create a new organization. If you don't set the `owner_id` parameter then the user who performed the action will be assigned as the owner. 
+This will create a new organization. If you don't set the `owner_id` parameter then the user who performed the action will be assigned as the owner.
 
 ### Parameters
 Parameter | Default | Description
@@ -91,13 +89,12 @@ Parameter | Default | Description
 name | *NULL* | The name of the organization
 website | *NULL* | The organization's website
 description | *NULL* | The organization's description
-email | *NULL* | The organization's contact email 
+email | *NULL* | The organization's contact email
 phone | *NULL* | The organization's contact phone number
 country | *NULL* | The organization's country
 city | *NULL* | The organization's city
 state | *NULL* | The organization's state
 address | *NULL* |The organization's full address
-archived | *NULL* | Whether or not the organization is archived
 lists | *NULL* | Name of the lists of the organization
 owner_id<br />*integer* | The ID of the user owning this organization
 created_at | *NULL* | ISO 8601 format with timezone offset
@@ -142,7 +139,7 @@ curl -X PATCH "https://api.organization.io/public/v1/organizations/1" \
   "data": {
     "type": "organizations",
     "attributes": {
-      "name": "Prospect.io", 
+      "name": "Prospect.io",
       "c_custom_field_a": "Hot lead"
     }
   }
@@ -158,13 +155,12 @@ id<br />**required** - *integer* | A unique identifier for the organization
 name | The name of the organization
 website | The organization's website
 description | The organization's description
-email | The organization's contact email 
+email | The organization's contact email
 phone | The organization's contact phone number
 country | The organization's country
 city | The organization's city
 state | The organization's state
 address | The organization's full address
-archived | Whether or not the organization is archived
 lists | Name of the lists of the organization
 owner_id | The ID of the user owning this organization
 created_at | ISO 8601 format with timezone offset
@@ -263,35 +259,3 @@ curl -X GET "https://api.organization.io/public/v1/organizations" \
 Returns a list of organizations.
 
 This list is [paginated](#pagination) by 100 records. It can also be [sorted](#sorting) or [filtered](#filtering).
-
-
-## Mark as (not) archived
-```shell
-# DEFINITION: Mark as archived
-POST https://api.prospect.io/public/v1/organizations/{ORGANIZATION_ID}/archive
-
-# EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/organizations/1/archive" \
--H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8"
-
-# DEFINITION: Mark as not archived
-DELETE https://api.prospect.io/public/v1/organizations/{ORGANIZATION_ID}/archive
-
-# EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/organizations/1/archive" \
--H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8"
-```
-
-Mark an organization as archived or not.
-
-### Parameters
-Parameter | Required? | Type | Description
---------- | --------- | -----| -----------
-id | **yes** | integer | The ID of the organization to mark as (not) archived
-archive_prospects | ***yes*** (when archiving) | boolean | Whether the organization's prospects are to be archived
-remove_tasks | ***yes*** (when archiving) | boolean | Whether the organization's tasks are to be deleted
-
-### Returns
-Returns the [organization object](#the-organization-object).
