@@ -381,8 +381,6 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
       </span><span class="nt">"converted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"converted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"qualified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"archived_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"excluded"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"opened"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"opened_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"clicked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -517,16 +515,6 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 <td>qualified</td>
 <td><strong>yes</strong></td>
 <td><strong>boolean</strong> <br />Whether or not the prospect is marked as qualified</td>
-</tr>
-<tr>
-<td>archived</td>
-<td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Whether or not the prospect is archived</td>
-</tr>
-<tr>
-<td>archived_reason</td>
-<td><strong>yes</strong></td>
-<td><strong>string</strong> <br />If the prospect is archived, this attribute contains the reason. Can be <code class="prettyprint">exluded</code>, <code class="prettyprint">opt-out</code> or nothing if the archive was manual.</td>
 </tr>
 <tr>
 <td>opened</td>
@@ -1052,54 +1040,6 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/c
 
 <p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
 
-<h2 id="mark-as-not-archived">Mark as (not) archived</h2>
-<pre class="highlight shell"><code><span class="c"># DEFINITION: Mark as archived</span>
-POST https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/archive
-
-<span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects/1/archive"</span> <span class="se">\</span>
--H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
-
-<span class="c"># DEFINITION: Mark as not archived</span>
-DELETE https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/archive
-
-<span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/archive"</span> <span class="se">\</span>
--H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
-</code></pre>
-
-<p>Mark a prospect as archived or not.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required?</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td><strong>yes</strong></td>
-<td>integer</td>
-<td>The ID of the prospect to mark as (not) archived</td>
-</tr>
-<tr>
-<td>remove_tasks</td>
-<td><strong><em>yes</em></strong> (when archiving)</td>
-<td>boolean</td>
-<td>Whether the prospect&rsquo;s tasks are to be deleted</td>
-</tr>
-</tbody></table>
-
-<h3 id="returns">Returns</h3>
-
-<p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
-
           <h1 id="organizations">Organizations</h1>
 
 <h2 id="the-organization-object">The organization object</h2>
@@ -1121,7 +1061,6 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/a
       </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wavre"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"c_custom_field_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hot lead"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Belgium"</span><span class="p">,</span><span class="w"> </span><span class="s2">"IT"</span><span class="p">],</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
@@ -1190,11 +1129,6 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/a
 <td><strong>string</strong> <br />The organization&rsquo;s full address</td>
 </tr>
 <tr>
-<td>archived</td>
-<td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Whether or not the organization is archived</td>
-</tr>
-<tr>
 <td>lists</td>
 <td>no</td>
 <td><strong>string[]</strong> <br /> Name of the lists of the organization</td>
@@ -1256,7 +1190,7 @@ curl -X POST <span class="s2">"https://api.organization.io/public/v1/organizatio
 }'</span>
 </code></pre>
 
-<p>This will create a new organization. If you don&rsquo;t set the <code class="prettyprint">owner_id</code> parameter then the user who performed the action will be assigned as the owner. </p>
+<p>This will create a new organization. If you don&rsquo;t set the <code class="prettyprint">owner_id</code> parameter then the user who performed the action will be assigned as the owner.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1311,11 +1245,6 @@ curl -X POST <span class="s2">"https://api.organization.io/public/v1/organizatio
 <td>address</td>
 <td><em>NULL</em></td>
 <td>The organization&rsquo;s full address</td>
-</tr>
-<tr>
-<td>archived</td>
-<td><em>NULL</em></td>
-<td>Whether or not the organization is archived</td>
 </tr>
 <tr>
 <td>lists</td>
@@ -1386,7 +1315,7 @@ curl -X PATCH <span class="s2">"https://api.organization.io/public/v1/organizati
   "data": {
     "type": "organizations",
     "attributes": {
-      "name": "Prospect.io", 
+      "name": "Prospect.io",
       "c_custom_field_a": "Hot lead"
     }
   }
@@ -1442,10 +1371,6 @@ curl -X PATCH <span class="s2">"https://api.organization.io/public/v1/organizati
 <tr>
 <td>address</td>
 <td>The organization&rsquo;s full address</td>
-</tr>
-<tr>
-<td>archived</td>
-<td>Whether or not the organization is archived</td>
 </tr>
 <tr>
 <td>lists</td>
@@ -1569,60 +1494,6 @@ curl -X GET <span class="s2">"https://api.organization.io/public/v1/organization
 <p>Returns a list of organizations.</p>
 
 <p>This list is <a href="#pagination">paginated</a> by 100 records. It can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
-
-<h2 id="mark-as-not-archived">Mark as (not) archived</h2>
-<pre class="highlight shell"><code><span class="c"># DEFINITION: Mark as archived</span>
-POST https://api.prospect.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>/archive
-
-<span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://api.prospect.io/public/v1/organizations/1/archive"</span> <span class="se">\</span>
--H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
-
-<span class="c"># DEFINITION: Mark as not archived</span>
-DELETE https://api.prospect.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>/archive
-
-<span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/organizations/1/archive"</span> <span class="se">\</span>
--H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
-</code></pre>
-
-<p>Mark an organization as archived or not.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required?</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td><strong>yes</strong></td>
-<td>integer</td>
-<td>The ID of the organization to mark as (not) archived</td>
-</tr>
-<tr>
-<td>archive_prospects</td>
-<td><strong><em>yes</em></strong> (when archiving)</td>
-<td>boolean</td>
-<td>Whether the organization&rsquo;s prospects are to be archived</td>
-</tr>
-<tr>
-<td>remove_tasks</td>
-<td><strong><em>yes</em></strong> (when archiving)</td>
-<td>boolean</td>
-<td>Whether the organization&rsquo;s tasks are to be deleted</td>
-</tr>
-</tbody></table>
-
-<h3 id="returns">Returns</h3>
-
-<p>Returns the <a href="#the-organization-object">organization object</a>.</p>
 
           <h1 id="pipelines">Pipelines</h1>
 
@@ -2852,7 +2723,7 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/deals/1/mark_
 <tr>
 <td>status</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The automation&rsquo;s status that can take 3 different values: <code class="prettyprint">on</code>, <code class="prettyprint">off</code> and <code class="prettyprint">archived</code></td>
+<td><strong>string</strong> <br />The automation&rsquo;s status that can take 2 different values: <code class="prettyprint">on</code> and <code class="prettyprint">off</code></td>
 </tr>
 <tr>
 <td>send_as_thread</td>
@@ -4249,8 +4120,6 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/exclusion_list_
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-
-<p>Beware, adding an item (email or domain) to the exclusion list will also delete <strong>permanantly</strong> the prospects whose sending address matches the item value. So use this endpoint with care!</p>
 
 
         <h1 class="headline" data-unique="email-api" id="email-api">Emails API</h1>
