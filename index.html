@@ -388,6 +388,7 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
       </span><span class="nt">"bounced"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> 
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/prospects/1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Belgium"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Manager"</span><span class="p">],</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
@@ -500,6 +501,11 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 <td>last_emailed_at</td>
 <td>no</td>
 <td><strong>datetime</strong> <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset</td>
+</tr>
+<tr>
+<td>excluded</td>
+<td><strong>yes</strong></td>
+<td><strong>boolean</strong> <br />Whether or not the prospect is marked as excluded</td>
 </tr>
 <tr>
 <td>converted</td>
@@ -2252,7 +2258,7 @@ curl -X POST <span class="s2">"https://api.deal.io/public/v1/deals"</span> <span
 <table><thead>
 <tr>
 <th>Attribute</th>
-<th>Filterable?</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -4035,7 +4041,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/custom_fields"</
 
 <p>Returns all custom fields.</p>
 
-          <h1 id="exclusion-list-items">Exclusion List Items</h1>
+          <h1 id="exclusion-list-items">Exclusion list items</h1>
 
 <h2 id="the-exclusion-list-item-object">The exclusion list item object</h2>
 <pre class="highlight plaintext"><code># EXAMPLE OBJECT
@@ -4069,12 +4075,12 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/custom_fields"</
 </tr>
 <tr>
 <td>value</td>
-<td>no</td>
+<td>true</td>
 <td><strong>string</strong> <br />The value of the exclusion list item</td>
 </tr>
 <tr>
 <td>item_type</td>
-<td>no</td>
+<td>true</td>
 <td><strong>string</strong> <br />The type of the exclusion list item, can be one of the following: <code class="prettyprint">email</code>, <code class="prettyprint">domain</code></td>
 </tr>
 <tr>
@@ -4084,7 +4090,9 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/custom_fields"</
 </tr>
 </tbody></table>
 
-<h2 id="create-an-exclusion-list-item">Create an Exclusion List Item</h2>
+<h2 id="create-an-exclusion-list-item">Create an exclusion list item</h2>
+
+<p>This will create a new exclusion list item. </p>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
 POST https://api.prospect.io/public/v1/exclusion_list_items
 
@@ -4121,6 +4129,73 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/exclusion_list_
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>item_type</td>
+<td><em>NULL</em></td>
+<td>What would you like to exclude: &ldquo;domain&rdquo; or &ldquo;email&rdquo;</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>NULL</em></td>
+<td>The domain or email value to exclude</td>
+</tr>
+</tbody></table>
+
+<h2 id="list-exclusion-list-items">List exclusion list items</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://api.prospect.io/public/v1/exclusion_list_items
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/exclusion_list_items"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exclusion_list_item"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vincenzo@prospect.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exclusion_list_item"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domain"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/exclusion_list_items/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/exclusion_list_items/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/exclusion_list_items/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a list of exclusion list items.</p>
+
+<p>This list is <a href="#pagination">paginated</a> by 100 records. It can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
+
 
         <h1 class="headline" data-unique="email-api" id="email-api">Emails API</h1>
           <h1 id="search">Search</h1>
@@ -4142,7 +4217,6 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/exclusion_list_
         </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vincenzo"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruggiero"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Founder, CEO"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prospect.io"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-12545474"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VincenzoR"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"linkedin_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.linkedin.com/in/vincenzor"</span><span class="p">,</span><span class="w">
@@ -4301,10 +4375,6 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/emails/search?do
 <tr>
 <td>last_name<br /><em>string</em></td>
 <td>The person&rsquo;s last name</td>
-</tr>
-<tr>
-<td>type<br /><em>string</em></td>
-<td>Only return emails of this type. Possible values are <code class="prettyprint">personal</code> or <code class="prettyprint">generic</code>. If empty, we&rsquo;ll use the value defined in your <a href="https://prospect.io/email_quality">email quality settings</a></td>
 </tr>
 </tbody></table>
 
