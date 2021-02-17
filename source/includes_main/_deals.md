@@ -120,7 +120,7 @@ This will create a new deal.
 
 ### Parameters
 
-Attribute | Filterable? | Description
+Attribute | Default | Description
 --------- | ---------- | -----------
 id | *NULL* | A unique identifier for the deal
 stage_id<br />**required** - *integer* | *NULL* | The stage of the deal

@@ -35,6 +35,7 @@
       "bounced": false,
       "replied": false,
       "replied_at": null,
+      "excluded": false, 
       "url": "https://prospect.io/prospects/1",
       "lists": ["Belgium", "Manager"],
       "created_at": "2015-08-15T16:48:46+02:00",
@@ -82,6 +83,7 @@ city | **yes** | **string** <br />The prospect's city
 industry | **yes** | **string** <br />The prospect's industry
 created_from | no | **string** <br />The source of the prospect. Can be `web`, `extension`, `api` or `import`
 last_emailed_at | no | **datetime** <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset
+excluded | **yes** | **boolean** <br />Whether or not the prospect is marked as excluded
 converted | **yes** | **boolean** <br />Whether or not the prospect is marked as converted
 converted_at | no | **datetime** <br />The date and time when the prospect has been marked as converted
 qualified | **yes** | **boolean** <br />Whether or not the prospect is marked as qualified
