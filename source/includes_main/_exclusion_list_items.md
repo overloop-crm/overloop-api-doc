@@ -22,8 +22,8 @@
 Attribute | Filterable? | Description
 --------- | ----------- | -----------
 id | no | **string** <br />The id of the exclusion list item
-value | true | **string** <br />The value of the exclusion list item
-item_type | true | **string** <br />The type of the exclusion list item, can be one of the following: `email`, `domain`
+value | yes | **string** <br />The value of the exclusion list item
+item_type | yes | **string** <br />The type of the exclusion list item, can be one of the following: `email`, `domain`
 created_at | no | **datetime** <br /> ISO 8601 format with timezone offset
 
 ## Create an exclusion list item
