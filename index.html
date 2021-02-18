@@ -4214,6 +4214,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/exclusion_list_i
         </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vincenzo@prospect.io"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personal"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prospect"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vincenzo"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruggiero"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -4258,10 +4259,6 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/exclusion_list_i
 <td><strong>string</strong> <br />The email address</td>
 </tr>
 <tr>
-<td>type</td>
-<td><strong>string</strong> <br />Can be <code class="prettyprint">personal</code> for personal email addresses or <code class="prettyprint">generic</code> for email addresses like <code class="prettyprint">support@</code> or <code class="prettyprint">contact@</code></td>
-</tr>
-<tr>
 <td>confidence</td>
 <td><strong>integer</strong> <br />Our estimation between 0 and 100 of the probability the email address returned is correct. It depends on several criteria such as the number and quality of sources</td>
 </tr>
@@ -4274,28 +4271,8 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/exclusion_list_i
 <td><strong>string</strong> <br />Last name of the person</td>
 </tr>
 <tr>
-<td>job_title</td>
-<td><strong>string</strong> <br />Job title of the person</td>
-</tr>
-<tr>
 <td>company</td>
 <td><strong>string</strong> <br />Company name of the person</td>
-</tr>
-<tr>
-<td>phone</td>
-<td><strong>string</strong> <br />Phone number of the person</td>
-</tr>
-<tr>
-<td>twitter</td>
-<td><strong>string</strong> <br />Twitter handle of the person</td>
-</tr>
-<tr>
-<td>linkedin_url</td>
-<td><strong>string</strong> <br />Full LinkedIn profile URL of the person</td>
-</tr>
-<tr>
-<td>angellist_url</td>
-<td><strong>string</strong> <br />Full AngelList profile URL of the person</td>
 </tr>
 </tbody></table>
 
