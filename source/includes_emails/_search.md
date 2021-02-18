@@ -17,12 +17,7 @@ The Emails Search API lets you find email addresses associated with a company or
         "type": "personal",
         "confidence": "98",
         "first_name": "Vincenzo",
-        "last_name": "Ruggiero",
-        "job_title": "Founder, CEO",
-        "phone": "555-12545474",
-        "twitter": "VincenzoR",
-        "linkedin_url": "https://www.linkedin.com/in/vincenzor",
-        "angellist_url": "https://angel.co/vincenzo",
+        "last_name": "Ruggiero"
       },
       "relationships": {
         "domain": {
