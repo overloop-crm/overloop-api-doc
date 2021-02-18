@@ -16,6 +16,7 @@ The Emails Search API lets you find email addresses associated with a company or
         "value": "vincenzo@prospect.io",
         "type": "personal",
         "confidence": "98",
+        "company": "Prospect",
         "first_name": "Vincenzo",
         "last_name": "Ruggiero"
       },
@@ -48,16 +49,10 @@ Attribute | Description
 --------- | -----------
 id | **integer** <br />A unique identifier for the email
 value | **string** <br />The email address
-type | **string** <br />Can be `personal` for personal email addresses or `generic` for email addresses like `support@` or `contact@`
 confidence | **integer** <br />Our estimation between 0 and 100 of the probability the email address returned is correct. It depends on several criteria such as the number and quality of sources
 first_name | **string** <br />First name of the person
 last_name | **string** <br />Last name of the person
-job_title | **string** <br />Job title of the person
 company | **string** <br />Company name of the person
-phone | **string** <br />Phone number of the person
-twitter | **string** <br />Twitter handle of the person
-linkedin_url | **string** <br />Full LinkedIn profile URL of the person
-angellist_url | **string** <br />Full AngelList profile URL of the person
 
 ### Relationships
 Object | Description
