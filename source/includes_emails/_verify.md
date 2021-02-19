@@ -11,7 +11,7 @@ The Emails Verify API lets you check in real time the deliverability (how likely
   "data": [],
   "meta": {
     "email": "vincenzo@prospect.io",
-    "status": "valid",
+    "score": 84,
     "disposable": false,
     "role_address": false,
     "error_code": null
@@ -23,24 +23,7 @@ The Emails Verify API lets you check in real time the deliverability (how likely
 Attribute | Description
 --------- | -----------
 email | **string** <br />The email address verified
-status | **string** <br />The status of the email. Can be `valid`, `invalid`, `unknown` or `accept_all`.
-disposable | **boolean** <br />Is the email a temporary or "disposable" email address
-role_address | **boolean** <br />Is the email a "role" email address (like postmaster@, sales@, admin@, info@, webmaster@, etc. )
-error_code | **string** <br />An error code if the email is invalid. Can be `email_address_invalid`, `email_domain_invalid` or `email_account_invalid`.
-
-### Statuses
-
-- **valid**: The email represents a real account / inbox available at the given domain
-- **invalid**: Not a real email
-- **unknown**: For some reason we cannot verify valid or invalid. Most of the time a domain did not respond quickly enough.
-- **accept_all**: These are domains that respond to every verification request in the affirmative, and therefore cannot be fully verified.
-
-### Error Codes
-
-- **email_address_invalid**: The email address is not formatted correctly
-- **email_domain_invalid**: The domain does not exist or is not capable of receiving email
-- **email_account_invalid**: The email account does not exist on the domain
-
+score | **integer** <br />The validity score of this email. A value of 100 means we highly trust this email to be valid. A value of 0 indicates that we don't think the email is valid. 
 
 
 ## Verify an email
