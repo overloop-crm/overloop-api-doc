@@ -4365,7 +4365,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/emails/search?do
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vincenzo@prospect.io"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
     </span><span class="nt">"disposable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"role_address"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
@@ -4386,39 +4386,10 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/emails/search?do
 <td><strong>string</strong> <br />The email address verified</td>
 </tr>
 <tr>
-<td>status</td>
-<td><strong>string</strong> <br />The status of the email. Can be <code class="prettyprint">valid</code>, <code class="prettyprint">invalid</code>, <code class="prettyprint">unknown</code> or <code class="prettyprint">accept_all</code>.</td>
-</tr>
-<tr>
-<td>disposable</td>
-<td><strong>boolean</strong> <br />Is the email a temporary or &ldquo;disposable&rdquo; email address</td>
-</tr>
-<tr>
-<td>role_address</td>
-<td><strong>boolean</strong> <br />Is the email a &ldquo;role&rdquo; email address (like postmaster@, sales@, admin@, info@, webmaster@, etc. )</td>
-</tr>
-<tr>
-<td>error_code</td>
-<td><strong>string</strong> <br />An error code if the email is invalid. Can be <code class="prettyprint">email_address_invalid</code>, <code class="prettyprint">email_domain_invalid</code> or <code class="prettyprint">email_account_invalid</code>.</td>
+<td>score</td>
+<td><strong>integer</strong> <br />The validity score of this email. A value of 100 means we highly trust this email to be valid. A value of 0 indicates that we don&rsquo;t think the email is valid.</td>
 </tr>
 </tbody></table>
-
-<h3 id="statuses">Statuses</h3>
-
-<ul>
-<li><strong>valid</strong>: The email represents a real account / inbox available at the given domain</li>
-<li><strong>invalid</strong>: Not a real email</li>
-<li><strong>unknown</strong>: For some reason we cannot verify valid or invalid. Most of the time a domain did not respond quickly enough.</li>
-<li><strong>accept_all</strong>: These are domains that respond to every verification request in the affirmative, and therefore cannot be fully verified.</li>
-</ul>
-
-<h3 id="error-codes">Error Codes</h3>
-
-<ul>
-<li><strong>email_address_invalid</strong>: The email address is not formatted correctly</li>
-<li><strong>email_domain_invalid</strong>: The domain does not exist or is not capable of receiving email</li>
-<li><strong>email_account_invalid</strong>: The email account does not exist on the domain</li>
-</ul>
 
 <h2 id="verify-an-email">Verify an email</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
