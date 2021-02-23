@@ -146,7 +146,7 @@ id | **yes** | integer | The ID of the pipeline to delete
 ### Returns
 Returns an object containing the pipeline ID.
 
-## Pipeline pipelines
+## List pipelines
 
 ```shell
 # DEFINITION
@@ -186,6 +186,6 @@ curl -X GET "https://api.prospect.io/public/v1/pipelines" \
 }
 ```
 
-Returns a pipeline of pipelines.
+Returns a list of pipelines.
 
 This pipeline is [paginated](#pagination) by 100 records and can also be [sorted](#sorting) or [filtered](#filtering).
