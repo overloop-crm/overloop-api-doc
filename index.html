@@ -1725,7 +1725,7 @@ Warning — Deleting a pipeline will delete all the stages and all the deals ins
 
 <p>Returns an object containing the pipeline ID.</p>
 
-<h2 id="pipeline-pipelines">Pipeline pipelines</h2>
+<h2 id="list-pipelines">List pipelines</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
 GET https://api.prospect.io/public/v1/pipelines
 
@@ -1763,7 +1763,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/pipelines"</span
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns a pipeline of pipelines.</p>
+<p>Returns a list of pipelines.</p>
 
 <p>This pipeline is <a href="#pagination">paginated</a> by 100 records and can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
 
@@ -1778,11 +1778,11 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/pipelines"</span
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stages"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Qualified"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w"> 
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"pipeline"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1852,8 +1852,8 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/stages"</span> 
   "data": {
     "type": "stages",
     "attributes": {
-      "name": "A stage name", 
-      "probability": 33, 
+      "name": "A stage name",
+      "probability": 33,
       "pipeline_id": 2
     }
   }
@@ -2029,7 +2029,7 @@ Warning — Deleting a stage will delete all the deals inside that stage
 
 <p>Returns an object containing the stage ID.</p>
 
-<h2 id="stage-stages">Stage stages</h2>
+<h2 id="list-stages">List stages</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
 GET https://api.prospect.io/public/v1/stages
 
@@ -2067,7 +2067,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/stages"</span> <
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns a stage of stages.</p>
+<p>Returns a list of stages.</p>
 
 <p>This stage is <a href="#pagination">paginated</a> by 100 records and can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
 
@@ -2234,10 +2234,10 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/stages"</span> <
 
 <h2 id="create-a-deal">Create a deal</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-POST https://api.deal.io/public/v1/deals
+POST https://api.prospect.io/public/v1/deals
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://api.deal.io/public/v1/deals"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/deals"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
@@ -2251,7 +2251,7 @@ curl -X POST <span class="s2">"https://api.deal.io/public/v1/deals"</span> <span
 }'</span>
 </code></pre>
 
-<p>This will create a new deal. </p>
+<p>This will create a new deal.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2320,10 +2320,10 @@ curl -X POST <span class="s2">"https://api.deal.io/public/v1/deals"</span> <span
 
 <h2 id="retrieve-a-deal">Retrieve a deal</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.deal.io/public/v1/deals/<span class="o">{</span>DEAL_ID<span class="o">}</span>
+GET https://api.prospect.io/public/v1/deals/<span class="o">{</span>DEAL_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.deal.io/public/v1/deals/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/deals/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2348,17 +2348,17 @@ curl -X GET <span class="s2">"https://api.deal.io/public/v1/deals/1"</span> <spa
 
 <h2 id="update-a-deal">Update a deal</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-PATCH https://api.deal.io/public/v1/deals/<span class="o">{</span>DEAL_ID<span class="o">}</span>
+PATCH https://api.prospect.io/public/v1/deals/<span class="o">{</span>DEAL_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X PATCH <span class="s2">"https://api.deal.io/public/v1/deals/1"</span> <span class="se">\</span>
+curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/deals/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
   "data": {
     "type": "deals",
     "attributes": {
-      "title": "4 licenses for ACME Corp", 
+      "title": "4 licenses for ACME Corp",
       "c_custom_field_a": "Hot lead"
     }
   }
@@ -2419,10 +2419,10 @@ curl -X PATCH <span class="s2">"https://api.deal.io/public/v1/deals/1"</span> <s
 
 <h2 id="delete-a-deal">Delete a deal</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-DELETE https://api.deal.io/public/v1/deals/<span class="o">{</span>DEAL_ID<span class="o">}</span>
+DELETE https://api.prospect.io/public/v1/deals/<span class="o">{</span>DEAL_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://api.deal.io/public/v1/deals/1"</span> <span class="se">\</span>
+curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/deals/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2464,10 +2464,10 @@ curl -X DELETE <span class="s2">"https://api.deal.io/public/v1/deals/1"</span> <
 
 <h2 id="list-deals">List deals</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.deal.io/public/v1/deals
+GET https://api.prospect.io/public/v1/deals
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.deal.io/public/v1/deals"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/deals"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2507,9 +2507,9 @@ curl -X GET <span class="s2">"https://api.deal.io/public/v1/deals"</span> <span 
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.deal.io/public/v1/deals/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.deal.io/public/v1/deals/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.deal.io/public/v1/deals/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/deals/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/deals/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/deals/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4092,7 +4092,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/custom_fields"</
 
 <h2 id="create-an-exclusion-list-item">Create an exclusion list item</h2>
 
-<p>This will create a new exclusion list item. </p>
+<p>This will create a new exclusion list item.</p>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
 POST https://api.prospect.io/public/v1/exclusion_list_items
 
@@ -4149,6 +4149,51 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/exclusion_list_
 <td>The domain or email value to exclude</td>
 </tr>
 </tbody></table>
+
+<h2 id="delete-an-exclusion-list-item">Delete an exclusion list item</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+DELETE https://api.prospect.io/public/v1/exclusion_list_items/<span class="o">{</span>ITEM_ID<span class="o">}</span>
+
+<span class="c"># EXAMPLE</span>
+curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/exclusion_list_items/1"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exclusion_list_items"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Permanently deletes an exclusion list item. It cannot be undone.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td>integer</td>
+<td>The ID of the item to delete</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns an object containing the exclusion list item ID.</p>
 
 <h2 id="list-exclusion-list-items">List exclusion list items</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
