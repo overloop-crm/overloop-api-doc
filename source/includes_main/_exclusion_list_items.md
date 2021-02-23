@@ -29,7 +29,7 @@ created_at | no | **datetime** <br /> ISO 8601 format with timezone offset
 ## Create an exclusion list item
 
 
-This will create a new exclusion list item. 
+This will create a new exclusion list item.
 
 ```shell
 # DEFINITION
@@ -75,7 +75,38 @@ Attribute | Default | Description
 item_type | *NULL* | What would you like to exclude: "domain" or "email"
 value | *NULL* | The domain or email value to exclude
 
+## Delete an exclusion list item
+```shell
+# DEFINITION
+DELETE https://api.prospect.io/public/v1/exclusion_list_items/{ITEM_ID}
 
+# EXAMPLE
+curl -X DELETE "https://api.prospect.io/public/v1/exclusion_list_items/1" \
+-H "Authorization: your_api_key" \
+-H "Content-Type: application/vnd.api+json; charset=utf-8"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": "1",
+    "type": "exclusion_list_items"
+  }
+}
+```
+
+Permanently deletes an exclusion list item. It cannot be undone.
+
+
+### Parameters
+Parameter | Required? | Type | Description
+--------- | --------- | -----| -----------
+id | **yes** | integer | The ID of the item to delete
+
+### Returns
+Returns an object containing the exclusion list item ID.
 
 ## List exclusion list items
 
