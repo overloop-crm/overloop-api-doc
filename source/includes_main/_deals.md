@@ -69,7 +69,7 @@ Attribute | Filterable? | Description
 id | **yes** | **integer** <br />A unique identifier for the deal
 title | **yes** | **string** <br />The name of the deal
 value | **yes** | **decimal** <br />The value of the deal
-status | **yes** | **string** <br />The deal's status (won, lost or open) 
+status | **yes** | **string** <br />The deal's status (won, lost or open)
 closed_at | no | **datetime** <br />ISO 8601 format of the moment when the deal was closed
 expected_close_date | no | **datetime** <br />ISO 8601 format of the moment we expect the deal to close
 entered_stage_at | no | **datetime** <br />ISO 8601 format of the last moment stage changed
@@ -99,10 +99,10 @@ stage | The [stage](#stages) of this deal
 ## Create a deal
 ```shell
 # DEFINITION
-POST https://api.deal.io/public/v1/deals
+POST https://api.prospect.io/public/v1/deals
 
 # EXAMPLE
-curl -X POST "https://api.deal.io/public/v1/deals" \
+curl -X POST "https://api.prospect.io/public/v1/deals" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -116,7 +116,7 @@ curl -X POST "https://api.deal.io/public/v1/deals" \
 }'
 ```
 
-This will create a new deal. 
+This will create a new deal.
 
 ### Parameters
 
@@ -126,7 +126,7 @@ id | *NULL* | A unique identifier for the deal
 stage_id<br />**required** - *integer* | *NULL* | The stage of the deal
 title | *NULL* | The name of the deal
 value | *NULL* | The value of the deal
-status | *NULL* | The deal's status (won, lost or open) 
+status | *NULL* | The deal's status (won, lost or open)
 closed_at | *NULL* | ISO 8601 format of the moment when the deal was closed
 expected_close_date | *NULL* | ISO 8601 format of the moment we expect the deal to close
 entered_stage_at | *NULL* | ISO 8601 format of the last moment stage changed
@@ -141,10 +141,10 @@ Returns the [deal object](#the-deal-object).
 ## Retrieve a deal
 ```shell
 # DEFINITION
-GET https://api.deal.io/public/v1/deals/{DEAL_ID}
+GET https://api.prospect.io/public/v1/deals/{DEAL_ID}
 
 # EXAMPLE
-curl -X GET "https://api.deal.io/public/v1/deals/1" \
+curl -X GET "https://api.prospect.io/public/v1/deals/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -160,17 +160,17 @@ Returns the [deal object](#the-deal-object).
 ## Update a deal
 ```shell
 # DEFINITION
-PATCH https://api.deal.io/public/v1/deals/{DEAL_ID}
+PATCH https://api.prospect.io/public/v1/deals/{DEAL_ID}
 
 # EXAMPLE
-curl -X PATCH "https://api.deal.io/public/v1/deals/1" \
+curl -X PATCH "https://api.prospect.io/public/v1/deals/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
   "data": {
     "type": "deals",
     "attributes": {
-      "title": "4 licenses for ACME Corp", 
+      "title": "4 licenses for ACME Corp",
       "c_custom_field_a": "Hot lead"
     }
   }
@@ -185,7 +185,7 @@ Parameter | Description
 id<br />**required** - *integer* | A unique identifier for the deal
 title | The name of the deal
 value | The value of the deal
-status | The deal's status (won, lost or open) 
+status | The deal's status (won, lost or open)
 closed_at | ISO 8601 format of the moment when the deal was closed
 expected_close_date | ISO 8601 format of the moment we expect the deal to close
 entered_stage_at | ISO 8601 format of the last moment stage changed
@@ -199,10 +199,10 @@ Returns the [deal object](#the-deal-object).
 ## Delete a deal
 ```shell
 # DEFINITION
-DELETE https://api.deal.io/public/v1/deals/{DEAL_ID}
+DELETE https://api.prospect.io/public/v1/deals/{DEAL_ID}
 
 # EXAMPLE
-curl -X DELETE "https://api.deal.io/public/v1/deals/1" \
+curl -X DELETE "https://api.prospect.io/public/v1/deals/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -233,10 +233,10 @@ Returns an object containing the deal ID.
 
 ```shell
 # DEFINITION
-GET https://api.deal.io/public/v1/deals
+GET https://api.prospect.io/public/v1/deals
 
 # EXAMPLE
-curl -X GET "https://api.deal.io/public/v1/deals" \
+curl -X GET "https://api.prospect.io/public/v1/deals" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -276,9 +276,9 @@ curl -X GET "https://api.deal.io/public/v1/deals" \
     }
   ],
   "links": {
-    "self": "https://api.deal.io/public/v1/deals/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.deal.io/public/v1/deals/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.deal.io/public/v1/deals/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.prospect.io/public/v1/deals/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.prospect.io/public/v1/deals/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.prospect.io/public/v1/deals/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```
