@@ -2568,6 +2568,23 @@ POST https://api.prospect.io/public/v1/deals/<span class="o">{</span>DEAL_ID<spa
 curl -X POST <span class="s2">"https://api.prospect.io/public/v1/deals/1/mark_as_lost"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+-d <span class="s1">'{
+  "data": {
+    "type": "deals",
+    "attributes": {
+      "lost_reason": "my reason"
+    }
+  }
+}'</span>
+
+<span class="c">### Parameters</span>
+Parameter | Description
+--------- | -----------
+id&lt;br /&gt;<span class="k">**</span>required<span class="k">**</span> - <span class="k">*</span>integer<span class="k">*</span> | A unique identifier <span class="k">for </span>the deal
+lost_reason | The reason to mark the deal as lost
+
+<span class="c">### Returns</span>
+Returns the <span class="o">[</span>deal object]<span class="o">(</span><span class="c">#the-deal-object).</span>
 
 <span class="c"># DEFINITION: Mark as not lost</span>
 DELETE https://api.prospect.io/public/v1/deals/<span class="o">{</span>DEAL_ID<span class="o">}</span>/mark_as_lost
