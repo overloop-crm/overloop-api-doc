@@ -117,7 +117,7 @@ steps | The [steps](#workflow-steps) of the workflow.
 enter_segment | The reference of the workflow filters for the _enter_segment_ trigger event.
 filters | The conditions of the _enter_segment_ trigger event.
 
-## Retrieve an workflow
+## Retrieve a workflow
 ```shell
 # DEFINITION
 GET https://api.prospect.io/public/v1/workflows/{WORKFLOW_ID}
