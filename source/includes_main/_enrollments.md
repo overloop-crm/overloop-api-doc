@@ -165,7 +165,7 @@ curl -X GET "https://api.prospect.io/public/v1/enrollments" \
   "data": [
     {
       "id": "36",
-      "type": "automations_enrollments",
+      "type": "workflows_enrollments",
       "attributes": {
         "disenrolled_at": "2020-06-03T13:01:15.697Z",
         "start_at": null,
@@ -179,10 +179,10 @@ curl -X GET "https://api.prospect.io/public/v1/enrollments" \
             "type": "prospects"
           }
         },
-        "automation": {
+        "workflow": {
           "data": {
             "id": "3",
-            "type": "automations"
+            "type": "workflows"
           }
         },
         "current_step": {
