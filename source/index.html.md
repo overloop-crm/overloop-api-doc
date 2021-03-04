@@ -23,7 +23,7 @@ includes_main:
   - stages
   - deals
   - workflows
-  - workflows_steps
+  - workflow_steps
   - enrollments
   - account
   - users
