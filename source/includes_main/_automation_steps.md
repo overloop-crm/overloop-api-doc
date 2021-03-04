@@ -1,5 +1,5 @@
-# Automation Steps
-## The automation step object
+# Workflow Steps
+## The workflow step object
 ```
 # EXAMPLE OBJECT
 ```
@@ -9,7 +9,7 @@
   "data": [
     {
       "id": "a-z0-9-abc1",
-      "type": "automations_steps",
+      "type": "workflows_steps",
       "attributes": {
         "step_type": "task",
         "position": 0,
@@ -17,7 +17,7 @@
         "created_at": "2020-01-31T12:00:00.000Z",
         "updated_at": "2020-01-31T12:00:00.000Z",
         "config": {
-          "title": "Public API Automation Step Example",
+          "title": "Public API Workflow Step Example",
           "due_time": "09:00:00",
           "due_offset": 1,
           "description": "This is an example description",
@@ -27,10 +27,10 @@
         }
       },
       "relationships": {
-        "automation": {
+        "workflow": {
           "data": {
             "id": "1",
-            "type": "automations"
+            "type": "workflows"
           }
         }
       }
@@ -43,10 +43,10 @@
 ### Object attributes
 Attribute | Description
 --------- | -----------
-id | **integer** <br />A unique identifier for the automation step
+id | **integer** <br />A unique identifier for the workflow step
 step_type | **string** <br />The type of step. Can be an `email`, a `task`, a `note`, a `delay`, a `condition`, an `edit` field value or an app action like `hubspot`, `salesforce`, `zoho`, `pipedrive`, `close` and `slack`.
 position | **integer** <br />When the previous_step is not a `condition`, the position will always be 0. Otherwise, `0` is the left/yes branch of a condition, while `1` is the right/no branch.
-previous_step_id | **string** <br />The unique identifier of the previous step. A `null` value will always be assigned to the first step of the automation.
+previous_step_id | **string** <br />The unique identifier of the previous step. A `null` value will always be assigned to the first step of the workflow.
 created_at | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | **datetime** <br />ISO 8601 format with timezone offset
 config | **object** <br />All specific attributes related to the _step_type_
@@ -54,15 +54,15 @@ config | **object** <br />All specific attributes related to the _step_type_
 ### Relationships
 Object | Description
 --------- | -----------
-automation | The parent [automation](#automations)
+workflow | The parent [workflow](#workflows)
 
-## Retrieve an automation step
+## Retrieve a workflow step
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/automations/{AUTOMATION_ID}/steps/{STEP_ID}
+GET https://api.prospect.io/public/v1/workflows/{WORKFLOW_ID}/steps/{STEP_ID}
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/automations/1/steps/1" \
+curl -X GET "https://api.prospect.io/public/v1/workflows/1/steps/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -70,19 +70,19 @@ curl -X GET "https://api.prospect.io/public/v1/automations/1/steps/1" \
 ### Parameters
 Parameter | Description
 --------- | -----------
-automation_id<br />**required** - *integer* | The ID of the automation
-id<br />**required** - *integer* | The ID of the automation step to retrieve
+workflow_id<br />**required** - *integer* | The ID of the workflow
+id<br />**required** - *integer* | The ID of the workflow step to retrieve
 
 ### Returns
-Returns the [automation step object](#the-automation-step-object).
+Returns the [workflow step object](#the-workflow-step-object).
 
-## List automations steps
+## List workflows steps
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/automations/{AUTOMATION_ID}/steps
+GET https://api.prospect.io/public/v1/workflows/{WORKFLOW_ID}/steps
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/automations/1/steps" \
+curl -X GET "https://api.prospect.io/public/v1/workflows/1/steps" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -94,58 +94,58 @@ curl -X GET "https://api.prospect.io/public/v1/automations/1/steps" \
   "data": [
     {
       "id": "a-z0-9-abc1",
-      "type": "automations_steps",
+      "type": "workflows_steps",
       "attributes": {
         ...
       },
       "relationships": {
-        "automation": {
+        "workflow": {
           "data": {
             "id": "1",
-            "type": "automations"
+            "type": "workflows"
           }
         }
       }
     },
     {
       "id": "a-z0-9-abc2",
-      "type": "automations_steps",
+      "type": "workflows_steps",
       "attributes": {
         ...
       },
       "relationships": {
-        "automation": {
+        "workflow": {
           "data": {
             "id": "1",
-            "type": "automations"
+            "type": "workflows"
           }
         }
       }
     },
     {
       "id": "a-z0-9-abc3",
-      "type": "automations_steps",
+      "type": "workflows_steps",
       "attributes": {
         ...
       },
       "relationships": {
-        "automation": {
+        "workflow": {
           "data": {
             "id": "1",
-            "type": "automations"
+            "type": "workflows"
           }
         }
       }
     }
   ],
   "links": {
-    "self": "https://api.prospect.io/public/v1/automations/1/steps?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.prospect.io/public/v1/automations/1/steps?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.prospect.io/public/v1/automations/1/steps?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.prospect.io/public/v1/workflows/1/steps?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.prospect.io/public/v1/workflows/1/steps?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.prospect.io/public/v1/workflows/1/steps?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```
 
-Returns a list of automations steps.
+Returns a list of workflows steps.
 
 This list is [paginated](#pagination) by 100 records and can also be [sorted](#sorting).

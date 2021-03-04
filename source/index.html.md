@@ -22,8 +22,8 @@ includes_main:
   - pipelines
   - stages
   - deals
-  - automations
-  - automation_steps
+  - workflows
+  - workflows_steps
   - enrollments
   - account
   - users
