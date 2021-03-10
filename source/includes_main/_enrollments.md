@@ -1,6 +1,6 @@
 # Enrollments
 ## The enrollment object
-To add a desired prospect to a specific automation you have to create an **enrollment**. The enrollment is then used to describe the progression of the prospect into the automation flow.
+To add a desired prospect to a specific workflow you have to create an **enrollment**. The enrollment is then used to describe the progression of the prospect into the workflow.
 
 ```
 # EXAMPLE OBJECT
@@ -9,9 +9,9 @@ To add a desired prospect to a specific automation you have to create an **enrol
 {
   "data": {
     "id": "1",
-    "type": "automations_enrollments",
+    "type": "workflows_enrollments",
     "attributes": {
-      "automation_id": 1,
+      "workflow_id": 1,
       "prospect_id": 1,
       "disenrolled_at": null,
       "start_at": "2020-08-20T08:00:00+02:00",
@@ -22,14 +22,14 @@ To add a desired prospect to a specific automation you have to create an **enrol
       "current_step": {
         "data": {
           "id": "a-z0-9-abc1",
-          "type": "automations_steps"
+          "type": "workflows_steps"
         }
       }
     },
     "included": [
       {
         "id": "a-z0-9-abc1",
-        "type": "automations_steps",
+        "type": "workflows_steps",
         "attributes": {
           "step_type": "note",
           "position": 0,
@@ -41,10 +41,10 @@ To add a desired prospect to a specific automation you have to create an **enrol
           }
         },
         "relationships": {
-          "automation": {
+          "workflow": {
               "data": {
                 "id": "1",
-                "type": "automations"
+                "type": "workflows"
             }
           }
         }
@@ -58,7 +58,7 @@ To add a desired prospect to a specific automation you have to create an **enrol
 Attribute | Description
 --------- | -----------
 id | **integer** <br />A unique identifier for the enrollment
-disenrolled_at | **datetime** <br />The date and time when the prospect has been leaved the automation in ISO 8601 format with timezone
+disenrolled_at | **datetime** <br />The date and time when the prospect has been leaved the workflow in ISO 8601 format with timezone
 start_at | **datetime** <br />The date and time on which the enrollment must be started in ISO 8601 format with timezone offset. If not set or set in the past, the enrollment starts immediately.
 created_at | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | **datetime** <br />ISO 8601 format with timezone offset
@@ -66,17 +66,17 @@ updated_at | **datetime** <br />ISO 8601 format with timezone offset
 ### Relationships
 Object | Description
 --------- | -----------
-current_step | The current [step](#automation-steps) of this enrollment.
-automation | The current [automation](#automations) of this enrollment.
+current_step | The current [step](#workflow-steps) of this enrollment.
+workflow | The current [workflow](#workflows) of this enrollment.
 prospect | The current [prospect](#prospects) of this enrollment.
 
 ## Create an enrollment
 ```shell
 # DEFINITION
-POST https://api.prospect.io/public/v1/automations/{{AUTOMATION_ID}}/enrollments
+POST https://api.prospect.io/public/v1/workflows/{{WORKFLOW_ID}}/enrollments
 
 # EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/automations/1/enrollments" \
+curl -X POST "https://api.prospect.io/public/v1/workflows/1/enrollments" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -99,7 +99,7 @@ This will create a new enrollment.
 Parameter | Required? | Type | Description
 --------- | --------- | ---- | ------------
 prospect_id | **yes** | *integer* | The prospect's ID
-step_id | no | *string* | The step's ID of the automation at which the prospect must be enrolled.
+step_id | no | *string* | The step's ID of the workflow at which the prospect must be enrolled.
 reenroll | no | *boolean* | Set to `false` if you want to prevent re enroll the prospect because he already has been enrolled. **If not set to** `false` **this parameter will always be** `true`
 start_at | no | *string* | The date and time on which the enrollment must be started in the ISO 8601 format with timezone offset. If not set or set in the past, the enrollment will start immediately.
 
@@ -109,10 +109,10 @@ Returns the [enrollment object](#the-enrollment-object).
 ## Stop an enrollment
 ```shell
 # DEFINITION
-DELETE https://api.prospect.io/public/v1/automations/{{AUTOMATION_ID}}/enrollments/{{ENROLLMENT_ID}}
+DELETE https://api.prospect.io/public/v1/workflows/{{WORKFLOW_ID}}/enrollments/{{ENROLLMENT_ID}}
 
 # EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/automations/1/enrollments/1" \
+curl -X DELETE "https://api.prospect.io/public/v1/workflows/1/enrollments/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -130,10 +130,10 @@ Returns the [enrollment object](#the-enrollment-object).
 ## Retrieve an enrollment
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1//enrollments/{{ENROLLMENT_ID}}
+GET https://api.prospect.io/public/v1/workflows/{{WORKFLOW_ID}}/enrollments/{{ENROLLMENT_ID}}
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1//enrollments/1" \
+curl -X GET "https://api.prospect.io/public/v1/workflows/1/enrollments/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -165,7 +165,7 @@ curl -X GET "https://api.prospect.io/public/v1/enrollments" \
   "data": [
     {
       "id": "36",
-      "type": "automations_enrollments",
+      "type": "workflows_enrollments",
       "attributes": {
         "disenrolled_at": "2020-06-03T13:01:15.697Z",
         "start_at": null,
@@ -179,10 +179,10 @@ curl -X GET "https://api.prospect.io/public/v1/enrollments" \
             "type": "prospects"
           }
         },
-        "automation": {
+        "workflow": {
           "data": {
             "id": "3",
-            "type": "automations"
+            "type": "workflows"
           }
         },
         "current_step": {

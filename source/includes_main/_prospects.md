@@ -35,7 +35,7 @@
       "bounced": false,
       "replied": false,
       "replied_at": null,
-      "excluded": false, 
+      "excluded": false,
       "url": "https://prospect.io/prospects/1",
       "lists": ["Belgium", "Manager"],
       "created_at": "2015-08-15T16:48:46+02:00",
@@ -113,7 +113,7 @@ Object | Description
 creator | The [user](#users) who created the prospect
 organization | The [organization](#organizations) of this prospect
 owner | The [user](#users) who owns the prospect
-enrollments | The [enrollments](#enrollments) of the prospect in automations
+enrollments | The [enrollments](#enrollments) of the prospect in workflows
 
 
 ## Create a prospect
