@@ -95,11 +95,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <img src="images/logo.png" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
         </div>
@@ -388,7 +388,7 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
       </span><span class="nt">"bounced"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prospect.io/prospects/1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Belgium"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Manager"</span><span class="p">],</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
@@ -609,7 +609,7 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 </tr>
 <tr>
 <td>enrollments</td>
-<td>The <a href="#enrollments">enrollments</a> of the prospect in automations</td>
+<td>The <a href="#enrollments">enrollments</a> of the prospect in workflows</td>
 </tr>
 </tbody></table>
 
@@ -2619,17 +2619,17 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/deals/1/mark_
 
 <p>Returns the <a href="#the-deal-object">deal object</a>.</p>
 
-          <h1 id="automations">Automations</h1>
+          <h1 id="workflows">Workflows</h1>
 
-<h2 id="the-automation-object">The automation object</h2>
+<h2 id="the-workflow-object">The workflow object</h2>
 <pre class="highlight plaintext"><code># EXAMPLE OBJECT
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Public API Automation Example"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Public API Workflow Example"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"enter_triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"prospect.create"</span><span class="p">,</span><span class="w">
       </span><span class="p">],</span><span class="w">
@@ -2658,11 +2658,11 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/deals/1/mark_
         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc2"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2726,32 +2726,32 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/deals/1/mark_
 <tr>
 <td>id</td>
 <td>no</td>
-<td><strong>integer</strong> <br />A unique identifier for the automation</td>
+<td><strong>integer</strong> <br />A unique identifier for the workflow</td>
 </tr>
 <tr>
 <td>name</td>
 <td>no</td>
-<td><strong>string</strong> <br />The automation&rsquo;s name</td>
+<td><strong>string</strong> <br />The workflow&rsquo;s name</td>
 </tr>
 <tr>
 <td>enter_triggers</td>
 <td>no</td>
-<td><strong>array</strong> <br />An array containing the events that will make prospects entering the automation. Possible values are <code class="prettyprint">message.sent</code>, <code class="prettyprint">message.open</code>, <code class="prettyprint">message.click</code>, <code class="prettyprint">prospect.create</code>, <code class="prettyprint">prospect.updated</code>, <code class="prettyprint">prospect.replied</code>, <code class="prettyprint">prospect.qualified</code> and <code class="prettyprint">prospect.convert</code></td>
+<td><strong>array</strong> <br />An array containing the events that will make prospects entering the workflow. Possible values are <code class="prettyprint">message.sent</code>, <code class="prettyprint">message.open</code>, <code class="prettyprint">message.click</code>, <code class="prettyprint">prospect.create</code>, <code class="prettyprint">prospect.updated</code>, <code class="prettyprint">prospect.replied</code>, <code class="prettyprint">prospect.qualified</code> and <code class="prettyprint">prospect.convert</code></td>
 </tr>
 <tr>
 <td>exit_triggers</td>
 <td>no</td>
-<td><strong>array</strong> <br />An array containing the events that will make prospects exiting the automation. Possible values are <code class="prettyprint">message.click</code>, <code class="prettyprint">prospect.replied</code>, <code class="prettyprint">prospect.qualified</code>, <code class="prettyprint">prospect.convert</code>, <code class="prettyprint">message.hard_bounced</code> and <code class="prettyprint">pseudo_event.unmatch</code> representing the event when the conditions of the <em>enter_segment</em> event is no longer applicable.</td>
+<td><strong>array</strong> <br />An array containing the events that will make prospects exiting the workflow. Possible values are <code class="prettyprint">message.click</code>, <code class="prettyprint">prospect.replied</code>, <code class="prettyprint">prospect.qualified</code>, <code class="prettyprint">prospect.convert</code>, <code class="prettyprint">message.hard_bounced</code> and <code class="prettyprint">pseudo_event.unmatch</code> representing the event when the conditions of the <em>enter_segment</em> event is no longer applicable.</td>
 </tr>
 <tr>
 <td>status</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The automation&rsquo;s status that can take 2 different values: <code class="prettyprint">on</code> and <code class="prettyprint">off</code></td>
+<td><strong>string</strong> <br />The workflow&rsquo;s status that can take 3 different values: <code class="prettyprint">on</code>, <code class="prettyprint">off</code></td>
 </tr>
 <tr>
 <td>send_as_thread</td>
 <td>no</td>
-<td><strong>boolean</strong> <br />The automation&rsquo;s emails should be sent as threads.</td>
+<td><strong>boolean</strong> <br />The workflow&rsquo;s emails should be sent as threads.</td>
 </tr>
 <tr>
 <td>sending_days</td>
@@ -2790,11 +2790,11 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/deals/1/mark_
 </thead><tbody>
 <tr>
 <td>steps</td>
-<td>The <a href="#automation-steps">steps</a> of the automation.</td>
+<td>The <a href="#workflow-steps">steps</a> of the workflow.</td>
 </tr>
 <tr>
 <td>enter_segment</td>
-<td>The reference of the automation filters for the <em>enter_segment</em> trigger event.</td>
+<td>The reference of the workflow filters for the <em>enter_segment</em> trigger event.</td>
 </tr>
 <tr>
 <td>filters</td>
@@ -2802,12 +2802,12 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/deals/1/mark_
 </tr>
 </tbody></table>
 
-<h2 id="retrieve-an-automation">Retrieve an automation</h2>
+<h2 id="retrieve-a-workflow">Retrieve a workflow</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.prospect.io/public/v1/automations/<span class="o">{</span>AUTOMATION_ID<span class="o">}</span>
+GET https://api.prospect.io/public/v1/workflows/<span class="o">{</span>WORKFLOW_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2822,20 +2822,20 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1"</
 </thead><tbody>
 <tr>
 <td>id<br /><strong>required</strong> - <em>integer</em></td>
-<td>The ID of the automation to retrieve</td>
+<td>The ID of the workflow to retrieve</td>
 </tr>
 </tbody></table>
 
 <h3 id="returns">Returns</h3>
 
-<p>Returns the <a href="#the-automation-object">automation object</a>.</p>
+<p>Returns the <a href="#the-workflow-object">workflow object</a>.</p>
 
-<h2 id="list-automations">List automations</h2>
+<h2 id="list-workflows">List workflows</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.prospect.io/public/v1/automations
+GET https://api.prospect.io/public/v1/workflows
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2847,7 +2847,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations"</sp
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2866,7 +2866,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations"</sp
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2885,27 +2885,27 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations"</sp
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/automations/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/automations/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/automations/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/workflows/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/workflows/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/workflows/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns a list of automations.</p>
+<p>Returns a list of workflows.</p>
 
 <p>This list is <a href="#pagination">paginated</a> by 100 records and can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
 
-          <h1 id="automation-steps">Automation Steps</h1>
+          <h1 id="workflow-steps">Workflow Steps</h1>
 
-<h2 id="the-automation-step-object">The automation step object</h2>
+<h2 id="the-workflow-step-object">The workflow step object</h2>
 <pre class="highlight plaintext"><code># EXAMPLE OBJECT
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"step_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"task"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -2913,7 +2913,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations"</sp
         </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-31T12:00:00.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-31T12:00:00.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Public API Automation Step Example"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Public API Workflow Step Example"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"due_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09:00:00"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"due_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is an example description"</span><span class="p">,</span><span class="w">
@@ -2923,10 +2923,10 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations"</sp
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -2945,7 +2945,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations"</sp
 </thead><tbody>
 <tr>
 <td>id</td>
-<td><strong>integer</strong> <br />A unique identifier for the automation step</td>
+<td><strong>integer</strong> <br />A unique identifier for the workflow step</td>
 </tr>
 <tr>
 <td>step_type</td>
@@ -2957,7 +2957,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations"</sp
 </tr>
 <tr>
 <td>previous_step_id</td>
-<td><strong>string</strong> <br />The unique identifier of the previous step. A <code class="prettyprint">null</code> value will always be assigned to the first step of the automation.</td>
+<td><strong>string</strong> <br />The unique identifier of the previous step. A <code class="prettyprint">null</code> value will always be assigned to the first step of the workflow.</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -2982,17 +2982,17 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations"</sp
 </tr>
 </thead><tbody>
 <tr>
-<td>automation</td>
-<td>The parent <a href="#automations">automation</a></td>
+<td>workflow</td>
+<td>The parent <a href="#workflows">workflow</a></td>
 </tr>
 </tbody></table>
 
-<h2 id="retrieve-an-automation-step">Retrieve an automation step</h2>
+<h2 id="retrieve-a-workflow-step">Retrieve a workflow step</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.prospect.io/public/v1/automations/<span class="o">{</span>AUTOMATION_ID<span class="o">}</span>/steps/<span class="o">{</span>STEP_ID<span class="o">}</span>
+GET https://api.prospect.io/public/v1/workflows/<span class="o">{</span>WORKFLOW_ID<span class="o">}</span>/steps/<span class="o">{</span>STEP_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/steps/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows/1/steps/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -3006,25 +3006,25 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/st
 </tr>
 </thead><tbody>
 <tr>
-<td>automation_id<br /><strong>required</strong> - <em>integer</em></td>
-<td>The ID of the automation</td>
+<td>workflow_id<br /><strong>required</strong> - <em>integer</em></td>
+<td>The ID of the workflow</td>
 </tr>
 <tr>
 <td>id<br /><strong>required</strong> - <em>integer</em></td>
-<td>The ID of the automation step to retrieve</td>
+<td>The ID of the workflow step to retrieve</td>
 </tr>
 </tbody></table>
 
 <h3 id="returns">Returns</h3>
 
-<p>Returns the <a href="#the-automation-step-object">automation step object</a>.</p>
+<p>Returns the <a href="#the-workflow-step-object">workflow step object</a>.</p>
 
-<h2 id="list-automations-steps">List automations steps</h2>
+<h2 id="list-workflows-steps">List workflows steps</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.prospect.io/public/v1/automations/<span class="o">{</span>AUTOMATION_ID<span class="o">}</span>/steps
+GET https://api.prospect.io/public/v1/workflows/<span class="o">{</span>WORKFLOW_ID<span class="o">}</span>/steps
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/steps"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows/1/steps"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -3036,59 +3036,59 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/st
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc3"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/automations/1/steps?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/automations/1/steps?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/automations/1/steps?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/workflows/1/steps?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/workflows/1/steps?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/workflows/1/steps?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns a list of automations steps.</p>
+<p>Returns a list of workflows steps.</p>
 
 <p>This list is <a href="#pagination">paginated</a> by 100 records and can also be <a href="#sorting">sorted</a>.</p>
 
@@ -3096,15 +3096,15 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/st
 
 <h2 id="the-enrollment-object">The enrollment object</h2>
 
-<p>To add a desired prospect to a specific automation you have to create an <strong>enrollment</strong>. The enrollment is then used to describe the progression of the prospect into the automation flow.</p>
+<p>To add a desired prospect to a specific workflow you have to create an <strong>enrollment</strong>. The enrollment is then used to describe the progression of the prospect into the workflow.</p>
 <pre class="highlight plaintext"><code># EXAMPLE OBJECT
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_enrollments"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_enrollments"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"automation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"workflow_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"prospect_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"disenrolled_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-20T08:00:00+02:00"</span><span class="p">,</span><span class="w">
@@ -3115,14 +3115,14 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/st
       </span><span class="nt">"current_step"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc1"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc1"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"step_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"note"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -3134,10 +3134,10 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/st
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
+                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -3161,7 +3161,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/st
 </tr>
 <tr>
 <td>disenrolled_at</td>
-<td><strong>datetime</strong> <br />The date and time when the prospect has been leaved the automation in ISO 8601 format with timezone</td>
+<td><strong>datetime</strong> <br />The date and time when the prospect has been leaved the workflow in ISO 8601 format with timezone</td>
 </tr>
 <tr>
 <td>start_at</td>
@@ -3187,11 +3187,11 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/st
 </thead><tbody>
 <tr>
 <td>current_step</td>
-<td>The current <a href="#automation-steps">step</a> of this enrollment.</td>
+<td>The current <a href="#workflow-steps">step</a> of this enrollment.</td>
 </tr>
 <tr>
-<td>automation</td>
-<td>The current <a href="#automations">automation</a> of this enrollment.</td>
+<td>workflow</td>
+<td>The current <a href="#workflows">workflow</a> of this enrollment.</td>
 </tr>
 <tr>
 <td>prospect</td>
@@ -3201,10 +3201,10 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/automations/1/st
 
 <h2 id="create-an-enrollment">Create an enrollment</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-POST https://api.prospect.io/public/v1/automations/<span class="o">{{</span>AUTOMATION_ID<span class="o">}}</span>/enrollments
+POST https://api.prospect.io/public/v1/workflows/<span class="o">{{</span>WORKFLOW_ID<span class="o">}}</span>/enrollments
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://api.prospect.io/public/v1/automations/1/enrollments"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/workflows/1/enrollments"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
@@ -3243,7 +3243,7 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/automations/1/e
 <td>step_id</td>
 <td>no</td>
 <td><em>string</em></td>
-<td>The step&rsquo;s ID of the automation at which the prospect must be enrolled.</td>
+<td>The step&rsquo;s ID of the workflow at which the prospect must be enrolled.</td>
 </tr>
 <tr>
 <td>reenroll</td>
@@ -3265,10 +3265,10 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/automations/1/e
 
 <h2 id="stop-an-enrollment">Stop an enrollment</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-DELETE https://api.prospect.io/public/v1/automations/<span class="o">{{</span>AUTOMATION_ID<span class="o">}}</span>/enrollments/<span class="o">{{</span>ENROLLMENT_ID<span class="o">}}</span>
+DELETE https://api.prospect.io/public/v1/workflows/<span class="o">{{</span>WORKFLOW_ID<span class="o">}}</span>/enrollments/<span class="o">{{</span>ENROLLMENT_ID<span class="o">}}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/automations/1/enrollments/1"</span> <span class="se">\</span>
+curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/workflows/1/enrollments/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -3299,10 +3299,10 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/automations/1
 
 <h2 id="retrieve-an-enrollment">Retrieve an enrollment</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.prospect.io/public/v1//enrollments/<span class="o">{{</span>ENROLLMENT_ID<span class="o">}}</span>
+GET https://api.prospect.io/public/v1/workflows/<span class="o">{{</span>WORKFLOW_ID<span class="o">}}</span>/enrollments/<span class="o">{{</span>ENROLLMENT_ID<span class="o">}}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.prospect.io/public/v1//enrollments/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows/1/enrollments/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -3346,7 +3346,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/enrollments"</sp
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_enrollments"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_enrollments"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"disenrolled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-03T13:01:15.697Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3360,10 +3360,10 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/enrollments"</sp
             </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"current_step"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
