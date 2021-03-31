@@ -25,9 +25,6 @@
       "c_custom_field_a": "Hot lead",
       "created_from": "extension",
       "last_emailed_at": null,
-      "converted": false,
-      "converted_at": null,
-      "qualified": false,
       "opened": false,
       "opened_at": null,
       "clicked": false,
@@ -84,9 +81,6 @@ industry | **yes** | **string** <br />The prospect's industry
 created_from | no | **string** <br />The source of the prospect. Can be `web`, `extension`, `api` or `import`
 last_emailed_at | no | **datetime** <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset
 excluded | **yes** | **boolean** <br />Whether or not the prospect is marked as excluded
-converted | **yes** | **boolean** <br />Whether or not the prospect is marked as converted
-converted_at | no | **datetime** <br />The date and time when the prospect has been marked as converted
-qualified | **yes** | **boolean** <br />Whether or not the prospect is marked as qualified
 opened | **yes** | **boolean** <br />Wheteer or not the prospect opened any of your emails
 clicked | **yes** | **boolean** <br />Wheter or not the prospect clicked a link in any of your emails
 replied | **yes** | **boolean** <br />Whether or not the prospect replied to any of your emails
@@ -323,61 +317,6 @@ curl -X GET "https://api.prospect.io/public/v1/prospects" \
 Returns a list of prospects.
 
 This list is [paginated](#pagination) by 100 records. It can also be [sorted](#sorting) or [filtered](#filtering).
-
-## Mark as (not) qualified
-```shell
-# DEFINITION: Mark as qualified
-POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/qualification
-
-# EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/prospects/1/qualification" \
--H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8"
-
-# DEFINITION: Mark as not qualified
-DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/qualification
-
-# EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/qualification" \
--H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8"
-```
-
-Mark a prospect as qualified or not qualified.
-
-### Parameters
-Parameter | Required? | Type | Description
---------- | --------- | -----| -----------
-id | **yes** | integer | The ID of the prospect to mark as (not) qualified
-
-### Returns
-Returns the [prospect object](#the-prospect-object).
-
-## Mark as (not) converted
-```shell
-# DEFINITION: Mark as converted
-POST https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/conversion
-
-# EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/prospects/1/conversion" \
--H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8"
-
-# DEFINITION: Mark as not converted
-DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}/conversion
-
-# EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/prospects/1/conversion" \
--H "Authorization: your_api_key" \
--H "Content-Type: application/vnd.api+json; charset=utf-8"
-```
-
-Mark a prospect as converted or not converted.
-
-### Parameters
-Parameter | Required? | Type | Description
---------- | --------- | -----| -----------
-id | **yes** | integer | The ID of the prospect to mark as (not) converted
 
 ### Returns
 Returns the [prospect object](#the-prospect-object).
