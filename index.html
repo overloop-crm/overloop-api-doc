@@ -1179,10 +1179,10 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/c
 
 <h2 id="create-an-organization">Create an organization</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-POST https://api.organization.io/public/v1/organizations
+POST https://api.prospect.io/public/v1/organizations
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://api.organization.io/public/v1/organizations"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.prospect.io/public/v1/organizations"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
@@ -1283,10 +1283,10 @@ that will return an existing organization if an organization with that name alre
 
 <h2 id="retrieve-an-organization">Retrieve an organization</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.organization.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>
+GET https://api.prospect.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.organization.io/public/v1/organizations/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/organizations/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -1311,10 +1311,10 @@ curl -X GET <span class="s2">"https://api.organization.io/public/v1/organization
 
 <h2 id="update-an-organization">Update an organization</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-PATCH https://api.organization.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>
+PATCH https://api.prospect.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X PATCH <span class="s2">"https://api.organization.io/public/v1/organizations/1"</span> <span class="se">\</span>
+curl -X PATCH <span class="s2">"https://api.prospect.io/public/v1/organizations/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
@@ -1402,10 +1402,10 @@ curl -X PATCH <span class="s2">"https://api.organization.io/public/v1/organizati
 
 <h2 id="delete-an-organization">Delete an organization</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-DELETE https://api.organization.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>
+DELETE https://api.prospect.io/public/v1/organizations/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://api.organization.io/public/v1/organizations/1"</span> <span class="se">\</span>
+curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/organizations/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -1447,10 +1447,10 @@ curl -X DELETE <span class="s2">"https://api.organization.io/public/v1/organizat
 
 <h2 id="list-organizations">List organizations</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.organization.io/public/v1/organizations
+GET https://api.prospect.io/public/v1/organizations
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.organization.io/public/v1/organizations"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.prospect.io/public/v1/organizations"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -1490,9 +1490,9 @@ curl -X GET <span class="s2">"https://api.organization.io/public/v1/organization
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.organization.io/public/v1/organizations/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.organization.io/public/v1/organizations/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.organization.io/public/v1/organizations/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/organizations/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/organizations/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.prospect.io/public/v1/organizations/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
