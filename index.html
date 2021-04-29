@@ -2631,8 +2631,9 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/deals/1/mark_
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Public API Workflow Example"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"enter_triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"prospect.create"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"prospect.created"</span><span class="p">,</span><span class="w">
       </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"enter_trigger_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
       </span><span class="nt">"exit_triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"prospect.replied"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"prospect.qualified"</span><span class="p">,</span><span class="w">
@@ -2650,6 +2651,7 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/deals/1/mark_
       </span><span class="nt">"start_sending_minutes"</span><span class="p">:</span><span class="w"> </span><span class="mi">480</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_sending_minutes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1020</span><span class="p">,</span><span class="w">
       </span><span class="nt">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Etc/UTC"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-31T12:00:00.000Z"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-31T12:00:00.000Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -2734,14 +2736,24 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/deals/1/mark_
 <td><strong>string</strong> <br />The workflow&rsquo;s name</td>
 </tr>
 <tr>
+<td>type</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The type of records that can be enrolled into the workflow, either <code class="prettyprint">prospects</code>, <code class="prettyprint">organizations</code> or <code class="prettyprint">deals</code></td>
+</tr>
+<tr>
 <td>enter_triggers</td>
 <td>no</td>
-<td><strong>array</strong> <br />An array containing the events that will make prospects entering the workflow. Possible values are <code class="prettyprint">message.sent</code>, <code class="prettyprint">message.open</code>, <code class="prettyprint">message.click</code>, <code class="prettyprint">prospect.create</code>, <code class="prettyprint">prospect.updated</code>, <code class="prettyprint">prospect.replied</code>, <code class="prettyprint">prospect.qualified</code> and <code class="prettyprint">prospect.convert</code></td>
+<td><strong>array</strong> <br />An array containing the events that will make prospects entering the workflow. Possible values depends on the type.</td>
+</tr>
+<tr>
+<td>enter_trigger_attributes</td>
+<td>no</td>
+<td><strong>json</strong> <br />A json object containing additional information about the enter triggers settings. Its content varies depending on the selected enter triggers.</td>
 </tr>
 <tr>
 <td>exit_triggers</td>
 <td>no</td>
-<td><strong>array</strong> <br />An array containing the events that will make prospects exiting the workflow. Possible values are <code class="prettyprint">message.click</code>, <code class="prettyprint">prospect.replied</code>, <code class="prettyprint">prospect.qualified</code>, <code class="prettyprint">prospect.convert</code>, <code class="prettyprint">message.hard_bounced</code> and <code class="prettyprint">pseudo_event.unmatch</code> representing the event when the conditions of the <em>enter_segment</em> event is no longer applicable.</td>
+<td><strong>array</strong> <br />An array containing the events that will make prospects exit the workflow. Possible values depends on the type.</td>
 </tr>
 <tr>
 <td>status</td>
@@ -2949,7 +2961,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows"</span
 </tr>
 <tr>
 <td>step_type</td>
-<td><strong>string</strong> <br />The type of step. Can be an <code class="prettyprint">email</code>, a <code class="prettyprint">task</code>, a <code class="prettyprint">note</code>, a <code class="prettyprint">delay</code>, a <code class="prettyprint">condition</code>, an <code class="prettyprint">edit</code> field value or an app action like <code class="prettyprint">hubspot</code>, <code class="prettyprint">salesforce</code>, <code class="prettyprint">zoho</code>, <code class="prettyprint">pipedrive</code>, <code class="prettyprint">close</code> and <code class="prettyprint">slack</code>.</td>
+<td><strong>string</strong> <br />The type of step. Possible values depend on the workflow type.</td>
 </tr>
 <tr>
 <td>position</td>
@@ -3108,6 +3120,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows/1/step
       </span><span class="nt">"prospect_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"disenrolled_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-20T08:00:00+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"throttled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-13T10:12:23+02:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-13T10:12:23+02:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -3117,6 +3130,24 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows/1/step
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc1"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="w">
         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"374"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"prospect"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30332"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"deal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -3168,6 +3199,10 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows/1/step
 <td><strong>datetime</strong> <br />The date and time on which the enrollment must be started in ISO 8601 format with timezone offset. If not set or set in the past, the enrollment starts immediately.</td>
 </tr>
 <tr>
+<td>throttled</td>
+<td><strong>boolean</strong> <br />If the enrollment start is being throttled.</td>
+</tr>
+<tr>
 <td>created_at</td>
 <td><strong>datetime</strong> <br />ISO 8601 format with timezone offset</td>
 </tr>
@@ -3195,7 +3230,15 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows/1/step
 </tr>
 <tr>
 <td>prospect</td>
-<td>The current <a href="#prospects">prospect</a> of this enrollment.</td>
+<td>The current <a href="#prospects">prospect</a> of this enrollment (for prospect-based workflows).</td>
+</tr>
+<tr>
+<td>organization</td>
+<td>The current <a href="#organizations">organization</a> of this enrollment (for organization-based workflows).</td>
+</tr>
+<tr>
+<td>deal</td>
+<td>The current <a href="#deals">deal</a> of this enrollment (for deal-based workflows).</td>
 </tr>
 </tbody></table>
 
@@ -3237,7 +3280,19 @@ curl -X POST <span class="s2">"https://api.prospect.io/public/v1/workflows/1/enr
 <td>prospect_id</td>
 <td><strong>yes</strong></td>
 <td><em>integer</em></td>
-<td>The prospect&rsquo;s ID</td>
+<td>The prospect&rsquo;s ID (required only for prospect-based workflows)</td>
+</tr>
+<tr>
+<td>organization_id</td>
+<td><strong>yes</strong></td>
+<td><em>integer</em></td>
+<td>The organization&rsquo;s ID (required only for organization-based workflows)</td>
+</tr>
+<tr>
+<td>deal_id</td>
+<td><strong>yes</strong></td>
+<td><em>integer</em></td>
+<td>The deal&rsquo;s ID (required only for deal-based workflows)</td>
 </tr>
 <tr>
 <td>step_id</td>
