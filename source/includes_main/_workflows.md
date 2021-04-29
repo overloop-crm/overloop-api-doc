@@ -105,7 +105,7 @@ name | no | **string** <br />The workflow's name
 type | **yes** | **string** <br />The type of records that can be enrolled into the workflow, either `prospects`, `organizations` or `deals`
 enter_triggers | no | **array** <br />An array containing the events that will make prospects entering the workflow. Possible values depends on the type.
 enter_trigger_attributes | no | **json** <br />A json object containing additional information about the enter triggers settings. Its content varies depending on the selected enter triggers.
-exit_triggers | no | **array** <br />An array containing the events that will make prospects exit the workflow. Possible values depends on the automation type.
+exit_triggers | no | **array** <br />An array containing the events that will make prospects exit the workflow. Possible values depends on the type.
 status | **yes** | **string** <br />The workflow's status that can take 3 different values: `on`, `off`
 send_as_thread | no | **boolean** <br />The workflow's emails should be sent as threads.
 sending_days | no | **array** <br />An array containing days during which emails can be sent ("monday", "tuesday", etc.)
