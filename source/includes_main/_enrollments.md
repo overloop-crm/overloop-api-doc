@@ -15,6 +15,7 @@ To add a desired prospect to a specific workflow you have to create an **enrollm
       "prospect_id": 1,
       "disenrolled_at": null,
       "start_at": "2020-08-20T08:00:00+02:00",
+      "throttled": null,
       "created_at": "2020-08-13T10:12:23+02:00",
       "updated_at": "2020-08-13T10:12:23+02:00"
     },
@@ -24,6 +25,24 @@ To add a desired prospect to a specific workflow you have to create an **enrollm
           "id": "a-z0-9-abc1",
           "type": "workflows_steps"
         }
+      },
+      "automation": {
+        "data": {
+            "id": "374",
+            "type": "automations"
+        }
+      },
+      "prospect": {
+          "data": {
+              "id": "30332",
+              "type": "prospects"
+          }
+      },
+      "organization": {
+          "data": null
+      },
+      "deal": {
+          "data": null
       }
     },
     "included": [
@@ -60,6 +79,7 @@ Attribute | Description
 id | **integer** <br />A unique identifier for the enrollment
 disenrolled_at | **datetime** <br />The date and time when the prospect has been leaved the workflow in ISO 8601 format with timezone
 start_at | **datetime** <br />The date and time on which the enrollment must be started in ISO 8601 format with timezone offset. If not set or set in the past, the enrollment starts immediately.
+throttled | **boolean** <br />If the enrollment start is being throttled.
 created_at | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | **datetime** <br />ISO 8601 format with timezone offset
 
@@ -68,7 +88,9 @@ Object | Description
 --------- | -----------
 current_step | The current [step](#workflow-steps) of this enrollment.
 workflow | The current [workflow](#workflows) of this enrollment.
-prospect | The current [prospect](#prospects) of this enrollment.
+prospect | The current [prospect](#prospects) of this enrollment (for prospect-based workflows).
+organization | The current [organization](#organizations) of this enrollment (for organization-based workflows).
+deal | The current [deal](#deals) of this enrollment (for deal-based workflows).
 
 ## Create an enrollment
 ```shell
@@ -98,7 +120,9 @@ This will create a new enrollment.
 ### Parameters
 Parameter | Required? | Type | Description
 --------- | --------- | ---- | ------------
-prospect_id | **yes** | *integer* | The prospect's ID
+prospect_id | **yes** | *integer* | The prospect's ID (required only for prospect-based workflows)
+organization_id | **yes** | *integer* | The organization's ID (required only for organization-based workflows)
+deal_id | **yes** | *integer* | The deal's ID (required only for deal-based workflows)
 step_id | no | *string* | The step's ID of the workflow at which the prospect must be enrolled.
 reenroll | no | *boolean* | Set to `false` if you want to prevent re enroll the prospect because he already has been enrolled. **If not set to** `false` **this parameter will always be** `true`
 start_at | no | *string* | The date and time on which the enrollment must be started in the ISO 8601 format with timezone offset. If not set or set in the past, the enrollment will start immediately.

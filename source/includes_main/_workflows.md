@@ -12,8 +12,9 @@
     "attributes": {
       "name": "Public API Workflow Example",
       "enter_triggers": [
-        "prospect.create",
+        "prospect.created",
       ],
+      "enter_trigger_attributes": {},
       "exit_triggers": [
         "prospect.replied",
         "prospect.qualified",
@@ -31,6 +32,7 @@
       "start_sending_minutes": 480,
       "end_sending_minutes": 1020,
       "timezone": "Etc/UTC",
+      "type": "prospects",
       "created_at": "2020-01-31T12:00:00.000Z",
       "updated_at": "2020-01-31T12:00:00.000Z"
     },
@@ -100,8 +102,10 @@ Attribute | Filterable? | Description
 --------- | ----------- | -----------
 id | no | **integer** <br />A unique identifier for the workflow
 name | no | **string** <br />The workflow's name
-enter_triggers | no | **array** <br />An array containing the events that will make prospects entering the workflow. Possible values are `message.sent`, `message.open`, `message.click`, `prospect.create`, `prospect.updated`, `prospect.replied`, `prospect.qualified` and `prospect.convert`
-exit_triggers | no | **array** <br />An array containing the events that will make prospects exiting the workflow. Possible values are `message.click`, `prospect.replied`, `prospect.qualified`, `prospect.convert`, `message.hard_bounced` and `pseudo_event.unmatch` representing the event when the conditions of the _enter_segment_ event is no longer applicable.
+type | **yes** | **string** <br />The type of records that can be enrolled into the workflow, either `prospects`, `organizations` or `deals`
+enter_triggers | no | **array** <br />An array containing the events that will make prospects entering the workflow. Possible values depends on the type.
+enter_trigger_attributes | no | **json** <br />A json object containing additional information about the enter triggers settings. Its content varies depending on the selected enter triggers.
+exit_triggers | no | **array** <br />An array containing the events that will make prospects exit the workflow. Possible values depends on the automation type.
 status | **yes** | **string** <br />The workflow's status that can take 3 different values: `on`, `off`
 send_as_thread | no | **boolean** <br />The workflow's emails should be sent as threads.
 sending_days | no | **array** <br />An array containing days during which emails can be sent ("monday", "tuesday", etc.)
