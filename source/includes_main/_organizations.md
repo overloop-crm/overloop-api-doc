@@ -64,10 +64,10 @@ updater | The [user](#users) who updated the organization
 ## Create an organization
 ```shell
 # DEFINITION
-POST https://api.organization.io/public/v1/organizations
+POST https://api.prospect.io/public/v1/organizations
 
 # EXAMPLE
-curl -X POST "https://api.organization.io/public/v1/organizations" \
+curl -X POST "https://api.prospect.io/public/v1/organizations" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -110,10 +110,10 @@ Returns the [organization object](#the-organization-object).
 ## Retrieve an organization
 ```shell
 # DEFINITION
-GET https://api.organization.io/public/v1/organizations/{ORGANIZATION_ID}
+GET https://api.prospect.io/public/v1/organizations/{ORGANIZATION_ID}
 
 # EXAMPLE
-curl -X GET "https://api.organization.io/public/v1/organizations/1" \
+curl -X GET "https://api.prospect.io/public/v1/organizations/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -129,10 +129,10 @@ Returns the [organization object](#the-organization-object).
 ## Update an organization
 ```shell
 # DEFINITION
-PATCH https://api.organization.io/public/v1/organizations/{ORGANIZATION_ID}
+PATCH https://api.prospect.io/public/v1/organizations/{ORGANIZATION_ID}
 
 # EXAMPLE
-curl -X PATCH "https://api.organization.io/public/v1/organizations/1" \
+curl -X PATCH "https://api.prospect.io/public/v1/organizations/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -172,10 +172,10 @@ Returns the [organization object](#the-organization-object).
 ## Delete an organization
 ```shell
 # DEFINITION
-DELETE https://api.organization.io/public/v1/organizations/{ORGANIZATION_ID}
+DELETE https://api.prospect.io/public/v1/organizations/{ORGANIZATION_ID}
 
 # EXAMPLE
-curl -X DELETE "https://api.organization.io/public/v1/organizations/1" \
+curl -X DELETE "https://api.prospect.io/public/v1/organizations/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -206,10 +206,10 @@ Returns an object containing the organization ID.
 
 ```shell
 # DEFINITION
-GET https://api.organization.io/public/v1/organizations
+GET https://api.prospect.io/public/v1/organizations
 
 # EXAMPLE
-curl -X GET "https://api.organization.io/public/v1/organizations" \
+curl -X GET "https://api.prospect.io/public/v1/organizations" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -249,9 +249,9 @@ curl -X GET "https://api.organization.io/public/v1/organizations" \
     }
   ],
   "links": {
-    "self": "https://api.organization.io/public/v1/organizations/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.organization.io/public/v1/organizations/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.organization.io/public/v1/organizations/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.prospect.io/public/v1/organizations/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.prospect.io/public/v1/organizations/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.prospect.io/public/v1/organizations/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```

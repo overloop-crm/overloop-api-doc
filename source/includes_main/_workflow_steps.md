@@ -44,7 +44,7 @@
 Attribute | Description
 --------- | -----------
 id | **integer** <br />A unique identifier for the workflow step
-step_type | **string** <br />The type of step. Can be an `email`, a `task`, a `note`, a `delay`, a `condition`, an `edit` field value or an app action like `hubspot`, `salesforce`, `zoho`, `pipedrive`, `close` and `slack`.
+step_type | **string** <br />The type of step. Possible values depend on the workflow type.
 position | **integer** <br />When the previous_step is not a `condition`, the position will always be 0. Otherwise, `0` is the left/yes branch of a condition, while `1` is the right/no branch.
 previous_step_id | **string** <br />The unique identifier of the previous step. A `null` value will always be assigned to the first step of the workflow.
 created_at | **datetime** <br />ISO 8601 format with timezone offset

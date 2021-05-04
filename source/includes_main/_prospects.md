@@ -137,7 +137,7 @@ This will create a new prospect. If you don't set the `owner_id` parameter then 
 ### Parameters
 Parameter | Default | Description
 --------- | ------- | ------------
-email<br />**required** - *string* | / | The prospect's email
+email<br />*string* | *NULL* | The prospect's email
 first_name<br />*string* | *NULL* | The prospect's first name
 last_name<br />*string* | *NULL* | The prospect's last name
 description<br />*string* | *NULL* | A text description of the prospect
@@ -205,7 +205,7 @@ Updates the specified prospect by setting the values of the parameters passed. A
 Parameter | Description
 --------- | -----------
 id<br />**required** - *integer* | The ID of the prospect to update
-email<br />**required** - *string* | The prospect's email
+email<br />*string* | The prospect's email
 first_name<br />*string* | The prospect's first name
 last_name<br />*string* | The prospect's last name
 description<br />*string* | A text description of the prospect
