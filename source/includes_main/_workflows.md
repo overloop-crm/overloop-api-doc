@@ -16,9 +16,7 @@
       ],
       "enter_trigger_attributes": {},
       "exit_triggers": [
-        "prospect.replied",
-        "prospect.qualified",
-        "prospect.convert"
+        "prospect.replied"x
       ],
       "status": "on",
       "send_as_thread": true,
