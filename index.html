@@ -378,9 +378,6 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
       </span><span class="nt">"c_custom_field_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hot lead"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_emailed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"converted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"converted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"qualified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"opened"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"opened_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"clicked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -506,21 +503,6 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 <td>excluded</td>
 <td><strong>yes</strong></td>
 <td><strong>boolean</strong> <br />Whether or not the prospect is marked as excluded</td>
-</tr>
-<tr>
-<td>converted</td>
-<td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Whether or not the prospect is marked as converted</td>
-</tr>
-<tr>
-<td>converted_at</td>
-<td>no</td>
-<td><strong>datetime</strong> <br />The date and time when the prospect has been marked as converted</td>
-</tr>
-<tr>
-<td>qualified</td>
-<td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Whether or not the prospect is marked as qualified</td>
 </tr>
 <tr>
 <td>opened</td>
@@ -961,86 +943,6 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/prospects"</span
 <p>Returns a list of prospects.</p>
 
 <p>This list is <a href="#pagination">paginated</a> by 100 records. It can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
-
-<h2 id="mark-as-not-qualified">Mark as (not) qualified</h2>
-<pre class="highlight shell"><code><span class="c"># DEFINITION: Mark as qualified</span>
-POST https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/qualification
-
-<span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects/1/qualification"</span> <span class="se">\</span>
--H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
-
-<span class="c"># DEFINITION: Mark as not qualified</span>
-DELETE https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/qualification
-
-<span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/qualification"</span> <span class="se">\</span>
--H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
-</code></pre>
-
-<p>Mark a prospect as qualified or not qualified.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required?</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td><strong>yes</strong></td>
-<td>integer</td>
-<td>The ID of the prospect to mark as (not) qualified</td>
-</tr>
-</tbody></table>
-
-<h3 id="returns">Returns</h3>
-
-<p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
-
-<h2 id="mark-as-not-converted">Mark as (not) converted</h2>
-<pre class="highlight shell"><code><span class="c"># DEFINITION: Mark as converted</span>
-POST https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/conversion
-
-<span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://api.prospect.io/public/v1/prospects/1/conversion"</span> <span class="se">\</span>
--H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
-
-<span class="c"># DEFINITION: Mark as not converted</span>
-DELETE https://api.prospect.io/public/v1/prospects/<span class="o">{</span>PROSPECT_ID<span class="o">}</span>/conversion
-
-<span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/prospects/1/conversion"</span> <span class="se">\</span>
--H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
-</code></pre>
-
-<p>Mark a prospect as converted or not converted.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required?</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td><strong>yes</strong></td>
-<td>integer</td>
-<td>The ID of the prospect to mark as (not) converted</td>
-</tr>
-</tbody></table>
 
 <h3 id="returns">Returns</h3>
 
@@ -2635,9 +2537,7 @@ curl -X DELETE <span class="s2">"https://api.prospect.io/public/v1/deals/1/mark_
       </span><span class="p">],</span><span class="w">
       </span><span class="nt">"enter_trigger_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
       </span><span class="nt">"exit_triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"prospect.replied"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"prospect.qualified"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"prospect.convert"</span><span class="w">
+        </span><span class="s2">"prospect.replied"</span><span class="err">x</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"on"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"send_as_thread"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
