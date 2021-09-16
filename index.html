@@ -3008,7 +3008,7 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows/1/step
 
 <h2 id="the-enrollment-object">The enrollment object</h2>
 
-<p>To add a desired prospect to a specific workflow you have to create an <strong>enrollment</strong>. The enrollment is then used to describe the progression of the prospect into the workflow.</p>
+<p>To add a desired prospect/organization/deal to a specific workflow you have to create an <strong>enrollment</strong>. The enrollment is then used to describe the progression of the record into the workflow.</p>
 <pre class="highlight plaintext"><code># EXAMPLE OBJECT
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -3017,7 +3017,9 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows/1/step
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_enrollments"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"workflow_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"prospect_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"prospect_id"</span><span class="p">:</span><span class="mi">30332</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deal_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"organization_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"disenrolled_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-20T08:00:00+02:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"throttled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3033,21 +3035,27 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows/1/step
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"374"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"374"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"record"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"30332"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"prospects"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"prospect"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30332"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30332"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"deal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -3091,8 +3099,16 @@ curl -X GET <span class="s2">"https://api.prospect.io/public/v1/workflows/1/step
 <td><strong>integer</strong> <br />A unique identifier for the enrollment</td>
 </tr>
 <tr>
+<td>record_id</td>
+<td><strong>integer</strong> <br />The unique identifier of the enrolled record</td>
+</tr>
+<tr>
+<td>record_type</td>
+<td><strong>string</strong> <br />The type of the enrolled record (organizations, deals or prospects)</td>
+</tr>
+<tr>
 <td>disenrolled_at</td>
-<td><strong>datetime</strong> <br />The date and time when the prospect has been leaved the workflow in ISO 8601 format with timezone</td>
+<td><strong>datetime</strong> <br />The date and time when the record has been leaved the workflow in ISO 8601 format with timezone</td>
 </tr>
 <tr>
 <td>start_at</td>
