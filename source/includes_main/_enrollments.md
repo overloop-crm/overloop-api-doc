@@ -1,6 +1,6 @@
 # Enrollments
 ## The enrollment object
-To add a desired prospect to a specific workflow you have to create an **enrollment**. The enrollment is then used to describe the progression of the prospect into the workflow.
+To add a desired prospect/organization/deal to a specific workflow you have to create an **enrollment**. The enrollment is then used to describe the progression of the record into the workflow.
 
 ```
 # EXAMPLE OBJECT
@@ -12,7 +12,9 @@ To add a desired prospect to a specific workflow you have to create an **enrollm
     "type": "workflows_enrollments",
     "attributes": {
       "workflow_id": 1,
-      "prospect_id": 1,
+      "prospect_id":30332,
+      "deal_id":null,
+      "organization_id":null,
       "disenrolled_at": null,
       "start_at": "2020-08-20T08:00:00+02:00",
       "throttled": null,
@@ -28,21 +30,27 @@ To add a desired prospect to a specific workflow you have to create an **enrollm
       },
       "automation": {
         "data": {
-            "id": "374",
-            "type": "automations"
+          "id": "374",
+          "type": "automations"
+        }
+      },
+      "record":{
+        "data":{
+          "id":"30332",
+          "type":"prospects"
         }
       },
       "prospect": {
-          "data": {
-              "id": "30332",
-              "type": "prospects"
-          }
+        "data": {
+          "id": "30332",
+          "type": "prospects"
+        }
       },
       "organization": {
-          "data": null
+        "data": null
       },
       "deal": {
-          "data": null
+        "data": null
       }
     },
     "included": [
@@ -77,7 +85,9 @@ To add a desired prospect to a specific workflow you have to create an **enrollm
 Attribute | Description
 --------- | -----------
 id | **integer** <br />A unique identifier for the enrollment
-disenrolled_at | **datetime** <br />The date and time when the prospect has been leaved the workflow in ISO 8601 format with timezone
+record_id | **integer** <br />The unique identifier of the enrolled record
+record_type | **string** <br />The type of the enrolled record (organizations, deals or prospects)
+disenrolled_at | **datetime** <br />The date and time when the record has been leaved the workflow in ISO 8601 format with timezone
 start_at | **datetime** <br />The date and time on which the enrollment must be started in ISO 8601 format with timezone offset. If not set or set in the past, the enrollment starts immediately.
 throttled | **boolean** <br />If the enrollment start is being throttled.
 created_at | **datetime** <br />ISO 8601 format with timezone offset
