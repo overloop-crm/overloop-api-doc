@@ -10,11 +10,11 @@
     "id": "1",
     "type": "companies",
     "attributes": {
-      "name": "Prospect.io",
-      "website": "https://prospect.io",
+      "name": "Overloop",
+      "website": "https://overloop.com",
       "phone_number": "",
-      "billing_name": "Prospect.io SPRL",
-      "address": "rue des Pères Blancs 4\r\n1040 Brussels",
+      "billing_name": "Overloop SRL",
+      "address": "rue de l'Evêché 10, 5000 Namur",
       "country": "BE",
       "vat": "BE0645917753",
       "plan_name": "5K Credits",
@@ -47,10 +47,10 @@ updated_at | **datetime** <br />ISO 8601 format with timezone offset
 ## Retrieve your account
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/account
+GET https://api.overloop.com/public/v1/account
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/account" \
+curl -X GET "https://api.overloop.com/public/v1/account" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```

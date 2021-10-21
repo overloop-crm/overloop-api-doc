@@ -13,7 +13,7 @@ The Emails Search API lets you find email addresses associated with a company or
       "id": "72947",
       "type": "emails",
       "attributes": {
-        "value": "vincenzo@prospect.io",
+        "value": "vincenzo@overloop.com",
         "type": "personal",
         "confidence": "98",
         "company": "Prospect",
@@ -35,9 +35,9 @@ The Emails Search API lets you find email addresses associated with a company or
       "id": "1",
       "type": "domains",
       "attributes": {
-        "name": "prospect.io",
+        "name": "overloop.com",
         "pattern": "{first}",
-        "company_name": "Prospect.io"
+        "company_name": "Overloop"
       }
     }
   ]
@@ -70,10 +70,10 @@ company_name | **string** <br />Name of the company associated to the domain nam
 ## Search for emails
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/emails/search?domain={{DOMAIN}}&first_name={{FIRST_NAME}}&last_name={{LAST_NAME}}
+GET https://api.overloop.com/public/v1/emails/search?domain={{DOMAIN}}&first_name={{FIRST_NAME}}&last_name={{LAST_NAME}}
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/emails/search?domain=prospect.io&first_name=Vincenzo&last_name=Ruggiero" \
+curl -X GET "https://api.overloop.com/public/v1/emails/search?domain=overloop.com&first_name=Vincenzo&last_name=Ruggiero" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -83,7 +83,7 @@ Every call returning at least 1 email address go against your quota and will cos
 ### Parameters
 Parameter | Description
 --------- | -----------
-domain<br />**required** - *string* | Domain name from which you want to find the email addresses. For example, "prospect.io".
+domain<br />**required** - *string* | Domain name from which you want to find the email addresses. For example, "overloop.com".
 first_name<br />*string* | The person's first name
 last_name<br />*string* | The person's last name
 

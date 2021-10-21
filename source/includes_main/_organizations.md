@@ -10,10 +10,10 @@
     "id": "1",
     "type": "organizations",
     "attributes": {
-      "name": "Prospect.io",
+      "name": "Overloop",
       "description": null,
-      "website": "https://prospect.io",
-      "email": "contact@prospect.io",
+      "website": "https://overloop.com",
+      "email": "contact@overloop.com",
       "phone": "+32-481-754-301",
       "country": "Belgium",
       "state": "Walloon Brabant",
@@ -64,17 +64,17 @@ updater | The [user](#users) who updated the organization
 ## Create an organization
 ```shell
 # DEFINITION
-POST https://api.prospect.io/public/v1/organizations
+POST https://api.overloop.com/public/v1/organizations
 
 # EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/organizations" \
+curl -X POST "https://api.overloop.com/public/v1/organizations" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
   "data": {
     "type": "organizations",
     "attributes": {
-      "name": "Prospect.io",
+      "name": "Overloop",
       "c_custom_field_a": "Hot lead"
     }
   }
@@ -110,10 +110,10 @@ Returns the [organization object](#the-organization-object).
 ## Retrieve an organization
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/organizations/{ORGANIZATION_ID}
+GET https://api.overloop.com/public/v1/organizations/{ORGANIZATION_ID}
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/organizations/1" \
+curl -X GET "https://api.overloop.com/public/v1/organizations/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -129,17 +129,17 @@ Returns the [organization object](#the-organization-object).
 ## Update an organization
 ```shell
 # DEFINITION
-PATCH https://api.prospect.io/public/v1/organizations/{ORGANIZATION_ID}
+PATCH https://api.overloop.com/public/v1/organizations/{ORGANIZATION_ID}
 
 # EXAMPLE
-curl -X PATCH "https://api.prospect.io/public/v1/organizations/1" \
+curl -X PATCH "https://api.overloop.com/public/v1/organizations/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
   "data": {
     "type": "organizations",
     "attributes": {
-      "name": "Prospect.io",
+      "name": "Overloop",
       "c_custom_field_a": "Hot lead"
     }
   }
@@ -172,10 +172,10 @@ Returns the [organization object](#the-organization-object).
 ## Delete an organization
 ```shell
 # DEFINITION
-DELETE https://api.prospect.io/public/v1/organizations/{ORGANIZATION_ID}
+DELETE https://api.overloop.com/public/v1/organizations/{ORGANIZATION_ID}
 
 # EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/organizations/1" \
+curl -X DELETE "https://api.overloop.com/public/v1/organizations/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -206,10 +206,10 @@ Returns an object containing the organization ID.
 
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/organizations
+GET https://api.overloop.com/public/v1/organizations
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/organizations" \
+curl -X GET "https://api.overloop.com/public/v1/organizations" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -249,9 +249,9 @@ curl -X GET "https://api.prospect.io/public/v1/organizations" \
     }
   ],
   "links": {
-    "self": "https://api.prospect.io/public/v1/organizations/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.prospect.io/public/v1/organizations/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.prospect.io/public/v1/organizations/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.overloop.com/public/v1/organizations/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.overloop.com/public/v1/organizations/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.overloop.com/public/v1/organizations/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```

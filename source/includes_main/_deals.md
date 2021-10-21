@@ -99,10 +99,10 @@ stage | The [stage](#stages) of this deal
 ## Create a deal
 ```shell
 # DEFINITION
-POST https://api.prospect.io/public/v1/deals
+POST https://api.overloop.com/public/v1/deals
 
 # EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/deals" \
+curl -X POST "https://api.overloop.com/public/v1/deals" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -141,10 +141,10 @@ Returns the [deal object](#the-deal-object).
 ## Retrieve a deal
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/deals/{DEAL_ID}
+GET https://api.overloop.com/public/v1/deals/{DEAL_ID}
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/deals/1" \
+curl -X GET "https://api.overloop.com/public/v1/deals/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -160,10 +160,10 @@ Returns the [deal object](#the-deal-object).
 ## Update a deal
 ```shell
 # DEFINITION
-PATCH https://api.prospect.io/public/v1/deals/{DEAL_ID}
+PATCH https://api.overloop.com/public/v1/deals/{DEAL_ID}
 
 # EXAMPLE
-curl -X PATCH "https://api.prospect.io/public/v1/deals/1" \
+curl -X PATCH "https://api.overloop.com/public/v1/deals/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -199,10 +199,10 @@ Returns the [deal object](#the-deal-object).
 ## Delete a deal
 ```shell
 # DEFINITION
-DELETE https://api.prospect.io/public/v1/deals/{DEAL_ID}
+DELETE https://api.overloop.com/public/v1/deals/{DEAL_ID}
 
 # EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/deals/1" \
+curl -X DELETE "https://api.overloop.com/public/v1/deals/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -233,10 +233,10 @@ Returns an object containing the deal ID.
 
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/deals
+GET https://api.overloop.com/public/v1/deals
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/deals" \
+curl -X GET "https://api.overloop.com/public/v1/deals" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -276,9 +276,9 @@ curl -X GET "https://api.prospect.io/public/v1/deals" \
     }
   ],
   "links": {
-    "self": "https://api.prospect.io/public/v1/deals/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.prospect.io/public/v1/deals/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.prospect.io/public/v1/deals/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.overloop.com/public/v1/deals/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.overloop.com/public/v1/deals/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.overloop.com/public/v1/deals/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```
@@ -291,18 +291,18 @@ This list is [paginated](#pagination) by 100 records. It can also be [sorted](#s
 ## Mark as won
 ```shell
 # DEFINITION: Mark as won
-POST https://api.prospect.io/public/v1/deals/{DEAL_ID}/mark_as_won
+POST https://api.overloop.com/public/v1/deals/{DEAL_ID}/mark_as_won
 
 # EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/deals/1/mark_as_won" \
+curl -X POST "https://api.overloop.com/public/v1/deals/1/mark_as_won" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 
 # DEFINITION: Mark as not won
-DELETE https://api.prospect.io/public/v1/deals/{DEAL_ID}/mark_as_won
+DELETE https://api.overloop.com/public/v1/deals/{DEAL_ID}/mark_as_won
 
 # EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/deals/1/mark_as_won" \
+curl -X DELETE "https://api.overloop.com/public/v1/deals/1/mark_as_won" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -321,10 +321,10 @@ Returns the [deal object](#the-deal-object).
 ## Mark as lost
 ```shell
 # DEFINITION: Mark as lost
-POST https://api.prospect.io/public/v1/deals/{DEAL_ID}/mark_as_lost
+POST https://api.overloop.com/public/v1/deals/{DEAL_ID}/mark_as_lost
 
 # EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/deals/1/mark_as_lost" \
+curl -X POST "https://api.overloop.com/public/v1/deals/1/mark_as_lost" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 -d '{
@@ -346,10 +346,10 @@ lost_reason | The reason to mark the deal as lost
 Returns the [deal object](#the-deal-object).
 
 # DEFINITION: Mark as not lost
-DELETE https://api.prospect.io/public/v1/deals/{DEAL_ID}/mark_as_lost
+DELETE https://api.overloop.com/public/v1/deals/{DEAL_ID}/mark_as_lost
 
 # EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/deals/1/mark_as_lost" \
+curl -X DELETE "https://api.overloop.com/public/v1/deals/1/mark_as_lost" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```

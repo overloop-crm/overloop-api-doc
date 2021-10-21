@@ -1,7 +1,7 @@
 # Filtering
 ```shell
 # EXAMPLE
-GET https://api.prospect.io/public/v1/prospects/?filter=first_name:john,last_name:doe
+GET https://api.overloop.com/public/v1/prospects/?filter=first_name:john,last_name:doe
 ```
 
 > Get prospects whose first name is 'john' and last name is 'doe'.

@@ -1,7 +1,7 @@
 # Relationships
 ```shell
 # EXAMPLE
-GET https://api.prospect.io/public/v1/prospects?include=organization
+GET https://api.overloop.com/public/v1/prospects?include=organization
 ```
 
 > Get prospects with their associated organizations
@@ -12,7 +12,7 @@ This section only contains the links between the unique identifier of related re
 
 In order to get access to associated information on an entity, you can use the parameter `?include=`, which will create 
 a new section "included" containing the full payload of all the associated data. Notice that you can include multiple 
-relationships by joining them using a comma: `GET https://api.prospect.io/public/v1/prospects?include=organization,creator`
+relationships by joining them using a comma: `GET https://api.overloop.com/public/v1/prospects?include=organization,creator`
 
 ```shell
 # RETURNS
@@ -49,7 +49,7 @@ relationships by joining them using a comma: `GET https://api.prospect.io/public
             "id": "1",
             "type": "organizations",
             "attributes": {
-                "name": "Prospect.io",
+                "name": "Overloop",
                 "created_at": "2020-11-06T13:56:44Z",
                 "updated_at": "2020-11-06T13:56:44Z",
                 "updater_id": 181,

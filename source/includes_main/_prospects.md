@@ -10,7 +10,7 @@
     "id": "1",
     "type": "prospects",
     "attributes": {
-      "email": "vincenzo@prospect.io",
+      "email": "vincenzo@overloop.com",
       "first_name": "Vincenzo",
       "last_name": "Ruggiero",
       "description": null,
@@ -33,7 +33,7 @@
       "replied": false,
       "replied_at": null,
       "excluded": false,
-      "url": "https://prospect.io/prospects/1",
+      "url": "https://overloop.com/prospects/1",
       "lists": ["Belgium", "Manager"],
       "created_at": "2015-08-15T16:48:46+02:00",
       "updated_at": "2016-11-25T12:40:46+01:00"
@@ -88,7 +88,7 @@ bounced | **yes** | **boolean** <br />Whether or not the prospect email bounced
 opened_at | no | **datetime** <br />The date and time when the prospect last opened an email
 clicked_at | no | **datetime** <br />The date and time when the prospect last clicked a link in an email
 replied_at | no | **datetime** <br />The date and time when the prospect last replied to an email
-url | no | **string** <br />The full URL to the prospect on Prospect.io
+url | no | **string** <br />The full URL to the prospect on Overloop
 lists | no | **string[]** <br /> Name of the lists of the prospect
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
@@ -113,17 +113,17 @@ enrollments | The [enrollments](#enrollments) of the prospect in workflows
 ## Create a prospect
 ```shell
 # DEFINITION
-POST https://api.prospect.io/public/v1/prospects
+POST https://api.overloop.com/public/v1/prospects
 
 # EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/prospects" \
+curl -X POST "https://api.overloop.com/public/v1/prospects" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
   "data": {
     "type": "prospects",
     "attributes": {
-      "email": "vincenzo@prospect.io",
+      "email": "vincenzo@overloop.com",
       "first_name": "Vincenzo",
       "last_name": "Ruggiero",
       "c_custom_field_a": "Hot lead"
@@ -162,10 +162,10 @@ Returns the [prospect object](#the-prospect-object).
 ## Retrieve a prospect
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}
+GET https://api.overloop.com/public/v1/prospects/{PROSPECT_ID}
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/prospects/1" \
+curl -X GET "https://api.overloop.com/public/v1/prospects/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -181,17 +181,17 @@ Returns the [prospect object](#the-prospect-object).
 ## Update a prospect
 ```shell
 # DEFINITION
-PATCH https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}
+PATCH https://api.overloop.com/public/v1/prospects/{PROSPECT_ID}
 
 # EXAMPLE
-curl -X PATCH "https://api.prospect.io/public/v1/prospects/1" \
+curl -X PATCH "https://api.overloop.com/public/v1/prospects/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
   "data": {
     "type": "prospects",
     "attributes": {
-      "email": "vincenzo@prospect.io",
+      "email": "vincenzo@overloop.com",
       "first_name": "Vincent",
       "c_custom_field_a": "Hot lead"
     }
@@ -227,10 +227,10 @@ Returns the [prospect object](#the-prospect-object).
 ## Delete a prospect
 ```shell
 # DEFINITION
-DELETE https://api.prospect.io/public/v1/prospects/{PROSPECT_ID}
+DELETE https://api.overloop.com/public/v1/prospects/{PROSPECT_ID}
 
 # EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/prospects/1" \
+curl -X DELETE "https://api.overloop.com/public/v1/prospects/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -264,10 +264,10 @@ Returns an object containing the prospect ID.
 
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/prospects
+GET https://api.overloop.com/public/v1/prospects
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/prospects" \
+curl -X GET "https://api.overloop.com/public/v1/prospects" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -307,9 +307,9 @@ curl -X GET "https://api.prospect.io/public/v1/prospects" \
     }
   ],
   "links": {
-    "self": "https://api.prospect.io/public/v1/prospects/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.prospect.io/public/v1/prospects/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.prospect.io/public/v1/prospects/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.overloop.com/public/v1/prospects/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.overloop.com/public/v1/prospects/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.overloop.com/public/v1/prospects/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```

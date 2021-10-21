@@ -59,10 +59,10 @@ workflow | The parent [workflow](#workflows)
 ## Retrieve a workflow step
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/workflows/{WORKFLOW_ID}/steps/{STEP_ID}
+GET https://api.overloop.com/public/v1/workflows/{WORKFLOW_ID}/steps/{STEP_ID}
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/workflows/1/steps/1" \
+curl -X GET "https://api.overloop.com/public/v1/workflows/1/steps/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -79,10 +79,10 @@ Returns the [workflow step object](#the-workflow-step-object).
 ## List workflows steps
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/workflows/{WORKFLOW_ID}/steps
+GET https://api.overloop.com/public/v1/workflows/{WORKFLOW_ID}/steps
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/workflows/1/steps" \
+curl -X GET "https://api.overloop.com/public/v1/workflows/1/steps" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -139,9 +139,9 @@ curl -X GET "https://api.prospect.io/public/v1/workflows/1/steps" \
     }
   ],
   "links": {
-    "self": "https://api.prospect.io/public/v1/workflows/1/steps?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.prospect.io/public/v1/workflows/1/steps?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.prospect.io/public/v1/workflows/1/steps?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.overloop.com/public/v1/workflows/1/steps?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.overloop.com/public/v1/workflows/1/steps?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.overloop.com/public/v1/workflows/1/steps?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```

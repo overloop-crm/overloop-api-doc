@@ -42,10 +42,10 @@ updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 ## Create a stage
 ```shell
 # DEFINITION
-POST https://api.prospect.io/public/v1/stages
+POST https://api.overloop.com/public/v1/stages
 
 # EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/stages" \
+curl -X POST "https://api.overloop.com/public/v1/stages" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -77,10 +77,10 @@ Returns the [stage object](#the-stage-object).
 ## Retrieve a stage
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/stages/{STAGE_ID}
+GET https://api.overloop.com/public/v1/stages/{STAGE_ID}
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/stages/1" \
+curl -X GET "https://api.overloop.com/public/v1/stages/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -96,10 +96,10 @@ Returns the [stage object](#the-stage-object).
 ## Update a stage
 ```shell
 # DEFINITION
-PATCH https://api.prospect.io/public/v1/stages/{STAGE_ID}
+PATCH https://api.overloop.com/public/v1/stages/{STAGE_ID}
 
 # EXAMPLE
-curl -X PATCH "https://api.prospect.io/public/v1/stages/1" \
+curl -X PATCH "https://api.overloop.com/public/v1/stages/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -128,10 +128,10 @@ Returns the [stage object](#the-stage-object).
 ## Delete a stage
 ```shell
 # DEFINITION
-DELETE https://api.prospect.io/public/v1/stages/{PROSPECT_ID}
+DELETE https://api.overloop.com/public/v1/stages/{PROSPECT_ID}
 
 # EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/stages/1" \
+curl -X DELETE "https://api.overloop.com/public/v1/stages/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -165,10 +165,10 @@ Returns an object containing the stage ID.
 
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/stages
+GET https://api.overloop.com/public/v1/stages
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/stages" \
+curl -X GET "https://api.overloop.com/public/v1/stages" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -194,9 +194,9 @@ curl -X GET "https://api.prospect.io/public/v1/stages" \
     }
   ],
   "links": {
-    "self": "https://api.prospect.io/public/v1/stages/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.prospect.io/public/v1/stages/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.prospect.io/public/v1/stages/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.overloop.com/public/v1/stages/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.overloop.com/public/v1/stages/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.overloop.com/public/v1/stages/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```

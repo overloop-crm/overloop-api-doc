@@ -10,7 +10,7 @@ The Emails Verify API lets you check in real time the deliverability (how likely
 {
   "data": [],
   "meta": {
-    "email": "vincenzo@prospect.io",
+    "email": "vincenzo@overloop.com",
     "score": 84,
     "disposable": false,
     "role_address": false,
@@ -23,16 +23,16 @@ The Emails Verify API lets you check in real time the deliverability (how likely
 Attribute | Description
 --------- | -----------
 email | **string** <br />The email address verified
-score | **integer** <br />The validity score of this email. A value of 100 means we highly trust this email to be valid. A value of 0 indicates that we don't think the email is valid. 
+score | **integer** <br />The validity score of this email. A value of 100 means we highly trust this email to be valid. A value of 0 indicates that we don't think the email is valid.
 
 
 ## Verify an email
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/emails/verify?email={{EMAIL_ADDRESS}}
+GET https://api.overloop.com/public/v1/emails/verify?email={{EMAIL_ADDRESS}}
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/emails/verify?email=vincenzo@prospect.io" \
+curl -X GET "https://api.overloop.com/public/v1/emails/verify?email=vincenzo@overloop.com" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -42,7 +42,7 @@ Every call will go against your quota and will cost you **1 credit**.
 ### Parameters
 Parameter | Description
 --------- | -----------
-email<br />**required** - *string* | The email addresses to verify. For example, "vincenzo@prospect.io".
+email<br />**required** - *string* | The email addresses to verify. For example, "vincenzo@overloop.com".
 
 ### Returns
 Returns the [verify result object](#the-verify-result-object).

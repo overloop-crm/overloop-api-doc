@@ -11,11 +11,11 @@
     "type": "users",
     "attributes": {
       "name": "Vincenzo Ruggiero",
-      "email": "vincenzo@prospect.io",
+      "email": "vincenzo@overloop.com",
       "role": "admin",
       "phone_number": "",
       "skype": "ruggiero.vincenzo",
-      "signature": "<p class=\"p1\"><span class=\"s1\">--&nbsp;<br /></span><span class=\"s1\"><strong>Vincenzo Ruggiero<br /></strong></span><span class=\"s1\">Founder<br /></span><span class=\"s2\"><a href=\"https://prospect.io/\"><strong>Prospect.io</strong><br /></a></span><span class=\"s2\"><a href=\"mailto:vincenzo@prospect.io\">vincenzo@prospect.io</a></span></p>",
+      "signature": "<p class=\"p1\"><span class=\"s1\">--&nbsp;<br /></span><span class=\"s1\"><strong>Vincenzo Ruggiero<br /></strong></span><span class=\"s1\">Founder<br /></span><span class=\"s2\"><a href=\"https://overloop.com/\"><strong>Overloop</strong><br /></a></span><span class=\"s2\"><a href=\"mailto:vincenzo@overloop.com\">vincenzo@overloop.com</a></span></p>",
       "disabled": false,
       "from_name": "Vincenzo Ruggiero",
       "timezone": "Brussels",
@@ -59,10 +59,10 @@ company | The user's company
 ## Retrieve a user
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/users/{USER_ID}
+GET https://api.overloop.com/public/v1/users/{USER_ID}
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/users/1" \
+curl -X GET "https://api.overloop.com/public/v1/users/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -78,10 +78,10 @@ Returns the [user object](#the-user-object).
 ## Me
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/me
+GET https://api.overloop.com/public/v1/me
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/me" \
+curl -X GET "https://api.overloop.com/public/v1/me" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -97,10 +97,10 @@ Returns your [user object](#the-user-object).
 ## List users
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/users
+GET https://api.overloop.com/public/v1/users
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/users" \
+curl -X GET "https://api.overloop.com/public/v1/users" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -126,9 +126,9 @@ curl -X GET "https://api.prospect.io/public/v1/users" \
     },
   ],
   "links": {
-    "self": "https://api.prospect.io/public/v1/users?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.prospect.io/public/v1/users?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.prospect.io/public/v1/users?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.overloop.com/public/v1/users?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.overloop.com/public/v1/users?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.overloop.com/public/v1/users?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```

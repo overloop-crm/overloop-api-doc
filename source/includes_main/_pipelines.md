@@ -32,10 +32,10 @@ updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 ## Create a pipeline
 ```shell
 # DEFINITION
-POST https://api.prospect.io/public/v1/pipelines
+POST https://api.overloop.com/public/v1/pipelines
 
 # EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/pipelines" \
+curl -X POST "https://api.overloop.com/public/v1/pipelines" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -62,10 +62,10 @@ Returns the [pipeline object](#the-pipeline-object).
 ## Retrieve a pipeline
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/pipelines/{PIPELINE_ID}
+GET https://api.overloop.com/public/v1/pipelines/{PIPELINE_ID}
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/pipelines/1" \
+curl -X GET "https://api.overloop.com/public/v1/pipelines/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -81,10 +81,10 @@ Returns the [pipeline object](#the-pipeline-object).
 ## Update a pipeline
 ```shell
 # DEFINITION
-PATCH https://api.prospect.io/public/v1/pipelines/{PIPELINE_ID}
+PATCH https://api.overloop.com/public/v1/pipelines/{PIPELINE_ID}
 
 # EXAMPLE
-curl -X PATCH "https://api.prospect.io/public/v1/pipelines/1" \
+curl -X PATCH "https://api.overloop.com/public/v1/pipelines/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -113,10 +113,10 @@ Returns the [pipeline object](#the-pipeline-object).
 ## Delete a pipeline
 ```shell
 # DEFINITION
-DELETE https://api.prospect.io/public/v1/pipelines/{PROSPECT_ID}
+DELETE https://api.overloop.com/public/v1/pipelines/{PROSPECT_ID}
 
 # EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/pipelines/1" \
+curl -X DELETE "https://api.overloop.com/public/v1/pipelines/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -150,10 +150,10 @@ Returns an object containing the pipeline ID.
 
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/pipelines
+GET https://api.overloop.com/public/v1/pipelines
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/pipelines" \
+curl -X GET "https://api.overloop.com/public/v1/pipelines" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -179,9 +179,9 @@ curl -X GET "https://api.prospect.io/public/v1/pipelines" \
     }
   ],
   "links": {
-    "self": "https://api.prospect.io/public/v1/pipelines/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.prospect.io/public/v1/pipelines/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.prospect.io/public/v1/pipelines/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.overloop.com/public/v1/pipelines/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.overloop.com/public/v1/pipelines/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.overloop.com/public/v1/pipelines/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```

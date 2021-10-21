@@ -12,7 +12,7 @@
     "attributes": {
       "identifier": "c_custom_field_a",
       "name": "Lead Value",
-      "options": [], 
+      "options": [],
       "value_type": "text"
     }
   }
@@ -46,10 +46,10 @@ Depending on the type of custom field, it can accept different kinds of value:
 
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/custom_fields
+GET https://api.overloop.com/public/v1/custom_fields
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/custom_fields" \
+curl -X GET "https://api.overloop.com/public/v1/custom_fields" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```

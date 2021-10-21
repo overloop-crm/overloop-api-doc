@@ -10,7 +10,7 @@
     "id": "1",
     "type": "exclusion_list_item",
     "attributes": {
-      "value": "vincenzo@prospect.io",
+      "value": "vincenzo@overloop.com",
       "item_type": "email",
       "created_at": "2015-08-15T16:48:46+02:00"
     }
@@ -33,10 +33,10 @@ This will create a new exclusion list item.
 
 ```shell
 # DEFINITION
-POST https://api.prospect.io/public/v1/exclusion_list_items
+POST https://api.overloop.com/public/v1/exclusion_list_items
 
 # EXAMPLE
-curl -X POST "https://api.prospect.io/public/v1/exclusion_list_items" \
+curl -X POST "https://api.overloop.com/public/v1/exclusion_list_items" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '
@@ -44,7 +44,7 @@ curl -X POST "https://api.prospect.io/public/v1/exclusion_list_items" \
     "data": {
       "type": "exclusion_list_item",
       "attributes": {
-        "value": "vincenzo@prospect.io",
+        "value": "vincenzo@overloop.com",
         "item_type": "email"
       }
     }
@@ -60,7 +60,7 @@ curl -X POST "https://api.prospect.io/public/v1/exclusion_list_items" \
         "id": "1",
         "type": "exclusion_list_item",
         "attributes": {
-            "value": "vincenzo@prospect.io",
+            "value": "vincenzo@overloop.com",
             "item_type": "email",
             "created_at": "2015-08-15T16:48:46+02:00"
         }
@@ -78,10 +78,10 @@ value | *NULL* | The domain or email value to exclude
 ## Delete an exclusion list item
 ```shell
 # DEFINITION
-DELETE https://api.prospect.io/public/v1/exclusion_list_items/{ITEM_ID}
+DELETE https://api.overloop.com/public/v1/exclusion_list_items/{ITEM_ID}
 
 # EXAMPLE
-curl -X DELETE "https://api.prospect.io/public/v1/exclusion_list_items/1" \
+curl -X DELETE "https://api.overloop.com/public/v1/exclusion_list_items/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -112,10 +112,10 @@ Returns an object containing the exclusion list item ID.
 
 ```shell
 # DEFINITION
-GET https://api.prospect.io/public/v1/exclusion_list_items
+GET https://api.overloop.com/public/v1/exclusion_list_items
 
 # EXAMPLE
-curl -X GET "https://api.prospect.io/public/v1/exclusion_list_items" \
+curl -X GET "https://api.overloop.com/public/v1/exclusion_list_items" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -129,7 +129,7 @@ curl -X GET "https://api.prospect.io/public/v1/exclusion_list_items" \
       "id": "1",
       "type": "exclusion_list_item",
       "attributes": {
-        "value": "vincenzo@prospect.io",
+        "value": "vincenzo@overloop.com",
         "item_type": "email",
         "created_at": "2015-08-15T16:48:46+02:00"
       }
@@ -145,9 +145,9 @@ curl -X GET "https://api.prospect.io/public/v1/exclusion_list_items" \
     }
   ],
   "links": {
-    "self": "https://api.prospect.io/public/v1/exclusion_list_items/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.prospect.io/public/v1/exclusion_list_items/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.prospect.io/public/v1/exclusion_list_items/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.overloop.com/public/v1/exclusion_list_items/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.overloop.com/public/v1/exclusion_list_items/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.overloop.com/public/v1/exclusion_list_items/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```
