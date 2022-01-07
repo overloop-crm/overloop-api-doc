@@ -22,6 +22,10 @@
       "state": "Walloon Brabant",
       "city": "Wavre",
       "industry": "IT",
+      "lists": [
+        "CEO",
+        "BE"
+      ],
       "c_custom_field_a": "Hot lead",
       "created_from": "extension",
       "last_emailed_at": null,
@@ -89,7 +93,7 @@ opened_at | no | **datetime** <br />The date and time when the prospect last ope
 clicked_at | no | **datetime** <br />The date and time when the prospect last clicked a link in an email
 replied_at | no | **datetime** <br />The date and time when the prospect last replied to an email
 url | no | **string** <br />The full URL to the prospect on Overloop
-lists | no | **string[]** <br /> Name of the lists of the prospect
+lists | no | **array** <br /> Name of the lists of the prospect
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 
@@ -126,6 +130,7 @@ curl -X POST "https://api.overloop.com/public/v1/prospects" \
       "email": "vincenzo@overloop.com",
       "first_name": "Vincenzo",
       "last_name": "Ruggiero",
+      "lists": ["CEO", "BE"],
       "c_custom_field_a": "Hot lead"
     }
   }
@@ -149,7 +154,7 @@ country<br />*string* | *NULL* | The prospect's country
 state<br />*string* | *NULL* | The prospect's state or region
 city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | *NULL* | The prospect's industry
-lists<br />*string[]* | *NULL* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
+lists<br />*array* | *NULL* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
 owner_id<br />*integer* | ID of the user who created the prospect | The ID of the user owning this prospect
 organization_id<br />*integer* | ID of the organization this prospect belongs to | See [create an organization](#create-an-organization)
 
@@ -217,7 +222,7 @@ country<br />*string* | The prospect's country
 state<br />*string* | *NULL* | The prospect's state or region
 city<br />*string* | *NULL* | The prospect's city
 industry<br />*string* | The prospect's industry
-lists<br />*string[]* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
+lists<br />*array* | Name of the lists where to save the prospect<br/>(note: we will create the lists if they don't exist)
 owner_id<br />*integer* | The ID of the user owning this prospect
 organization_id<br />*integer* | ID of the organization this prospect belongs to | See [create an organization](#create-an-organization)
 

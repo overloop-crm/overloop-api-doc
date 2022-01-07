@@ -42,7 +42,7 @@ country | **yes** | **string** <br />The organization's country
 city | **yes** | **string** <br />The organization's city
 state | **yes** | **string** <br />The organization's state
 address | **yes** |**string** <br />The organization's full address
-lists | no | **string[]** <br /> Name of the lists of the organization
+lists | no | **array** <br /> Name of the lists of the organization
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
 
@@ -75,6 +75,7 @@ curl -X POST "https://api.overloop.com/public/v1/organizations" \
     "type": "organizations",
     "attributes": {
       "name": "Overloop",
+      "lists": ["Belgium", "IT"],
       "c_custom_field_a": "Hot lead"
     }
   }

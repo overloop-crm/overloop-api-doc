@@ -25,7 +25,7 @@ Attribute | Filterable? | Description
 id | no | **string** <br />A UUID key for the custom field
 identifier | no | **string** <br />The custom field's `identifier` **to be used as attribute key into prospect objects' payload**
 name | no | **string** <br />The custom field's name/label
-options | no | **string[]** <br />The custom field's value options (for `list_single` and `list_multiple`)
+options | no | **array** <br />The custom field's value options (for `list_single` and `list_multiple`)
 value_type | no | **string** <br />The custom field's value type, can be one of the following: `numeric`, `text`, `text_long`, `phone`, `url`, `boolean`, `list_single`, `list_multiple`, `datetime`, `date`
 
 ### Value format
