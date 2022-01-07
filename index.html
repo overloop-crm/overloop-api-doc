@@ -375,6 +375,10 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
       </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Walloon Brabant"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wavre"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IT"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"CEO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BE"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
       </span><span class="nt">"c_custom_field_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hot lead"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_emailed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -547,7 +551,7 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 <tr>
 <td>lists</td>
 <td>no</td>
-<td><strong>string[]</strong> <br /> Name of the lists of the prospect</td>
+<td><strong>array</strong> <br /> Name of the lists of the prospect</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -610,6 +614,7 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/prospects"</sp
       "email": "vincenzo@overloop.com",
       "first_name": "Vincenzo",
       "last_name": "Ruggiero",
+      "lists": ["CEO", "BE"],
       "c_custom_field_a": "Hot lead"
     }
   }
@@ -688,7 +693,7 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/prospects"</sp
 <td>The prospect&rsquo;s industry</td>
 </tr>
 <tr>
-<td>lists<br /><em>string[]</em></td>
+<td>lists<br /><em>array</em></td>
 <td><em>NULL</em></td>
 <td>Name of the lists where to save the prospect<br/>(note: we will create the lists if they don&rsquo;t exist)</td>
 </tr>
@@ -822,7 +827,7 @@ curl -X PATCH <span class="s2">"https://api.overloop.com/public/v1/prospects/1"<
 <td>The prospect&rsquo;s industry</td>
 </tr>
 <tr>
-<td>lists<br /><em>string[]</em></td>
+<td>lists<br /><em>array</em></td>
 <td>Name of the lists where to save the prospect<br/>(note: we will create the lists if they don&rsquo;t exist)</td>
 </tr>
 <tr>
@@ -1039,7 +1044,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/prospects"</spa
 <tr>
 <td>lists</td>
 <td>no</td>
-<td><strong>string[]</strong> <br /> Name of the lists of the organization</td>
+<td><strong>array</strong> <br /> Name of the lists of the organization</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -1092,6 +1097,7 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/organizations"
     "type": "organizations",
     "attributes": {
       "name": "Overloop",
+      "lists": ["Belgium", "IT"],
       "c_custom_field_a": "Hot lead"
     }
   }
@@ -3969,7 +3975,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/lists"</span> <
 <tr>
 <td>options</td>
 <td>no</td>
-<td><strong>string[]</strong> <br />The custom field&rsquo;s value options (for <code class="prettyprint">list_single</code> and <code class="prettyprint">list_multiple</code>)</td>
+<td><strong>array</strong> <br />The custom field&rsquo;s value options (for <code class="prettyprint">list_single</code> and <code class="prettyprint">list_multiple</code>)</td>
 </tr>
 <tr>
 <td>value_type</td>
