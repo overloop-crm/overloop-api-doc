@@ -2,7 +2,7 @@
 
 ```shell
 # EXAMPLE OBJECT
-## When trying to add a prospect with a duplicate email address
+## When trying to add a contact with a duplicate email address
 ```
 
 ```json
@@ -31,7 +31,7 @@
 }
 ```
 
-Overloop uses conventional HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a prospect cannot be created, etc.), and codes in the 5xx range indicate an error with Overloop's servers.
+Overloop uses conventional HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a contact cannot be created, etc.), and codes in the 5xx range indicate an error with Overloop's servers.
 
 Error Code | Meaning
 ---------- | -------

@@ -108,7 +108,7 @@ Returns the [list object](#the-list-object).
 ## Delete a list
 ```shell
 # DEFINITION
-DELETE https://api.overloop.com/public/v1/lists/{PROSPECT_ID}
+DELETE https://api.overloop.com/public/v1/lists/{CONTACT_ID}
 
 # EXAMPLE
 curl -X DELETE "https://api.overloop.com/public/v1/lists/1" \
@@ -130,7 +130,7 @@ curl -X DELETE "https://api.overloop.com/public/v1/lists/1" \
 Permanently deletes a list. It cannot be undone.
 
 <aside class="notice">
-Warning — Deleting a list will keep the prospects of that list the `list_id` field to `NULL`
+Warning — Deleting a list will keep the contacts of that list the `list_id` field to `NULL`
 </aside>
 
 ### Parameters

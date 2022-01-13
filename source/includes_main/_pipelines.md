@@ -113,7 +113,7 @@ Returns the [pipeline object](#the-pipeline-object).
 ## Delete a pipeline
 ```shell
 # DEFINITION
-DELETE https://api.overloop.com/public/v1/pipelines/{PROSPECT_ID}
+DELETE https://api.overloop.com/public/v1/pipelines/{CONTACT_ID}
 
 # EXAMPLE
 curl -X DELETE "https://api.overloop.com/public/v1/pipelines/1" \

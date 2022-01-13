@@ -128,7 +128,7 @@ Returns the [stage object](#the-stage-object).
 ## Delete a stage
 ```shell
 # DEFINITION
-DELETE https://api.overloop.com/public/v1/stages/{PROSPECT_ID}
+DELETE https://api.overloop.com/public/v1/stages/{CONTACT_ID}
 
 # EXAMPLE
 curl -X DELETE "https://api.overloop.com/public/v1/stages/1" \
