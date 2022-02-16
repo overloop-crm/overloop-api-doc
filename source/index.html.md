@@ -17,7 +17,7 @@ includes:
   - errors
 
 includes_main:
-  - contactS
+  - contacts
   - organizations
   - pipelines
   - stages
