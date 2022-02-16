@@ -353,7 +353,606 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 
 
         <h1 class="headline" data-unique="main-api" id="main-api">Main API</h1>
-          
+          <h1 id="contacts">Contacts</h1>
+
+<h2 id="the-contact-object">The contact object</h2>
+<pre class="highlight plaintext"><code># EXAMPLE OBJECT
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vincenzo@overloop.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vincenzo"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ruggiero"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"jobtitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CEO"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"linkedin_profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.linkedin.com/in/vincenzor"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+32-481-754-301"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Belgium"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Walloon Brabant"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wavre"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IT"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"CEO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BE"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"c_custom_field_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hot lead"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_emailed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"opened"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"opened_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clicked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clicked_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bounced"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"replied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"replied_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://overloop.com/contacts/1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Belgium"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Manager"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organizations"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="object-attributes">Object attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Filterable?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td><strong>integer</strong> <br />A unique identifier for the contact</td>
+</tr>
+<tr>
+<td>email</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The contact&rsquo;s email address</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The contact&rsquo;s first name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The contact&rsquo;s last name</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td><strong>string</strong> <br />A text description of the contact</td>
+</tr>
+<tr>
+<td>jobtitle</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The contact&rsquo;s job title</td>
+</tr>
+<tr>
+<td>linkedin_profile</td>
+<td>no</td>
+<td><strong>string</strong> <br />A link to the contact&rsquo;s LinkedIn profile</td>
+</tr>
+<tr>
+<td>phone</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The contact&rsquo;s phone number</td>
+</tr>
+<tr>
+<td>title</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The contact&rsquo;s title of civility</td>
+</tr>
+<tr>
+<td>country</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The contact&rsquo;s country</td>
+</tr>
+<tr>
+<td>state</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The contact&rsquo;s state or region</td>
+</tr>
+<tr>
+<td>city</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The contact&rsquo;s city</td>
+</tr>
+<tr>
+<td>industry</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The contact&rsquo;s industry</td>
+</tr>
+<tr>
+<td>created_from</td>
+<td>no</td>
+<td><strong>string</strong> <br />The source of the contact. Can be <code class="prettyprint">web</code>, <code class="prettyprint">extension</code>, <code class="prettyprint">api</code> or <code class="prettyprint">import</code></td>
+</tr>
+<tr>
+<td>last_emailed_at</td>
+<td>no</td>
+<td><strong>datetime</strong> <br />The date and time of the last email sent to this contact in ISO 8601 format with timezone offset</td>
+</tr>
+<tr>
+<td>excluded</td>
+<td><strong>yes</strong></td>
+<td><strong>boolean</strong> <br />Whether or not the contact is marked as excluded</td>
+</tr>
+<tr>
+<td>opened</td>
+<td><strong>yes</strong></td>
+<td><strong>boolean</strong> <br />Wheteer or not the contact opened any of your emails</td>
+</tr>
+<tr>
+<td>clicked</td>
+<td><strong>yes</strong></td>
+<td><strong>boolean</strong> <br />Wheter or not the contact clicked a link in any of your emails</td>
+</tr>
+<tr>
+<td>replied</td>
+<td><strong>yes</strong></td>
+<td><strong>boolean</strong> <br />Whether or not the contact replied to any of your emails</td>
+</tr>
+<tr>
+<td>bounced</td>
+<td><strong>yes</strong></td>
+<td><strong>boolean</strong> <br />Whether or not the contact email bounced</td>
+</tr>
+<tr>
+<td>opened_at</td>
+<td>no</td>
+<td><strong>datetime</strong> <br />The date and time when the contact last opened an email</td>
+</tr>
+<tr>
+<td>clicked_at</td>
+<td>no</td>
+<td><strong>datetime</strong> <br />The date and time when the contact last clicked a link in an email</td>
+</tr>
+<tr>
+<td>replied_at</td>
+<td>no</td>
+<td><strong>datetime</strong> <br />The date and time when the contact last replied to an email</td>
+</tr>
+<tr>
+<td>url</td>
+<td>no</td>
+<td><strong>string</strong> <br />The full URL to the contact on Overloop</td>
+</tr>
+<tr>
+<td>lists</td>
+<td>no</td>
+<td><strong>array</strong> <br /> Name of the lists of the contact</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>no</td>
+<td><strong>datetime</strong> <br />ISO 8601 format with timezone offset</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>no</td>
+<td><strong>datetime</strong> <br />ISO 8601 format with timezone offset</td>
+</tr>
+</tbody></table>
+
+<h3 id="custom-fields">Custom Fields</h3>
+
+<p>Custom fields can be used as normal attributes by using their <code class="prettyprint">identifier</code> as attribute key, see the <code class="prettyprint">c_custom_field_a</code> example in the above payload.</p>
+
+<p>You can retrieve the list of your custom fields by using the <a href="#list-custom-fields">custom fields index endpoint</a>.</p>
+
+<p>They accept a value depending on <a href="#the-custom-field-object">their format</a></p>
+
+<h3 id="relationships">Relationships</h3>
+
+<table><thead>
+<tr>
+<th>Object</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>creator</td>
+<td>The <a href="#users">user</a> who created the contact</td>
+</tr>
+<tr>
+<td>organization</td>
+<td>The <a href="#organizations">organization</a> of this contact</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>The <a href="#users">user</a> who owns the contact</td>
+</tr>
+<tr>
+<td>enrollments</td>
+<td>The <a href="#enrollments">enrollments</a> of the contact in workflows</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-contact">Create a contact</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+POST https://api.overloop.com/public/v1/contacts
+
+<span class="c"># EXAMPLE</span>
+curl -X POST <span class="s2">"https://api.overloop.com/public/v1/contacts"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+-d <span class="s1">'{
+  "data": {
+    "type": "contacts",
+    "attributes": {
+      "email": "vincenzo@overloop.com",
+      "first_name": "Vincenzo",
+      "last_name": "Ruggiero",
+      "lists": ["CEO", "BE"],
+      "c_custom_field_a": "Hot lead"
+    }
+  }
+}'</span>
+</code></pre>
+
+<p>This will create a new contact. If you don&rsquo;t set the <code class="prettyprint">owner_id</code> parameter then the user who performed the action will be assigned as the owner.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>The contact&rsquo;s email</td>
+</tr>
+<tr>
+<td>first_name<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>The contact&rsquo;s first name</td>
+</tr>
+<tr>
+<td>last_name<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>The contact&rsquo;s last name</td>
+</tr>
+<tr>
+<td>description<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>A text description of the contact</td>
+</tr>
+<tr>
+<td>jobtitle<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>The contact&rsquo;s job title</td>
+</tr>
+<tr>
+<td>linkedin_profile<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>A link to the contact&rsquo;s LinkedIn profile</td>
+</tr>
+<tr>
+<td>phone<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>The contact&rsquo;s phone number</td>
+</tr>
+<tr>
+<td>title<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>The contact&rsquo;s title of civility</td>
+</tr>
+<tr>
+<td>country<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>The contact&rsquo;s country</td>
+</tr>
+<tr>
+<td>state<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>The contact&rsquo;s state or region</td>
+</tr>
+<tr>
+<td>city<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>The contact&rsquo;s city</td>
+</tr>
+<tr>
+<td>industry<br /><em>string</em></td>
+<td><em>NULL</em></td>
+<td>The contact&rsquo;s industry</td>
+</tr>
+<tr>
+<td>lists<br /><em>array</em></td>
+<td><em>NULL</em></td>
+<td>Name of the lists where to save the contact<br/>(note: we will create the lists if they don&rsquo;t exist)</td>
+</tr>
+<tr>
+<td>owner_id<br /><em>integer</em></td>
+<td>ID of the user who created the contact</td>
+<td>The ID of the user owning this contact</td>
+</tr>
+<tr>
+<td>organization_id<br /><em>integer</em></td>
+<td>ID of the organization this contact belongs to</td>
+<td>See <a href="#create-an-organization">create an organization</a></td>
+</tr>
+</tbody></table>
+
+<p>This method accepts an optional URL parameter <code class="prettyprint">return_existing</code>. When set to true (default is false),
+that will return an existing organization if an organization with that name already exists (with 200 HTTP status code, 422 otherwise).</p>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-contact-object">contact object</a>.</p>
+
+<h2 id="retrieve-a-contact">Retrieve a contact</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://api.overloop.com/public/v1/contacts/<span class="o">{</span>CONTACT_ID<span class="o">}</span>
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://api.overloop.com/public/v1/contacts/1"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<br /><strong>required</strong> - <em>integer</em></td>
+<td>The ID of the contact to retrieve</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-contact-object">contact object</a>.</p>
+
+<h2 id="update-a-contact">Update a contact</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+PATCH https://api.overloop.com/public/v1/contacts/<span class="o">{</span>CONTACT_ID<span class="o">}</span>
+
+<span class="c"># EXAMPLE</span>
+curl -X PATCH <span class="s2">"https://api.overloop.com/public/v1/contacts/1"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
+-d <span class="s1">'{
+  "data": {
+    "type": "contacts",
+    "attributes": {
+      "email": "vincenzo@overloop.com",
+      "first_name": "Vincent",
+      "c_custom_field_a": "Hot lead"
+    }
+  }
+}'</span>
+</code></pre>
+
+<p>Updates the specified contact by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id<br /><strong>required</strong> - <em>integer</em></td>
+<td>The ID of the contact to update</td>
+</tr>
+<tr>
+<td>email<br /><em>string</em></td>
+<td>The contact&rsquo;s email</td>
+</tr>
+<tr>
+<td>first_name<br /><em>string</em></td>
+<td>The contact&rsquo;s first name</td>
+</tr>
+<tr>
+<td>last_name<br /><em>string</em></td>
+<td>The contact&rsquo;s last name</td>
+</tr>
+<tr>
+<td>description<br /><em>string</em></td>
+<td>A text description of the contact</td>
+</tr>
+<tr>
+<td>jobtitle<br /><em>string</em></td>
+<td>The contact&rsquo;s job title</td>
+</tr>
+<tr>
+<td>linkedin_profile<br /><em>string</em></td>
+<td>A link to the contact&rsquo;s LinkedIn profile</td>
+</tr>
+<tr>
+<td>phone<br /><em>string</em></td>
+<td>The contact&rsquo;s phone number</td>
+</tr>
+<tr>
+<td>title<br /><em>string</em></td>
+<td>The contact&rsquo;s title of civility</td>
+</tr>
+<tr>
+<td>country<br /><em>string</em></td>
+<td>The contact&rsquo;s country</td>
+</tr>
+<tr>
+<td>state<br /><em>string</em></td>
+<td><em>NULL</em></td>
+</tr>
+<tr>
+<td>city<br /><em>string</em></td>
+<td><em>NULL</em></td>
+</tr>
+<tr>
+<td>industry<br /><em>string</em></td>
+<td>The contact&rsquo;s industry</td>
+</tr>
+<tr>
+<td>lists<br /><em>array</em></td>
+<td>Name of the lists where to save the contact<br/>(note: we will create the lists if they don&rsquo;t exist)</td>
+</tr>
+<tr>
+<td>owner_id<br /><em>integer</em></td>
+<td>The ID of the user owning this contact</td>
+</tr>
+<tr>
+<td>organization_id<br /><em>integer</em></td>
+<td>ID of the organization this contact belongs to</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-contact-object">contact object</a>.</p>
+
+<h2 id="delete-a-contact">Delete a contact</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+DELETE https://api.overloop.com/public/v1/contacts/<span class="o">{</span>CONTACT_ID<span class="o">}</span>
+
+<span class="c"># EXAMPLE</span>
+curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/contacts/1"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Permanently deletes a contact. It cannot be undone.</p>
+
+<aside class="warning">
+Warning — Deleting a contact will also delete all history with this contact (messages, replies, etc.)
+</aside>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><strong>yes</strong></td>
+<td>integer</td>
+<td>The ID of the contact to delete</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns an object containing the contact ID.</p>
+
+<h2 id="list-contacts">List contacts</h2>
+<pre class="highlight shell"><code><span class="c"># DEFINITION</span>
+GET https://api.overloop.com/public/v1/contacts
+
+<span class="c"># EXAMPLE</span>
+curl -X GET <span class="s2">"https://api.overloop.com/public/v1/contacts"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/contacts/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/contacts/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/contacts/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a list of contacts.</p>
+
+<p>This list is <a href="#pagination">paginated</a> by 100 records. It can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
+
+<h3 id="returns">Returns</h3>
+
+<p>Returns the <a href="#the-contact-object">contact object</a>.</p>
+
           <h1 id="organizations">Organizations</h1>
 
 <h2 id="the-organization-object">The organization object</h2>
