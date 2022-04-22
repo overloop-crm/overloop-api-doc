@@ -1,5 +1,5 @@
-# Workflows
-## The workflow object
+# Automations
+## The automation object
 ```
 # EXAMPLE OBJECT
 ```
@@ -8,9 +8,9 @@
 {
   "data": {
     "id": "1",
-    "type": "workflows",
+    "type": "automations",
     "attributes": {
-      "name": "Public API Workflow Example",
+      "name": "Public API Automation Example",
       "enter_triggers": [
         "contact.created",
       ],
@@ -30,7 +30,8 @@
       "start_sending_minutes": 480,
       "end_sending_minutes": 1020,
       "timezone": "Etc/UTC",
-      "type": "contacts",
+      "type": "Campaign",
+      "record_type": "contacts",
       "created_at": "2020-01-31T12:00:00.000Z",
       "updated_at": "2020-01-31T12:00:00.000Z"
     },
@@ -39,11 +40,11 @@
         "data": [
           {
             "id": "a-z0-9-abc1",
-            "type": "workflows_steps"
+            "type": "automations_steps"
           },
           {
             "id": "a-z0-9-abc2",
-            "type": "workflows_steps"
+            "type": "automations_steps"
           }
         ]
       },
@@ -98,34 +99,35 @@
 ### Object attributes
 Attribute | Filterable? | Description
 --------- | ----------- | -----------
-id | no | **integer** <br />A unique identifier for the workflow
-name | no | **string** <br />The workflow's name
-type | **yes** | **string** <br />The type of records that can be enrolled into the workflow, either `contacts`, `organizations` or `deals`
-enter_triggers | no | **array** <br />An array containing the events that will make contacts entering the workflow. Possible values depends on the type.
+id | no | **integer** <br />A unique identifier for the automation
+name | no | **string** <br />The automation's name
+type | **yes** | **string** <br />Eiher `Campaign` or `Workflow`.
+record_type | **yes** | **string** <br />The type of records that can be enrolled into the automation. Always `contacts` for campaigns, either `contacts`, `organizations` or `deals` for workflows.
+enter_triggers | no | **array** <br />An array containing the events that will make records entering the automation. Possible values depends on the type.
 enter_trigger_attributes | no | **json** <br />A json object containing additional information about the enter triggers settings. Its content varies depending on the selected enter triggers.
-exit_triggers | no | **array** <br />An array containing the events that will make contacts exit the workflow. Possible values depends on the type.
-status | **yes** | **string** <br />The workflow's status that can take 3 different values: `on`, `off`
-send_as_thread | no | **boolean** <br />The workflow's emails should be sent as threads.
-sending_days | no | **array** <br />An array containing days during which emails can be sent ("monday", "tuesday", etc.)
+exit_triggers | no | **array** <br />An array containing the events that will make records exit the automation. Possible values depends on the type.
+status | **yes** | **string** <br />The automation's status that can take 3 different values: `on`, `off`
+send_as_thread | no | **boolean** <br />The automation's emails should be sent as threads.
+sending_days | no | **array** <br />An array containing days during which emails can be sent ("monday", "tuesday", etc.).
 start_sending_minutes | no | **integer** <br />The hour at which we can start sending emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between `0` and `1425`.
 end_sending_minutes | no | **integer** <br />The hour at which we can stop sending emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between `0` and `1425`.
-created_at | no | **datetime** <br />ISO 8601 format with timezone offset
-updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
+created_at | no | **datetime** <br />ISO 8601 format with timezone offset.
+updated_at | no | **datetime** <br />ISO 8601 format with timezone offset.
 
 ### Relationships
 Object | Description
 --------- | -----------
-steps | The [steps](#workflow-steps) of the workflow.
-enter_segment | The reference of the workflow filters for the _enter_segment_ trigger event.
+steps | The [steps](#automation-steps) of the automation.
+enter_segment | The reference of the automation filters for the _enter_segment_ trigger event.
 filters | The conditions of the _enter_segment_ trigger event.
 
-## Retrieve a workflow
+## Retrieve an automation
 ```shell
 # DEFINITION
-GET https://api.overloop.com/public/v1/workflows/{WORKFLOW_ID}
+GET https://api.overloop.com/public/v1/automations/{AUTOMATION_ID}
 
 # EXAMPLE
-curl -X GET "https://api.overloop.com/public/v1/workflows/1" \
+curl -X GET "https://api.overloop.com/public/v1/automations/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -133,18 +135,18 @@ curl -X GET "https://api.overloop.com/public/v1/workflows/1" \
 ### Parameters
 Parameter | Description
 --------- | -----------
-id<br />**required** - *integer* | The ID of the workflow to retrieve
+id<br />**required** - *integer* | The ID of the automation to retrieve
 
 ### Returns
-Returns the [workflow object](#the-workflow-object).
+Returns the [automation object](#the-automation-object).
 
-## List workflows
+## List automations
 ```shell
 # DEFINITION
-GET https://api.overloop.com/public/v1/workflows
+GET https://api.overloop.com/public/v1/automations
 
 # EXAMPLE
-curl -X GET "https://api.overloop.com/public/v1/workflows" \
+curl -X GET "https://api.overloop.com/public/v1/automations" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -156,7 +158,7 @@ curl -X GET "https://api.overloop.com/public/v1/workflows" \
   "data": [
     {
       "id": "1",
-      "type": "workflows",
+      "type": "automations",
       "attributes": {
         ...
       },
@@ -175,7 +177,7 @@ curl -X GET "https://api.overloop.com/public/v1/workflows" \
     },
     {
       "id": "2",
-      "type": "workflows",
+      "type": "automations",
       "attributes": {
         ...
       },
@@ -194,13 +196,13 @@ curl -X GET "https://api.overloop.com/public/v1/workflows" \
     }
   ],
   "links": {
-    "self": "https://api.overloop.com/public/v1/workflows/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "next": "https://api.overloop.com/public/v1/workflows/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
-    "last": "https://api.overloop.com/public/v1/workflows/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
+    "self": "https://api.overloop.com/public/v1/automations/?page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "next": "https://api.overloop.com/public/v1/automations/?page%5Bnumber%5D=2&page%5Bsize%5D=100",
+    "last": "https://api.overloop.com/public/v1/automations/?page%5Bnumber%5D=5&page%5Bsize%5D=100"
   }
 }
 ```
 
-Returns a list of workflows.
+Returns a list of automations.
 
 This list is [paginated](#pagination) by 100 records and can also be [sorted](#sorting) or [filtered](#filtering).

@@ -1,6 +1,6 @@
 # Enrollments
 ## The enrollment object
-To add a desired contact/organization/deal to a specific workflow you have to create an **enrollment**. The enrollment is then used to describe the progression of the record into the workflow.
+To add a desired contact/organization/deal to a specific automation (campaign or workflow) you have to create an **enrollment**. The enrollment is then used to describe the progression of the record into the automation.
 
 ```
 # EXAMPLE OBJECT
@@ -9,7 +9,7 @@ To add a desired contact/organization/deal to a specific workflow you have to cr
 {
   "data": {
     "id": "1",
-    "type": "workflows_enrollments",
+    "type": "automations_enrollments",
     "attributes": {
       "workflow_id": 1,
       "contact_id":30332,
@@ -25,7 +25,7 @@ To add a desired contact/organization/deal to a specific workflow you have to cr
       "current_step": {
         "data": {
           "id": "a-z0-9-abc1",
-          "type": "workflows_steps"
+          "type": "automations_steps"
         }
       },
       "automation": {
@@ -56,7 +56,7 @@ To add a desired contact/organization/deal to a specific workflow you have to cr
     "included": [
       {
         "id": "a-z0-9-abc1",
-        "type": "workflows_steps",
+        "type": "automations_steps",
         "attributes": {
           "step_type": "note",
           "position": 0,
@@ -71,7 +71,7 @@ To add a desired contact/organization/deal to a specific workflow you have to cr
           "workflow": {
               "data": {
                 "id": "1",
-                "type": "workflows"
+                "type": "automations"
             }
           }
         }
@@ -97,18 +97,18 @@ updated_at | **datetime** <br />ISO 8601 format with timezone offset
 Object | Description
 --------- | -----------
 current_step | The current [step](#workflow-steps) of this enrollment.
-workflow | The current [workflow](#workflows) of this enrollment.
-contact | The current [contact](#contacts) of this enrollment (for contact-based workflows).
-organization | The current [organization](#organizations) of this enrollment (for organization-based workflows).
-deal | The current [deal](#deals) of this enrollment (for deal-based workflows).
+workflow | The current [workflow](#automations) of this enrollment.
+contact | The current [contact](#contacts) of this enrollment (for contact-based automations).
+organization | The current [organization](#organizations) of this enrollment (for organization-based automations).
+deal | The current [deal](#deals) of this enrollment (for deal-based automations).
 
 ## Create an enrollment
 ```shell
 # DEFINITION
-POST https://api.overloop.com/public/v1/workflows/{{WORKFLOW_ID}}/enrollments
+POST https://api.overloop.com/public/v1/automations/{{AUTOMATION_ID}}/enrollments
 
 # EXAMPLE
-curl -X POST "https://api.overloop.com/public/v1/workflows/1/enrollments" \
+curl -X POST "https://api.overloop.com/public/v1/automations/1/enrollments" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8" \
 -d '{
@@ -130,10 +130,10 @@ This will create a new enrollment.
 ### Parameters
 Parameter | Required? | Type | Description
 --------- | --------- | ---- | ------------
-contact_id | **yes** | *integer* | The contact's ID (required only for contact-based workflows)
+contact_id | **yes** | *integer* | The contact's ID (required only for contact-based automations)
 organization_id | **yes** | *integer* | The organization's ID (required only for organization-based workflows)
 deal_id | **yes** | *integer* | The deal's ID (required only for deal-based workflows)
-step_id | no | *string* | The step's ID of the workflow at which the contact must be enrolled.
+step_id | no | *string* | The step's ID of the automation at which the contact must be enrolled.
 reenroll | no | *boolean* | Set to `false` if you want to prevent re enroll the contact because he already has been enrolled. **If not set to** `false` **this parameter will always be** `true`
 start_at | no | *string* | The date and time on which the enrollment must be started in the ISO 8601 format with timezone offset. If not set or set in the past, the enrollment will start immediately.
 
@@ -143,10 +143,10 @@ Returns the [enrollment object](#the-enrollment-object).
 ## Stop an enrollment
 ```shell
 # DEFINITION
-DELETE https://api.overloop.com/public/v1/workflows/{{WORKFLOW_ID}}/enrollments/{{ENROLLMENT_ID}}
+DELETE https://api.overloop.com/public/v1/automations/{{AUTOMATION_ID}}/enrollments/{{ENROLLMENT_ID}}
 
 # EXAMPLE
-curl -X DELETE "https://api.overloop.com/public/v1/workflows/1/enrollments/1" \
+curl -X DELETE "https://api.overloop.com/public/v1/automations/1/enrollments/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -164,10 +164,10 @@ Returns the [enrollment object](#the-enrollment-object).
 ## Retrieve an enrollment
 ```shell
 # DEFINITION
-GET https://api.overloop.com/public/v1/workflows/{{WORKFLOW_ID}}/enrollments/{{ENROLLMENT_ID}}
+GET https://api.overloop.com/public/v1/automations/{{AUTOMATION_ID}}/enrollments/{{ENROLLMENT_ID}}
 
 # EXAMPLE
-curl -X GET "https://api.overloop.com/public/v1/workflows/1/enrollments/1" \
+curl -X GET "https://api.overloop.com/public/v1/automations/1/enrollments/1" \
 -H "Authorization: your_api_key" \
 -H "Content-Type: application/vnd.api+json; charset=utf-8"
 ```
@@ -199,7 +199,7 @@ curl -X GET "https://api.overloop.com/public/v1/enrollments" \
   "data": [
     {
       "id": "36",
-      "type": "workflows_enrollments",
+      "type": "automations_enrollments",
       "attributes": {
         "disenrolled_at": "2020-06-03T13:01:15.697Z",
         "start_at": null,
@@ -213,10 +213,10 @@ curl -X GET "https://api.overloop.com/public/v1/enrollments" \
             "type": "contacts"
           }
         },
-        "workflow": {
+        "automation": {
           "data": {
             "id": "3",
-            "type": "workflows"
+            "type": "automations"
           }
         },
         "current_step": {
