@@ -111,7 +111,7 @@ Object | Description
 creator | The [user](#users) who created the contact
 organization | The [organization](#organizations) of this contact
 owner | The [user](#users) who owns the contact
-enrollments | The [enrollments](#enrollments) of the contact in workflows
+enrollments | The [enrollments](#enrollments) of the contact in automations (campaigns or workflows)
 
 
 ## Create a contact

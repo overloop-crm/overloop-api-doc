@@ -1,6 +1,6 @@
 # Enrollments
 ## The enrollment object
-To add a desired contact/organization/deal to a specific automation (campaign or workflow) you have to create an **enrollment**. The enrollment is then used to describe the progression of the record into the automation.
+To add a contact/organization/deal to an automation (campaign or workflow) you have to create an **enrollment**. The enrollment is then used to describe the progression of the record into the automation.
 
 ```
 # EXAMPLE OBJECT
@@ -11,7 +11,7 @@ To add a desired contact/organization/deal to a specific automation (campaign or
     "id": "1",
     "type": "automations_enrollments",
     "attributes": {
-      "workflow_id": 1,
+      "automation_id": 1,
       "contact_id":30332,
       "deal_id":null,
       "organization_id":null,
@@ -25,7 +25,7 @@ To add a desired contact/organization/deal to a specific automation (campaign or
       "current_step": {
         "data": {
           "id": "a-z0-9-abc1",
-          "type": "automations_steps"
+          "type": "automation_steps"
         }
       },
       "automation": {
@@ -56,7 +56,7 @@ To add a desired contact/organization/deal to a specific automation (campaign or
     "included": [
       {
         "id": "a-z0-9-abc1",
-        "type": "automations_steps",
+        "type": "automation_steps",
         "attributes": {
           "step_type": "note",
           "position": 0,
@@ -68,7 +68,7 @@ To add a desired contact/organization/deal to a specific automation (campaign or
           }
         },
         "relationships": {
-          "workflow": {
+          "automation": {
               "data": {
                 "id": "1",
                 "type": "automations"
@@ -87,7 +87,7 @@ Attribute | Description
 id | **integer** <br />A unique identifier for the enrollment
 record_id | **integer** <br />The unique identifier of the enrolled record
 record_type | **string** <br />The type of the enrolled record (organization, deal or contact)
-disenrolled_at | **datetime** <br />The date and time when the record has been leaved the workflow in ISO 8601 format with timezone
+disenrolled_at | **datetime** <br />The date and time when the record has been leaved the automation in ISO 8601 format with timezone
 start_at | **datetime** <br />The date and time on which the enrollment must be started in ISO 8601 format with timezone offset. If not set or set in the past, the enrollment starts immediately.
 throttled | **boolean** <br />If the enrollment start is being throttled.
 created_at | **datetime** <br />ISO 8601 format with timezone offset
@@ -96,8 +96,8 @@ updated_at | **datetime** <br />ISO 8601 format with timezone offset
 ### Relationships
 Object | Description
 --------- | -----------
-current_step | The current [step](#workflow-steps) of this enrollment.
-workflow | The current [workflow](#automations) of this enrollment.
+current_step | The current [step](#automation-steps) of this enrollment.
+automation | The current [automation](#automations) of this enrollment.
 contact | The current [contact](#contacts) of this enrollment (for contact-based automations).
 organization | The current [organization](#organizations) of this enrollment (for organization-based automations).
 deal | The current [deal](#deals) of this enrollment (for deal-based automations).
@@ -130,7 +130,7 @@ This will create a new enrollment.
 ### Parameters
 Parameter | Required? | Type | Description
 --------- | --------- | ---- | ------------
-contact_id | **yes** | *integer* | The contact's ID (required only for contact-based automations)
+contact_id | **yes** | *integer* | The contact's ID (required only for campaigns or contact-based workflows)
 organization_id | **yes** | *integer* | The organization's ID (required only for organization-based workflows)
 deal_id | **yes** | *integer* | The deal's ID (required only for deal-based workflows)
 step_id | no | *string* | The step's ID of the automation at which the contact must be enrolled.

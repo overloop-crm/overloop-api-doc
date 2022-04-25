@@ -1,5 +1,8 @@
 # Automations
 ## The automation object
+  The automation object regroups campaigns, used for outbound, and workflows, used for productivity.
+  They can be differenciated using the `automation_type` variable.
+
 ```
 # EXAMPLE OBJECT
 ```
@@ -16,7 +19,7 @@
       ],
       "enter_trigger_attributes": {},
       "exit_triggers": [
-        "contact.replied"x
+        "contact.replied"
       ],
       "status": "on",
       "send_as_thread": true,
@@ -30,7 +33,7 @@
       "start_sending_minutes": 480,
       "end_sending_minutes": 1020,
       "timezone": "Etc/UTC",
-      "type": "Campaign",
+      "automation_type": "Campaign",
       "record_type": "contacts",
       "created_at": "2020-01-31T12:00:00.000Z",
       "updated_at": "2020-01-31T12:00:00.000Z"
@@ -40,11 +43,11 @@
         "data": [
           {
             "id": "a-z0-9-abc1",
-            "type": "automations_steps"
+            "type": "automation_steps"
           },
           {
             "id": "a-z0-9-abc2",
-            "type": "automations_steps"
+            "type": "automation_steps"
           }
         ]
       },
@@ -101,7 +104,7 @@ Attribute | Filterable? | Description
 --------- | ----------- | -----------
 id | no | **integer** <br />A unique identifier for the automation
 name | no | **string** <br />The automation's name
-type | **yes** | **string** <br />Eiher `Campaign` or `Workflow`.
+automation_type | **yes** | **string** <br />Either `Campaign` or `Workflow`.
 record_type | **yes** | **string** <br />The type of records that can be enrolled into the automation. Always `contacts` for campaigns, either `contacts`, `organizations` or `deals` for workflows.
 enter_triggers | no | **array** <br />An array containing the events that will make records entering the automation. Possible values depends on the type.
 enter_trigger_attributes | no | **json** <br />A json object containing additional information about the enter triggers settings. Its content varies depending on the selected enter triggers.
