@@ -25,7 +25,7 @@ To add a contact/organization/deal to an automation (campaign or workflow) you h
       "current_step": {
         "data": {
           "id": "a-z0-9-abc1",
-          "type": "automation_steps"
+          "type": "automations_steps"
         }
       },
       "automation": {
@@ -56,7 +56,7 @@ To add a contact/organization/deal to an automation (campaign or workflow) you h
     "included": [
       {
         "id": "a-z0-9-abc1",
-        "type": "automation_steps",
+        "type": "automations_steps",
         "attributes": {
           "step_type": "note",
           "position": 0,
@@ -98,9 +98,9 @@ Object | Description
 --------- | -----------
 current_step | The current [step](#automation-steps) of this enrollment.
 automation | The current [automation](#automations) of this enrollment.
-contact | The current [contact](#contacts) of this enrollment (for contact-based automations).
-organization | The current [organization](#organizations) of this enrollment (for organization-based automations).
-deal | The current [deal](#deals) of this enrollment (for deal-based automations).
+contact | The current [contact](#contacts) of this enrollment (for campaigns and contact-based workflows).
+organization | The current [organization](#organizations) of this enrollment (for organization-based workflows).
+deal | The current [deal](#deals) of this enrollment (for deal-based workflows).
 
 ## Create an enrollment
 ```shell

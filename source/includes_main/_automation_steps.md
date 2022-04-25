@@ -9,7 +9,7 @@
   "data": [
     {
       "id": "a-z0-9-abc1",
-      "type": "automation_steps",
+      "type": "automations_steps",
       "attributes": {
         "step_type": "task",
         "position": 0,
@@ -94,7 +94,7 @@ curl -X GET "https://api.overloop.com/public/v1/automations/1/steps" \
   "data": [
     {
       "id": "a-z0-9-abc1",
-      "type": "automation_steps",
+      "type": "automations_steps",
       "attributes": {
         ...
       },
@@ -109,7 +109,7 @@ curl -X GET "https://api.overloop.com/public/v1/automations/1/steps" \
     },
     {
       "id": "a-z0-9-abc2",
-      "type": "automation_steps",
+      "type": "automations_steps",
       "attributes": {
         ...
       },
@@ -124,7 +124,7 @@ curl -X GET "https://api.overloop.com/public/v1/automations/1/steps" \
     },
     {
       "id": "a-z0-9-abc3",
-      "type": "automation_steps",
+      "type": "automations_steps",
       "attributes": {
         ...
       },

@@ -43,11 +43,11 @@
         "data": [
           {
             "id": "a-z0-9-abc1",
-            "type": "automation_steps"
+            "type": "automations_steps"
           },
           {
             "id": "a-z0-9-abc2",
-            "type": "automation_steps"
+            "type": "automations_steps"
           }
         ]
       },
@@ -106,9 +106,9 @@ id | no | **integer** <br />A unique identifier for the automation
 name | no | **string** <br />The automation's name
 automation_type | **yes** | **string** <br />Either `Campaign` or `Workflow`.
 record_type | **yes** | **string** <br />The type of records that can be enrolled into the automation. Always `contacts` for campaigns, either `contacts`, `organizations` or `deals` for workflows.
-enter_triggers | no | **array** <br />An array containing the events that will make records entering the automation. Possible values depends on the type.
+enter_triggers | no | **array** <br />An array containing the events that will make records entering the automation. Possible values depends on the `record_type`.
 enter_trigger_attributes | no | **json** <br />A json object containing additional information about the enter triggers settings. Its content varies depending on the selected enter triggers.
-exit_triggers | no | **array** <br />An array containing the events that will make records exit the automation. Possible values depends on the type.
+exit_triggers | no | **array** <br />An array containing the events that will make records exit the automation. Possible values depends on the `record_type`.
 status | **yes** | **string** <br />The automation's status that can take 3 different values: `on`, `off`
 send_as_thread | no | **boolean** <br />The automation's emails should be sent as threads.
 sending_days | no | **array** <br />An array containing days during which emails can be sent ("monday", "tuesday", etc.).
