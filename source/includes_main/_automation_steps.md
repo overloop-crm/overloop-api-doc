@@ -45,8 +45,8 @@ Attribute | Description
 --------- | -----------
 id | **integer** <br />A unique identifier for the automation step
 step_type | **string** <br />The type of step. Possible values depend on the automation type.
-position | **integer** <br />When the previous_step is not a `condition`, the position will always be 0. Otherwise, `0` is the left/yes branch of a condition, while `1` is the right/no branch.
-previous_step_id | **string** <br />The unique identifier of the previous step. A `null` value will always be assigned to the first step of the automation.
+position | **integer** <br />When the previous_step is not a `condition`, the position will always be 0. Otherwise, `0` is the left/yes branch of a condition, while `1` is the right/no branch
+previous_step_id | **string** <br />The unique identifier of the previous step. A `null` value will always be assigned to the first step of the automation
 created_at | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | **datetime** <br />ISO 8601 format with timezone offset
 config | **object** <br />All specific attributes related to the _step_type_

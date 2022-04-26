@@ -87,20 +87,20 @@ Attribute | Description
 id | **integer** <br />A unique identifier for the enrollment
 record_id | **integer** <br />The unique identifier of the enrolled record
 record_type | **string** <br />The type of the enrolled record (organization, deal or contact)
-disenrolled_at | **datetime** <br />The date and time when the record has been leaved the automation in ISO 8601 format with timezone
-start_at | **datetime** <br />The date and time on which the enrollment must be started in ISO 8601 format with timezone offset. If not set or set in the past, the enrollment starts immediately.
-throttled | **boolean** <br />If the enrollment start is being throttled.
+disenrolled_at | **datetime** <br />The date and time of when the record left the automation in ISO 8601 format with timezone
+start_at | **datetime** <br />The date and time on which the enrollment must be started in ISO 8601 format with timezone offset. If not set or set in the past, the enrollment starts immediately
+throttled | **boolean** <br />If the enrollment start is being throttled
 created_at | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | **datetime** <br />ISO 8601 format with timezone offset
 
 ### Relationships
 Object | Description
 --------- | -----------
-current_step | The current [step](#automation-steps) of this enrollment.
-automation | The current [automation](#automations) of this enrollment.
-contact | The current [contact](#contacts) of this enrollment (for campaigns and contact-based workflows).
-organization | The current [organization](#organizations) of this enrollment (for organization-based workflows).
-deal | The current [deal](#deals) of this enrollment (for deal-based workflows).
+current_step | The current [step](#automation-steps) of this enrollment
+automation | The current [automation](#automations) of this enrollment
+contact | The current [contact](#contacts) of this enrollment (for campaigns and contact-based workflows)
+organization | The current [organization](#organizations) of this enrollment (for organization-based workflows)
+deal | The current [deal](#deals) of this enrollment (for deal-based workflows)
 
 ## Create an enrollment
 ```shell
@@ -133,9 +133,9 @@ Parameter | Required? | Type | Description
 contact_id | **yes** | *integer* | The contact's ID (required only for campaigns or contact-based workflows)
 organization_id | **yes** | *integer* | The organization's ID (required only for organization-based workflows)
 deal_id | **yes** | *integer* | The deal's ID (required only for deal-based workflows)
-step_id | no | *string* | The step's ID of the automation at which the contact must be enrolled.
+step_id | no | *string* | The step's ID of the automation at which the contact must be enrolled
 reenroll | no | *boolean* | Set to `false` if you want to prevent re enroll the contact because he already has been enrolled. **If not set to** `false` **this parameter will always be** `true`
-start_at | no | *string* | The date and time on which the enrollment must be started in the ISO 8601 format with timezone offset. If not set or set in the past, the enrollment will start immediately.
+start_at | no | *string* | The date and time on which the enrollment must be started in the ISO 8601 format with timezone offset. If not set or set in the past, the enrollment will start immediately
 
 ### Returns
 Returns the [enrollment object](#the-enrollment-object).
