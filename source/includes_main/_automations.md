@@ -33,7 +33,7 @@
       "start_sending_minutes": 480,
       "end_sending_minutes": 1020,
       "timezone": "Etc/UTC",
-      "automation_type": "Campaign",
+      "automation_type": "campaign",
       "record_type": "contacts",
       "created_at": "2020-01-31T12:00:00.000Z",
       "updated_at": "2020-01-31T12:00:00.000Z"
@@ -104,13 +104,13 @@ Attribute | Filterable? | Description
 --------- | ----------- | -----------
 id | no | **integer** <br />A unique identifier for the automation
 name | no | **string** <br />The automation's name
-automation_type | **yes** | **string** <br />Either `Campaign` or `Workflow`.
+automation_type | **yes** | **string** <br />Either `campaign` or `workflow`.
 record_type | **yes** | **string** <br />The type of records that can be enrolled into the automation. Always `contacts` for campaigns, either `contacts`, `organizations` or `deals` for workflows.
 enter_triggers | no | **array** <br />An array containing the events that will make records entering the automation. Possible values depends on the `record_type`.
 enter_trigger_attributes | no | **json** <br />A json object containing additional information about the enter triggers settings. Its content varies depending on the selected enter triggers.
 exit_triggers | no | **array** <br />An array containing the events that will make records exit the automation. Possible values depends on the `record_type`.
 status | **yes** | **string** <br />The automation's status that can take 3 different values: `on`, `off`
-send_as_thread | no | **boolean** <br />The automation's emails should be sent as threads.
+send_as_thread | no | **boolean** <br />Whether emails should be sent as threads.
 sending_days | no | **array** <br />An array containing days during which emails can be sent ("monday", "tuesday", etc.).
 start_sending_minutes | no | **integer** <br />The hour at which we can start sending emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between `0` and `1425`.
 end_sending_minutes | no | **integer** <br />The hour at which we can stop sending emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between `0` and `1425`.
