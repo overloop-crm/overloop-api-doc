@@ -105,7 +105,7 @@ Attribute | Filterable? | Description
 id | no | **integer** <br />A unique identifier for the automation
 name | no | **string** <br />The automation's name
 automation_type | **yes** | **string** <br />Either `campaign` or `workflow`
-record_type | **yes** | **string** <br />The type of records that can be enrolled into the automation. Always `contacts` for campaigns, either `contacts`, `organizations` or `deals` for workflows
+record_type | **yes** | **string** <br />The type of records that can be enrolled into the automation. Always `contacts` for campaigns, either `contacts`, `organizations`, `deals` or `conversations` for workflows
 enter_triggers | no | **array** <br />An array containing the events that will make records entering the automation. Possible values depends on the `record_type`
 enter_trigger_attributes | no | **json** <br />A json object containing additional information about the enter triggers settings. Its content varies depending on the selected enter triggers
 exit_triggers | no | **array** <br />An array containing the events that will make records exit the automation. Possible values depends on the `record_type`
