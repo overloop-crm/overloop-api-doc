@@ -595,7 +595,7 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 </tr>
 <tr>
 <td>enrollments</td>
-<td>The <a href="#enrollments">enrollments</a> of the contact in workflows</td>
+<td>The <a href="#enrollments">enrollments</a> of the contact in automations (campaigns or workflows)</td>
 </tr>
 </tbody></table>
 
@@ -2527,23 +2527,26 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/deals/1/mark
 
 <p>Returns the <a href="#the-deal-object">deal object</a>.</p>
 
-          <h1 id="workflows">Workflows</h1>
+          <h1 id="automations">Automations</h1>
 
-<h2 id="the-workflow-object">The workflow object</h2>
+<h2 id="the-automation-object">The automation object</h2>
+
+<p>The automation object regroups campaigns, used for outbound, and workflows, used for productivity.
+  They can be differenciated using the <code class="prettyprint">automation_type</code> variable.</p>
 <pre class="highlight plaintext"><code># EXAMPLE OBJECT
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Public API Workflow Example"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Public API Automation Example"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"enter_triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"contact.created"</span><span class="p">,</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nt">"enter_trigger_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
       </span><span class="nt">"exit_triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"contact.replied"</span><span class="err">x</span><span class="w">
+        </span><span class="s2">"contact.replied"</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"on"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"send_as_thread"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -2557,7 +2560,8 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/deals/1/mark
       </span><span class="nt">"start_sending_minutes"</span><span class="p">:</span><span class="w"> </span><span class="mi">480</span><span class="p">,</span><span class="w">
       </span><span class="nt">"end_sending_minutes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1020</span><span class="p">,</span><span class="w">
       </span><span class="nt">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Etc/UTC"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"automation_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"record_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-31T12:00:00.000Z"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-31T12:00:00.000Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -2566,11 +2570,11 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/deals/1/mark
         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc2"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2634,42 +2638,47 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/deals/1/mark
 <tr>
 <td>id</td>
 <td>no</td>
-<td><strong>integer</strong> <br />A unique identifier for the workflow</td>
+<td><strong>integer</strong> <br />A unique identifier for the automation</td>
 </tr>
 <tr>
 <td>name</td>
 <td>no</td>
-<td><strong>string</strong> <br />The workflow&rsquo;s name</td>
+<td><strong>string</strong> <br />The automation&rsquo;s name</td>
 </tr>
 <tr>
-<td>type</td>
+<td>automation_type</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The type of records that can be enrolled into the workflow, either <code class="prettyprint">contacts</code>, <code class="prettyprint">organizations</code> or <code class="prettyprint">deals</code></td>
+<td><strong>string</strong> <br />Either <code class="prettyprint">campaign</code> or <code class="prettyprint">workflow</code></td>
+</tr>
+<tr>
+<td>record_type</td>
+<td><strong>yes</strong></td>
+<td><strong>string</strong> <br />The type of records that can be enrolled into the automation. Always <code class="prettyprint">contacts</code> for campaigns, either <code class="prettyprint">contacts</code>, <code class="prettyprint">organizations</code>, <code class="prettyprint">deals</code> or <code class="prettyprint">conversations</code> for workflows</td>
 </tr>
 <tr>
 <td>enter_triggers</td>
 <td>no</td>
-<td><strong>array</strong> <br />An array containing the events that will make contacts entering the workflow. Possible values depends on the type.</td>
+<td><strong>array</strong> <br />An array containing the events that will make records entering the automation. Possible values depends on the <code class="prettyprint">record_type</code></td>
 </tr>
 <tr>
 <td>enter_trigger_attributes</td>
 <td>no</td>
-<td><strong>json</strong> <br />A json object containing additional information about the enter triggers settings. Its content varies depending on the selected enter triggers.</td>
+<td><strong>json</strong> <br />A json object containing additional information about the enter triggers settings. Its content varies depending on the selected enter triggers</td>
 </tr>
 <tr>
 <td>exit_triggers</td>
 <td>no</td>
-<td><strong>array</strong> <br />An array containing the events that will make contacts exit the workflow. Possible values depends on the type.</td>
+<td><strong>array</strong> <br />An array containing the events that will make records exit the automation. Possible values depends on the <code class="prettyprint">record_type</code></td>
 </tr>
 <tr>
 <td>status</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The workflow&rsquo;s status that can take 3 different values: <code class="prettyprint">on</code>, <code class="prettyprint">off</code></td>
+<td><strong>string</strong> <br />The automation&rsquo;s status that can take 3 different values: <code class="prettyprint">on</code>, <code class="prettyprint">off</code></td>
 </tr>
 <tr>
 <td>send_as_thread</td>
 <td>no</td>
-<td><strong>boolean</strong> <br />The workflow&rsquo;s emails should be sent as threads.</td>
+<td><strong>boolean</strong> <br />Whether emails should be sent as threads</td>
 </tr>
 <tr>
 <td>sending_days</td>
@@ -2679,12 +2688,12 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/deals/1/mark
 <tr>
 <td>start_sending_minutes</td>
 <td>no</td>
-<td><strong>integer</strong> <br />The hour at which we can start sending emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between <code class="prettyprint">0</code> and <code class="prettyprint">1425</code>.</td>
+<td><strong>integer</strong> <br />The hour at which we can start sending emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between <code class="prettyprint">0</code> and <code class="prettyprint">1425</code></td>
 </tr>
 <tr>
 <td>end_sending_minutes</td>
 <td>no</td>
-<td><strong>integer</strong> <br />The hour at which we can stop sending emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between <code class="prettyprint">0</code> and <code class="prettyprint">1425</code>.</td>
+<td><strong>integer</strong> <br />The hour at which we can stop sending emails, between 00:00 and 23:45 with 15 minutes intervals. Value is in minutes between <code class="prettyprint">0</code> and <code class="prettyprint">1425</code></td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -2708,11 +2717,11 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/deals/1/mark
 </thead><tbody>
 <tr>
 <td>steps</td>
-<td>The <a href="#workflow-steps">steps</a> of the workflow.</td>
+<td>The <a href="#automation-steps">steps</a> of the automation.</td>
 </tr>
 <tr>
 <td>enter_segment</td>
-<td>The reference of the workflow filters for the <em>enter_segment</em> trigger event.</td>
+<td>The reference of the automation filters for the <em>enter_segment</em> trigger event.</td>
 </tr>
 <tr>
 <td>filters</td>
@@ -2720,12 +2729,12 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/deals/1/mark
 </tr>
 </tbody></table>
 
-<h2 id="retrieve-a-workflow">Retrieve a workflow</h2>
+<h2 id="retrieve-an-automation">Retrieve an automation</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.overloop.com/public/v1/workflows/<span class="o">{</span>WORKFLOW_ID<span class="o">}</span>
+GET https://api.overloop.com/public/v1/automations/<span class="o">{</span>AUTOMATION_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.overloop.com/public/v1/automations/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2740,20 +2749,20 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1"</s
 </thead><tbody>
 <tr>
 <td>id<br /><strong>required</strong> - <em>integer</em></td>
-<td>The ID of the workflow to retrieve</td>
+<td>The ID of the automation to retrieve</td>
 </tr>
 </tbody></table>
 
 <h3 id="returns">Returns</h3>
 
-<p>Returns the <a href="#the-workflow-object">workflow object</a>.</p>
+<p>Returns the <a href="#the-automation-object">automation object</a>.</p>
 
-<h2 id="list-workflows">List workflows</h2>
+<h2 id="list-automations">List automations</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.overloop.com/public/v1/workflows
+GET https://api.overloop.com/public/v1/automations
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.overloop.com/public/v1/automations"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2765,7 +2774,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows"</spa
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2784,7 +2793,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows"</spa
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2803,27 +2812,27 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows"</spa
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/workflows/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/workflows/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/workflows/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/automations/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/automations/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/automations/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns a list of workflows.</p>
+<p>Returns a list of automations.</p>
 
 <p>This list is <a href="#pagination">paginated</a> by 100 records and can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
 
-          <h1 id="workflow-steps">Workflow Steps</h1>
+          <h1 id="automation-steps">Automation Steps</h1>
 
-<h2 id="the-workflow-step-object">The workflow step object</h2>
+<h2 id="the-automation-step-object">The automation step object</h2>
 <pre class="highlight plaintext"><code># EXAMPLE OBJECT
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"step_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"task"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -2831,7 +2840,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows"</spa
         </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-31T12:00:00.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-31T12:00:00.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Public API Workflow Step Example"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Public API Automation Step Example"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"due_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09:00:00"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"due_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is an example description"</span><span class="p">,</span><span class="w">
@@ -2841,10 +2850,10 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows"</spa
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -2863,19 +2872,19 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows"</spa
 </thead><tbody>
 <tr>
 <td>id</td>
-<td><strong>integer</strong> <br />A unique identifier for the workflow step</td>
+<td><strong>integer</strong> <br />A unique identifier for the automation step</td>
 </tr>
 <tr>
 <td>step_type</td>
-<td><strong>string</strong> <br />The type of step. Possible values depend on the workflow type.</td>
+<td><strong>string</strong> <br />The type of step. Possible values depend on the automation type.</td>
 </tr>
 <tr>
 <td>position</td>
-<td><strong>integer</strong> <br />When the previous_step is not a <code class="prettyprint">condition</code>, the position will always be 0. Otherwise, <code class="prettyprint">0</code> is the left/yes branch of a condition, while <code class="prettyprint">1</code> is the right/no branch.</td>
+<td><strong>integer</strong> <br />When the previous_step is not a <code class="prettyprint">condition</code>, the position will always be 0. Otherwise, <code class="prettyprint">0</code> is the left/yes branch of a condition, while <code class="prettyprint">1</code> is the right/no branch</td>
 </tr>
 <tr>
 <td>previous_step_id</td>
-<td><strong>string</strong> <br />The unique identifier of the previous step. A <code class="prettyprint">null</code> value will always be assigned to the first step of the workflow.</td>
+<td><strong>string</strong> <br />The unique identifier of the previous step. A <code class="prettyprint">null</code> value will always be assigned to the first step of the automation</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -2900,17 +2909,17 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows"</spa
 </tr>
 </thead><tbody>
 <tr>
-<td>workflow</td>
-<td>The parent <a href="#workflows">workflow</a></td>
+<td>automation</td>
+<td>The parent <a href="#automations">automation</a></td>
 </tr>
 </tbody></table>
 
-<h2 id="retrieve-a-workflow-step">Retrieve a workflow step</h2>
+<h2 id="retrieve-a-automation-step">Retrieve a automation step</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.overloop.com/public/v1/workflows/<span class="o">{</span>WORKFLOW_ID<span class="o">}</span>/steps/<span class="o">{</span>STEP_ID<span class="o">}</span>
+GET https://api.overloop.com/public/v1/automations/<span class="o">{</span>AUTOMATION_ID<span class="o">}</span>/steps/<span class="o">{</span>STEP_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1/steps/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.overloop.com/public/v1/automations/1/steps/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2924,25 +2933,25 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1/ste
 </tr>
 </thead><tbody>
 <tr>
-<td>workflow_id<br /><strong>required</strong> - <em>integer</em></td>
-<td>The ID of the workflow</td>
+<td>automation_id<br /><strong>required</strong> - <em>integer</em></td>
+<td>The ID of the automation</td>
 </tr>
 <tr>
 <td>id<br /><strong>required</strong> - <em>integer</em></td>
-<td>The ID of the workflow step to retrieve</td>
+<td>The ID of the automation step to retrieve</td>
 </tr>
 </tbody></table>
 
 <h3 id="returns">Returns</h3>
 
-<p>Returns the <a href="#the-workflow-step-object">workflow step object</a>.</p>
+<p>Returns the <a href="#the-automation-step-object">automation step object</a>.</p>
 
-<h2 id="list-workflows-steps">List workflows steps</h2>
+<h2 id="list-automation-steps">List automation steps</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.overloop.com/public/v1/workflows/<span class="o">{</span>WORKFLOW_ID<span class="o">}</span>/steps
+GET https://api.overloop.com/public/v1/automations/<span class="o">{</span>AUTOMATION_ID<span class="o">}</span>/steps
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1/steps"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.overloop.com/public/v1/automations/1/steps"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -2954,59 +2963,59 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1/ste
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc3"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/workflows/1/steps?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/workflows/1/steps?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/workflows/1/steps?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/automations/1/steps?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/automations/1/steps?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/automations/1/steps?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns a list of workflows steps.</p>
+<p>Returns a list of automation steps.</p>
 
 <p>This list is <a href="#pagination">paginated</a> by 100 records and can also be <a href="#sorting">sorted</a>.</p>
 
@@ -3014,15 +3023,15 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1/ste
 
 <h2 id="the-enrollment-object">The enrollment object</h2>
 
-<p>To add a desired contact/organization/deal to a specific workflow you have to create an <strong>enrollment</strong>. The enrollment is then used to describe the progression of the record into the workflow.</p>
+<p>To add a contact/organization/deal to an automation (campaign or workflow) you have to create an <strong>enrollment</strong>. The enrollment is then used to describe the progression of the record into the automation.</p>
 <pre class="highlight plaintext"><code># EXAMPLE OBJECT
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_enrollments"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_enrollments"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"workflow_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"automation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"contact_id"</span><span class="p">:</span><span class="mi">30332</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deal_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"organization_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3036,7 +3045,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1/ste
       </span><span class="nt">"current_step"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc1"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3067,7 +3076,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1/ste
     </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-z0-9-abc1"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_steps"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_steps"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"step_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"note"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -3079,10 +3088,10 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1/ste
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="w">
+                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -3114,15 +3123,15 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1/ste
 </tr>
 <tr>
 <td>disenrolled_at</td>
-<td><strong>datetime</strong> <br />The date and time when the record has been leaved the workflow in ISO 8601 format with timezone</td>
+<td><strong>datetime</strong> <br />The date and time of when the record left the automation in ISO 8601 format with timezone</td>
 </tr>
 <tr>
 <td>start_at</td>
-<td><strong>datetime</strong> <br />The date and time on which the enrollment must be started in ISO 8601 format with timezone offset. If not set or set in the past, the enrollment starts immediately.</td>
+<td><strong>datetime</strong> <br />The date and time on which the enrollment must be started in ISO 8601 format with timezone offset. If not set or set in the past, the enrollment starts immediately</td>
 </tr>
 <tr>
 <td>throttled</td>
-<td><strong>boolean</strong> <br />If the enrollment start is being throttled.</td>
+<td><strong>boolean</strong> <br />If the enrollment start is being throttled</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -3144,32 +3153,32 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1/ste
 </thead><tbody>
 <tr>
 <td>current_step</td>
-<td>The current <a href="#workflow-steps">step</a> of this enrollment.</td>
+<td>The current <a href="#automation-steps">step</a> of this enrollment</td>
 </tr>
 <tr>
-<td>workflow</td>
-<td>The current <a href="#workflows">workflow</a> of this enrollment.</td>
+<td>automation</td>
+<td>The current <a href="#automations">automation</a> of this enrollment</td>
 </tr>
 <tr>
 <td>contact</td>
-<td>The current <a href="#contacts">contact</a> of this enrollment (for contact-based workflows).</td>
+<td>The current <a href="#contacts">contact</a> of this enrollment (for campaigns and contact-based workflows)</td>
 </tr>
 <tr>
 <td>organization</td>
-<td>The current <a href="#organizations">organization</a> of this enrollment (for organization-based workflows).</td>
+<td>The current <a href="#organizations">organization</a> of this enrollment (for organization-based workflows)</td>
 </tr>
 <tr>
 <td>deal</td>
-<td>The current <a href="#deals">deal</a> of this enrollment (for deal-based workflows).</td>
+<td>The current <a href="#deals">deal</a> of this enrollment (for deal-based workflows)</td>
 </tr>
 </tbody></table>
 
 <h2 id="create-an-enrollment">Create an enrollment</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-POST https://api.overloop.com/public/v1/workflows/<span class="o">{{</span>WORKFLOW_ID<span class="o">}}</span>/enrollments
+POST https://api.overloop.com/public/v1/automations/<span class="o">{{</span>AUTOMATION_ID<span class="o">}}</span>/enrollments
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://api.overloop.com/public/v1/workflows/1/enrollments"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.overloop.com/public/v1/automations/1/enrollments"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
@@ -3202,7 +3211,7 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/workflows/1/en
 <td>contact_id</td>
 <td><strong>yes</strong></td>
 <td><em>integer</em></td>
-<td>The contact&rsquo;s ID (required only for contact-based workflows)</td>
+<td>The contact&rsquo;s ID (required only for campaigns or contact-based workflows)</td>
 </tr>
 <tr>
 <td>organization_id</td>
@@ -3220,7 +3229,7 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/workflows/1/en
 <td>step_id</td>
 <td>no</td>
 <td><em>string</em></td>
-<td>The step&rsquo;s ID of the workflow at which the contact must be enrolled.</td>
+<td>The step&rsquo;s ID of the automation at which the contact must be enrolled</td>
 </tr>
 <tr>
 <td>reenroll</td>
@@ -3232,7 +3241,7 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/workflows/1/en
 <td>start_at</td>
 <td>no</td>
 <td><em>string</em></td>
-<td>The date and time on which the enrollment must be started in the ISO 8601 format with timezone offset. If not set or set in the past, the enrollment will start immediately.</td>
+<td>The date and time on which the enrollment must be started in the ISO 8601 format with timezone offset. If not set or set in the past, the enrollment will start immediately</td>
 </tr>
 </tbody></table>
 
@@ -3242,10 +3251,10 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/workflows/1/en
 
 <h2 id="stop-an-enrollment">Stop an enrollment</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-DELETE https://api.overloop.com/public/v1/workflows/<span class="o">{{</span>WORKFLOW_ID<span class="o">}}</span>/enrollments/<span class="o">{{</span>ENROLLMENT_ID<span class="o">}}</span>
+DELETE https://api.overloop.com/public/v1/automations/<span class="o">{{</span>AUTOMATION_ID<span class="o">}}</span>/enrollments/<span class="o">{{</span>ENROLLMENT_ID<span class="o">}}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/workflows/1/enrollments/1"</span> <span class="se">\</span>
+curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/automations/1/enrollments/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -3276,10 +3285,10 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/workflows/1/
 
 <h2 id="retrieve-an-enrollment">Retrieve an enrollment</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.overloop.com/public/v1/workflows/<span class="o">{{</span>WORKFLOW_ID<span class="o">}}</span>/enrollments/<span class="o">{{</span>ENROLLMENT_ID<span class="o">}}</span>
+GET https://api.overloop.com/public/v1/automations/<span class="o">{{</span>AUTOMATION_ID<span class="o">}}</span>/enrollments/<span class="o">{{</span>ENROLLMENT_ID<span class="o">}}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.overloop.com/public/v1/workflows/1/enrollments/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.overloop.com/public/v1/automations/1/enrollments/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -3323,7 +3332,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/enrollments"</s
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows_enrollments"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_enrollments"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"disenrolled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-03T13:01:15.697Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3337,10 +3346,10 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/enrollments"</s
             </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflows"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"current_step"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
