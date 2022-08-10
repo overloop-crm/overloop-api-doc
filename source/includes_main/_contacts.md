@@ -26,6 +26,7 @@
         "CEO",
         "BE"
       ],
+      "email_status": "found",
       "c_custom_field_a": "Hot lead",
       "created_from": "extension",
       "last_emailed_at": null,
@@ -94,8 +95,10 @@ clicked_at | no | **datetime** <br />The date and time when the contact last cli
 replied_at | no | **datetime** <br />The date and time when the contact last replied to an email
 url | no | **string** <br />The full URL to the contact on Overloop
 lists | no | **array** <br /> Name of the lists of the contact
+email_status | no | **string** <br />Indicate if the contact’s email address has been searched for by the Email Finder and the result of the last search. Can be `found`, `searching`, `search_failed`, `user_edited` or `not_searched`
 created_at | no | **datetime** <br />ISO 8601 format with timezone offset
 updated_at | no | **datetime** <br />ISO 8601 format with timezone offset
+
 
 ### Custom Fields
 

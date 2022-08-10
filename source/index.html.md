@@ -31,9 +31,5 @@ includes_main:
   - custom_fields
   - exclusion_list_items
 
-includes_emails:
-  - search
-  - verify
-
 search: true
 ---
