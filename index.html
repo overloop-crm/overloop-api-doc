@@ -515,24 +515,19 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 <td><strong>boolean</strong> <br />Wheteer or not the contact opened any of your emails</td>
 </tr>
 <tr>
-<td>clicked</td>
-<td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Wheter or not the contact clicked a link in any of your emails</td>
-</tr>
-<tr>
-<td>replied</td>
-<td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Whether or not the contact replied to any of your emails</td>
-</tr>
-<tr>
-<td>bounced</td>
-<td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Whether or not the contact email bounced</td>
-</tr>
-<tr>
 <td>opened_at</td>
 <td>no</td>
 <td><strong>datetime</strong> <br />The date and time when the contact last opened an email</td>
+</tr>
+<tr>
+<td>open_count</td>
+<td><strong>no</strong></td>
+<td><strong>integer</strong> <br />The number of times the contact opened any of your emails</td>
+</tr>
+<tr>
+<td>clicked</td>
+<td><strong>yes</strong></td>
+<td><strong>boolean</strong> <br />Wheter or not the contact clicked a link in any of your emails</td>
 </tr>
 <tr>
 <td>clicked_at</td>
@@ -540,9 +535,34 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 <td><strong>datetime</strong> <br />The date and time when the contact last clicked a link in an email</td>
 </tr>
 <tr>
+<td>click_count</td>
+<td><strong>no</strong></td>
+<td><strong>integer</strong> <br />The number of times the contact clicked a link in any of your emails</td>
+</tr>
+<tr>
+<td>replied</td>
+<td><strong>yes</strong></td>
+<td><strong>boolean</strong> <br />Whether or not the contact replied to one of your emails or LinkedIn messages</td>
+</tr>
+<tr>
 <td>replied_at</td>
 <td>no</td>
-<td><strong>datetime</strong> <br />The date and time when the contact last replied to an email</td>
+<td><strong>datetime</strong> <br />The date and time when the contact last replied to an email or a LinkedIn message</td>
+</tr>
+<tr>
+<td>email_reply_count</td>
+<td><strong>no</strong></td>
+<td><strong>integer</strong> <br />The number of times the contact replied to one of your emails</td>
+</tr>
+<tr>
+<td>linkedin_reply_count</td>
+<td><strong>no</strong></td>
+<td><strong>integer</strong> <br />The number of times the contact replied to one of your LinkedIn messages</td>
+</tr>
+<tr>
+<td>bounced</td>
+<td><strong>yes</strong></td>
+<td><strong>boolean</strong> <br />Whether or not the contact email bounced</td>
 </tr>
 <tr>
 <td>url</td>
