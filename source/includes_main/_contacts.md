@@ -87,12 +87,16 @@ created_from | no | **string** <br />The source of the contact. Can be `web`, `e
 last_emailed_at | no | **datetime** <br />The date and time of the last email sent to this contact in ISO 8601 format with timezone offset
 excluded | **yes** | **boolean** <br />Whether or not the contact is marked as excluded
 opened | **yes** | **boolean** <br />Wheteer or not the contact opened any of your emails
-clicked | **yes** | **boolean** <br />Wheter or not the contact clicked a link in any of your emails
-replied | **yes** | **boolean** <br />Whether or not the contact replied to any of your emails
-bounced | **yes** | **boolean** <br />Whether or not the contact email bounced
 opened_at | no | **datetime** <br />The date and time when the contact last opened an email
+open_count | **no** | **integer** <br />The number of times the contact opened any of your emails
+clicked | **yes** | **boolean** <br />Wheter or not the contact clicked a link in any of your emails
 clicked_at | no | **datetime** <br />The date and time when the contact last clicked a link in an email
-replied_at | no | **datetime** <br />The date and time when the contact last replied to an email
+click_count | **no** | **integer** <br />The number of times the contact clicked a link in any of your emails
+replied | **yes** | **boolean** <br />Whether or not the contact replied to one of your emails or LinkedIn messages
+replied_at | no | **datetime** <br />The date and time when the contact last replied to an email or a LinkedIn message
+email_reply_count | **no** | **integer** <br />The number of times the contact replied to one of your emails
+linkedin_reply_count | **no** | **integer** <br />The number of times the contact replied to one of your LinkedIn messages
+bounced | **yes** | **boolean** <br />Whether or not the contact email bounced
 url | no | **string** <br />The full URL to the contact on Overloop
 lists | no | **array** <br /> Name of the lists of the contact
 email_status | no | **string** <br />Indicate if the contact’s email address has been searched for by the Email Finder and the result of the last search. Can be `found`, `searching`, `search_failed`, `user_edited` or `not_searched`
