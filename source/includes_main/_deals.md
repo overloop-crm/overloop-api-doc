@@ -47,10 +47,10 @@
         "type": "organizations"
       }
     },
-    "contact": {
+    "prospect": {
       "data": {
         "id": "4",
-        "type": "contacts"
+        "type": "prospects"
       }
     },
     "stage": {
@@ -91,7 +91,7 @@ Object | Description
 creator | The [user](#users) who created the deal
 updater | The [user](#users) who updated the deal
 owner | The [user](#users) who owns deal
-contact | The [contact](#contacts) of this deal
+prospect | The [prospect](#prospects) of this deal
 organization | The [organization](#organizations) of this deal
 stage | The [stage](#stages) of this deal
 

@@ -36,8 +36,8 @@ id | **yes** | **integer** <br />A unique identifier for the organization
 name | **yes** | **string** <br />The name of the organization
 website | **yes** | **string** <br />The organization's website
 description | **yes** | **string** <br />The organization's description
-email | **yes** | **string** <br />The organization's contact email
-phone | **yes** | **string** <br />The organization's contact phone number
+email | **yes** | **string** <br />The organization's prospect email
+phone | **yes** | **string** <br />The organization's prospect phone number
 country | **yes** | **string** <br />The organization's country
 city | **yes** | **string** <br />The organization's city
 state | **yes** | **string** <br />The organization's state
@@ -90,8 +90,8 @@ Parameter | Default | Description
 name | *NULL* | The name of the organization
 website | *NULL* | The organization's website
 description | *NULL* | The organization's description
-email | *NULL* | The organization's contact email
-phone | *NULL* | The organization's contact phone number
+email | *NULL* | The organization's prospect email
+phone | *NULL* | The organization's prospect phone number
 country | *NULL* | The organization's country
 city | *NULL* | The organization's city
 state | *NULL* | The organization's state
@@ -156,8 +156,8 @@ id<br />**required** - *integer* | A unique identifier for the organization
 name | The name of the organization
 website | The organization's website
 description | The organization's description
-email | The organization's contact email
-phone | The organization's contact phone number
+email | The organization's prospect email
+phone | The organization's prospect phone number
 country | The organization's country
 city | The organization's city
 state | The organization's state

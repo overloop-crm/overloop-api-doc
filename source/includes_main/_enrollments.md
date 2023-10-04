@@ -1,6 +1,6 @@
 # Enrollments
 ## The enrollment object
-To add a contact/organization/deal to an automation (campaign or workflow) you have to create an **enrollment**. The enrollment is then used to describe the progression of the record into the automation.
+To add a prospect/organization/deal to an automation (campaign or workflow) you have to create an **enrollment**. The enrollment is then used to describe the progression of the record into the automation.
 
 ```
 # EXAMPLE OBJECT
@@ -12,7 +12,7 @@ To add a contact/organization/deal to an automation (campaign or workflow) you h
     "type": "automations_enrollments",
     "attributes": {
       "automation_id": 1,
-      "contact_id":30332,
+      "prospect_id":30332,
       "deal_id":null,
       "organization_id":null,
       "disenrolled_at": null,
@@ -37,13 +37,13 @@ To add a contact/organization/deal to an automation (campaign or workflow) you h
       "record":{
         "data":{
           "id":"30332",
-          "type":"contacts"
+          "type":"prospects"
         }
       },
-      "contact": {
+      "prospect": {
         "data": {
           "id": "30332",
-          "type": "contacts"
+          "type": "prospects"
         }
       },
       "organization": {
@@ -86,7 +86,7 @@ Attribute | Description
 --------- | -----------
 id | **integer** <br />A unique identifier for the enrollment
 record_id | **integer** <br />The unique identifier of the enrolled record
-record_type | **string** <br />The type of the enrolled record (organization, deal or contact)
+record_type | **string** <br />The type of the enrolled record (organization, deal or prospect)
 disenrolled_at | **datetime** <br />The date and time of when the record left the automation in ISO 8601 format with timezone
 start_at | **datetime** <br />The date and time on which the enrollment must be started in ISO 8601 format with timezone offset. If not set or set in the past, the enrollment starts immediately
 throttled | **boolean** <br />If the enrollment start is being throttled
@@ -98,7 +98,7 @@ Object | Description
 --------- | -----------
 current_step | The current [step](#automation-steps) of this enrollment
 automation | The current [automation](#automations) of this enrollment
-contact | The current [contact](#contacts) of this enrollment (for campaigns and contact-based workflows)
+prospect | The current [prospect](#prospects) of this enrollment (for campaigns and prospect-based workflows)
 organization | The current [organization](#organizations) of this enrollment (for organization-based workflows)
 deal | The current [deal](#deals) of this enrollment (for deal-based workflows)
 
@@ -115,7 +115,7 @@ curl -X POST "https://api.overloop.com/public/v1/automations/1/enrollments" \
   "data": {
     "type": "enrollments",
     "attributes": {
-      "contact_id": 1,
+      "prospect_id": 1,
       "step_id": "abc123",
       "reenroll": false,
       "start_at": "2020-08-20T08:00:00+02:00",
@@ -130,11 +130,11 @@ This will create a new enrollment.
 ### Parameters
 Parameter | Required? | Type | Description
 --------- | --------- | ---- | ------------
-contact_id | **yes** | *integer* | The contact's ID (required only for campaigns or contact-based workflows)
+prospect_id | **yes** | *integer* | The prospect's ID (required only for campaigns or prospect-based workflows)
 organization_id | **yes** | *integer* | The organization's ID (required only for organization-based workflows)
 deal_id | **yes** | *integer* | The deal's ID (required only for deal-based workflows)
-step_id | no | *string* | The step's ID of the automation at which the contact must be enrolled
-reenroll | no | *boolean* | Set to `false` if you want to prevent re enroll the contact because he already has been enrolled. **If not set to** `false` **this parameter will always be** `true`
+step_id | no | *string* | The step's ID of the automation at which the prospect must be enrolled
+reenroll | no | *boolean* | Set to `false` if you want to prevent re enroll the prospect because he already has been enrolled. **If not set to** `false` **this parameter will always be** `true`
 start_at | no | *string* | The date and time on which the enrollment must be started in the ISO 8601 format with timezone offset. If not set or set in the past, the enrollment will start immediately
 
 ### Returns
@@ -207,10 +207,10 @@ curl -X GET "https://api.overloop.com/public/v1/enrollments" \
         "updated_at": "2020-09-30T08:02:51Z"
       },
       "relationships": {
-        "contact": {
+        "prospect": {
           "data": {
             "id": "29646",
-            "type": "contacts"
+            "type": "prospects"
           }
         },
         "automation": {
@@ -226,11 +226,11 @@ curl -X GET "https://api.overloop.com/public/v1/enrollments" \
     }
   ],
   "links": {
-    "self": "https://localhost:3000/api/public/v1/enrollments?filter=contact_id%3A29646&page%5Bnumber%5D=1&page%5Bsize%5D=100",
-    "first": "https://localhost:3000/api/public/v1/enrollments?filter=contact_id%3A29646&page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "self": "https://localhost:3000/api/public/v1/enrollments?filter=prospect_id%3A29646&page%5Bnumber%5D=1&page%5Bsize%5D=100",
+    "first": "https://localhost:3000/api/public/v1/enrollments?filter=prospect_id%3A29646&page%5Bnumber%5D=1&page%5Bsize%5D=100",
     "prev": null,
     "next": null,
-    "last": "https://localhost:3000/api/public/v1/enrollments?filter=contact_id%3A29646&page%5Bnumber%5D=1&page%5Bsize%5D=100"
+    "last": "https://localhost:3000/api/public/v1/enrollments?filter=prospect_id%3A29646&page%5Bnumber%5D=1&page%5Bsize%5D=100"
   }
 }
 ```

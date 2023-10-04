@@ -22,7 +22,7 @@
           "due_offset": 1,
           "description": "This is an example description",
           "task_category": null,
-          "contact_segment": null,
+          "prospect_segment": null,
           "wait_for_completion": true
         }
       },

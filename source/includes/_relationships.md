@@ -1,25 +1,25 @@
 # Relationships
 ```shell
 # EXAMPLE
-GET https://api.overloop.com/public/v1/contacts?include=organization
+GET https://api.overloop.com/public/v1/prospects?include=organization
 ```
 
-> Get contacts with their associated organizations
+> Get prospects with their associated organizations
 
 Resources returned by the API are returned in the JSON API format, which means that related entities are 
 linked using a "relationship" section in the JSON payloads. 
-This section only contains the links between the unique identifier of related records (in the example, Contact#29964 and Organization#1). 
+This section only contains the links between the unique identifier of related records (in the example, Prospect#29964 and Organization#1). 
 
 In order to get access to associated information on an entity, you can use the parameter `?include=`, which will create 
 a new section "included" containing the full payload of all the associated data. Notice that you can include multiple 
-relationships by joining them using a comma: `GET https://api.overloop.com/public/v1/contacts?include=organization,creator`
+relationships by joining them using a comma: `GET https://api.overloop.com/public/v1/prospects?include=organization,creator`
 
 ```shell
 # RETURNS
 {
     "data": {
         "id": "29964",
-        "type": "contacts",
+        "type": "prospects",
         "attributes": {
             …
         },

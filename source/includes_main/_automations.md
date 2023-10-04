@@ -15,11 +15,11 @@
     "attributes": {
       "name": "Public API Automation Example",
       "enter_triggers": [
-        "contact.created",
+        "prospect.created",
       ],
       "enter_trigger_attributes": {},
       "exit_triggers": [
-        "contact.replied"
+        "prospect.replied"
       ],
       "status": "on",
       "send_as_thread": true,
@@ -34,7 +34,7 @@
       "end_sending_minutes": 1020,
       "timezone": "Etc/UTC",
       "automation_type": "campaign",
-      "record_type": "contacts",
+      "record_type": "prospects",
       "created_at": "2020-01-31T12:00:00.000Z",
       "updated_at": "2020-01-31T12:00:00.000Z"
     },
@@ -105,7 +105,7 @@ Attribute | Filterable? | Description
 id | no | **integer** <br />A unique identifier for the automation
 name | no | **string** <br />The automation's name
 automation_type | **yes** | **string** <br />Either `campaign` or `workflow`
-record_type | **yes** | **string** <br />The type of records that can be enrolled into the automation. Always `contacts` for campaigns, either `contacts`, `organizations`, `deals` or `conversations` for workflows
+record_type | **yes** | **string** <br />The type of records that can be enrolled into the automation. Always `prospects` for campaigns, either `prospects`, `organizations`, `deals` or `conversations` for workflows
 enter_triggers | no | **array** <br />An array containing the events that will make records entering the automation. Possible values depends on the `record_type`
 enter_trigger_attributes | no | **json** <br />A json object containing additional information about the enter triggers settings. Its content varies depending on the selected enter triggers
 exit_triggers | no | **array** <br />An array containing the events that will make records exit the automation. Possible values depends on the `record_type`

@@ -1,10 +1,10 @@
 # Sorting
 ```shell
 # EXAMPLE
-GET https://api.overloop.com/public/v1/contacts?sort=-created_at
+GET https://api.overloop.com/public/v1/prospects?sort=-created_at
 ```
 
-> Get contacts sorted by creation date DESC (most recents first)
+> Get prospects sorted by creation date DESC (most recents first)
 
 Our APIs supports requests to sort resource collections according to one or more criteria using a `sort` query parameter. The value for `sort` must represent the object attributes.
 
