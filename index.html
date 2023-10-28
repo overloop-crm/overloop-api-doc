@@ -153,11 +153,11 @@ You must replace <code>your_api_key</code> with your personal API key.
 
           <h1 id="sorting">Sorting</h1>
 <pre class="highlight shell"><code><span class="c"># EXAMPLE</span>
-GET https://api.overloop.com/public/v1/contacts?sort<span class="o">=</span>-created_at
+GET https://api.overloop.com/public/v1/prospects?sort<span class="o">=</span>-created_at
 </code></pre>
 
 <blockquote>
-<p>Get contacts sorted by creation date DESC (most recents first)</p>
+<p>Get prospects sorted by creation date DESC (most recents first)</p>
 </blockquote>
 
 <p>Our APIs supports requests to sort resource collections according to one or more criteria using a <code class="prettyprint">sort</code> query parameter. The value for <code class="prettyprint">sort</code> must represent the object attributes.</p>
@@ -168,11 +168,11 @@ GET https://api.overloop.com/public/v1/contacts?sort<span class="o">=</span>-cre
 
           <h1 id="filtering">Filtering</h1>
 <pre class="highlight shell"><code><span class="c"># EXAMPLE</span>
-GET https://api.overloop.com/public/v1/contacts/?filter<span class="o">=</span>first_name:john,last_name:doe
+GET https://api.overloop.com/public/v1/prospects/?filter<span class="o">=</span>first_name:john,last_name:doe
 </code></pre>
 
 <blockquote>
-<p>Get contacts whose first name is &lsquo;john&rsquo; and last name is &#39;doe&rsquo;.</p>
+<p>Get prospects whose first name is &lsquo;john&rsquo; and last name is &#39;doe&rsquo;.</p>
 </blockquote>
 
 <p>Resource collections retrieved through the API can be <strong>filtered</strong> using one or several object attributes, in the form of a comma separated list. The filterable attributes <strong>accepted</strong> by the API for <strong>each object collection</strong> are detailed in the section of the doc on the considered object.</p>
@@ -185,11 +185,11 @@ GET https://api.overloop.com/public/v1/contacts/?filter<span class="o">=</span>f
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/contacts?page%5Bnumber%5D=2&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/contacts?page%5Bnumber%5D=1&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"prev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/contacts?page%5Bnumber%5D=1&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/contacts?page%5Bnumber%5D=3&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/contacts?page%5Bnumber%5D=2203&amp;page%5Bsize%5D=1"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/prospects?page%5Bnumber%5D=2&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/prospects?page%5Bnumber%5D=1&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/prospects?page%5Bnumber%5D=1&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/prospects?page%5Bnumber%5D=3&amp;page%5Bsize%5D=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/prospects?page%5Bnumber%5D=2203&amp;page%5Bsize%5D=1"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -206,25 +206,25 @@ GET https://api.overloop.com/public/v1/contacts/?filter<span class="o">=</span>f
 
           <h1 id="relationships">Relationships</h1>
 <pre class="highlight shell"><code><span class="c"># EXAMPLE</span>
-GET https://api.overloop.com/public/v1/contacts?include<span class="o">=</span>organization
+GET https://api.overloop.com/public/v1/prospects?include<span class="o">=</span>organization
 </code></pre>
 
 <blockquote>
-<p>Get contacts with their associated organizations</p>
+<p>Get prospects with their associated organizations</p>
 </blockquote>
 
 <p>Resources returned by the API are returned in the JSON API format, which means that related entities are 
 linked using a &ldquo;relationship&rdquo; section in the JSON payloads. 
-This section only contains the links between the unique identifier of related records (in the example, Contact#29964 and Organization#1). </p>
+This section only contains the links between the unique identifier of related records (in the example, Prospect#29964 and Organization#1). </p>
 
 <p>In order to get access to associated information on an entity, you can use the parameter <code class="prettyprint">?include=</code>, which will create 
 a new section &ldquo;included&rdquo; containing the full payload of all the associated data. Notice that you can include multiple 
-relationships by joining them using a comma: <code class="prettyprint">GET https://api.overloop.com/public/v1/contacts?include=organization,creator</code></p>
+relationships by joining them using a comma: <code class="prettyprint">GET https://api.overloop.com/public/v1/prospects?include=organization,creator</code></p>
 <pre class="highlight shell"><code><span class="c"># RETURNS</span>
 <span class="o">{</span>
     <span class="s2">"data"</span>: <span class="o">{</span>
         <span class="s2">"id"</span>: <span class="s2">"29964"</span>,
-        <span class="s2">"type"</span>: <span class="s2">"contacts"</span>,
+        <span class="s2">"type"</span>: <span class="s2">"prospects"</span>,
         <span class="s2">"attributes"</span>: <span class="o">{</span>
             …
         <span class="o">}</span>,
@@ -276,7 +276,7 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 
           <h1 id="errors">Errors</h1>
 <pre class="highlight shell"><code><span class="c"># EXAMPLE OBJECT</span>
-<span class="c">## When trying to add a contact with a duplicate email address</span>
+<span class="c">## When trying to add a prospect with a duplicate email address</span>
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -301,7 +301,7 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Overloop uses conventional HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a contact cannot be created, etc.), and codes in the 5xx range indicate an error with Overloop&rsquo;s servers.</p>
+<p>Overloop uses conventional HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a prospect cannot be created, etc.), and codes in the 5xx range indicate an error with Overloop&rsquo;s servers.</p>
 
 <table><thead>
 <tr>
@@ -353,15 +353,15 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 
 
         <h1 class="headline" data-unique="main-api" id="main-api">API Endpoints</h1>
-          <h1 id="contacts">Contacts</h1>
+          <h1 id="prospects">Prospects</h1>
 
-<h2 id="the-contact-object">The contact object</h2>
+<h2 id="the-prospect-object">The prospect object</h2>
 <pre class="highlight plaintext"><code># EXAMPLE OBJECT
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vincenzo@overloop.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vincenzo"</span><span class="p">,</span><span class="w">
@@ -391,7 +391,7 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
       </span><span class="nt">"replied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"replied_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"excluded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://overloop.com/contacts/1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://overloop.com/prospects/1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Belgium"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Manager"</span><span class="p">],</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-15T16:48:46+02:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-25T12:40:46+01:00"</span><span class="w">
@@ -432,152 +432,152 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 <tr>
 <td>id</td>
 <td><strong>yes</strong></td>
-<td><strong>integer</strong> <br />A unique identifier for the contact</td>
+<td><strong>integer</strong> <br />A unique identifier for the prospect</td>
 </tr>
 <tr>
 <td>email</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The contact&rsquo;s email address</td>
+<td><strong>string</strong> <br />The prospect&rsquo;s email address</td>
 </tr>
 <tr>
 <td>first_name</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The contact&rsquo;s first name</td>
+<td><strong>string</strong> <br />The prospect&rsquo;s first name</td>
 </tr>
 <tr>
 <td>last_name</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The contact&rsquo;s last name</td>
+<td><strong>string</strong> <br />The prospect&rsquo;s last name</td>
 </tr>
 <tr>
 <td>description</td>
 <td>no</td>
-<td><strong>string</strong> <br />A text description of the contact</td>
+<td><strong>string</strong> <br />A text description of the prospect</td>
 </tr>
 <tr>
 <td>jobtitle</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The contact&rsquo;s job title</td>
+<td><strong>string</strong> <br />The prospect&rsquo;s job title</td>
 </tr>
 <tr>
 <td>linkedin_profile</td>
 <td>no</td>
-<td><strong>string</strong> <br />A link to the contact&rsquo;s LinkedIn profile</td>
+<td><strong>string</strong> <br />A link to the prospect&rsquo;s LinkedIn profile</td>
 </tr>
 <tr>
 <td>phone</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The contact&rsquo;s phone number</td>
+<td><strong>string</strong> <br />The prospect&rsquo;s phone number</td>
 </tr>
 <tr>
 <td>title</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The contact&rsquo;s title of civility</td>
+<td><strong>string</strong> <br />The prospect&rsquo;s title of civility</td>
 </tr>
 <tr>
 <td>country</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The contact&rsquo;s country</td>
+<td><strong>string</strong> <br />The prospect&rsquo;s country</td>
 </tr>
 <tr>
 <td>state</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The contact&rsquo;s state or region</td>
+<td><strong>string</strong> <br />The prospect&rsquo;s state or region</td>
 </tr>
 <tr>
 <td>city</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The contact&rsquo;s city</td>
+<td><strong>string</strong> <br />The prospect&rsquo;s city</td>
 </tr>
 <tr>
 <td>industry</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The contact&rsquo;s industry</td>
+<td><strong>string</strong> <br />The prospect&rsquo;s industry</td>
 </tr>
 <tr>
 <td>created_from</td>
 <td>no</td>
-<td><strong>string</strong> <br />The source of the contact. Can be <code class="prettyprint">web</code>, <code class="prettyprint">extension</code>, <code class="prettyprint">api</code> or <code class="prettyprint">import</code></td>
+<td><strong>string</strong> <br />The source of the prospect. Can be <code class="prettyprint">web</code>, <code class="prettyprint">extension</code>, <code class="prettyprint">api</code> or <code class="prettyprint">import</code></td>
 </tr>
 <tr>
 <td>last_emailed_at</td>
 <td>no</td>
-<td><strong>datetime</strong> <br />The date and time of the last email sent to this contact in ISO 8601 format with timezone offset</td>
+<td><strong>datetime</strong> <br />The date and time of the last email sent to this prospect in ISO 8601 format with timezone offset</td>
 </tr>
 <tr>
 <td>excluded</td>
 <td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Whether or not the contact is marked as excluded</td>
+<td><strong>boolean</strong> <br />Whether or not the prospect is marked as excluded</td>
 </tr>
 <tr>
 <td>opened</td>
 <td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Wheteer or not the contact opened any of your emails</td>
+<td><strong>boolean</strong> <br />Wheteer or not the prospect opened any of your emails</td>
 </tr>
 <tr>
 <td>opened_at</td>
 <td>no</td>
-<td><strong>datetime</strong> <br />The date and time when the contact last opened an email</td>
+<td><strong>datetime</strong> <br />The date and time when the prospect last opened an email</td>
 </tr>
 <tr>
 <td>open_count</td>
 <td><strong>no</strong></td>
-<td><strong>integer</strong> <br />The number of times the contact opened any of your emails</td>
+<td><strong>integer</strong> <br />The number of times the prospect opened any of your emails</td>
 </tr>
 <tr>
 <td>clicked</td>
 <td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Wheter or not the contact clicked a link in any of your emails</td>
+<td><strong>boolean</strong> <br />Wheter or not the prospect clicked a link in any of your emails</td>
 </tr>
 <tr>
 <td>clicked_at</td>
 <td>no</td>
-<td><strong>datetime</strong> <br />The date and time when the contact last clicked a link in an email</td>
+<td><strong>datetime</strong> <br />The date and time when the prospect last clicked a link in an email</td>
 </tr>
 <tr>
 <td>click_count</td>
 <td><strong>no</strong></td>
-<td><strong>integer</strong> <br />The number of times the contact clicked a link in any of your emails</td>
+<td><strong>integer</strong> <br />The number of times the prospect clicked a link in any of your emails</td>
 </tr>
 <tr>
 <td>replied</td>
 <td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Whether or not the contact replied to one of your emails or LinkedIn messages</td>
+<td><strong>boolean</strong> <br />Whether or not the prospect replied to one of your emails or LinkedIn messages</td>
 </tr>
 <tr>
 <td>replied_at</td>
 <td>no</td>
-<td><strong>datetime</strong> <br />The date and time when the contact last replied to an email or a LinkedIn message</td>
+<td><strong>datetime</strong> <br />The date and time when the prospect last replied to an email or a LinkedIn message</td>
 </tr>
 <tr>
 <td>email_reply_count</td>
 <td><strong>no</strong></td>
-<td><strong>integer</strong> <br />The number of times the contact replied to one of your emails</td>
+<td><strong>integer</strong> <br />The number of times the prospect replied to one of your emails</td>
 </tr>
 <tr>
 <td>linkedin_reply_count</td>
 <td><strong>no</strong></td>
-<td><strong>integer</strong> <br />The number of times the contact replied to one of your LinkedIn messages</td>
+<td><strong>integer</strong> <br />The number of times the prospect replied to one of your LinkedIn messages</td>
 </tr>
 <tr>
 <td>bounced</td>
 <td><strong>yes</strong></td>
-<td><strong>boolean</strong> <br />Whether or not the contact email bounced</td>
+<td><strong>boolean</strong> <br />Whether or not the prospect email bounced</td>
 </tr>
 <tr>
 <td>url</td>
 <td>no</td>
-<td><strong>string</strong> <br />The full URL to the contact on Overloop</td>
+<td><strong>string</strong> <br />The full URL to the prospect on Overloop</td>
 </tr>
 <tr>
 <td>lists</td>
 <td>no</td>
-<td><strong>array</strong> <br /> Name of the lists of the contact</td>
+<td><strong>array</strong> <br /> Name of the lists of the prospect</td>
 </tr>
 <tr>
 <td>email_status</td>
 <td>no</td>
-<td><strong>string</strong> <br />Indicate if the contact’s email address has been searched for by the Email Finder and the result of the last search. Can be <code class="prettyprint">found</code>, <code class="prettyprint">searching</code>, <code class="prettyprint">search_failed</code>, <code class="prettyprint">user_edited</code> or <code class="prettyprint">not_searched</code></td>
+<td><strong>string</strong> <br />Indicate if the prospect’s email address has been searched for by the Email Finder and the result of the last search. Can be <code class="prettyprint">found</code>, <code class="prettyprint">searching</code>, <code class="prettyprint">search_failed</code>, <code class="prettyprint">user_edited</code> or <code class="prettyprint">not_searched</code></td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -609,33 +609,33 @@ relationships by joining them using a comma: <code class="prettyprint">GET https
 </thead><tbody>
 <tr>
 <td>creator</td>
-<td>The <a href="#users">user</a> who created the contact</td>
+<td>The <a href="#users">user</a> who created the prospect</td>
 </tr>
 <tr>
 <td>organization</td>
-<td>The <a href="#organizations">organization</a> of this contact</td>
+<td>The <a href="#organizations">organization</a> of this prospect</td>
 </tr>
 <tr>
 <td>owner</td>
-<td>The <a href="#users">user</a> who owns the contact</td>
+<td>The <a href="#users">user</a> who owns the prospect</td>
 </tr>
 <tr>
 <td>enrollments</td>
-<td>The <a href="#enrollments">enrollments</a> of the contact in automations (campaigns or workflows)</td>
+<td>The <a href="#enrollments">enrollments</a> of the prospect in automations (campaigns or workflows)</td>
 </tr>
 </tbody></table>
 
-<h2 id="create-a-contact">Create a contact</h2>
+<h2 id="create-a-prospect">Create a prospect</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-POST https://api.overloop.com/public/v1/contacts
+POST https://api.overloop.com/public/v1/prospects
 
 <span class="c"># EXAMPLE</span>
-curl -X POST <span class="s2">"https://api.overloop.com/public/v1/contacts"</span> <span class="se">\</span>
+curl -X POST <span class="s2">"https://api.overloop.com/public/v1/prospects"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
   "data": {
-    "type": "contacts",
+    "type": "prospects",
     "attributes": {
       "email": "vincenzo@overloop.com",
       "first_name": "Vincenzo",
@@ -647,7 +647,7 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/contacts"</spa
 }'</span>
 </code></pre>
 
-<p>This will create a new contact. If you don&rsquo;t set the <code class="prettyprint">owner_id</code> parameter then the user who performed the action will be assigned as the owner.</p>
+<p>This will create a new prospect. If you don&rsquo;t set the <code class="prettyprint">owner_id</code> parameter then the user who performed the action will be assigned as the owner.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -661,76 +661,76 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/contacts"</spa
 <tr>
 <td>email<br /><em>string</em></td>
 <td><em>NULL</em></td>
-<td>The contact&rsquo;s email</td>
+<td>The prospect&rsquo;s email</td>
 </tr>
 <tr>
 <td>first_name<br /><em>string</em></td>
 <td><em>NULL</em></td>
-<td>The contact&rsquo;s first name</td>
+<td>The prospect&rsquo;s first name</td>
 </tr>
 <tr>
 <td>last_name<br /><em>string</em></td>
 <td><em>NULL</em></td>
-<td>The contact&rsquo;s last name</td>
+<td>The prospect&rsquo;s last name</td>
 </tr>
 <tr>
 <td>description<br /><em>string</em></td>
 <td><em>NULL</em></td>
-<td>A text description of the contact</td>
+<td>A text description of the prospect</td>
 </tr>
 <tr>
 <td>jobtitle<br /><em>string</em></td>
 <td><em>NULL</em></td>
-<td>The contact&rsquo;s job title</td>
+<td>The prospect&rsquo;s job title</td>
 </tr>
 <tr>
 <td>linkedin_profile<br /><em>string</em></td>
 <td><em>NULL</em></td>
-<td>A link to the contact&rsquo;s LinkedIn profile</td>
+<td>A link to the prospect&rsquo;s LinkedIn profile</td>
 </tr>
 <tr>
 <td>phone<br /><em>string</em></td>
 <td><em>NULL</em></td>
-<td>The contact&rsquo;s phone number</td>
+<td>The prospect&rsquo;s phone number</td>
 </tr>
 <tr>
 <td>title<br /><em>string</em></td>
 <td><em>NULL</em></td>
-<td>The contact&rsquo;s title of civility</td>
+<td>The prospect&rsquo;s title of civility</td>
 </tr>
 <tr>
 <td>country<br /><em>string</em></td>
 <td><em>NULL</em></td>
-<td>The contact&rsquo;s country</td>
+<td>The prospect&rsquo;s country</td>
 </tr>
 <tr>
 <td>state<br /><em>string</em></td>
 <td><em>NULL</em></td>
-<td>The contact&rsquo;s state or region</td>
+<td>The prospect&rsquo;s state or region</td>
 </tr>
 <tr>
 <td>city<br /><em>string</em></td>
 <td><em>NULL</em></td>
-<td>The contact&rsquo;s city</td>
+<td>The prospect&rsquo;s city</td>
 </tr>
 <tr>
 <td>industry<br /><em>string</em></td>
 <td><em>NULL</em></td>
-<td>The contact&rsquo;s industry</td>
+<td>The prospect&rsquo;s industry</td>
 </tr>
 <tr>
 <td>lists<br /><em>array</em></td>
 <td><em>NULL</em></td>
-<td>Name of the lists where to save the contact<br/>(note: we will create the lists if they don&rsquo;t exist)</td>
+<td>Name of the lists where to save the prospect<br/>(note: we will create the lists if they don&rsquo;t exist)</td>
 </tr>
 <tr>
 <td>owner_id<br /><em>integer</em></td>
-<td>ID of the user who created the contact</td>
-<td>The ID of the user owning this contact</td>
+<td>ID of the user who created the prospect</td>
+<td>The ID of the user owning this prospect</td>
 </tr>
 <tr>
 <td>organization_id<br /><em>integer</em></td>
-<td>ID of the organization this contact belongs to</td>
+<td>ID of the organization this prospect belongs to</td>
 <td>See <a href="#create-an-organization">create an organization</a></td>
 </tr>
 </tbody></table>
@@ -740,14 +740,14 @@ that will return an existing organization if an organization with that name alre
 
 <h3 id="returns">Returns</h3>
 
-<p>Returns the <a href="#the-contact-object">contact object</a>.</p>
+<p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
 
-<h2 id="retrieve-a-contact">Retrieve a contact</h2>
+<h2 id="retrieve-a-prospect">Retrieve a prospect</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.overloop.com/public/v1/contacts/<span class="o">{</span>CONTACT_ID<span class="o">}</span>
+GET https://api.overloop.com/public/v1/prospects/<span class="o">{</span>CONTACT_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.overloop.com/public/v1/contacts/1"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.overloop.com/public/v1/prospects/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -762,25 +762,25 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/contacts/1"</sp
 </thead><tbody>
 <tr>
 <td>id<br /><strong>required</strong> - <em>integer</em></td>
-<td>The ID of the contact to retrieve</td>
+<td>The ID of the prospect to retrieve</td>
 </tr>
 </tbody></table>
 
 <h3 id="returns">Returns</h3>
 
-<p>Returns the <a href="#the-contact-object">contact object</a>.</p>
+<p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
 
-<h2 id="update-a-contact">Update a contact</h2>
+<h2 id="update-a-prospect">Update a prospect</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-PATCH https://api.overloop.com/public/v1/contacts/<span class="o">{</span>CONTACT_ID<span class="o">}</span>
+PATCH https://api.overloop.com/public/v1/prospects/<span class="o">{</span>CONTACT_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X PATCH <span class="s2">"https://api.overloop.com/public/v1/contacts/1"</span> <span class="se">\</span>
+curl -X PATCH <span class="s2">"https://api.overloop.com/public/v1/prospects/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span> <span class="se">\</span>
 -d <span class="s1">'{
   "data": {
-    "type": "contacts",
+    "type": "prospects",
     "attributes": {
       "email": "vincenzo@overloop.com",
       "first_name": "Vincent",
@@ -790,7 +790,7 @@ curl -X PATCH <span class="s2">"https://api.overloop.com/public/v1/contacts/1"</
 }'</span>
 </code></pre>
 
-<p>Updates the specified contact by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
+<p>Updates the specified prospect by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -802,43 +802,43 @@ curl -X PATCH <span class="s2">"https://api.overloop.com/public/v1/contacts/1"</
 </thead><tbody>
 <tr>
 <td>id<br /><strong>required</strong> - <em>integer</em></td>
-<td>The ID of the contact to update</td>
+<td>The ID of the prospect to update</td>
 </tr>
 <tr>
 <td>email<br /><em>string</em></td>
-<td>The contact&rsquo;s email</td>
+<td>The prospect&rsquo;s email</td>
 </tr>
 <tr>
 <td>first_name<br /><em>string</em></td>
-<td>The contact&rsquo;s first name</td>
+<td>The prospect&rsquo;s first name</td>
 </tr>
 <tr>
 <td>last_name<br /><em>string</em></td>
-<td>The contact&rsquo;s last name</td>
+<td>The prospect&rsquo;s last name</td>
 </tr>
 <tr>
 <td>description<br /><em>string</em></td>
-<td>A text description of the contact</td>
+<td>A text description of the prospect</td>
 </tr>
 <tr>
 <td>jobtitle<br /><em>string</em></td>
-<td>The contact&rsquo;s job title</td>
+<td>The prospect&rsquo;s job title</td>
 </tr>
 <tr>
 <td>linkedin_profile<br /><em>string</em></td>
-<td>A link to the contact&rsquo;s LinkedIn profile</td>
+<td>A link to the prospect&rsquo;s LinkedIn profile</td>
 </tr>
 <tr>
 <td>phone<br /><em>string</em></td>
-<td>The contact&rsquo;s phone number</td>
+<td>The prospect&rsquo;s phone number</td>
 </tr>
 <tr>
 <td>title<br /><em>string</em></td>
-<td>The contact&rsquo;s title of civility</td>
+<td>The prospect&rsquo;s title of civility</td>
 </tr>
 <tr>
 <td>country<br /><em>string</em></td>
-<td>The contact&rsquo;s country</td>
+<td>The prospect&rsquo;s country</td>
 </tr>
 <tr>
 <td>state<br /><em>string</em></td>
@@ -850,32 +850,32 @@ curl -X PATCH <span class="s2">"https://api.overloop.com/public/v1/contacts/1"</
 </tr>
 <tr>
 <td>industry<br /><em>string</em></td>
-<td>The contact&rsquo;s industry</td>
+<td>The prospect&rsquo;s industry</td>
 </tr>
 <tr>
 <td>lists<br /><em>array</em></td>
-<td>Name of the lists where to save the contact<br/>(note: we will create the lists if they don&rsquo;t exist)</td>
+<td>Name of the lists where to save the prospect<br/>(note: we will create the lists if they don&rsquo;t exist)</td>
 </tr>
 <tr>
 <td>owner_id<br /><em>integer</em></td>
-<td>The ID of the user owning this contact</td>
+<td>The ID of the user owning this prospect</td>
 </tr>
 <tr>
 <td>organization_id<br /><em>integer</em></td>
-<td>ID of the organization this contact belongs to</td>
+<td>ID of the organization this prospect belongs to</td>
 </tr>
 </tbody></table>
 
 <h3 id="returns">Returns</h3>
 
-<p>Returns the <a href="#the-contact-object">contact object</a>.</p>
+<p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
 
-<h2 id="delete-a-contact">Delete a contact</h2>
+<h2 id="delete-a-prospect">Delete a prospect</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-DELETE https://api.overloop.com/public/v1/contacts/<span class="o">{</span>CONTACT_ID<span class="o">}</span>
+DELETE https://api.overloop.com/public/v1/prospects/<span class="o">{</span>CONTACT_ID<span class="o">}</span>
 
 <span class="c"># EXAMPLE</span>
-curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/contacts/1"</span> <span class="se">\</span>
+curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/prospects/1"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -886,15 +886,15 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/contacts/1"<
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Permanently deletes a contact. It cannot be undone.</p>
+<p>Permanently deletes a prospect. It cannot be undone.</p>
 
 <aside class="warning">
-Warning — Deleting a contact will also delete all history with this contact (messages, replies, etc.)
+Warning — Deleting a prospect will also delete all history with this prospect (messages, replies, etc.)
 </aside>
 
 <h3 id="parameters">Parameters</h3>
@@ -911,20 +911,20 @@ Warning — Deleting a contact will also delete all history with this contact (m
 <td>id</td>
 <td><strong>yes</strong></td>
 <td>integer</td>
-<td>The ID of the contact to delete</td>
+<td>The ID of the prospect to delete</td>
 </tr>
 </tbody></table>
 
 <h3 id="returns">Returns</h3>
 
-<p>Returns an object containing the contact ID.</p>
+<p>Returns an object containing the prospect ID.</p>
 
-<h2 id="list-contacts">List contacts</h2>
+<h2 id="list-prospects">List prospects</h2>
 <pre class="highlight shell"><code><span class="c"># DEFINITION</span>
-GET https://api.overloop.com/public/v1/contacts
+GET https://api.overloop.com/public/v1/prospects
 
 <span class="c"># EXAMPLE</span>
-curl -X GET <span class="s2">"https://api.overloop.com/public/v1/contacts"</span> <span class="se">\</span>
+curl -X GET <span class="s2">"https://api.overloop.com/public/v1/prospects"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: your_api_key"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/vnd.api+json; charset=utf-8"</span>
 </code></pre>
@@ -936,7 +936,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/contacts"</span
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -950,7 +950,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/contacts"</span
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">...</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -964,20 +964,20 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/contacts"</span
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/contacts/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/contacts/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/contacts/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/prospects/?page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/prospects/?page%5Bnumber%5D=2&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.overloop.com/public/v1/prospects/?page%5Bnumber%5D=5&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns a list of contacts.</p>
+<p>Returns a list of prospects.</p>
 
 <p>This list is <a href="#pagination">paginated</a> by 100 records. It can also be <a href="#sorting">sorted</a> or <a href="#filtering">filtered</a>.</p>
 
 <h3 id="returns">Returns</h3>
 
-<p>Returns the <a href="#the-contact-object">contact object</a>.</p>
+<p>Returns the <a href="#the-prospect-object">prospect object</a>.</p>
 
           <h1 id="organizations">Organizations</h1>
 
@@ -1040,12 +1040,12 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/contacts"</span
 <tr>
 <td>email</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The organization&rsquo;s contact email</td>
+<td><strong>string</strong> <br />The organization&rsquo;s prospect email</td>
 </tr>
 <tr>
 <td>phone</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The organization&rsquo;s contact phone number</td>
+<td><strong>string</strong> <br />The organization&rsquo;s prospect phone number</td>
 </tr>
 <tr>
 <td>country</td>
@@ -1159,12 +1159,12 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/organizations"
 <tr>
 <td>email</td>
 <td><em>NULL</em></td>
-<td>The organization&rsquo;s contact email</td>
+<td>The organization&rsquo;s prospect email</td>
 </tr>
 <tr>
 <td>phone</td>
 <td><em>NULL</em></td>
-<td>The organization&rsquo;s contact phone number</td>
+<td>The organization&rsquo;s prospect phone number</td>
 </tr>
 <tr>
 <td>country</td>
@@ -1290,11 +1290,11 @@ curl -X PATCH <span class="s2">"https://api.overloop.com/public/v1/organizations
 </tr>
 <tr>
 <td>email</td>
-<td>The organization&rsquo;s contact email</td>
+<td>The organization&rsquo;s prospect email</td>
 </tr>
 <tr>
 <td>phone</td>
-<td>The organization&rsquo;s contact phone number</td>
+<td>The organization&rsquo;s prospect phone number</td>
 </tr>
 <tr>
 <td>country</td>
@@ -2052,10 +2052,10 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/stages"</span> 
         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organizations"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"prospect"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2153,8 +2153,8 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/stages"</span> 
 <td>The <a href="#users">user</a> who owns deal</td>
 </tr>
 <tr>
-<td>contact</td>
-<td>The <a href="#contacts">contact</a> of this deal</td>
+<td>prospect</td>
+<td>The <a href="#prospects">prospect</a> of this deal</td>
 </tr>
 <tr>
 <td>organization</td>
@@ -2568,11 +2568,11 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/deals/1/mark
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Public API Automation Example"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"enter_triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"contact.created"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"prospect.created"</span><span class="p">,</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nt">"enter_trigger_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
       </span><span class="nt">"exit_triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"contact.replied"</span><span class="w">
+        </span><span class="s2">"prospect.replied"</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"on"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"send_as_thread"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -2587,7 +2587,7 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/deals/1/mark
       </span><span class="nt">"end_sending_minutes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1020</span><span class="p">,</span><span class="w">
       </span><span class="nt">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Etc/UTC"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"automation_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"record_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"record_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-31T12:00:00.000Z"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-31T12:00:00.000Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -2679,7 +2679,7 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/deals/1/mark
 <tr>
 <td>record_type</td>
 <td><strong>yes</strong></td>
-<td><strong>string</strong> <br />The type of records that can be enrolled into the automation. Always <code class="prettyprint">contacts</code> for campaigns, either <code class="prettyprint">contacts</code>, <code class="prettyprint">organizations</code>, <code class="prettyprint">deals</code> or <code class="prettyprint">conversations</code> for workflows</td>
+<td><strong>string</strong> <br />The type of records that can be enrolled into the automation. Always <code class="prettyprint">prospects</code> for campaigns, either <code class="prettyprint">prospects</code>, <code class="prettyprint">organizations</code>, <code class="prettyprint">deals</code> or <code class="prettyprint">conversations</code> for workflows</td>
 </tr>
 <tr>
 <td>enter_triggers</td>
@@ -2871,7 +2871,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/automations"</s
           </span><span class="nt">"due_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is an example description"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"task_category"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"contact_segment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"prospect_segment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
           </span><span class="nt">"wait_for_completion"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -3049,7 +3049,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/automations/1/s
 
 <h2 id="the-enrollment-object">The enrollment object</h2>
 
-<p>To add a contact/organization/deal to an automation (campaign or workflow) you have to create an <strong>enrollment</strong>. The enrollment is then used to describe the progression of the record into the automation.</p>
+<p>To add a prospect/organization/deal to an automation (campaign or workflow) you have to create an <strong>enrollment</strong>. The enrollment is then used to describe the progression of the record into the automation.</p>
 <pre class="highlight plaintext"><code># EXAMPLE OBJECT
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -3058,7 +3058,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/automations/1/s
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automations_enrollments"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"automation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"contact_id"</span><span class="p">:</span><span class="mi">30332</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"prospect_id"</span><span class="p">:</span><span class="mi">30332</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deal_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"organization_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"disenrolled_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3083,13 +3083,13 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/automations/1/s
       </span><span class="nt">"record"</span><span class="p">:{</span><span class="w">
         </span><span class="nt">"data"</span><span class="p">:{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"30332"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"contacts"</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"prospects"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"prospect"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30332"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3145,7 +3145,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/automations/1/s
 </tr>
 <tr>
 <td>record_type</td>
-<td><strong>string</strong> <br />The type of the enrolled record (organization, deal or contact)</td>
+<td><strong>string</strong> <br />The type of the enrolled record (organization, deal or prospect)</td>
 </tr>
 <tr>
 <td>disenrolled_at</td>
@@ -3186,8 +3186,8 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/automations/1/s
 <td>The current <a href="#automations">automation</a> of this enrollment</td>
 </tr>
 <tr>
-<td>contact</td>
-<td>The current <a href="#contacts">contact</a> of this enrollment (for campaigns and contact-based workflows)</td>
+<td>prospect</td>
+<td>The current <a href="#prospects">prospect</a> of this enrollment (for campaigns and prospect-based workflows)</td>
 </tr>
 <tr>
 <td>organization</td>
@@ -3211,7 +3211,7 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/automations/1/
   "data": {
     "type": "enrollments",
     "attributes": {
-      "contact_id": 1,
+      "prospect_id": 1,
       "step_id": "abc123",
       "reenroll": false,
       "start_at": "2020-08-20T08:00:00+02:00",
@@ -3234,10 +3234,10 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/automations/1/
 </tr>
 </thead><tbody>
 <tr>
-<td>contact_id</td>
+<td>prospect_id</td>
 <td><strong>yes</strong></td>
 <td><em>integer</em></td>
-<td>The contact&rsquo;s ID (required only for campaigns or contact-based workflows)</td>
+<td>The prospect&rsquo;s ID (required only for campaigns or prospect-based workflows)</td>
 </tr>
 <tr>
 <td>organization_id</td>
@@ -3255,13 +3255,13 @@ curl -X POST <span class="s2">"https://api.overloop.com/public/v1/automations/1/
 <td>step_id</td>
 <td>no</td>
 <td><em>string</em></td>
-<td>The step&rsquo;s ID of the automation at which the contact must be enrolled</td>
+<td>The step&rsquo;s ID of the automation at which the prospect must be enrolled</td>
 </tr>
 <tr>
 <td>reenroll</td>
 <td>no</td>
 <td><em>boolean</em></td>
-<td>Set to <code class="prettyprint">false</code> if you want to prevent re enroll the contact because he already has been enrolled. <strong>If not set to</strong> <code class="prettyprint">false</code> <strong>this parameter will always be</strong> <code class="prettyprint">true</code></td>
+<td>Set to <code class="prettyprint">false</code> if you want to prevent re enroll the prospect because he already has been enrolled. <strong>If not set to</strong> <code class="prettyprint">false</code> <strong>this parameter will always be</strong> <code class="prettyprint">true</code></td>
 </tr>
 <tr>
 <td>start_at</td>
@@ -3366,10 +3366,10 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/enrollments"</s
         </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-30T08:02:51Z"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"prospect"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29646"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts"</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospects"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"automation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3385,11 +3385,11 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/enrollments"</s
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3000/api/public/v1/enrollments?filter=contact_id%3A29646&amp;page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3000/api/public/v1/enrollments?filter=contact_id%3A29646&amp;page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3000/api/public/v1/enrollments?filter=prospect_id%3A29646&amp;page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3000/api/public/v1/enrollments?filter=prospect_id%3A29646&amp;page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3000/api/public/v1/enrollments?filter=contact_id%3A29646&amp;page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="w">
+    </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3000/api/public/v1/enrollments?filter=prospect_id%3A29646&amp;page%5Bnumber%5D=1&amp;page%5Bsize%5D=100"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3897,7 +3897,7 @@ curl -X DELETE <span class="s2">"https://api.overloop.com/public/v1/lists/1"</sp
 <p>Permanently deletes a list. It cannot be undone.</p>
 
 <aside class="notice">
-Warning — Deleting a list will keep the contacts of that list the `list_id` field to `NULL`
+Warning — Deleting a list will keep the prospects of that list the `list_id` field to `NULL`
 </aside>
 
 <h3 id="parameters">Parameters</h3>
@@ -4000,7 +4000,7 @@ curl -X GET <span class="s2">"https://api.overloop.com/public/v1/lists"</span> <
 <tr>
 <td>identifier</td>
 <td>no</td>
-<td><strong>string</strong> <br />The custom field&rsquo;s <code class="prettyprint">identifier</code> <strong>to be used as attribute key into contact objects&rsquo; payload</strong></td>
+<td><strong>string</strong> <br />The custom field&rsquo;s <code class="prettyprint">identifier</code> <strong>to be used as attribute key into prospect objects&rsquo; payload</strong></td>
 </tr>
 <tr>
 <td>name</td>
